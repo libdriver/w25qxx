@@ -4,7 +4,7 @@
 
 ## LibDriver W25QXX
 
-[English](/README.md) | [ 简体中文](/README_CN.md)
+[English](/README.md) | [ 简体中文](/README_zh-Hans.md) | [繁體中文](/README_zh-Hant.md)
 
 The W25Q25XX Serial Flash memory provides a storage solution for systems with limited space, pins and power. The 25Q series offers flexibility and performance well beyond ordinary Serial Flash devices. They are ideal for code shadowing to RAM, executing code directly from Dual/Quad SPI (XIP) and storing voice, text and data. The device operates on a single 2.7V to 3.6V power supply with current consumption as low as 4mA active and 1μA for power-down. All devices are offered in space-saving packages.
 
@@ -158,7 +158,7 @@ Please sent an e-mail to lishifenging@outlook.com
 
 ### License
 
-Copyright (C) LibDriver 2015-2021 All rights reserved 
+Copyright (c) 2015 - present LibDriver All rights reserved
 
 
 
