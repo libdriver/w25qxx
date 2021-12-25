@@ -10,7 +10,7 @@
  * <tr><td>2021/07/15  <td>1.0      <td>Shifeng Li  <td>first upload
  * </table>
  *
- * <h3><center>Copyright (C) LibDriver
+ * <h3><center>Copyright (c) LibDriver
  * All rights reserved.</center></h3>
  *
  * The MIT License (MIT)
