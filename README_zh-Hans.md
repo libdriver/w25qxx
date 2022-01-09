@@ -1,10 +1,12 @@
+[English](/README.md) | [ 简体中文](/README_zh-Hans.md) | [繁體中文](/README_zh-Hant.md)
+
 <div align=center>
 <img src="/doc/image/logo.png"/>
 </div>
 
 ## LibDriver W25QXX
 
-[English](/README.md) | [ 简体中文](/README_zh-Hans.md) | [繁體中文](/README_zh-Hant.md)
+[![API](https://img.shields.io/badge/api-reference-blue)](https://www.libdriver.com/docs/w25qxx/index.html) [![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](/LICENSE)
 
 W25QXX串行Flash存储器面向受限于空间、引脚和功耗的系统，提供了一种存储解决方案。25Q系列存储器相比于普通的串行Flash器件提供更好的灵活性和性能表现。它们是代码存储、代码直接通过双线/四线SPI运行、存储音频、文本和数据的理想选择。该器件可在2.7V到3.6V的供电电压下工作，工作时电流消耗最低4mA，在掉电模式下消耗仅1uA。所有的器件都提供节省空间的封装。
 
