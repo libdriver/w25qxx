@@ -34,8 +34,8 @@
  * </table>
  */
 
-#ifndef _DRIVER_W25QXX_INTERFACE_H_
-#define _DRIVER_W25QXX_INTERFACE_H_
+#ifndef DRIVER_W25QXX_INTERFACE_H
+#define DRIVER_W25QXX_INTERFACE_H
 
 #include "driver_w25qxx.h"
 
@@ -112,11 +112,9 @@ void w25qxx_interface_delay_us(uint32_t us);
 /**
  * @brief     interface print format data
  * @param[in] fmt is the format data
- * @return    length of the send data
  * @note      none
  */
-uint16_t w25qxx_interface_debug_print(char *fmt, ...);
-
+void w25qxx_interface_debug_print(const char *const fmt, ...);
 /**
  * @}
  */

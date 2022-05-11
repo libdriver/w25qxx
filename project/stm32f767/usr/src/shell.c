@@ -53,8 +53,8 @@ static shell_t gs_shell;        /**< shell handle */
  */
 static uint8_t _shell_pretreatment(char *buf, uint16_t in_len, char *buf_out, uint16_t *out_len, char **argv, uint8_t *argc)
 {
-    volatile uint16_t i;
-    volatile uint8_t flag = 0;
+    uint16_t i;
+    uint8_t flag = 0;
   
     *out_len = 0;
     *argc = 0;
@@ -101,7 +101,7 @@ static uint8_t _shell_pretreatment(char *buf, uint16_t in_len, char *buf_out, ui
  */
 static uint8_t _shell_find(shell_t *handle, char *name)
 {
-    volatile uint16_t i;
+    uint16_t i;
   
     for (i = 0; i < SHELL_MAX_REG_SIZE; i++)
     {
@@ -127,7 +127,7 @@ static uint8_t _shell_find(shell_t *handle, char *name)
  */
 static uint8_t _shell_run(shell_t *handle, uint8_t argc, char **argv)
 {
-    volatile uint16_t i;
+    uint16_t i;
   
     for (i = 0; i < SHELL_MAX_REG_SIZE; i++)
     {
@@ -193,8 +193,8 @@ uint8_t shell_init(void)
  */
 uint8_t shell_parse(char *buf, uint16_t len)
 {
-    volatile uint8_t argc;
-    volatile uint16_t out_len;
+    uint8_t argc;
+    uint16_t out_len;
   
     if (len > SHELL_MAX_BUF_SIZE)
     {

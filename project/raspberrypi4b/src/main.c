@@ -222,7 +222,7 @@ uint8_t w25qxx(uint8_t argc, char **argv)
             {
                 if (strcmp("-type", argv[3]) == 0)
                 {
-                    volatile uint8_t res;
+                    uint8_t res;
                     w25qxx_type_t type;
                     w25qxx_interface_t interface;
                     
@@ -271,7 +271,7 @@ uint8_t w25qxx(uint8_t argc, char **argv)
                     }
                     
                     res = w25qxx_register_test(type, interface, W25QXX_BOOL_FALSE);
-                    if (res)
+                    if (res != 0)
                     {
                         return 1;
                     }
@@ -289,7 +289,7 @@ uint8_t w25qxx(uint8_t argc, char **argv)
             {
                 if (strcmp("-type", argv[3]) == 0)
                 {
-                    volatile uint8_t res;
+                    uint8_t res;
                     w25qxx_type_t type;
                     w25qxx_interface_t interface;
                     
@@ -338,7 +338,7 @@ uint8_t w25qxx(uint8_t argc, char **argv)
                     }
                     
                     res = w25qxx_read_test(type, interface, W25QXX_BOOL_FALSE);
-                    if (res)
+                    if (res != 0)
                     {
                         return 1;
                     }
@@ -363,7 +363,7 @@ uint8_t w25qxx(uint8_t argc, char **argv)
             {
                 if (strcmp("-type", argv[3]) == 0)
                 {
-                    volatile uint8_t res;
+                    uint8_t res;
                     w25qxx_type_t type;
                     
                     if (strcmp("W25Q80", argv[4]) == 0)
@@ -409,17 +409,17 @@ uint8_t w25qxx(uint8_t argc, char **argv)
                     }
                     else if (strcmp("spi_get_sfdp", argv[5]) == 0)
                     {
-                        volatile uint8_t sfdp[256];
+                        uint8_t sfdp[256];
                         
                         res = w25qxx_advance_init(type, W25QXX_INTERFACE_SPI, W25QXX_BOOL_FALSE);
-                        if (res)
+                        if (res != 0)
                         {
                             return 1;
                         }
                         res = w25qxx_advance_only_spi_get_sfdp((uint8_t *)sfdp);
-                        if (res)
+                        if (res != 0)
                         {
-                            w25qxx_advance_deinit();
+                            (void)w25qxx_advance_deinit();
                             
                             return 1;
                         }
@@ -435,7 +435,7 @@ uint8_t w25qxx(uint8_t argc, char **argv)
                             }
                         }
                         
-                        w25qxx_advance_deinit();
+                        (void)w25qxx_advance_deinit();
                         
                         return 0;
                     }
@@ -467,7 +467,7 @@ uint8_t w25qxx(uint8_t argc, char **argv)
             {
                 if (strcmp("-type", argv[3]) == 0)
                 {
-                    volatile uint8_t res;
+                    uint8_t res;
                     w25qxx_type_t type;
                     w25qxx_interface_t interface;
                     
@@ -518,14 +518,14 @@ uint8_t w25qxx(uint8_t argc, char **argv)
                     if (strcmp("power_down", argv[5]) == 0)
                     {
                         res = w25qxx_basic_init(type, interface, W25QXX_BOOL_FALSE);
-                        if (res)
+                        if (res != 0)
                         {
                             return 1;
                         }
                         res = w25qxx_basic_power_down();
-                        if (res)
+                        if (res != 0)
                         {
-                            w25qxx_basic_deinit();
+                            (void)w25qxx_basic_deinit();
                             
                             return 1;
                         }
@@ -534,21 +534,21 @@ uint8_t w25qxx(uint8_t argc, char **argv)
                             w25qxx_interface_debug_print("w25qxx: power down successful.\n");
                         }
                         
-                        w25qxx_basic_deinit();
+                        (void)w25qxx_basic_deinit();
                         
                         return 0;
                     }
                     else if (strcmp("wake_up", argv[5]) == 0)
                     {
                         res = w25qxx_basic_init(type, interface, W25QXX_BOOL_FALSE);
-                        if (res)
+                        if (res != 0)
                         {
                             return 1;
                         }
                         res = w25qxx_basic_wake_up();
-                        if (res)
+                        if (res != 0)
                         {
-                            w25qxx_basic_deinit();
+                            (void)w25qxx_basic_deinit();
                             
                             return 1;
                         }
@@ -557,22 +557,22 @@ uint8_t w25qxx(uint8_t argc, char **argv)
                             w25qxx_interface_debug_print("w25qxx: wake up successful.\n");
                         }
                         
-                        w25qxx_basic_deinit();
+                        (void)w25qxx_basic_deinit();
                         
                         return 0;
                     }
                     else if (strcmp("chip_erase", argv[5]) == 0)
                     {
                         res = w25qxx_basic_init(type, interface, W25QXX_BOOL_FALSE);
-                        if (res)
+                        if (res != 0)
                         {
                             return 1;
                         }
                         w25qxx_interface_debug_print("w25qxx: start chip erase.\n");
                         res = w25qxx_basic_chip_erase();
-                        if (res)
+                        if (res != 0)
                         {
-                            w25qxx_basic_deinit();
+                            (void)w25qxx_basic_deinit();
                             
                             return 1;
                         }
@@ -581,24 +581,24 @@ uint8_t w25qxx(uint8_t argc, char **argv)
                             w25qxx_interface_debug_print("w25qxx: chip erase successful.\n");
                         }
                         
-                        w25qxx_basic_deinit();
+                        (void)w25qxx_basic_deinit();
                         
                         return 0;
                     }
                     else if (strcmp("get_id", argv[5]) == 0)
                     {
-                        volatile uint8_t manufacturer;
-                        volatile uint8_t device_id;
+                        uint8_t manufacturer;
+                        uint8_t device_id;
                         
                         res = w25qxx_basic_init(type, interface, W25QXX_BOOL_FALSE);
-                        if (res)
+                        if (res != 0)
                         {
                             return 1;
                         }
                         res = w25qxx_basic_get_id((uint8_t *)&manufacturer, (uint8_t *)&device_id);
-                        if (res)
+                        if (res != 0)
                         {
-                            w25qxx_basic_deinit();
+                            (void)w25qxx_basic_deinit();
                             
                             return 1;
                         }
@@ -608,7 +608,7 @@ uint8_t w25qxx(uint8_t argc, char **argv)
                                                          manufacturer, device_id);
                         }
                         
-                        w25qxx_basic_deinit();
+                        (void)w25qxx_basic_deinit();
                         
                         return 0;
                     }
@@ -626,7 +626,7 @@ uint8_t w25qxx(uint8_t argc, char **argv)
             {
                 if (strcmp("-type", argv[3]) == 0)
                 {
-                    volatile uint8_t res;
+                    uint8_t res;
                     w25qxx_type_t type;
                     w25qxx_interface_t interface;
                     
@@ -684,14 +684,14 @@ uint8_t w25qxx(uint8_t argc, char **argv)
                     if (strcmp("power_down", argv[5]) == 0)
                     {
                         res = w25qxx_advance_init(type, interface, W25QXX_BOOL_FALSE);
-                        if (res)
+                        if (res != 0)
                         {
                             return 1;
                         }
                         res = w25qxx_advance_power_down();
-                        if (res)
+                        if (res != 0)
                         {
-                            w25qxx_advance_deinit();
+                            (void)w25qxx_advance_deinit();
                             
                             return 1;
                         }
@@ -700,21 +700,21 @@ uint8_t w25qxx(uint8_t argc, char **argv)
                             w25qxx_interface_debug_print("w25qxx: power down successful.\n");
                         }
                         
-                        w25qxx_advance_deinit();
+                        (void)w25qxx_advance_deinit();
                         
                         return 0;
                     }
                     else if (strcmp("wake_up", argv[5]) == 0)
                     {
                         res = w25qxx_advance_init(type, interface, W25QXX_BOOL_FALSE);
-                        if (res)
+                        if (res != 0)
                         {
                             return 1;
                         }
                         res = w25qxx_advance_wake_up();
-                        if (res)
+                        if (res != 0)
                         {
-                            w25qxx_advance_deinit();
+                            (void)w25qxx_advance_deinit();
                             
                             return 1;
                         }
@@ -723,22 +723,22 @@ uint8_t w25qxx(uint8_t argc, char **argv)
                             w25qxx_interface_debug_print("w25qxx: wake up successful.\n");
                         }
                         
-                        w25qxx_advance_deinit();
+                        (void)w25qxx_advance_deinit();
                         
                         return 0;
                     }
                     else if (strcmp("chip_erase", argv[5]) == 0)
                     {
                         res = w25qxx_advance_init(type, interface, W25QXX_BOOL_FALSE);
-                        if (res)
+                        if (res != 0)
                         {
                             return 1;
                         }
                         w25qxx_interface_debug_print("w25qxx: start chip erase.\n");
                         res = w25qxx_advance_chip_erase();
-                        if (res)
+                        if (res != 0)
                         {
-                            w25qxx_advance_deinit();
+                            (void)w25qxx_advance_deinit();
                             
                             return 1;
                         }
@@ -747,24 +747,24 @@ uint8_t w25qxx(uint8_t argc, char **argv)
                             w25qxx_interface_debug_print("w25qxx: chip erase successful.\n");
                         }
                         
-                        w25qxx_advance_deinit();
+                        (void)w25qxx_advance_deinit();
                         
                         return 0;
                     }
                     else if (strcmp("get_id", argv[5]) == 0)
                     {
-                        volatile uint8_t manufacturer;
-                        volatile uint8_t device_id;
+                        uint8_t manufacturer;
+                        uint8_t device_id;
                         
                         res = w25qxx_advance_init(type, interface, W25QXX_BOOL_FALSE);
-                        if (res)
+                        if (res != 0)
                         {
                             return 1;
                         }
                         res = w25qxx_advance_get_id((uint8_t *)&manufacturer, (uint8_t *)&device_id);
-                        if (res)
+                        if (res != 0)
                         {
-                            w25qxx_advance_deinit();
+                            (void)w25qxx_advance_deinit();
                             
                             return 1;
                         }
@@ -774,24 +774,24 @@ uint8_t w25qxx(uint8_t argc, char **argv)
                                                                                      manufacturer, device_id);
                         }
                         
-                        w25qxx_advance_deinit();
+                        (void)w25qxx_advance_deinit();
                         
                         return 0;
                     }
                     else if (strcmp("get_jedec_id", argv[5]) == 0)
                     {
-                        volatile uint8_t manufacturer;
-                        volatile uint8_t device_id[2];
+                        uint8_t manufacturer;
+                        uint8_t device_id[2];
                         
                         res = w25qxx_advance_init(type, interface, W25QXX_BOOL_FALSE);
-                        if (res)
+                        if (res != 0)
                         {
                             return 1;
                         }
                         res = w25qxx_advance_get_get_jedec_id((uint8_t *)&manufacturer, (uint8_t *)device_id);
-                        if (res)
+                        if (res != 0)
                         {
-                            w25qxx_advance_deinit();
+                            (void)w25qxx_advance_deinit();
                             
                             return 1;
                         }
@@ -801,21 +801,21 @@ uint8_t w25qxx(uint8_t argc, char **argv)
                                                           manufacturer, device_id[0], device_id[1]);
                         }
                         
-                        w25qxx_advance_deinit();
+                        (void)w25qxx_advance_deinit();
                         
                         return 0;
                     }
                     else if (strcmp("global_lock", argv[5]) == 0)
                     {
                         res = w25qxx_advance_init(type, interface, W25QXX_BOOL_FALSE);
-                        if (res)
+                        if (res != 0)
                         {
                             return 1;
                         }
                         res = w25qxx_advance_global_block_lock();
-                        if (res)
+                        if (res != 0)
                         {
-                            w25qxx_advance_deinit();
+                            (void)w25qxx_advance_deinit();
                             
                             return 1;
                         }
@@ -824,21 +824,21 @@ uint8_t w25qxx(uint8_t argc, char **argv)
                             w25qxx_interface_debug_print("w25qxx: global block lock successful.\n");
                         }
                         
-                        w25qxx_advance_deinit();
+                        (void)w25qxx_advance_deinit();
                         
                         return 0;
                     }
                     else if (strcmp("global_unlock", argv[5]) == 0)
                     {
                         res = w25qxx_advance_init(type, interface, W25QXX_BOOL_FALSE);
-                        if (res)
+                        if (res != 0)
                         {
                             return 1;
                         }
                         res = w25qxx_advance_global_block_unlock();
-                        if (res)
+                        if (res != 0)
                         {
-                            w25qxx_advance_deinit();
+                            (void)w25qxx_advance_deinit();
                             
                             return 1;
                         }
@@ -847,21 +847,21 @@ uint8_t w25qxx(uint8_t argc, char **argv)
                             w25qxx_interface_debug_print("w25qxx: global block unlock successful.\n");
                         }
                         
-                        w25qxx_advance_deinit();
+                        (void)w25qxx_advance_deinit();
                         
                         return 0;
                     }
                     else if (strcmp("reset", argv[5]) == 0)
                     {
                         res = w25qxx_advance_init(type, interface, W25QXX_BOOL_FALSE);
-                        if (res)
+                        if (res != 0)
                         {
                             return 1;
                         }
                         res = w25qxx_advance_reset();
-                        if (res)
+                        if (res != 0)
                         {
-                            w25qxx_advance_deinit();
+                            (void)w25qxx_advance_deinit();
                             
                             return 1;
                         }
@@ -870,23 +870,23 @@ uint8_t w25qxx(uint8_t argc, char **argv)
                             w25qxx_interface_debug_print("w25qxx: reset successful.\n");
                         }
                         
-                        w25qxx_advance_deinit();
+                        (void)w25qxx_advance_deinit();
                         
                         return 0;
                     }
                     else if (strcmp("get_status1", argv[5]) == 0)
                     {
-                        volatile uint8_t status;
+                        uint8_t status;
                         
                         res = w25qxx_advance_init(type, interface, W25QXX_BOOL_FALSE);
-                        if (res)
+                        if (res != 0)
                         {
                             return 1;
                         }
                         res = w25qxx_advance_get_status1((uint8_t *)&status);
-                        if (res)
+                        if (res != 0)
                         {
-                            w25qxx_advance_deinit();
+                            (void)w25qxx_advance_deinit();
                             
                             return 1;
                         }
@@ -895,23 +895,23 @@ uint8_t w25qxx(uint8_t argc, char **argv)
                             w25qxx_interface_debug_print("w25qxx: get status1 is 0x%02X.\n", status);
                         }
                         
-                        w25qxx_advance_deinit();
+                        (void)w25qxx_advance_deinit();
                         
                         return 0;
                     }
                     else if (strcmp("get_status2", argv[5]) == 0)
                     {
-                        volatile uint8_t status;
+                        uint8_t status;
                         
                         res = w25qxx_advance_init(type, interface, W25QXX_BOOL_FALSE);
-                        if (res)
+                        if (res != 0)
                         {
                             return 1;
                         }
                         res = w25qxx_advance_get_status2((uint8_t *)&status);
-                        if (res)
+                        if (res != 0)
                         {
-                            w25qxx_advance_deinit();
+                            (void)w25qxx_advance_deinit();
                             
                             return 1;
                         }
@@ -920,23 +920,23 @@ uint8_t w25qxx(uint8_t argc, char **argv)
                             w25qxx_interface_debug_print("w25qxx: get status2 is 0x%02X.\n", status);
                         }
                         
-                        w25qxx_advance_deinit();
+                        (void)w25qxx_advance_deinit();
                         
                         return 0;
                     }
                     else if (strcmp("get_status3", argv[5]) == 0)
                     {
-                        volatile uint8_t status;
+                        uint8_t status;
                         
                         res = w25qxx_advance_init(type, interface, W25QXX_BOOL_FALSE);
-                        if (res)
+                        if (res != 0)
                         {
                             return 1;
                         }
                         res = w25qxx_advance_get_status3((uint8_t *)&status);
-                        if (res)
+                        if (res != 0)
                         {
-                            w25qxx_advance_deinit();
+                            (void)w25qxx_advance_deinit();
                             
                             return 1;
                         }
@@ -945,24 +945,24 @@ uint8_t w25qxx(uint8_t argc, char **argv)
                             w25qxx_interface_debug_print("w25qxx: get status3 is 0x%02X.\n", status);
                         }
                         
-                        w25qxx_advance_deinit();
+                        (void)w25qxx_advance_deinit();
                         
                         return 0;
                     }
                     else if (strcmp("spi_read", argv[5]) == 0)
                     {
-                        volatile uint32_t addr = atoi(argv[6]);
-                        volatile uint8_t data;
+                        uint32_t addr = atoi(argv[6]);
+                        uint8_t data;
                         
                         res = w25qxx_advance_init(type, interface, W25QXX_BOOL_FALSE);
-                        if (res)
+                        if (res != 0)
                         {
                             return 1;
                         }
                         res = w25qxx_advance_only_spi_read(addr, (uint8_t *)&data, 1);
-                        if (res)
+                        if (res != 0)
                         {
-                            w25qxx_advance_deinit();
+                            (void)w25qxx_advance_deinit();
                             
                             return 1;
                         }
@@ -971,7 +971,7 @@ uint8_t w25qxx(uint8_t argc, char **argv)
                             w25qxx_interface_debug_print("w25qxx: add %d spi read is 0x%02X.\n", addr, data);
                         }
                         
-                        w25qxx_advance_deinit();
+                        (void)w25qxx_advance_deinit();
                         
                         return 0;
                     }
@@ -1040,14 +1040,14 @@ uint8_t w25qxx(uint8_t argc, char **argv)
                             return 5;
                         }
                         res = w25qxx_advance_init(type, interface, W25QXX_BOOL_FALSE);
-                        if (res)
+                        if (res != 0)
                         {
                             return 1;
                         }
                         res = w25qxx_advance_only_spi_set_burst_with_wrap(wrap);
-                        if (res)
+                        if (res != 0)
                         {
-                            w25qxx_advance_deinit();
+                            (void)w25qxx_advance_deinit();
                             
                             return 1;
                         }
@@ -1056,15 +1056,15 @@ uint8_t w25qxx(uint8_t argc, char **argv)
                             w25qxx_interface_debug_print("w25qxx: set burst with wrap successful.\n");
                         }
                         
-                        w25qxx_advance_deinit();
+                        (void)w25qxx_advance_deinit();
                         
                         return 0;
                     }
                     else if (strcmp("spi_read_security_reg", argv[5]) == 0)
                     {
-                        volatile uint8_t n = atoi(argv[6]);
+                        uint8_t n = (uint8_t)atoi(argv[6]);
                         w25qxx_security_register_t num;
-                        volatile uint8_t data[256];
+                        uint8_t data[256];
                         
                         if (n == 1)
                         {
@@ -1084,14 +1084,14 @@ uint8_t w25qxx(uint8_t argc, char **argv)
                         }
                         
                         res = w25qxx_advance_init(type, interface, W25QXX_BOOL_FALSE);
-                        if (res)
+                        if (res != 0)
                         {
                             return 1;
                         }
                         res = w25qxx_advance_only_spi_read_security_register(num, (uint8_t *)data);
-                        if (res)
+                        if (res != 0)
                         {
-                            w25qxx_advance_deinit();
+                            (void)w25qxx_advance_deinit();
                             
                             return 1;
                         }
@@ -1107,7 +1107,7 @@ uint8_t w25qxx(uint8_t argc, char **argv)
                             }
                         }
                         
-                        w25qxx_advance_deinit();
+                        (void)w25qxx_advance_deinit();
                         
                         return 0;
                     }
@@ -1139,7 +1139,7 @@ uint8_t w25qxx(uint8_t argc, char **argv)
             {
                 if (strcmp("-type", argv[3]) == 0)
                 {
-                    volatile uint8_t res;
+                    uint8_t res;
                     w25qxx_type_t type;
                     w25qxx_interface_t interface;
                     
@@ -1189,18 +1189,18 @@ uint8_t w25qxx(uint8_t argc, char **argv)
                     
                     if (strcmp("read", argv[5]) == 0)
                     {
-                        volatile uint32_t addr = atoi(argv[6]);
-                        volatile uint8_t data;
+                        uint32_t addr = atoi(argv[6]);
+                        uint8_t data;
                         
                         res = w25qxx_basic_init(type, interface, W25QXX_BOOL_FALSE);
-                        if (res)
+                        if (res != 0)
                         {
                             return 1;
                         }
                         res = w25qxx_basic_read(addr, (uint8_t *)&data, 1);
-                        if (res)
+                        if (res != 0)
                         {
-                            w25qxx_basic_deinit();
+                            (void)w25qxx_basic_deinit();
                             
                             return 1;
                         }
@@ -1209,7 +1209,7 @@ uint8_t w25qxx(uint8_t argc, char **argv)
                             w25qxx_interface_debug_print("w25qxx: addr %d is %d.\n", addr, data);
                         }
                         
-                        w25qxx_basic_deinit();
+                        (void)w25qxx_basic_deinit();
                         
                         return 0;
                     }
@@ -1227,7 +1227,7 @@ uint8_t w25qxx(uint8_t argc, char **argv)
             {
                 if (strcmp("-type", argv[3]) == 0)
                 {
-                    volatile uint8_t res;
+                    uint8_t res;
                     w25qxx_type_t type;
                     w25qxx_interface_t interface;
                     
@@ -1290,18 +1290,18 @@ uint8_t w25qxx(uint8_t argc, char **argv)
                     
                     if (strcmp("read", argv[5]) == 0)
                     {
-                        volatile uint32_t addr = atoi(argv[6]);
-                        volatile uint8_t data;
+                        uint32_t addr = atoi(argv[6]);
+                        uint8_t data;
                         
                         res = w25qxx_advance_init(type, interface, W25QXX_BOOL_FALSE);
-                        if (res)
+                        if (res != 0)
                         {
                             return 1;
                         }
                         res = w25qxx_advance_read(addr, (uint8_t *)&data, 1);
-                        if (res)
+                        if (res != 0)
                         {
-                            w25qxx_advance_deinit();
+                            (void)w25qxx_advance_deinit();
                             
                             return 1;
                         }
@@ -1310,23 +1310,23 @@ uint8_t w25qxx(uint8_t argc, char **argv)
                             w25qxx_interface_debug_print("w25qxx: addr %d is %d.\n", addr, data);
                         }
                         
-                        w25qxx_advance_deinit();
+                        (void)w25qxx_advance_deinit();
                         
                         return 0;
                     }
                     else if (strcmp("erase_4k", argv[5]) == 0)
                     {
-                        volatile uint32_t addr = atoi(argv[6]);
+                        uint32_t addr = atoi(argv[6]);
                         
                         res = w25qxx_advance_init(type, interface, W25QXX_BOOL_FALSE);
-                        if (res)
+                        if (res != 0)
                         {
                             return 1;
                         }
                         res = w25qxx_advance_sector_erase_4k(addr);
-                        if (res)
+                        if (res != 0)
                         {
-                            w25qxx_advance_deinit();
+                            (void)w25qxx_advance_deinit();
                             
                             return 1;
                         }
@@ -1335,23 +1335,23 @@ uint8_t w25qxx(uint8_t argc, char **argv)
                             w25qxx_interface_debug_print("w25qxx: erase 4k addr %d successful.\n", addr);
                         }
                         
-                        w25qxx_advance_deinit();
+                        (void)w25qxx_advance_deinit();
                         
                         return 0;
                     }
                     else if (strcmp("erase_32k", argv[5]) == 0)
                     {
-                        volatile uint32_t addr = atoi(argv[6]);
+                        uint32_t addr = atoi(argv[6]);
                         
                         res = w25qxx_advance_init(type, interface, W25QXX_BOOL_FALSE);
-                        if (res)
+                        if (res != 0)
                         {
                             return 1;
                         }
                         res = w25qxx_advance_block_erase_32k(addr);
-                        if (res)
+                        if (res != 0)
                         {
-                            w25qxx_advance_deinit();
+                            (void)w25qxx_advance_deinit();
                             
                             return 1;
                         }
@@ -1360,23 +1360,23 @@ uint8_t w25qxx(uint8_t argc, char **argv)
                             w25qxx_interface_debug_print("w25qxx: erase 32k addr %d successful.\n", addr);
                         }
                         
-                        w25qxx_advance_deinit();
+                        (void)w25qxx_advance_deinit();
                         
                         return 0;
                     }
                     else if (strcmp("erase_64k", argv[5]) == 0)
                     {
-                        volatile uint32_t addr = atoi(argv[6]);
+                        uint32_t addr = atoi(argv[6]);
                         
                         res = w25qxx_advance_init(type, interface, W25QXX_BOOL_FALSE);
-                        if (res)
+                        if (res != 0)
                         {
                             return 1;
                         }
                         res = w25qxx_advance_block_erase_64k(addr);
-                        if (res)
+                        if (res != 0)
                         {
-                            w25qxx_advance_deinit();
+                            (void)w25qxx_advance_deinit();
                             
                             return 1;
                         }
@@ -1385,24 +1385,24 @@ uint8_t w25qxx(uint8_t argc, char **argv)
                             w25qxx_interface_debug_print("w25qxx: erase 64k addr %d successful.\n", addr);
                         }
                         
-                        w25qxx_advance_deinit();
+                        (void)w25qxx_advance_deinit();
                         
                         return 0;
                     }
                     else if (strcmp("fast_read", argv[5]) == 0)
                     {
-                        volatile uint32_t addr = atoi(argv[6]);
-                        volatile uint8_t data;
+                        uint32_t addr = atoi(argv[6]);
+                        uint8_t data;
                         
                         res = w25qxx_advance_init(type, interface, W25QXX_BOOL_FALSE);
-                        if (res)
+                        if (res != 0)
                         {
                             return 1;
                         }
                         res = w25qxx_advance_fast_read(addr, (uint8_t *)&data, 1);
-                        if (res)
+                        if (res != 0)
                         {
-                            w25qxx_advance_deinit();
+                            (void)w25qxx_advance_deinit();
                             
                             return 1;
                         }
@@ -1411,23 +1411,23 @@ uint8_t w25qxx(uint8_t argc, char **argv)
                             w25qxx_interface_debug_print("w25qxx: addr %d is %d.\n", addr, data);
                         }
                         
-                        w25qxx_advance_deinit();
+                        (void)w25qxx_advance_deinit();
                         
                         return 0;
                     }
                     else if (strcmp("set_status1", argv[5]) == 0)
                     {
-                        volatile uint8_t status = atoi(argv[6]);
+                        uint8_t status = (uint8_t)atoi(argv[6]);
                         
                         res = w25qxx_advance_init(type, interface, W25QXX_BOOL_FALSE);
-                        if (res)
+                        if (res != 0)
                         {
                             return 1;
                         }
                         res = w25qxx_advance_set_status1(status);
-                        if (res)
+                        if (res != 0)
                         {
-                            w25qxx_advance_deinit();
+                            (void)w25qxx_advance_deinit();
                             
                             return 1;
                         }
@@ -1436,23 +1436,23 @@ uint8_t w25qxx(uint8_t argc, char **argv)
                             w25qxx_interface_debug_print("w25qxx: set status1 0x%02X.\n", status);
                         }
                         
-                        w25qxx_advance_deinit();
+                        (void)w25qxx_advance_deinit();
                         
                         return 0;
                     }
                     else if (strcmp("set_status2", argv[5]) == 0)
                     {
-                        volatile uint8_t status = atoi(argv[6]);
+                        uint8_t status = (uint8_t)atoi(argv[6]);
                         
                         res = w25qxx_advance_init(type, interface, W25QXX_BOOL_FALSE);
-                        if (res)
+                        if (res != 0)
                         {
                             return 1;
                         }
                         res = w25qxx_advance_set_status2(status);
-                        if (res)
+                        if (res != 0)
                         {
-                            w25qxx_advance_deinit();
+                            (void)w25qxx_advance_deinit();
                             
                             return 1;
                         }
@@ -1461,23 +1461,23 @@ uint8_t w25qxx(uint8_t argc, char **argv)
                             w25qxx_interface_debug_print("w25qxx: set status2 0x%02X.\n", status);
                         }
                         
-                        w25qxx_advance_deinit();
+                        (void)w25qxx_advance_deinit();
                         
                         return 0;
                     }
                     else if (strcmp("set_status3", argv[5]) == 0)
                     {
-                        volatile uint8_t status = atoi(argv[6]);
+                        uint8_t status = (uint8_t)atoi(argv[6]);
                         
                         res = w25qxx_advance_init(type, interface, W25QXX_BOOL_FALSE);
-                        if (res)
+                        if (res != 0)
                         {
                             return 1;
                         }
                         res = w25qxx_advance_set_status3(status);
-                        if (res)
+                        if (res != 0)
                         {
-                            w25qxx_advance_deinit();
+                            (void)w25qxx_advance_deinit();
                             
                             return 1;
                         }
@@ -1486,23 +1486,23 @@ uint8_t w25qxx(uint8_t argc, char **argv)
                             w25qxx_interface_debug_print("w25qxx: set status3 0x%02X.\n", status);
                         }
                         
-                        w25qxx_advance_deinit();
+                        (void)w25qxx_advance_deinit();
                         
                         return 0;
                     }
                     else if (strcmp("block_lock", argv[5]) == 0)
                     {
-                        volatile uint32_t addr = atoi(argv[6]);
+                        uint32_t addr = atoi(argv[6]);
                         
                         res = w25qxx_advance_init(type, interface, W25QXX_BOOL_FALSE);
-                        if (res)
+                        if (res != 0)
                         {
                             return 1;
                         }
                         res = w25qxx_advance_individual_block_lock(addr);
-                        if (res)
+                        if (res != 0)
                         {
-                            w25qxx_advance_deinit();
+                            (void)w25qxx_advance_deinit();
                             
                             return 1;
                         }
@@ -1511,23 +1511,23 @@ uint8_t w25qxx(uint8_t argc, char **argv)
                             w25qxx_interface_debug_print("w25qxx: block lock addr %d.\n", addr);
                         }
                         
-                        w25qxx_advance_deinit();
+                        (void)w25qxx_advance_deinit();
                         
                         return 0;
                     }
                     else if (strcmp("block_unlock", argv[5]) == 0)
                     {
-                        volatile uint32_t addr = atoi(argv[6]);
+                        uint32_t addr = atoi(argv[6]);
                         
                         res = w25qxx_advance_init(type, interface, W25QXX_BOOL_FALSE);
-                        if (res)
+                        if (res != 0)
                         {
                             return 1;
                         }
                         res = w25qxx_advance_individual_block_unlock(addr);
-                        if (res)
+                        if (res != 0)
                         {
-                            w25qxx_advance_deinit();
+                            (void)w25qxx_advance_deinit();
                             
                             return 1;
                         }
@@ -1536,24 +1536,24 @@ uint8_t w25qxx(uint8_t argc, char **argv)
                             w25qxx_interface_debug_print("w25qxx: block unlock addr %d.\n", addr);
                         }
                         
-                        w25qxx_advance_deinit();
+                        (void)w25qxx_advance_deinit();
                         
                         return 0;
                     }
                     else if (strcmp("read_block", argv[5]) == 0)
                     {
-                        volatile uint32_t addr = atoi(argv[6]);
-                        volatile uint8_t value;
+                        uint32_t addr = atoi(argv[6]);
+                        uint8_t value;
                         
                         res = w25qxx_advance_init(type, interface, W25QXX_BOOL_FALSE);
-                        if (res)
+                        if (res != 0)
                         {
                             return 1;
                         }
                         res = w25qxx_advance_read_block_lock(addr, (uint8_t *)&value);
-                        if (res)
+                        if (res != 0)
                         {
-                            w25qxx_advance_deinit();
+                            (void)w25qxx_advance_deinit();
                             
                             return 1;
                         }
@@ -1562,7 +1562,7 @@ uint8_t w25qxx(uint8_t argc, char **argv)
                             w25qxx_interface_debug_print("w25qxx: read block addr %d is %d.\n", addr, value);
                         }
                         
-                        w25qxx_advance_deinit();
+                        (void)w25qxx_advance_deinit();
                         
                         return 0;
                     }
@@ -1574,9 +1574,9 @@ uint8_t w25qxx(uint8_t argc, char **argv)
                     }
                     else if (strcmp("spi_write_security_reg", argv[5]) == 0)
                     {
-                        volatile uint8_t n = atoi(argv[6]);
-                        volatile uint8_t data = atoi(argv[7]);
-                        volatile uint8_t buf[256];
+                        uint8_t n = (uint8_t)atoi(argv[6]);
+                        uint8_t data = (uint8_t)atoi(argv[7]);
+                        uint8_t buf[256];
                         w25qxx_security_register_t num;
                         
                         if (n == 1)
@@ -1597,15 +1597,15 @@ uint8_t w25qxx(uint8_t argc, char **argv)
                         }
                         
                         res = w25qxx_advance_init(type, interface, W25QXX_BOOL_FALSE);
-                        if (res)
+                        if (res != 0)
                         {
                             return 1;
                         }
                         memset((uint8_t *)buf, data, 256);
                         res = w25qxx_advance_only_spi_write_security_register(num, (uint8_t *)buf);
-                        if (res)
+                        if (res != 0)
                         {
-                            w25qxx_advance_deinit();
+                            (void)w25qxx_advance_deinit();
                             
                             return 1;
                         }
@@ -1614,7 +1614,7 @@ uint8_t w25qxx(uint8_t argc, char **argv)
                             w25qxx_interface_debug_print("w25qxx: write %d security register successful.\n", n);
                         }
                         
-                        w25qxx_advance_deinit();
+                        (void)w25qxx_advance_deinit();
                         
                         return 0;
                     }
@@ -1652,7 +1652,7 @@ uint8_t w25qxx(uint8_t argc, char **argv)
             {
                 if (strcmp("-type", argv[3]) == 0)
                 {
-                    volatile uint8_t res;
+                    uint8_t res;
                     w25qxx_type_t type;
                     w25qxx_interface_t interface;
                     
@@ -1702,18 +1702,18 @@ uint8_t w25qxx(uint8_t argc, char **argv)
                     
                     if (strcmp("write", argv[5]) == 0)
                     {
-                        volatile uint32_t addr = atoi(argv[6]);
-                        volatile uint8_t data = atoi(argv[7]);
+                        uint32_t addr = atoi(argv[6]);
+                        uint8_t data = (uint8_t)atoi(argv[7]);
                         
                         res = w25qxx_basic_init(type, interface, W25QXX_BOOL_FALSE);
-                        if (res)
+                        if (res != 0)
                         {
                             return 1;
                         }
                         res = w25qxx_basic_write(addr, (uint8_t *)&data, 1);
-                        if (res)
+                        if (res != 0)
                         {
-                            w25qxx_basic_deinit();
+                            (void)w25qxx_basic_deinit();
                             
                             return 1;
                         }
@@ -1722,7 +1722,7 @@ uint8_t w25qxx(uint8_t argc, char **argv)
                             w25qxx_interface_debug_print("w25qxx: addr %d write data %d.\n", addr, data);
                         }
                         
-                        w25qxx_basic_deinit();
+                        (void)w25qxx_basic_deinit();
                         
                         return 0;
                     }
@@ -1740,7 +1740,7 @@ uint8_t w25qxx(uint8_t argc, char **argv)
             {
                 if (strcmp("-type", argv[3]) == 0)
                 {
-                    volatile uint8_t res;
+                    uint8_t res;
                     w25qxx_type_t type;
                     w25qxx_interface_t interface;
                     
@@ -1790,18 +1790,18 @@ uint8_t w25qxx(uint8_t argc, char **argv)
                     
                     if (strcmp("write", argv[5]) == 0)
                     {
-                        volatile uint32_t addr = atoi(argv[6]);
-                        volatile uint8_t data = atoi(argv[7]);
+                        uint32_t addr = atoi(argv[6]);
+                        uint8_t data = (uint8_t)atoi(argv[7]);
                         
                         res = w25qxx_advance_init(type, interface, W25QXX_BOOL_FALSE);
-                        if (res)
+                        if (res != 0)
                         {
                             return 1;
                         }
                         res = w25qxx_advance_write(addr, (uint8_t *)&data, 1);
-                        if (res)
+                        if (res != 0)
                         {
-                            w25qxx_advance_deinit();
+                            (void)w25qxx_advance_deinit();
                             
                             return 1;
                         }
@@ -1810,24 +1810,24 @@ uint8_t w25qxx(uint8_t argc, char **argv)
                             w25qxx_interface_debug_print("w25qxx: addr %d write data %d.\n", addr, data);
                         }
                         
-                        w25qxx_advance_deinit();
+                        (void)w25qxx_advance_deinit();
                         
                         return 0;
                     }
                     else if (strcmp("page_program", argv[5]) == 0)
                     {
-                        volatile uint32_t addr = atoi(argv[6]);
-                        volatile uint8_t data = atoi(argv[7]);
+                        uint32_t addr = atoi(argv[6]);
+                        uint8_t data = (uint8_t)atoi(argv[7]);
                         
                         res = w25qxx_advance_init(type, interface, W25QXX_BOOL_FALSE);
-                        if (res)
+                        if (res != 0)
                         {
                             return 1;
                         }
                         res = w25qxx_advance_page_program(addr, (uint8_t *)&data, 1);
-                        if (res)
+                        if (res != 0)
                         {
-                            w25qxx_basic_deinit();
+                            (void)w25qxx_basic_deinit();
                             
                             return 1;
                         }
@@ -1836,7 +1836,7 @@ uint8_t w25qxx(uint8_t argc, char **argv)
                             w25qxx_interface_debug_print("w25qxx: addr %d page program data %d.\n", addr, data);
                         }
                         
-                        w25qxx_basic_deinit();
+                        (void)w25qxx_basic_deinit();
                         
                         return 0;
                     }

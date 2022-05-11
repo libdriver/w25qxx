@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['_5fw25qxx_5fpage_5fprogram_0',['_w25qxx_page_program',['../driver__w25qxx_8c.html#ab680906394a5cc6e996d0e81ac241798',1,'driver_w25qxx.c']]]
+  ['adress_5fmode_0',['adress_mode',['../structw25qxx__handle__s.html#a40d8a21abe81fd9b9945d8df45f19869',1,'w25qxx_handle_s']]]
 ];

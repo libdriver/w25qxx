@@ -91,7 +91,7 @@ uint8_t w25qxx_interface_spi_qspi_write_read(uint8_t instruction, uint8_t instru
                                              uint8_t dummy, uint8_t *in_buf, uint32_t in_len,
                                              uint8_t *out_buf, uint32_t out_len, uint8_t data_line)
 {
-    if (instruction_line || address_line || alternate_line || dummy || (data_line != 1))
+    if ((instruction_line != 0) || (address_line != 0) || (alternate_line != 0) || (dummy != 0) || (data_line != 1))
     {
         return 1;
     }
@@ -122,13 +122,12 @@ void w25qxx_interface_delay_us(uint32_t us)
 /**
  * @brief     interface print format data
  * @param[in] fmt is the format data
- * @return    length of the send data
  * @note      none
  */
-uint16_t w25qxx_interface_debug_print(char *fmt, ...)
+void w25qxx_interface_debug_print(const char *const fmt, ...)
 {
-    volatile char str[256];
-    volatile uint8_t len;
+    char str[256];
+    uint8_t len;
     va_list args;
     
     memset((char *)str, 0, sizeof(char) * 256); 
@@ -137,12 +136,5 @@ uint16_t w25qxx_interface_debug_print(char *fmt, ...)
     va_end(args);
     
     len = strlen((char *)str);
-    if (uart1_write((uint8_t *)str, len))
-    {
-        return 0;
-    }
-    else
-    { 
-        return len;
-    }
+    (void)uart1_write((uint8_t *)str, len);
 }

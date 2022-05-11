@@ -34,8 +34,8 @@
  * </table>
  */
 
-#ifndef _DRIVER_W25QXX_REGISTER_TEST_H_
-#define _DRIVER_W25QXX_REGISTER_TEST_H_
+#ifndef DRIVER_W25QXX_REGISTER_TEST_H
+#define DRIVER_W25QXX_REGISTER_TEST_H
 
 #include "driver_w25qxx_interface.h"
 

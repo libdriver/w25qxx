@@ -50,11 +50,11 @@ static w25qxx_handle_t gs_handle;        /**< w25qxx handle */
  */
 uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qxx_bool_t dual_quad_spi_enable)
 {
-    volatile uint8_t res;
-    volatile uint8_t status;
-    volatile uint8_t manufacturer;
-    volatile uint8_t device_id[2];
-    volatile uint8_t id[8];
+    uint8_t res;
+    uint8_t status;
+    uint8_t manufacturer;
+    uint8_t device_id[2];
+    uint8_t id[8];
     w25qxx_info_t info;
     w25qxx_type_t type_check;
     w25qxx_interface_t interface_check;
@@ -70,7 +70,7 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
     
     /* get information */
     res = w25qxx_info(&info);
-    if (res)
+    if (res != 0)
     {
         w25qxx_interface_debug_print("w25qxx: get info failed.\n");
        
@@ -98,7 +98,7 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
     
     /* set type w25q80 */
     res = w25qxx_set_type(&gs_handle, W25Q80);
-    if (res)
+    if (res != 0)
     {
         w25qxx_interface_debug_print("w25qxx: set type failed.\n");
        
@@ -108,7 +108,7 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
     
     /* get type */
     res = w25qxx_get_type(&gs_handle, &type_check);
-    if (res)
+    if (res != 0)
     {
         w25qxx_interface_debug_print("w25qxx: set type failed.\n");
        
@@ -118,7 +118,7 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
     
     /* set type w25q16 */
     res = w25qxx_set_type(&gs_handle, W25Q16);
-    if (res)
+    if (res != 0)
     {
         w25qxx_interface_debug_print("w25qxx: set type failed.\n");
        
@@ -128,7 +128,7 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
     
     /* get type */
     res = w25qxx_get_type(&gs_handle, &type_check);
-    if (res)
+    if (res != 0)
     {
         w25qxx_interface_debug_print("w25qxx: set type failed.\n");
        
@@ -138,7 +138,7 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
     
     /* set type w25q32 */
     res = w25qxx_set_type(&gs_handle, W25Q32);
-    if (res)
+    if (res != 0)
     {
         w25qxx_interface_debug_print("w25qxx: set type failed.\n");
        
@@ -148,7 +148,7 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
     
     /* get type */
     res = w25qxx_get_type(&gs_handle, &type_check);
-    if (res)
+    if (res != 0)
     {
         w25qxx_interface_debug_print("w25qxx: set type failed.\n");
        
@@ -158,7 +158,7 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
     
     /* set type w25q64 */
     res = w25qxx_set_type(&gs_handle, W25Q64);
-    if (res)
+    if (res != 0)
     {
         w25qxx_interface_debug_print("w25qxx: set type failed.\n");
        
@@ -168,7 +168,7 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
     
     /* get type */
     res = w25qxx_get_type(&gs_handle, &type_check);
-    if (res)
+    if (res != 0)
     {
         w25qxx_interface_debug_print("w25qxx: set type failed.\n");
        
@@ -178,7 +178,7 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
     
     /* set type w25q128 */
     res = w25qxx_set_type(&gs_handle, W25Q128);
-    if (res)
+    if (res != 0)
     {
         w25qxx_interface_debug_print("w25qxx: set type failed.\n");
        
@@ -188,7 +188,7 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
     
     /* get type */
     res = w25qxx_get_type(&gs_handle, &type_check);
-    if (res)
+    if (res != 0)
     {
         w25qxx_interface_debug_print("w25qxx: set type failed.\n");
        
@@ -198,7 +198,7 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
 
     /* set type w25q256 */
     res = w25qxx_set_type(&gs_handle, W25Q256);
-    if (res)
+    if (res != 0)
     {
         w25qxx_interface_debug_print("w25qxx: set type failed.\n");
        
@@ -208,7 +208,7 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
     
     /* get type */
     res = w25qxx_get_type(&gs_handle, &type_check);
-    if (res)
+    if (res != 0)
     {
         w25qxx_interface_debug_print("w25qxx: set type failed.\n");
        
@@ -221,7 +221,7 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
     
     /* set chip interface spi */
     res = w25qxx_set_interface(&gs_handle, W25QXX_INTERFACE_SPI);
-    if (res)
+    if (res != 0)
     {
         w25qxx_interface_debug_print("w25qxx: set interface failed.\n");
        
@@ -231,7 +231,7 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
     
     /* get interface */
     res = w25qxx_get_interface(&gs_handle, &interface_check);
-    if (res)
+    if (res != 0)
     {
         w25qxx_interface_debug_print("w25qxx: get interface failed.\n");
        
@@ -241,7 +241,7 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
     
     /* set chip interface qspi */
     res = w25qxx_set_interface(&gs_handle, W25QXX_INTERFACE_QSPI);
-    if (res)
+    if (res != 0)
     {
         w25qxx_interface_debug_print("w25qxx: set interface failed.\n");
        
@@ -251,7 +251,7 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
     
     /* get interface */
     res = w25qxx_get_interface(&gs_handle, &interface_check);
-    if (res)
+    if (res != 0)
     {
         w25qxx_interface_debug_print("w25qxx: get interface failed.\n");
        
@@ -261,7 +261,7 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
     
     /* set chip type */
     res = w25qxx_set_type(&gs_handle, type);
-    if (res)
+    if (res != 0)
     {
         w25qxx_interface_debug_print("w25qxx: set type failed.\n");
        
@@ -270,7 +270,7 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
     
     /* set chip interface */
     res = w25qxx_set_interface(&gs_handle, interface);
-    if (res)
+    if (res != 0)
     {
         w25qxx_interface_debug_print("w25qxx: set interface failed.\n");
        
@@ -279,17 +279,17 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
     
     /* set dual quad spi */
     res = w25qxx_set_dual_quad_spi(&gs_handle, dual_quad_spi_enable);
-    if (res)
+    if (res != 0)
     {
         w25qxx_interface_debug_print("w25qxx: set dual quad spi failed.\n");
-        w25qxx_deinit(&gs_handle);
+        (void)w25qxx_deinit(&gs_handle);
        
         return 1;
     }
     
     /* chip init */
     res = w25qxx_init(&gs_handle);
-    if (res)
+    if (res != 0)
     {
         w25qxx_interface_debug_print("w25qxx: init failed.\n");
        
@@ -303,10 +303,10 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
         
         /* get manufacturer device id */
         res = w25qxx_get_manufacturer_device_id(&gs_handle, (uint8_t *)&manufacturer, (uint8_t *)device_id);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: get manufacturer device id failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
@@ -317,10 +317,10 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
         
         /* get jedec id */
         res = w25qxx_get_jedec_id(&gs_handle, (uint8_t *)&manufacturer, (uint8_t *)device_id);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: get jedec id failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
@@ -332,10 +332,10 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
         
         /* get unique id */
         res = w25qxx_get_unique_id(&gs_handle, (uint8_t *)id);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: get unique id failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
@@ -347,20 +347,20 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
         
         /* set status1 */
         res = w25qxx_set_status1(&gs_handle, 0x00);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: set status1 failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
         
         /* get status1 */
         res = w25qxx_get_status1(&gs_handle, (uint8_t *)&status);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: get status1 failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
@@ -371,20 +371,20 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
         
         /* set status2 */
         res = w25qxx_set_status2(&gs_handle, 0x02);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: set status2 failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
         
         /* get status2 */
         res = w25qxx_get_status2(&gs_handle, (uint8_t *)&status);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: get status2 failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
@@ -395,20 +395,20 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
         
         /* set status3 */
         res = w25qxx_set_status3(&gs_handle, 0x60);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: set status3 failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
         
         /* get status3 */
         res = w25qxx_get_status3(&gs_handle, (uint8_t *)&status);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: get status3 failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
@@ -419,10 +419,10 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
         
         /* enable write */
         res = w25qxx_enable_write(&gs_handle);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: enable write failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
@@ -433,10 +433,10 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
         
         /* disable write */
         res = w25qxx_disable_write(&gs_handle);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: disable write failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
@@ -445,26 +445,26 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
         /* w25qxx_enable_write test */
         w25qxx_interface_debug_print("w25qxx: w25qxx_enable_write test.\n");
         
-        /* enable volatile sr write */
+        /* enable sr write */
         res = w25qxx_enable_volatile_sr_write(&gs_handle);
-        if (res)
+        if (res != 0)
         {
-            w25qxx_interface_debug_print("w25qxx: enable volatile sr write failed.\n");
-            w25qxx_deinit(&gs_handle);
+            w25qxx_interface_debug_print("w25qxx: enable sr write failed.\n");
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
-        w25qxx_interface_debug_print("w25qxx: check enable volatile sr write %s.\n", res == 0 ? "ok" : "error");
+        w25qxx_interface_debug_print("w25qxx: check enable sr write %s.\n", res == 0 ? "ok" : "error");
         
         /* w25qxx_erase_program_suspend test */
         w25qxx_interface_debug_print("w25qxx: w25qxx_erase_program_suspend test.\n");
         
         /* erase program suspend */
         res = w25qxx_erase_program_suspend(&gs_handle);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: erase program suspend failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
@@ -475,10 +475,10 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
         
         /* erase program resume */
         res = w25qxx_erase_program_resume(&gs_handle);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: erase program resume failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
@@ -489,10 +489,10 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
         
         /* global block lock */
         res = w25qxx_global_block_lock(&gs_handle);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: global block lock failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
@@ -503,10 +503,10 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
         
         /* global block unlock */
         res = w25qxx_global_block_unlock(&gs_handle);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: global block unlock failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
@@ -517,10 +517,10 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
         
         /* individual block lock */
         res = w25qxx_individual_block_lock(&gs_handle, 0x00000000);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: individual block lock failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
@@ -530,10 +530,10 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
         w25qxx_interface_debug_print("w25qxx: w25qxx_read_block_lock test.\n");
         
         res = w25qxx_read_block_lock(&gs_handle, 0x00000000, (uint8_t *)&status);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: read block lock failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
@@ -544,10 +544,10 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
         
         /* individual block unlock */
         res = w25qxx_individual_block_unlock(&gs_handle, 0x00000000);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: individual block unlock failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
@@ -558,10 +558,10 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
         
         /* set burst with wrap */
         res = w25qxx_set_burst_with_wrap(&gs_handle, W25QXX_BURST_WRAP_NONE);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: set burst with wrap failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
@@ -572,10 +572,10 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
         
         /* power down */
         res = w25qxx_power_down(&gs_handle);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: power down failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
@@ -586,10 +586,10 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
         
         /* release power down */
         res = w25qxx_release_power_down(&gs_handle);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: release power down failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
@@ -600,10 +600,10 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
         
         /* enable reset */
         res = w25qxx_enable_reset(&gs_handle);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: enable reset failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
@@ -613,10 +613,10 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
         
         /* reset device */
         res = w25qxx_reset_device(&gs_handle);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: reset device failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
@@ -629,10 +629,10 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
             
             /* set address mode 4 byte */
             res = w25qxx_set_address_mode(&gs_handle, W25QXX_ADDRESS_MODE_4_BYTE);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: set address mode failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
@@ -642,10 +642,10 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
             
             /* get unique id */
             res = w25qxx_get_unique_id(&gs_handle, (uint8_t *)id);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: get unique id failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
@@ -657,10 +657,10 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
             
             /* individual block lock */
             res = w25qxx_individual_block_lock(&gs_handle, 0x00000000);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: individual block lock failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
@@ -670,10 +670,10 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
             w25qxx_interface_debug_print("w25qxx: w25qxx_read_block_lock test.\n");
             
             res = w25qxx_read_block_lock(&gs_handle, 0x00000000, (uint8_t *)&status);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: read block lock failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
@@ -684,10 +684,10 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
             
             /* individual block unlock */
             res = w25qxx_individual_block_unlock(&gs_handle, 0x00000000);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: individual block unlock failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
@@ -698,10 +698,10 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
             
             /* set address mode 3 byte */
             res = w25qxx_set_address_mode(&gs_handle, W25QXX_ADDRESS_MODE_3_BYTE);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: set address mode failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
@@ -714,10 +714,10 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
         
         /* get manufacturer device id */
         res = w25qxx_get_manufacturer_device_id(&gs_handle, (uint8_t *)&manufacturer, (uint8_t *)device_id);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: get manufacturer device id failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
@@ -728,10 +728,10 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
         
         /* get jedec id */
         res = w25qxx_get_jedec_id(&gs_handle, (uint8_t *)&manufacturer, (uint8_t *)device_id);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: get jedec id failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
@@ -743,20 +743,20 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
         
         /* set status1 */
         res = w25qxx_set_status1(&gs_handle, 0x00);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: set status1 failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
         
         /* get status1 */
         res = w25qxx_get_status1(&gs_handle, (uint8_t *)&status);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: get status1 failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
@@ -767,20 +767,20 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
         
         /* set status2 */
         res = w25qxx_set_status2(&gs_handle, 0x02);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: set status2 failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
         
         /* get status2 */
         res = w25qxx_get_status2(&gs_handle, (uint8_t *)&status);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: get status2 failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
@@ -791,20 +791,20 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
         
         /* set status3 */
         res = w25qxx_set_status3(&gs_handle, 0x60);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: set status3 failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
         
         /* get status3 */
         res = w25qxx_get_status3(&gs_handle, (uint8_t *)&status);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: get status3 failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
@@ -815,10 +815,10 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
         
         /* enable write */
         res = w25qxx_enable_write(&gs_handle);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: enable write failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
@@ -829,10 +829,10 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
         
         /* disable write */
         res = w25qxx_disable_write(&gs_handle);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: disable write failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
@@ -841,26 +841,26 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
         /* w25qxx_enable_write test */
         w25qxx_interface_debug_print("w25qxx: w25qxx_enable_write test.\n");
         
-        /* enable volatile sr write */
+        /* enable sr write */
         res = w25qxx_enable_volatile_sr_write(&gs_handle);
-        if (res)
+        if (res != 0)
         {
-            w25qxx_interface_debug_print("w25qxx: enable volatile sr write failed.\n");
-            w25qxx_deinit(&gs_handle);
+            w25qxx_interface_debug_print("w25qxx: enable sr write failed.\n");
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
-        w25qxx_interface_debug_print("w25qxx: check enable volatile sr write %s.\n", res == 0 ? "ok" : "error");
+        w25qxx_interface_debug_print("w25qxx: check enable sr write %s.\n", res == 0 ? "ok" : "error");
         
         /* w25qxx_erase_program_suspend test */
         w25qxx_interface_debug_print("w25qxx: w25qxx_erase_program_suspend test.\n");
         
         /* erase program suspend */
         res = w25qxx_erase_program_suspend(&gs_handle);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: erase program suspend failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
@@ -871,10 +871,10 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
         
         /* erase program resume */
         res = w25qxx_erase_program_resume(&gs_handle);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: erase program resume failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
@@ -885,10 +885,10 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
         
         /* global block lock */
         res = w25qxx_global_block_lock(&gs_handle);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: global block lock failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
@@ -899,10 +899,10 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
         
         /* global block unlock */
         res = w25qxx_global_block_unlock(&gs_handle);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: global block unlock failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
@@ -913,10 +913,10 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
         
         /* individual block lock */
         res = w25qxx_individual_block_lock(&gs_handle, 0x00000000);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: individual block lock failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
@@ -926,10 +926,10 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
         w25qxx_interface_debug_print("w25qxx: w25qxx_read_block_lock test.\n");
         
         res = w25qxx_read_block_lock(&gs_handle, 0x00000000, (uint8_t *)&status);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: read block lock failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
@@ -940,10 +940,10 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
         
         /* individual block unlock */
         res = w25qxx_individual_block_unlock(&gs_handle, 0x00000000);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: individual block unlock failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
@@ -954,10 +954,10 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
         
         /* power down */
         res = w25qxx_power_down(&gs_handle);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: power down failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
@@ -968,10 +968,10 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
         
         /* release power down */
         res = w25qxx_release_power_down(&gs_handle);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: release power down failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
@@ -982,10 +982,10 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
         
         /* enable reset */
         res = w25qxx_enable_reset(&gs_handle);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: enable reset failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
@@ -995,10 +995,10 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
         
         /* reset device */
         res = w25qxx_reset_device(&gs_handle);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: reset device failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
@@ -1011,10 +1011,10 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
             
             /* set address mode 4 byte */
             res = w25qxx_set_address_mode(&gs_handle, W25QXX_ADDRESS_MODE_4_BYTE);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: set address mode failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
@@ -1024,10 +1024,10 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
             
             /* individual block lock */
             res = w25qxx_individual_block_lock(&gs_handle, 0x00000000);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: individual block lock failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
@@ -1038,10 +1038,10 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
             
             /* individual block unlock */
             res = w25qxx_individual_block_unlock(&gs_handle, 0x00000000);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: individual block unlock failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
@@ -1051,10 +1051,10 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
             w25qxx_interface_debug_print("w25qxx: w25qxx_read_block_lock test.\n");
             
             res = w25qxx_read_block_lock(&gs_handle, 0x00000000, (uint8_t *)&status);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: read block lock failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
@@ -1065,33 +1065,33 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
             
             /* set address mode 3 byte */
             res = w25qxx_set_address_mode(&gs_handle, W25QXX_ADDRESS_MODE_3_BYTE);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: set address mode failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
         }
         
-        if (dual_quad_spi_enable)
+        if (dual_quad_spi_enable != 0)
         {
             /* enter to spi mode */
             w25qxx_interface_debug_print("w25qxx: enter to spi mode.\n");
             
             /* exit qspi */
             res = w25qxx_exit_qspi_mode(&gs_handle);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: exit qspi mode failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
             
             /* set chip interface spi */
             res = w25qxx_set_interface(&gs_handle, W25QXX_INTERFACE_SPI);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: set interface failed.\n");
                
@@ -1103,10 +1103,10 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
             
             /* get manufacturer device id dual io */
             res = w25qxx_get_manufacturer_device_id_dual_io(&gs_handle, (uint8_t *)&manufacturer, (uint8_t *)device_id);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: get manufacturer device id dual io failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
@@ -1117,10 +1117,10 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
             
             /* get manufacturer device id quad io */
             res = w25qxx_get_manufacturer_device_id_quad_io(&gs_handle, (uint8_t *)&manufacturer, (uint8_t *)device_id);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: get manufacturer device id quad io failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
@@ -1133,10 +1133,10 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
                 
                 /* set address mode 4 byte */
                 res = w25qxx_set_address_mode(&gs_handle, W25QXX_ADDRESS_MODE_4_BYTE);
-                if (res)
+                if (res != 0)
                 {
                     w25qxx_interface_debug_print("w25qxx: set address mode failed.\n");
-                    w25qxx_deinit(&gs_handle);
+                    (void)w25qxx_deinit(&gs_handle);
                    
                     return 1;
                 }
@@ -1146,10 +1146,10 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
                 
                 /* get manufacturer device id dual io */
                 res = w25qxx_get_manufacturer_device_id_dual_io(&gs_handle, (uint8_t *)&manufacturer, (uint8_t *)device_id);
-                if (res)
+                if (res != 0)
                 {
                     w25qxx_interface_debug_print("w25qxx: get manufacturer device id dual io failed.\n");
-                    w25qxx_deinit(&gs_handle);
+                    (void)w25qxx_deinit(&gs_handle);
                    
                     return 1;
                 }
@@ -1160,10 +1160,10 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
                 
                 /* get manufacturer device id quad io */
                 res = w25qxx_get_manufacturer_device_id_quad_io(&gs_handle, (uint8_t *)&manufacturer, (uint8_t *)device_id);
-                if (res)
+                if (res != 0)
                 {
                     w25qxx_interface_debug_print("w25qxx: get manufacturer device id quad io failed.\n");
-                    w25qxx_deinit(&gs_handle);
+                    (void)w25qxx_deinit(&gs_handle);
                    
                     return 1;
                 }
@@ -1174,10 +1174,10 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
                 
                 /* set address mode 3 byte */
                 res = w25qxx_set_address_mode(&gs_handle, W25QXX_ADDRESS_MODE_3_BYTE);
-                if (res)
+                if (res != 0)
                 {
                     w25qxx_interface_debug_print("w25qxx: set address mode failed.\n");
-                    w25qxx_deinit(&gs_handle);
+                    (void)w25qxx_deinit(&gs_handle);
                    
                     return 1;
                 }
@@ -1188,17 +1188,17 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
             
             /* enter qspi */
             res = w25qxx_enter_qspi_mode(&gs_handle);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: enter qspi mode failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
             
             /* set chip interface spi */
             res = w25qxx_set_interface(&gs_handle, W25QXX_INTERFACE_QSPI);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: set interface failed.\n");
                
@@ -1209,7 +1209,7 @@ uint8_t w25qxx_register_test(w25qxx_type_t type, w25qxx_interface_t interface, w
     
     /* finish read test */
     w25qxx_interface_debug_print("w25qxx: finish register test.\n");
-    w25qxx_deinit(&gs_handle);
+    (void)w25qxx_deinit(&gs_handle);
     
     return 0;
 }

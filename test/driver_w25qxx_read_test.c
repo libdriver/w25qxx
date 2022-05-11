@@ -54,7 +54,7 @@ static const uint32_t gsc_size[] = {0x100000, 0x200000, 0x400000, 0x800000, 0x10
  */
 uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qxx_bool_t dual_quad_spi_enable)
 {
-    volatile uint8_t res;
+    uint8_t res;
     w25qxx_info_t info;
     
     /* link interface function */
@@ -68,7 +68,7 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
     
     /* get information */
     res = w25qxx_info(&info);
-    if (res)
+    if (res != 0)
     {
         w25qxx_interface_debug_print("w25qxx: get info failed.\n");
        
@@ -90,7 +90,7 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
     
     /* set chip type */
     res = w25qxx_set_type(&gs_handle, type);
-    if (res)
+    if (res != 0)
     {
         w25qxx_interface_debug_print("w25qxx: set type failed.\n");
        
@@ -99,7 +99,7 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
     
     /* set chip interface */
     res = w25qxx_set_interface(&gs_handle, interface);
-    if (res)
+    if (res != 0)
     {
         w25qxx_interface_debug_print("w25qxx: set interface failed.\n");
        
@@ -108,17 +108,17 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
     
     /* set dual quad spi */
     res = w25qxx_set_dual_quad_spi(&gs_handle, dual_quad_spi_enable);
-    if (res)
+    if (res != 0)
     {
         w25qxx_interface_debug_print("w25qxx: set dual quad spi failed.\n");
-        w25qxx_deinit(&gs_handle);
+        (void)w25qxx_deinit(&gs_handle);
        
         return 1;
     }
     
     /* chip init */
     res = w25qxx_init(&gs_handle);
-    if (res)
+    if (res != 0)
     {
         w25qxx_interface_debug_print("w25qxx: init failed.\n");
        
@@ -130,8 +130,8 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
     
     if (interface == W25QXX_INTERFACE_SPI)
     {
-        volatile uint32_t size;
-        volatile uint32_t addr, step, j;
+        uint32_t size;
+        uint32_t addr, step, j;
         
         size = gsc_size[type - W25Q80];
         step = size / 16;
@@ -146,18 +146,18 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
                 gs_buffer_input[j] = rand() %256;
             }
             res = w25qxx_write(&gs_handle, addr, gs_buffer_input, 600);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: write failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
             res = w25qxx_read(&gs_handle, addr, gs_buffer_output, 600);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: read failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
@@ -166,7 +166,7 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
                 if (gs_buffer_input[j] != gs_buffer_output[j])
                 {
                     w25qxx_interface_debug_print("w25qxx: write read check failed.\n");
-                    w25qxx_deinit(&gs_handle);
+                    (void)w25qxx_deinit(&gs_handle);
                     
                     return 1;
                 }
@@ -178,10 +178,10 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
         addr = (rand() % 10) * 4 * 1024;
         w25qxx_interface_debug_print("w25qxx: w25qxx_sector_erase_4k test with address 0x%X.\n", addr);
         res = w25qxx_sector_erase_4k(&gs_handle, addr);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: sector erase 4k failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
@@ -192,20 +192,20 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
         
         /* w25qxx_page_program */
         res = w25qxx_page_program(&gs_handle, addr, gs_buffer_input, 256);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: page program failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
         
         /* w25qxx_only_spi_read */
         res = w25qxx_only_spi_read(&gs_handle, addr, gs_buffer_output, 256);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: only spi read failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
@@ -214,7 +214,7 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
             if (gs_buffer_input[j] != gs_buffer_output[j])
             {
                 w25qxx_interface_debug_print("w25qxx: write read check failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                 
                 return 1;
             }
@@ -223,10 +223,10 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
         
         /* w25qxx_fast_read */
         res = w25qxx_fast_read(&gs_handle, addr, gs_buffer_output, 256);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: fast read failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
@@ -235,7 +235,7 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
             if (gs_buffer_input[j] != gs_buffer_output[j])
             {
                 w25qxx_interface_debug_print("w25qxx: write read check failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                 
                 return 1;
             }
@@ -246,10 +246,10 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
         addr = (rand() % 10) * 32 * 1024;
         w25qxx_interface_debug_print("w25qxx: w25qxx_block_erase_32k test with address 0x%X.\n", addr);
         res = w25qxx_block_erase_32k(&gs_handle, addr);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: sector erase 32k failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
@@ -260,20 +260,20 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
         
         /* w25qxx_page_program */
         res = w25qxx_page_program(&gs_handle, addr, gs_buffer_input, 256);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: page program failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
         
         /* w25qxx_only_spi_read */
         res = w25qxx_only_spi_read(&gs_handle, addr, gs_buffer_output, 256);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: only spi read failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
@@ -282,7 +282,7 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
             if (gs_buffer_input[j] != gs_buffer_output[j])
             {
                 w25qxx_interface_debug_print("w25qxx: write read check failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                 
                 return 1;
             }
@@ -291,10 +291,10 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
         
         /* w25qxx_fast_read */
         res = w25qxx_fast_read(&gs_handle, addr, gs_buffer_output, 256);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: fast read failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
@@ -303,7 +303,7 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
             if (gs_buffer_input[j] != gs_buffer_output[j])
             {
                 w25qxx_interface_debug_print("w25qxx: write read check failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                 
                 return 1;
             }
@@ -314,10 +314,10 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
         addr = (rand() % 10) * 64 * 1024;
         w25qxx_interface_debug_print("w25qxx: w25qxx_block_erase_64k test with address 0x%X.\n", addr);
         res = w25qxx_block_erase_64k(&gs_handle, addr);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: sector erase 64k failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
@@ -328,20 +328,20 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
         
         /* w25qxx_page_program */
         res = w25qxx_page_program(&gs_handle, addr, gs_buffer_input, 256);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: page program failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
         
         /* w25qxx_only_spi_read */
         res = w25qxx_only_spi_read(&gs_handle, addr, gs_buffer_output, 256);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: only spi read failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
@@ -350,7 +350,7 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
             if (gs_buffer_input[j] != gs_buffer_output[j])
             {
                 w25qxx_interface_debug_print("w25qxx: write read check failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                 
                 return 1;
             }
@@ -359,10 +359,10 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
         
         /* w25qxx_fast_read */
         res = w25qxx_fast_read(&gs_handle, addr, gs_buffer_output, 256);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: fast read failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
@@ -371,7 +371,7 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
             if (gs_buffer_input[j] != gs_buffer_output[j])
             {
                 w25qxx_interface_debug_print("w25qxx: write read check failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                 
                 return 1;
             }
@@ -382,10 +382,10 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
         w25qxx_interface_debug_print("w25qxx: get sfdp.\n");
         memset(gs_buffer_output, 0, sizeof(uint8_t) * 256);
         res = w25qxx_get_sfdp(&gs_handle, (uint8_t *)gs_buffer_output);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: get sfdp failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
@@ -403,10 +403,10 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
         
         /* security register1 write and read test */
         res = w25qxx_erase_security_register(&gs_handle, W25QXX_SECURITY_REGISTER_1);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: erase security register failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
@@ -415,18 +415,18 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
             gs_buffer_input[j] = rand() %256;
         }
         res = w25qxx_program_security_register(&gs_handle, W25QXX_SECURITY_REGISTER_1, gs_buffer_input);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: program security register failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
         res = w25qxx_read_security_register(&gs_handle, W25QXX_SECURITY_REGISTER_1, gs_buffer_output);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: read security register failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
@@ -435,7 +435,7 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
             if (gs_buffer_input[j] != gs_buffer_output[j])
             {
                 w25qxx_interface_debug_print("w25qxx: write read check failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                 
                 return 1;
             }
@@ -447,10 +447,10 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
         
         /* security register2 write and read test */
         res = w25qxx_erase_security_register(&gs_handle, W25QXX_SECURITY_REGISTER_2);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: erase security register failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
@@ -459,18 +459,18 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
             gs_buffer_input[j] = rand() %256;
         }
         res = w25qxx_program_security_register(&gs_handle, W25QXX_SECURITY_REGISTER_2, gs_buffer_input);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: program security register failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
         res = w25qxx_read_security_register(&gs_handle, W25QXX_SECURITY_REGISTER_2, gs_buffer_output);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: read security register failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
@@ -479,7 +479,7 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
             if (gs_buffer_input[j] != gs_buffer_output[j])
             {
                 w25qxx_interface_debug_print("w25qxx: write read check failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                 
                 return 1;
             }
@@ -491,10 +491,10 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
         
         /* security register3 write and read test */
         res = w25qxx_erase_security_register(&gs_handle, W25QXX_SECURITY_REGISTER_3);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: erase security register failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
@@ -503,18 +503,18 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
             gs_buffer_input[j] = rand() %256;
         }
         res = w25qxx_program_security_register(&gs_handle, W25QXX_SECURITY_REGISTER_3, gs_buffer_input);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: program security register failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
         res = w25qxx_read_security_register(&gs_handle, W25QXX_SECURITY_REGISTER_3, gs_buffer_output);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: read security register failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
@@ -523,7 +523,7 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
             if (gs_buffer_input[j] != gs_buffer_output[j])
             {
                 w25qxx_interface_debug_print("w25qxx: write read check failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                 
                 return 1;
             }
@@ -537,10 +537,10 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
             /* chip erase */
             w25qxx_interface_debug_print("w25qxx: w25qxx_chip_erase test.\n");
             res = w25qxx_chip_erase(&gs_handle);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: chip erase failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
@@ -554,10 +554,10 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
             
             /* set address mode 4 byte */
             res = w25qxx_set_address_mode(&gs_handle, W25QXX_ADDRESS_MODE_4_BYTE);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: set address mode failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
@@ -572,18 +572,18 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
                     gs_buffer_input[j] = rand() %256;
                 }
                 res = w25qxx_write(&gs_handle, addr, gs_buffer_input, 600);
-                if (res)
+                if (res != 0)
                 {
                     w25qxx_interface_debug_print("w25qxx: write failed.\n");
-                    w25qxx_deinit(&gs_handle);
+                    (void)w25qxx_deinit(&gs_handle);
                    
                     return 1;
                 }
                 res = w25qxx_read(&gs_handle, addr, gs_buffer_output, 600);
-                if (res)
+                if (res != 0)
                 {
                     w25qxx_interface_debug_print("w25qxx: read failed.\n");
-                    w25qxx_deinit(&gs_handle);
+                    (void)w25qxx_deinit(&gs_handle);
                    
                     return 1;
                 }
@@ -592,7 +592,7 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
                     if (gs_buffer_input[j] != gs_buffer_output[j])
                     {
                         w25qxx_interface_debug_print("w25qxx: write read check failed.\n");
-                        w25qxx_deinit(&gs_handle);
+                        (void)w25qxx_deinit(&gs_handle);
                         
                         return 1;
                     }
@@ -604,10 +604,10 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
             addr = (rand() % 10) * 4 * 1024;
             w25qxx_interface_debug_print("w25qxx: w25qxx_sector_erase_4k test with address 0x%X.\n", addr);
             res = w25qxx_sector_erase_4k(&gs_handle, addr);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: sector erase 4k failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
@@ -618,20 +618,20 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
             
             /* w25qxx_page_program */
             res = w25qxx_page_program(&gs_handle, addr, gs_buffer_input, 256);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: page program failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
             
             /* w25qxx_only_spi_read */
             res = w25qxx_only_spi_read(&gs_handle, addr, gs_buffer_output, 256);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: only spi read failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
@@ -640,7 +640,7 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
                 if (gs_buffer_input[j] != gs_buffer_output[j])
                 {
                     w25qxx_interface_debug_print("w25qxx: write read check failed.\n");
-                    w25qxx_deinit(&gs_handle);
+                    (void)w25qxx_deinit(&gs_handle);
                     
                     return 1;
                 }
@@ -649,10 +649,10 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
             
             /* w25qxx_fast_read */
             res = w25qxx_fast_read(&gs_handle, addr, gs_buffer_output, 256);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: fast read failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
@@ -661,7 +661,7 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
                 if (gs_buffer_input[j] != gs_buffer_output[j])
                 {
                     w25qxx_interface_debug_print("w25qxx: write read check failed.\n");
-                    w25qxx_deinit(&gs_handle);
+                    (void)w25qxx_deinit(&gs_handle);
                     
                     return 1;
                 }
@@ -672,10 +672,10 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
             addr = (rand() % 10) * 32 * 1024;
             w25qxx_interface_debug_print("w25qxx: w25qxx_block_erase_32k test with address 0x%X.\n", addr);
             res = w25qxx_block_erase_32k(&gs_handle, addr);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: sector erase 32k failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
@@ -686,20 +686,20 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
             
             /* w25qxx_page_program */
             res = w25qxx_page_program(&gs_handle, addr, gs_buffer_input, 256);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: page program failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
             
             /* w25qxx_only_spi_read */
             res = w25qxx_only_spi_read(&gs_handle, addr, gs_buffer_output, 256);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: only spi read failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
@@ -708,7 +708,7 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
                 if (gs_buffer_input[j] != gs_buffer_output[j])
                 {
                     w25qxx_interface_debug_print("w25qxx: write read check failed.\n");
-                    w25qxx_deinit(&gs_handle);
+                    (void)w25qxx_deinit(&gs_handle);
                     
                     return 1;
                 }
@@ -717,10 +717,10 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
             
             /* w25qxx_fast_read */
             res = w25qxx_fast_read(&gs_handle, addr, gs_buffer_output, 256);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: fast read failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
@@ -729,7 +729,7 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
                 if (gs_buffer_input[j] != gs_buffer_output[j])
                 {
                     w25qxx_interface_debug_print("w25qxx: write read check failed.\n");
-                    w25qxx_deinit(&gs_handle);
+                    (void)w25qxx_deinit(&gs_handle);
                     
                     return 1;
                 }
@@ -740,10 +740,10 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
             addr = (rand() % 10) * 64 * 1024;
             w25qxx_interface_debug_print("w25qxx: w25qxx_block_erase_64k test with address 0x%X.\n", addr);
             res = w25qxx_block_erase_64k(&gs_handle, addr);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: sector erase 64k failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
@@ -754,20 +754,20 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
             
             /* w25qxx_page_program */
             res = w25qxx_page_program(&gs_handle, addr, gs_buffer_input, 256);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: page program failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
             
             /* w25qxx_only_spi_read */
             res = w25qxx_only_spi_read(&gs_handle, addr, gs_buffer_output, 256);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: only spi read failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
@@ -776,7 +776,7 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
                 if (gs_buffer_input[j] != gs_buffer_output[j])
                 {
                     w25qxx_interface_debug_print("w25qxx: write read check failed.\n");
-                    w25qxx_deinit(&gs_handle);
+                    (void)w25qxx_deinit(&gs_handle);
                     
                     return 1;
                 }
@@ -785,10 +785,10 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
             
             /* w25qxx_fast_read */
             res = w25qxx_fast_read(&gs_handle, addr, gs_buffer_output, 256);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: fast read failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
@@ -797,7 +797,7 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
                 if (gs_buffer_input[j] != gs_buffer_output[j])
                 {
                     w25qxx_interface_debug_print("w25qxx: write read check failed.\n");
-                    w25qxx_deinit(&gs_handle);
+                    (void)w25qxx_deinit(&gs_handle);
                     
                     return 1;
                 }
@@ -808,10 +808,10 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
             w25qxx_interface_debug_print("w25qxx: get sfdp.\n");
             memset(gs_buffer_output, 0, sizeof(uint8_t) * 256);
             res = w25qxx_get_sfdp(&gs_handle, (uint8_t *)gs_buffer_output);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: get sfdp failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
@@ -829,10 +829,10 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
             
             /* security register1 write and read test */
             res = w25qxx_erase_security_register(&gs_handle, W25QXX_SECURITY_REGISTER_1);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: erase security register failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
@@ -841,18 +841,18 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
                 gs_buffer_input[j] = rand() %256;
             }
             res = w25qxx_program_security_register(&gs_handle, W25QXX_SECURITY_REGISTER_1, gs_buffer_input);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: program security register failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
             res = w25qxx_read_security_register(&gs_handle, W25QXX_SECURITY_REGISTER_1, gs_buffer_output);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: read security register failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
@@ -861,7 +861,7 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
                 if (gs_buffer_input[j] != gs_buffer_output[j])
                 {
                     w25qxx_interface_debug_print("w25qxx: write read check failed.\n");
-                    w25qxx_deinit(&gs_handle);
+                    (void)w25qxx_deinit(&gs_handle);
                     
                     return 1;
                 }
@@ -873,10 +873,10 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
             
             /* security register2 write and read test */
             res = w25qxx_erase_security_register(&gs_handle, W25QXX_SECURITY_REGISTER_2);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: erase security register failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
@@ -885,18 +885,18 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
                 gs_buffer_input[j] = rand() %256;
             }
             res = w25qxx_program_security_register(&gs_handle, W25QXX_SECURITY_REGISTER_2, gs_buffer_input);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: program security register failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
             res = w25qxx_read_security_register(&gs_handle, W25QXX_SECURITY_REGISTER_2, gs_buffer_output);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: read security register failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
@@ -905,7 +905,7 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
                 if (gs_buffer_input[j] != gs_buffer_output[j])
                 {
                     w25qxx_interface_debug_print("w25qxx: write read check failed.\n");
-                    w25qxx_deinit(&gs_handle);
+                    (void)w25qxx_deinit(&gs_handle);
                     
                     return 1;
                 }
@@ -917,10 +917,10 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
             
             /* security register3 write and read test */
             res = w25qxx_erase_security_register(&gs_handle, W25QXX_SECURITY_REGISTER_3);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: erase security register failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
@@ -929,18 +929,18 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
                 gs_buffer_input[j] = rand() %256;
             }
             res = w25qxx_program_security_register(&gs_handle, W25QXX_SECURITY_REGISTER_3, gs_buffer_input);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: program security register failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
             res = w25qxx_read_security_register(&gs_handle, W25QXX_SECURITY_REGISTER_3, gs_buffer_output);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: read security register failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
@@ -949,7 +949,7 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
                 if (gs_buffer_input[j] != gs_buffer_output[j])
                 {
                     w25qxx_interface_debug_print("w25qxx: write read check failed.\n");
-                    w25qxx_deinit(&gs_handle);
+                    (void)w25qxx_deinit(&gs_handle);
                     
                     return 1;
                 }
@@ -961,10 +961,10 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
             
             /* set address mode 3 byte */
             res = w25qxx_set_address_mode(&gs_handle, W25QXX_ADDRESS_MODE_3_BYTE);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: set address mode failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
@@ -972,8 +972,8 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
     }
     else
     {
-        volatile uint32_t size;
-        volatile uint32_t addr, step, j;
+        uint32_t size;
+        uint32_t addr, step, j;
         
         size = gsc_size[type - W25Q80];
         step = size / 16;
@@ -988,18 +988,18 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
                 gs_buffer_input[j] = rand() %256;
             }
             res = w25qxx_write(&gs_handle, addr, gs_buffer_input, 600);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: write failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
             res = w25qxx_read(&gs_handle, addr, gs_buffer_output, 600);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: read failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
@@ -1008,7 +1008,7 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
                 if (gs_buffer_input[j] != gs_buffer_output[j])
                 {
                     w25qxx_interface_debug_print("w25qxx: write read check failed.\n");
-                    w25qxx_deinit(&gs_handle);
+                    (void)w25qxx_deinit(&gs_handle);
                     
                     return 1;
                 }
@@ -1020,10 +1020,10 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
         addr = (rand() % 10) * 4 * 1024;
         w25qxx_interface_debug_print("w25qxx: w25qxx_sector_erase_4k test with address 0x%X.\n", addr);
         res = w25qxx_sector_erase_4k(&gs_handle, addr);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: sector erase 4k failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
@@ -1034,20 +1034,20 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
         
         /* w25qxx_page_program */
         res = w25qxx_page_program(&gs_handle, addr, gs_buffer_input, 256);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: page program failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
         
         /* w25qxx_fast_read */
         res = w25qxx_fast_read(&gs_handle, addr, gs_buffer_output, 256);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: fast read failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
@@ -1056,7 +1056,7 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
             if (gs_buffer_input[j] != gs_buffer_output[j])
             {
                 w25qxx_interface_debug_print("w25qxx: write read check failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                 
                 return 1;
             }
@@ -1067,10 +1067,10 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
         addr = (rand() % 10) * 32 * 1024;
         w25qxx_interface_debug_print("w25qxx: w25qxx_block_erase_32k test with address 0x%X.\n", addr);
         res = w25qxx_block_erase_32k(&gs_handle, addr);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: sector erase 32k failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
@@ -1081,20 +1081,20 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
         
         /* w25qxx_page_program */
         res = w25qxx_page_program(&gs_handle, addr, gs_buffer_input, 256);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: page program failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
         
         /* w25qxx_fast_read */
         res = w25qxx_fast_read(&gs_handle, addr, gs_buffer_output, 256);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: fast read failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
@@ -1103,7 +1103,7 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
             if (gs_buffer_input[j] != gs_buffer_output[j])
             {
                 w25qxx_interface_debug_print("w25qxx: write read check failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                 
                 return 1;
             }
@@ -1114,10 +1114,10 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
         addr = (rand() % 10) * 64 * 1024;
         w25qxx_interface_debug_print("w25qxx: w25qxx_block_erase_64k test with address 0x%X.\n", addr);
         res = w25qxx_block_erase_64k(&gs_handle, addr);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: sector erase 64k failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
@@ -1128,20 +1128,20 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
         
         /* w25qxx_page_program */
         res = w25qxx_page_program(&gs_handle, addr, gs_buffer_input, 256);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: page program failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
         
         /* w25qxx_fast_read */
         res = w25qxx_fast_read(&gs_handle, addr, gs_buffer_output, 256);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: fast read failed.\n");
-            w25qxx_deinit(&gs_handle);
+            (void)w25qxx_deinit(&gs_handle);
            
             return 1;
         }
@@ -1150,7 +1150,7 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
             if (gs_buffer_input[j] != gs_buffer_output[j])
             {
                 w25qxx_interface_debug_print("w25qxx: write read check failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                 
                 return 1;
             }
@@ -1164,10 +1164,10 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
             /* chip erase */
             w25qxx_interface_debug_print("w25qxx: w25qxx_chip_erase test.\n");
             res = w25qxx_chip_erase(&gs_handle);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: chip erase failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
@@ -1181,10 +1181,10 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
             
             /* set address mode 4 byte */
             res = w25qxx_set_address_mode(&gs_handle, W25QXX_ADDRESS_MODE_4_BYTE);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: set address mode failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
@@ -1199,18 +1199,18 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
                     gs_buffer_input[j] = rand() %256;
                 }
                 res = w25qxx_write(&gs_handle, addr, gs_buffer_input, 600);
-                if (res)
+                if (res != 0)
                 {
                     w25qxx_interface_debug_print("w25qxx: write failed.\n");
-                    w25qxx_deinit(&gs_handle);
+                    (void)w25qxx_deinit(&gs_handle);
                    
                     return 1;
                 }
                 res = w25qxx_read(&gs_handle, addr, gs_buffer_output, 600);
-                if (res)
+                if (res != 0)
                 {
                     w25qxx_interface_debug_print("w25qxx: read failed.\n");
-                    w25qxx_deinit(&gs_handle);
+                    (void)w25qxx_deinit(&gs_handle);
                    
                     return 1;
                 }
@@ -1219,7 +1219,7 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
                     if (gs_buffer_input[j] != gs_buffer_output[j])
                     {
                         w25qxx_interface_debug_print("w25qxx: write read check failed.\n");
-                        w25qxx_deinit(&gs_handle);
+                        (void)w25qxx_deinit(&gs_handle);
                         
                         return 1;
                     }
@@ -1231,10 +1231,10 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
             addr = (rand() % 10) * 4 * 1024;
             w25qxx_interface_debug_print("w25qxx: w25qxx_sector_erase_4k test with address 0x%X.\n", addr);
             res = w25qxx_sector_erase_4k(&gs_handle, addr);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: sector erase 4k failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
@@ -1245,20 +1245,20 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
             
             /* w25qxx_page_program */
             res = w25qxx_page_program(&gs_handle, addr, gs_buffer_input, 256);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: page program failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
             
             /* w25qxx_fast_read */
             res = w25qxx_fast_read(&gs_handle, addr, gs_buffer_output, 256);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: fast read failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
@@ -1267,7 +1267,7 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
                 if (gs_buffer_input[j] != gs_buffer_output[j])
                 {
                     w25qxx_interface_debug_print("w25qxx: write read check failed.\n");
-                    w25qxx_deinit(&gs_handle);
+                    (void)w25qxx_deinit(&gs_handle);
                     
                     return 1;
                 }
@@ -1278,10 +1278,10 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
             addr = (rand() % 10) * 32 * 1024;
             w25qxx_interface_debug_print("w25qxx: w25qxx_block_erase_32k test with address 0x%X.\n", addr);
             res = w25qxx_block_erase_32k(&gs_handle, addr);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: sector erase 32k failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
@@ -1292,20 +1292,20 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
             
             /* w25qxx_page_program */
             res = w25qxx_page_program(&gs_handle, addr, gs_buffer_input, 256);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: page program failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
             
             /* w25qxx_fast_read */
             res = w25qxx_fast_read(&gs_handle, addr, gs_buffer_output, 256);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: fast read failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
@@ -1314,7 +1314,7 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
                 if (gs_buffer_input[j] != gs_buffer_output[j])
                 {
                     w25qxx_interface_debug_print("w25qxx: write read check failed.\n");
-                    w25qxx_deinit(&gs_handle);
+                    (void)w25qxx_deinit(&gs_handle);
                     
                     return 1;
                 }
@@ -1325,10 +1325,10 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
             addr = (rand() % 10) * 64 * 1024;
             w25qxx_interface_debug_print("w25qxx: w25qxx_block_erase_64k test with address 0x%X.\n", addr);
             res = w25qxx_block_erase_64k(&gs_handle, addr);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: sector erase 64k failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
@@ -1339,20 +1339,20 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
             
             /* w25qxx_page_program */
             res = w25qxx_page_program(&gs_handle, addr, gs_buffer_input, 256);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: page program failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
             
             /* w25qxx_fast_read */
             res = w25qxx_fast_read(&gs_handle, addr, gs_buffer_output, 256);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: fast read failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
@@ -1361,7 +1361,7 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
                 if (gs_buffer_input[j] != gs_buffer_output[j])
                 {
                     w25qxx_interface_debug_print("w25qxx: write read check failed.\n");
-                    w25qxx_deinit(&gs_handle);
+                    (void)w25qxx_deinit(&gs_handle);
                     
                     return 1;
                 }
@@ -1373,33 +1373,33 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
             
             /* set address mode 3 byte */
             res = w25qxx_set_address_mode(&gs_handle, W25QXX_ADDRESS_MODE_3_BYTE);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: set address mode failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
         }
         
-        if (dual_quad_spi_enable)
+        if (dual_quad_spi_enable != 0)
         {
             /* enter to spi mode */
             w25qxx_interface_debug_print("w25qxx: enter to spi mode.\n");
             
             /* exit qspi */
             res = w25qxx_exit_qspi_mode(&gs_handle);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: exit qspi mode failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
             
             /* set chip interface spi */
             res = w25qxx_set_interface(&gs_handle, W25QXX_INTERFACE_SPI);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: set interface failed.\n");
                
@@ -1414,30 +1414,30 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
             
             /* w25qxx_sector_erase_4k */
             res = w25qxx_sector_erase_4k(&gs_handle, 0x00000000);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: sector erase 4k failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
             
             /* w25qxx_page_program */
             res = w25qxx_page_program(&gs_handle, 0x00000000, gs_buffer_input, 256);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: page program failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
             
             /* fast read dual output */
             res = w25qxx_fast_read_dual_output(&gs_handle, 0x00000000, gs_buffer_output, 256);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: fast read dual output failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
@@ -1446,7 +1446,7 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
                 if (gs_buffer_input[j] != gs_buffer_output[j])
                 {
                     w25qxx_interface_debug_print("w25qxx: write read check failed.\n");
-                    w25qxx_deinit(&gs_handle);
+                    (void)w25qxx_deinit(&gs_handle);
                     
                     return 1;
                 }
@@ -1455,10 +1455,10 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
             
             /* fast read quad output */
             res = w25qxx_fast_read_quad_output(&gs_handle, 0x00000000, gs_buffer_output, 256);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: fast read quad output failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
@@ -1467,7 +1467,7 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
                 if (gs_buffer_input[j] != gs_buffer_output[j])
                 {
                     w25qxx_interface_debug_print("w25qxx: write read check failed.\n");
-                    w25qxx_deinit(&gs_handle);
+                    (void)w25qxx_deinit(&gs_handle);
                     
                     return 1;
                 }
@@ -1476,10 +1476,10 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
             
             /* fast read dual io */
             res = w25qxx_fast_read_dual_io(&gs_handle, 0x00000000, gs_buffer_output, 256);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: fast read dual io failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
@@ -1488,7 +1488,7 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
                 if (gs_buffer_input[j] != gs_buffer_output[j])
                 {
                     w25qxx_interface_debug_print("w25qxx: write read check failed.\n");
-                    w25qxx_deinit(&gs_handle);
+                    (void)w25qxx_deinit(&gs_handle);
                     
                     return 1;
                 }
@@ -1497,10 +1497,10 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
             
             /* fast read quad io */
             res = w25qxx_fast_read_quad_io(&gs_handle, 0x00000000, gs_buffer_output, 256);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: fast read quad io failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
@@ -1509,7 +1509,7 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
                 if (gs_buffer_input[j] != gs_buffer_output[j])
                 {
                     w25qxx_interface_debug_print("w25qxx: write read check failed.\n");
-                    w25qxx_deinit(&gs_handle);
+                    (void)w25qxx_deinit(&gs_handle);
                     
                     return 1;
                 }
@@ -1518,10 +1518,10 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
             
             /* word read quad io */
             res = w25qxx_word_read_quad_io(&gs_handle, 0x00000000, gs_buffer_output, 256);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: word read quad io failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
@@ -1530,7 +1530,7 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
                 if (gs_buffer_input[j] != gs_buffer_output[j])
                 {
                     w25qxx_interface_debug_print("w25qxx: write read check failed.\n");
-                    w25qxx_deinit(&gs_handle);
+                    (void)w25qxx_deinit(&gs_handle);
                     
                     return 1;
                 }
@@ -1539,10 +1539,10 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
             
             /* octal read quad io */
             res = w25qxx_octal_word_read_quad_io(&gs_handle, 0x00000000, gs_buffer_output, 256);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: octal read quad io failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
@@ -1551,7 +1551,7 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
                 if (gs_buffer_input[j] != gs_buffer_output[j])
                 {
                     w25qxx_interface_debug_print("w25qxx: write read check failed.\n");
-                    w25qxx_deinit(&gs_handle);
+                    (void)w25qxx_deinit(&gs_handle);
                     
                     return 1;
                 }
@@ -1566,30 +1566,30 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
             
             /* w25qxx_sector_erase_4k */
             res = w25qxx_sector_erase_4k(&gs_handle, 0x00000000);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: sector erase 4k failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
             
             /* w25qxx_page_program_quad_input */
             res = w25qxx_page_program_quad_input(&gs_handle, 0x00000000, gs_buffer_input, 256);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: page program quad input failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
             
             /* fast read */
             res = w25qxx_fast_read(&gs_handle, 0x00000000, gs_buffer_output, 256);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: fast read failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
@@ -1598,7 +1598,7 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
                 if (gs_buffer_input[j] != gs_buffer_output[j])
                 {
                     w25qxx_interface_debug_print("w25qxx: write read check failed.\n");
-                    w25qxx_deinit(&gs_handle);
+                    (void)w25qxx_deinit(&gs_handle);
                     
                     return 1;
                 }
@@ -1612,10 +1612,10 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
                 
                 /* set address mode 4 byte */
                 res = w25qxx_set_address_mode(&gs_handle, W25QXX_ADDRESS_MODE_4_BYTE);
-                if (res)
+                if (res != 0)
                 {
                     w25qxx_interface_debug_print("w25qxx: set address mode failed.\n");
-                    w25qxx_deinit(&gs_handle);
+                    (void)w25qxx_deinit(&gs_handle);
                    
                     return 1;
                 }
@@ -1628,30 +1628,30 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
                 
                 /* w25qxx_sector_erase_4k */
                 res = w25qxx_sector_erase_4k(&gs_handle, 0x00000000);
-                if (res)
+                if (res != 0)
                 {
                     w25qxx_interface_debug_print("w25qxx: sector erase 4k failed.\n");
-                    w25qxx_deinit(&gs_handle);
+                    (void)w25qxx_deinit(&gs_handle);
                    
                     return 1;
                 }
                 
                 /* w25qxx_page_program */
                 res = w25qxx_page_program(&gs_handle, 0x00000000, gs_buffer_input, 256);
-                if (res)
+                if (res != 0)
                 {
                     w25qxx_interface_debug_print("w25qxx: page program failed.\n");
-                    w25qxx_deinit(&gs_handle);
+                    (void)w25qxx_deinit(&gs_handle);
                    
                     return 1;
                 }
                 
                 /* fast read dual output */
                 res = w25qxx_fast_read_dual_output(&gs_handle, 0x00000000, gs_buffer_output, 256);
-                if (res)
+                if (res != 0)
                 {
                     w25qxx_interface_debug_print("w25qxx: fast read dual output failed.\n");
-                    w25qxx_deinit(&gs_handle);
+                    (void)w25qxx_deinit(&gs_handle);
                    
                     return 1;
                 }
@@ -1660,7 +1660,7 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
                     if (gs_buffer_input[j] != gs_buffer_output[j])
                     {
                         w25qxx_interface_debug_print("w25qxx: write read check failed.\n");
-                        w25qxx_deinit(&gs_handle);
+                        (void)w25qxx_deinit(&gs_handle);
                         
                         return 1;
                     }
@@ -1669,10 +1669,10 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
                 
                 /* fast read quad output */
                 res = w25qxx_fast_read_quad_output(&gs_handle, 0x00000000, gs_buffer_output, 256);
-                if (res)
+                if (res != 0)
                 {
                     w25qxx_interface_debug_print("w25qxx: fast read quad output failed.\n");
-                    w25qxx_deinit(&gs_handle);
+                    (void)w25qxx_deinit(&gs_handle);
                    
                     return 1;
                 }
@@ -1681,7 +1681,7 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
                     if (gs_buffer_input[j] != gs_buffer_output[j])
                     {
                         w25qxx_interface_debug_print("w25qxx: write read check failed.\n");
-                        w25qxx_deinit(&gs_handle);
+                        (void)w25qxx_deinit(&gs_handle);
                         
                         return 1;
                     }
@@ -1690,10 +1690,10 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
                 
                 /* fast read dual io */
                 res = w25qxx_fast_read_dual_io(&gs_handle, 0x00000000, gs_buffer_output, 256);
-                if (res)
+                if (res != 0)
                 {
                     w25qxx_interface_debug_print("w25qxx: fast read dual io failed.\n");
-                    w25qxx_deinit(&gs_handle);
+                    (void)w25qxx_deinit(&gs_handle);
                    
                     return 1;
                 }
@@ -1702,7 +1702,7 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
                     if (gs_buffer_input[j] != gs_buffer_output[j])
                     {
                         w25qxx_interface_debug_print("w25qxx: write read check failed.\n");
-                        w25qxx_deinit(&gs_handle);
+                        (void)w25qxx_deinit(&gs_handle);
                         
                         return 1;
                     }
@@ -1711,10 +1711,10 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
                 
                 /* fast read quad io */
                 res = w25qxx_fast_read_quad_io(&gs_handle, 0x00000000, gs_buffer_output, 256);
-                if (res)
+                if (res != 0)
                 {
                     w25qxx_interface_debug_print("w25qxx: fast read quad io failed.\n");
-                    w25qxx_deinit(&gs_handle);
+                    (void)w25qxx_deinit(&gs_handle);
                    
                     return 1;
                 }
@@ -1723,7 +1723,7 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
                     if (gs_buffer_input[j] != gs_buffer_output[j])
                     {
                         w25qxx_interface_debug_print("w25qxx: write read check failed.\n");
-                        w25qxx_deinit(&gs_handle);
+                        (void)w25qxx_deinit(&gs_handle);
                         
                         return 1;
                     }
@@ -1732,10 +1732,10 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
                 
                 /* word read quad io */
                 res = w25qxx_word_read_quad_io(&gs_handle, 0x00000000, gs_buffer_output, 256);
-                if (res)
+                if (res != 0)
                 {
                     w25qxx_interface_debug_print("w25qxx: word read quad io failed.\n");
-                    w25qxx_deinit(&gs_handle);
+                    (void)w25qxx_deinit(&gs_handle);
                    
                     return 1;
                 }
@@ -1744,7 +1744,7 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
                     if (gs_buffer_input[j] != gs_buffer_output[j])
                     {
                         w25qxx_interface_debug_print("w25qxx: write read check failed.\n");
-                        w25qxx_deinit(&gs_handle);
+                        (void)w25qxx_deinit(&gs_handle);
                         
                         return 1;
                     }
@@ -1753,10 +1753,10 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
                 
                 /* octal read quad io */
                 res = w25qxx_octal_word_read_quad_io(&gs_handle, 0x00000000, gs_buffer_output, 256);
-                if (res)
+                if (res != 0)
                 {
                     w25qxx_interface_debug_print("w25qxx: octal read quad io failed.\n");
-                    w25qxx_deinit(&gs_handle);
+                    (void)w25qxx_deinit(&gs_handle);
                    
                     return 1;
                 }
@@ -1765,7 +1765,7 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
                     if (gs_buffer_input[j] != gs_buffer_output[j])
                     {
                         w25qxx_interface_debug_print("w25qxx: write read check failed.\n");
-                        w25qxx_deinit(&gs_handle);
+                        (void)w25qxx_deinit(&gs_handle);
                         
                         return 1;
                     }
@@ -1780,30 +1780,30 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
                 
                 /* w25qxx_sector_erase_4k */
                 res = w25qxx_sector_erase_4k(&gs_handle, 0x00000000);
-                if (res)
+                if (res != 0)
                 {
                     w25qxx_interface_debug_print("w25qxx: sector erase 4k failed.\n");
-                    w25qxx_deinit(&gs_handle);
+                    (void)w25qxx_deinit(&gs_handle);
                    
                     return 1;
                 }
                 
                 /* w25qxx_page_program_quad_input */
                 res = w25qxx_page_program_quad_input(&gs_handle, 0x00000000, gs_buffer_input, 256);
-                if (res)
+                if (res != 0)
                 {
                     w25qxx_interface_debug_print("w25qxx: page program quad input failed.\n");
-                    w25qxx_deinit(&gs_handle);
+                    (void)w25qxx_deinit(&gs_handle);
                    
                     return 1;
                 }
                 
                 /* fast read */
                 res = w25qxx_fast_read(&gs_handle, 0x00000000, gs_buffer_output, 256);
-                if (res)
+                if (res != 0)
                 {
                     w25qxx_interface_debug_print("w25qxx: fast read failed.\n");
-                    w25qxx_deinit(&gs_handle);
+                    (void)w25qxx_deinit(&gs_handle);
                    
                     return 1;
                 }
@@ -1812,7 +1812,7 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
                     if (gs_buffer_input[j] != gs_buffer_output[j])
                     {
                         w25qxx_interface_debug_print("w25qxx: write read check failed.\n");
-                        w25qxx_deinit(&gs_handle);
+                        (void)w25qxx_deinit(&gs_handle);
                         
                         return 1;
                     }
@@ -1824,10 +1824,10 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
                 
                 /* set address mode 3 byte */
                 res = w25qxx_set_address_mode(&gs_handle, W25QXX_ADDRESS_MODE_3_BYTE);
-                if (res)
+                if (res != 0)
                 {
                     w25qxx_interface_debug_print("w25qxx: set address mode failed.\n");
-                    w25qxx_deinit(&gs_handle);
+                    (void)w25qxx_deinit(&gs_handle);
                    
                     return 1;
                 }
@@ -1838,17 +1838,17 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
             
             /* enter qspi */
             res = w25qxx_enter_qspi_mode(&gs_handle);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: enter qspi mode failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
             
             /* set chip interface spi */
             res = w25qxx_set_interface(&gs_handle, W25QXX_INTERFACE_QSPI);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: set interface failed.\n");
                
@@ -1863,7 +1863,7 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
         w25qxx_interface_debug_print("w25qxx: set 8 dummy max 80MHz test.\n");
         
         res = w25qxx_set_read_parameters(&gs_handle, W25QXX_QSPI_READ_DUMMY_8_80MHZ, W25QXX_QSPI_READ_WRAP_LENGTH_8_BYTE);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: set read parameters.\n");
            
@@ -1877,18 +1877,18 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
                 gs_buffer_input[j] = rand() %256;
             }
             res = w25qxx_write(&gs_handle, addr, gs_buffer_input, 600);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: write failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
             res = w25qxx_read(&gs_handle, addr, gs_buffer_output, 600);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: read failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
@@ -1897,7 +1897,7 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
                 if (gs_buffer_input[j] != gs_buffer_output[j])
                 {
                     w25qxx_interface_debug_print("w25qxx: write read check failed.\n");
-                    w25qxx_deinit(&gs_handle);
+                    (void)w25qxx_deinit(&gs_handle);
                     
                     return 1;
                 }
@@ -1909,7 +1909,7 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
         w25qxx_interface_debug_print("w25qxx: set 6 dummy max 80MHz test.\n");
         
         res = w25qxx_set_read_parameters(&gs_handle, W25QXX_QSPI_READ_DUMMY_6_80MHZ, W25QXX_QSPI_READ_WRAP_LENGTH_8_BYTE);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: set read parameters.\n");
            
@@ -1923,18 +1923,18 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
                 gs_buffer_input[j] = rand() %256;
             }
             res = w25qxx_write(&gs_handle, addr, gs_buffer_input, 600);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: write failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
             res = w25qxx_read(&gs_handle, addr, gs_buffer_output, 600);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: read failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
@@ -1943,7 +1943,7 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
                 if (gs_buffer_input[j] != gs_buffer_output[j])
                 {
                     w25qxx_interface_debug_print("w25qxx: write read check failed.\n");
-                    w25qxx_deinit(&gs_handle);
+                    (void)w25qxx_deinit(&gs_handle);
                     
                     return 1;
                 }
@@ -1955,7 +1955,7 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
         w25qxx_interface_debug_print("w25qxx: set 4 dummy max 55MHz test.\n");
         
         res = w25qxx_set_read_parameters(&gs_handle, W25QXX_QSPI_READ_DUMMY_4_55MHZ, W25QXX_QSPI_READ_WRAP_LENGTH_8_BYTE);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: set read parameters.\n");
            
@@ -1969,18 +1969,18 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
                 gs_buffer_input[j] = rand() %256;
             }
             res = w25qxx_write(&gs_handle, addr, gs_buffer_input, 600);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: write failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
             res = w25qxx_read(&gs_handle, addr, gs_buffer_output, 600);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: read failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
@@ -1989,7 +1989,7 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
                 if (gs_buffer_input[j] != gs_buffer_output[j])
                 {
                     w25qxx_interface_debug_print("w25qxx: write read check failed.\n");
-                    w25qxx_deinit(&gs_handle);
+                    (void)w25qxx_deinit(&gs_handle);
                     
                     return 1;
                 }
@@ -2001,7 +2001,7 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
         w25qxx_interface_debug_print("w25qxx: set 2 dummy max 33MHz test.\n");
         
         res = w25qxx_set_read_parameters(&gs_handle, W25QXX_QSPI_READ_DUMMY_2_33MHZ, W25QXX_QSPI_READ_WRAP_LENGTH_8_BYTE);
-        if (res)
+        if (res != 0)
         {
             w25qxx_interface_debug_print("w25qxx: set read parameters.\n");
            
@@ -2015,18 +2015,18 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
                 gs_buffer_input[j] = rand() %256;
             }
             res = w25qxx_write(&gs_handle, addr, gs_buffer_input, 600);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: write failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
             res = w25qxx_read(&gs_handle, addr, gs_buffer_output, 600);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: read failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
@@ -2035,7 +2035,7 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
                 if (gs_buffer_input[j] != gs_buffer_output[j])
                 {
                     w25qxx_interface_debug_print("w25qxx: write read check failed.\n");
-                    w25qxx_deinit(&gs_handle);
+                    (void)w25qxx_deinit(&gs_handle);
                     
                     return 1;
                 }
@@ -2046,7 +2046,7 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
     
     /* finish read test */
     w25qxx_interface_debug_print("w25qxx: finish read test.\n");
-    w25qxx_deinit(&gs_handle);
+    (void)w25qxx_deinit(&gs_handle);
     
     return 0;
 }

@@ -60,9 +60,9 @@ uint8_t delay_init(void)
  */
 void delay_us(uint32_t us)
 {
-    volatile uint32_t ticks;
-    volatile uint32_t told, tnow, tcnt=0;
-    volatile uint32_t reload = SysTick->LOAD;
+    uint32_t ticks;
+    uint32_t told, tnow, tcnt=0;
+    uint32_t reload = SysTick->LOAD;
     ticks = us * gs_fac_us;
     told = SysTick->VAL;
         
