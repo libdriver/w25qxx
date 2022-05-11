@@ -34,8 +34,8 @@
  * </table>
  */
 
-#ifndef _SPI_H_
-#define _SPI_H_
+#ifndef SPI_H
+#define SPI_H
 
 #include <linux/spi/spidev.h>
 #include <sys/ioctl.h>

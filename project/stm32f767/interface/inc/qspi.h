@@ -34,8 +34,8 @@
  * </table>
  */
 
-#ifndef _QSPI_H_
-#define _QSPI_H_
+#ifndef QSPI_H
+#define QSPI_H
 
 #include "stm32f7xx_hal.h"
 

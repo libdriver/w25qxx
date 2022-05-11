@@ -113,7 +113,7 @@ uint8_t uart1_deinit(void)
  */
 uint8_t uart1_write(uint8_t *buf, uint16_t len)
 {
-    volatile uint16_t timeout = 1000;
+    uint16_t timeout = 1000;
     
     g_uart1_tx_done = 0;
     if (HAL_UART_Transmit_IT(&g_uart1_handle, (uint8_t *)buf, len))
@@ -146,8 +146,8 @@ uint8_t uart1_write(uint8_t *buf, uint16_t len)
  */
 uint16_t uart1_read(uint8_t *buf, uint16_t len)
 {
-    volatile uint16_t read_len;
-    volatile uint16_t g_uart1_point_old;
+    uint16_t read_len;
+    uint16_t g_uart1_point_old;
     
     start:
     g_uart1_point_old = g_uart1_point;
@@ -184,8 +184,8 @@ uint16_t uart1_flush(void)
  */
 uint16_t uart1_print(char  *fmt, ...)
 {
-    volatile char str[256];
-    volatile uint8_t len;
+    char str[256];
+    uint8_t len;
     va_list args;
     
     memset((char *)str, 0, sizeof(char)*256); 
@@ -259,7 +259,7 @@ uint8_t uart2_deinit(void)
  */
 uint8_t uart2_write(uint8_t *buf, uint16_t len)
 {
-    volatile uint16_t timeout = 1000;
+    uint16_t timeout = 1000;
     
     g_uart2_tx_done = 0;
     if (HAL_UART_Transmit_IT(&g_uart2_handle, (uint8_t *)buf, len))
@@ -292,8 +292,8 @@ uint8_t uart2_write(uint8_t *buf, uint16_t len)
  */
 uint16_t uart2_read(uint8_t *buf, uint16_t len)
 {
-    volatile uint16_t read_len;
-    volatile uint16_t g_uart2_point_old;
+    uint16_t read_len;
+    uint16_t g_uart2_point_old;
     
     start:
     g_uart2_point_old = g_uart2_point;

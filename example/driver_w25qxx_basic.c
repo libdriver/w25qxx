@@ -50,7 +50,7 @@ static w25qxx_handle_t gs_handle;        /**< w25qxx handle */
  */
 uint8_t w25qxx_basic_init(w25qxx_type_t type, w25qxx_interface_t interface, w25qxx_bool_t dual_quad_spi_enable)
 {
-    volatile uint8_t res;
+    uint8_t res;
     
     /* link interface function */
     DRIVER_W25QXX_LINK_INIT(&gs_handle, w25qxx_handle_t);
@@ -63,7 +63,7 @@ uint8_t w25qxx_basic_init(w25qxx_type_t type, w25qxx_interface_t interface, w25q
     
     /* set chip type */
     res = w25qxx_set_type(&gs_handle, type);
-    if (res)
+    if (res != 0)
     {
         w25qxx_interface_debug_print("w25qxx: set type failed.\n");
        
@@ -72,7 +72,7 @@ uint8_t w25qxx_basic_init(w25qxx_type_t type, w25qxx_interface_t interface, w25q
     
     /* set chip interface */
     res = w25qxx_set_interface(&gs_handle, interface);
-    if (res)
+    if (res != 0)
     {
         w25qxx_interface_debug_print("w25qxx: set interface failed.\n");
        
@@ -81,17 +81,17 @@ uint8_t w25qxx_basic_init(w25qxx_type_t type, w25qxx_interface_t interface, w25q
     
     /* set dual quad spi */
     res = w25qxx_set_dual_quad_spi(&gs_handle, dual_quad_spi_enable);
-    if (res)
+    if (res != 0)
     {
         w25qxx_interface_debug_print("w25qxx: set dual quad spi failed.\n");
-        w25qxx_deinit(&gs_handle);
+        (void)w25qxx_deinit(&gs_handle);
        
         return 1;
     }
     
     /* chip init */
     res = w25qxx_init(&gs_handle);
-    if (res)
+    if (res != 0)
     {
         w25qxx_interface_debug_print("w25qxx: init failed.\n");
        
@@ -102,10 +102,10 @@ uint8_t w25qxx_basic_init(w25qxx_type_t type, w25qxx_interface_t interface, w25q
         if (type >= W25Q256)
         {
             res = w25qxx_set_address_mode(&gs_handle, W25QXX_ADDRESS_MODE_4_BYTE);
-            if (res)
+            if (res != 0)
             {
                 w25qxx_interface_debug_print("w25qxx: set address mode failed.\n");
-                w25qxx_deinit(&gs_handle);
+                (void)w25qxx_deinit(&gs_handle);
                
                 return 1;
             }
@@ -124,7 +124,7 @@ uint8_t w25qxx_basic_init(w25qxx_type_t type, w25qxx_interface_t interface, w25q
  */
 uint8_t w25qxx_basic_deinit(void)
 {
-    if (w25qxx_deinit(&gs_handle))
+    if (w25qxx_deinit(&gs_handle) != 0)
     {
         return 1;
     }
@@ -143,7 +143,7 @@ uint8_t w25qxx_basic_deinit(void)
  */
 uint8_t w25qxx_basic_power_down(void)
 {
-    if (w25qxx_power_down(&gs_handle))
+    if (w25qxx_power_down(&gs_handle) != 0)
     {
         return 1;
     }
@@ -162,7 +162,7 @@ uint8_t w25qxx_basic_power_down(void)
  */
 uint8_t w25qxx_basic_wake_up(void)
 {
-    if (w25qxx_release_power_down(&gs_handle))
+    if (w25qxx_release_power_down(&gs_handle) != 0)
     {
         return 1;
     }
@@ -181,7 +181,7 @@ uint8_t w25qxx_basic_wake_up(void)
  */
 uint8_t w25qxx_basic_chip_erase(void)
 {
-    if (w25qxx_chip_erase(&gs_handle))
+    if (w25qxx_chip_erase(&gs_handle) != 0)
     {
         return 1;
     }
@@ -202,7 +202,7 @@ uint8_t w25qxx_basic_chip_erase(void)
  */
 uint8_t w25qxx_basic_get_id(uint8_t *manufacturer, uint8_t *device_id)
 {
-    if (w25qxx_get_manufacturer_device_id(&gs_handle, manufacturer, device_id))
+    if (w25qxx_get_manufacturer_device_id(&gs_handle, manufacturer, device_id) != 0)
     {
         return 1;
     }
@@ -224,7 +224,7 @@ uint8_t w25qxx_basic_get_id(uint8_t *manufacturer, uint8_t *device_id)
  */
 uint8_t w25qxx_basic_write(uint32_t addr, uint8_t *data, uint32_t len)
 {
-    if (w25qxx_write(&gs_handle, addr, data, len))
+    if (w25qxx_write(&gs_handle, addr, data, len) != 0)
     {
         return 1;
     }
@@ -246,7 +246,7 @@ uint8_t w25qxx_basic_write(uint32_t addr, uint8_t *data, uint32_t len)
  */
 uint8_t w25qxx_basic_read(uint32_t addr, uint8_t *data, uint32_t len)
 {
-    if (w25qxx_read(&gs_handle, addr, data, len))
+    if (w25qxx_read(&gs_handle, addr, data, len) != 0)
     {
         return 1;
     }

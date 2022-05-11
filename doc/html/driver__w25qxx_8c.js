@@ -53,7 +53,6 @@ var driver__w25qxx_8c =
     [ "W25QXX_COMMAND_WRITE_STATUS_REG1", "driver__w25qxx_8c.html#a932f54ff92de8bbab4602ab85ac6c155", null ],
     [ "W25QXX_COMMAND_WRITE_STATUS_REG2", "driver__w25qxx_8c.html#a4be10ed873d56bb183d9b1bde9105135", null ],
     [ "W25QXX_COMMAND_WRITE_STATUS_REG3", "driver__w25qxx_8c.html#a6d099dc6afb59cc950d3abe96b840158", null ],
-    [ "_w25qxx_page_program", "driver__w25qxx_8c.html#ab680906394a5cc6e996d0e81ac241798", null ],
     [ "w25qxx_block_erase_32k", "group__w25qxx__basic__driver.html#ga39c8fb382e8c3e4d57232dfa79af781c", null ],
     [ "w25qxx_block_erase_64k", "group__w25qxx__basic__driver.html#gaf53bc5f6073482b9b74efd417ec7ac83", null ],
     [ "w25qxx_chip_erase", "group__w25qxx__basic__driver.html#ga0862833b36831f92684980b2e21f2e39", null ],

@@ -34,8 +34,8 @@
  * </table>
  */
 
-#ifndef _DELAY_H_
-#define _DELAY_H_
+#ifndef DELAY_H
+#define DELAY_H
 
 #include "stm32f7xx_hal.h"
 

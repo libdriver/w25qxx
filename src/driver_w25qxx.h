@@ -34,8 +34,8 @@
  * </table>
  */
 
-#ifndef _DRIVER_W25QXX_H_
-#define _DRIVER_W25QXX_H_
+#ifndef DRIVER_W25QXX_H
+#define DRIVER_W25QXX_H
 
 #include <stdint.h>
 #include <stdio.h>
@@ -61,12 +61,12 @@ extern "C"{
  */
 typedef enum
 {
-    W25Q80  = 0XEF13,        /**< w25q80 */
-    W25Q16  = 0XEF14,        /**< w25q16 */
-    W25Q32  = 0XEF15,        /**< w25q32 */
-    W25Q64  = 0XEF16,        /**< w25q64 */
-    W25Q128 = 0XEF17,        /**< w25q128 */
-    W25Q256 = 0XEF18,        /**< w25q256 */
+    W25Q80  = 0XEF13U,        /**< w25q80 */
+    W25Q16  = 0XEF14U,        /**< w25q16 */
+    W25Q32  = 0XEF15U,        /**< w25q32 */
+    W25Q64  = 0XEF16U,        /**< w25q64 */
+    W25Q128 = 0XEF17U,        /**< w25q128 */
+    W25Q256 = 0XEF18U,        /**< w25q256 */
 } w25qxx_type_t;
 
 /**
@@ -217,7 +217,7 @@ typedef struct w25qxx_handle_s
                                    uint8_t *out_buf, uint32_t out_len, uint8_t data_line);             /**< point to a spi_qspi_write_read function address */
     void (*delay_ms)(uint32_t ms);                                                                     /**< point to a delay_ms function address */
     void (*delay_us)(uint32_t us);                                                                     /**< point to a delay_us function address */
-    uint16_t (*debug_print)(char *fmt, ...);                                                           /**< point to a debug_print function address */
+    void (*debug_print)(const char *const fmt, ...);                                                   /**< point to a debug_print function address */
     uint8_t inited;                                                                                    /**< inited flag */
     uint16_t type;                                                                                     /**< chip type */
     uint8_t adress_mode;                                                                               /**< address mode */
@@ -226,7 +226,7 @@ typedef struct w25qxx_handle_s
     uint8_t dual_quad_spi_enable;                                                                      /**< dual spi and quad spi enable */
     uint8_t spi_qspi;                                                                                  /**< spi qspi interface type */
     uint8_t buf[256 + 6];                                                                              /**< inner buffer */
-    uint8_t buf_4k[4096];                                                                              /**< 4k inner buffer */
+    uint8_t buf_4k[4096 + 1];                                                                          /**< 4k inner buffer */
 } w25qxx_handle_t;
 
 /**

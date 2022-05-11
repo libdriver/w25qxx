@@ -34,8 +34,8 @@
  * </table>
  */
 
-#ifndef _UART_H_
-#define _UART_H_
+#ifndef UART_H
+#define UART_H
 
 #include "stm32f7xx_hal.h"
 

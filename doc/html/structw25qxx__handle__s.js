@@ -2,8 +2,8 @@ var structw25qxx__handle__s =
 [
     [ "adress_mode", "structw25qxx__handle__s.html#a40d8a21abe81fd9b9945d8df45f19869", null ],
     [ "buf", "structw25qxx__handle__s.html#a2121914a1858618e9216fa2daf0a42a2", null ],
-    [ "buf_4k", "structw25qxx__handle__s.html#a3caddab3113ae8c47ff49a87b951a875", null ],
-    [ "debug_print", "structw25qxx__handle__s.html#a75f9f50c23e87e9407f9ec4e34bb42f2", null ],
+    [ "buf_4k", "structw25qxx__handle__s.html#ac80aa2927adf500634749513e88c474b", null ],
+    [ "debug_print", "structw25qxx__handle__s.html#a769d5b3a6c14790a0e126e8fe70b384b", null ],
     [ "delay_ms", "structw25qxx__handle__s.html#a406c9433252b7366de417b7a60915c81", null ],
     [ "delay_us", "structw25qxx__handle__s.html#a97ffc4fce945527bd6ab25a3596caef7", null ],
     [ "dual_quad_spi_enable", "structw25qxx__handle__s.html#ac2bd5f4f7f52f548fd421c9eedbce1c7", null ],

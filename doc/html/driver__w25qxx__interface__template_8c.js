@@ -1,6 +1,6 @@
 var driver__w25qxx__interface__template_8c =
 [
-    [ "w25qxx_interface_debug_print", "group__w25qxx__interface__driver.html#ga3512a73a355d342687013a08c3c3e1de", null ],
+    [ "w25qxx_interface_debug_print", "group__w25qxx__interface__driver.html#ga5325474fa17f6833744e631613fd2a0e", null ],
     [ "w25qxx_interface_delay_ms", "group__w25qxx__interface__driver.html#ga964fa232abf98737cb98458eebfff82c", null ],
     [ "w25qxx_interface_delay_us", "group__w25qxx__interface__driver.html#ga38e79039b913154c9dd1036ff52bb420", null ],
     [ "w25qxx_interface_spi_qspi_deinit", "group__w25qxx__interface__driver.html#ga091f3607fcdd47f9e5f94cf1397bd46a", null ],

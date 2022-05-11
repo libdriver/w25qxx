@@ -385,9 +385,6 @@ Functions</h2></td></tr>
 <tr class="memitem:gae7479fc9ce911a52e3c5b6f1a615b879"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__w25qxx__basic__driver.html#gae7479fc9ce911a52e3c5b6f1a615b879">w25qxx_read</a> (<a class="el" href="group__w25qxx__basic__driver.html#ga56d8a7b5f8b7eaed8df0b6dc90c266be">w25qxx_handle_t</a> *handle, uint32_t addr, uint8_t *data, uint32_t len)</td></tr>
 <tr class="memdesc:gae7479fc9ce911a52e3c5b6f1a615b879"><td class="mdescLeft">&#160;</td><td class="mdescRight">read data  <a href="group__w25qxx__basic__driver.html#gae7479fc9ce911a52e3c5b6f1a615b879">More...</a><br /></td></tr>
 <tr class="separator:gae7479fc9ce911a52e3c5b6f1a615b879"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab680906394a5cc6e996d0e81ac241798"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="driver__w25qxx_8c.html#ab680906394a5cc6e996d0e81ac241798">_w25qxx_page_program</a> (<a class="el" href="group__w25qxx__basic__driver.html#ga56d8a7b5f8b7eaed8df0b6dc90c266be">w25qxx_handle_t</a> *handle, uint32_t addr, uint8_t *data, uint16_t len)</td></tr>
-<tr class="memdesc:ab680906394a5cc6e996d0e81ac241798"><td class="mdescLeft">&#160;</td><td class="mdescRight">page program  <a href="driver__w25qxx_8c.html#ab680906394a5cc6e996d0e81ac241798">More...</a><br /></td></tr>
-<tr class="separator:ab680906394a5cc6e996d0e81ac241798"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaaee8264d840e51460821cb6e609338ee"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__w25qxx__basic__driver.html#gaaee8264d840e51460821cb6e609338ee">w25qxx_write</a> (<a class="el" href="group__w25qxx__basic__driver.html#ga56d8a7b5f8b7eaed8df0b6dc90c266be">w25qxx_handle_t</a> *handle, uint32_t addr, uint8_t *data, uint32_t len)</td></tr>
 <tr class="memdesc:gaaee8264d840e51460821cb6e609338ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">write data  <a href="group__w25qxx__basic__driver.html#gaaee8264d840e51460821cb6e609338ee">More...</a><br /></td></tr>
 <tr class="separator:gaaee8264d840e51460821cb6e609338ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1213,7 +1210,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>volatile sr write enable </p>
+<p>sr write enable </p>
 
 <p class="definition">Definition at line <a class="el" href="driver__w25qxx_8c_source.html#l00055">55</a> of file <a class="el" href="driver__w25qxx_8c_source.html">driver_w25qxx.c</a>.</p>
 
@@ -1320,66 +1317,6 @@ Functions</h2></td></tr>
 <p>write status register-3 </p>
 
 <p class="definition">Definition at line <a class="el" href="driver__w25qxx_8c_source.html#l00062">62</a> of file <a class="el" href="driver__w25qxx_8c_source.html">driver_w25qxx.c</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="ab680906394a5cc6e996d0e81ac241798"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab680906394a5cc6e996d0e81ac241798">&#9670;&nbsp;</a></span>_w25qxx_page_program()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint8_t _w25qxx_page_program </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="group__w25qxx__basic__driver.html#ga56d8a7b5f8b7eaed8df0b6dc90c266be">w25qxx_handle_t</a> *&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>addr</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t *&#160;</td>
-          <td class="paramname"><em>data</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>len</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>page program </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a w25qxx handle structure </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">addr</td><td>is the programming address </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">*data</td><td>points to a data buffer </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>is the data length </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>status code<ul>
-<li>0 success</li>
-<li>1 page program failed </li>
-</ul>
-</dd></dl>
-<dl class="section note"><dt>Note</dt><dd>none </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="driver__w25qxx_8c_source.html#l08016">8016</a> of file <a class="el" href="driver__w25qxx_8c_source.html">driver_w25qxx.c</a>.</p>
 
 </div>
 </div>

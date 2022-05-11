@@ -143,8 +143,8 @@ uint8_t spi_deinit(void)
  */
 uint8_t spi_write(uint8_t addr, uint8_t *buf, uint16_t len)
 {
-    volatile uint8_t buffer;
-    volatile uint8_t res;
+    uint8_t buffer;
+    uint8_t res;
     
     HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_RESET);
     
@@ -181,7 +181,7 @@ uint8_t spi_write(uint8_t addr, uint8_t *buf, uint16_t len)
  */
 uint8_t spi_write_cmd(uint8_t *buf, uint16_t len)
 {
-    volatile uint8_t res;
+    uint8_t res;
     
     HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_RESET);
     res = HAL_SPI_Transmit(&g_spi_handle, buf, len, 1000);
@@ -208,8 +208,8 @@ uint8_t spi_write_cmd(uint8_t *buf, uint16_t len)
  */
 uint8_t spi_read(uint8_t addr, uint8_t *buf, uint16_t len)
 {
-    volatile uint8_t buffer;
-    volatile uint8_t res;
+    uint8_t buffer;
+    uint8_t res;
     
     HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_RESET);
    
@@ -245,7 +245,7 @@ uint8_t spi_read(uint8_t addr, uint8_t *buf, uint16_t len)
  */
 uint8_t spi_read_cmd(uint8_t *buf, uint16_t len)
 {
-    volatile uint8_t res;
+    uint8_t res;
     
     HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_RESET);
     res = HAL_SPI_Receive(&g_spi_handle, buf, len, 1000);
@@ -273,7 +273,7 @@ uint8_t spi_read_cmd(uint8_t *buf, uint16_t len)
  */
 uint8_t spi_write_read(uint8_t *in_buf, uint32_t in_len, uint8_t *out_buf, uint32_t out_len)
 {
-    volatile uint8_t res;
+    uint8_t res;
     
     HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_RESET);
    

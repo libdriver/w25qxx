@@ -113,10 +113,9 @@ void w25qxx_interface_delay_us(uint32_t us)
 /**
  * @brief     interface print format data
  * @param[in] fmt is the format data
- * @return    length of the send data
  * @note      none
  */
-uint16_t w25qxx_interface_debug_print(char *fmt, ...)
+void w25qxx_interface_debug_print(const char *const fmt, ...)
 {
-    return 0;
+    
 }

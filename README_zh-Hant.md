@@ -1,4 +1,4 @@
-[English](/README.md) | [ 简体中文](/README_zh-Hans.md) | [繁體中文](/README_zh-Hant.md)
+[English](/README.md) | [ 简体中文](/README_zh-Hans.md) | [繁體中文](/README_zh-Hant.md) | [日本語](/README_ja.md) | [Deutsch](/README_de.md) | [한국어](/README_ko.md)
 
 <div align=center>
 <img src="/doc/image/logo.png"/>
@@ -6,11 +6,11 @@
 
 ## LibDriver W25QXX
 
-[![API](https://img.shields.io/badge/api-reference-blue)](https://www.libdriver.com/docs/w25qxx/index.html) [![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](/LICENSE)
+[![MISRA](https://img.shields.io/badge/misra-compliant-brightgreen.svg)](/misra/README.md) [![API](https://img.shields.io/badge/api-reference-blue.svg)](https://www.libdriver.com/docs/w25qxx/index.html) [![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](/LICENSE)
 
 W25QXX串行Flash存儲器面向受限於空間、引腳和功耗的系統，提供了一種存儲解決方案。 25Q系列存儲器相比於普通的串行Flash器件提供更好的靈活性和性能表現。它們是代碼存儲、代碼直接通過雙線/四線SPI運行、存儲音頻、文本和數據的理想選擇。該器件可在2.7V到3.6V的供電電壓下工作，工作時電流消耗最低4mA，在掉電模式下消耗僅1uA。所有的器件都提供節省空間的封裝。
 
-LibDriver W25QXX是LibDriver推出的W25QXX全功能驅動，該驅動提供Flash讀取，Flash寫入等功能。
+LibDriver W25QXX是LibDriver推出的W25QXX全功能驅動，該驅動提供Flash讀取，Flash寫入等功能並且它符合MISRA標準。
 
 ### 目錄
 
@@ -51,13 +51,13 @@ LibDriver W25QXX是LibDriver推出的W25QXX全功能驅動，該驅動提供Flas
 #### example basic
 
 ```C
-volatile uint8_t res;
-volatile uint8_t manufacturer;
-volatile uint8_t device_id;
-volatile uint8_t data[8];
+uint8_t res;
+uint8_t manufacturer;
+uint8_t device_id;
+uint8_t data[8];
 
 res = w25qxx_basic_init(W25Q128, W25QXX_INTERFACE_SPI, W25QXX_BOOL_TRUE);
-if (res)
+if (res != 0)
 {
     return 1;
 }
@@ -65,9 +65,9 @@ if (res)
 ...
     
 res = w25qxx_basic_get_id((uint8_t *)&manufacturer, (uint8_t *)&device_id);
-if (res)
+if (res != 0)
 {
-    w25qxx_basic_deinit();
+    (void)w25qxx_basic_deinit();
     
     return 1;
 }
@@ -76,9 +76,9 @@ w25qxx_interface_debug_print("w25qxx: manufacturer is 0x%02X device id is 0x%02X
 ...    
     
 res = w25qxx_basic_write(0x00000000, (uint8_t *)data, 8);
-if (res)
+if (res != 0)
 {
-    w25qxx_basic_deinit();
+    (void)w25qxx_basic_deinit();
     
     return 1;
 }
@@ -86,28 +86,30 @@ if (res)
 ...
 
 res = w25qxx_basic_read(0x00000000, (uint8_t *)data, 8);
-if (res)
+if (res != 0)
 {
-    w25qxx_basic_deinit();
+    (void)w25qxx_basic_deinit();
     
     return 1;
 }
 
 ...
     
-w25qxx_basic_deinit();
+(void)w25qxx_basic_deinit();
+
+return 0;
 ```
 
 #### example advance
 
 ```C
-volatile uint8_t res;
-volatile uint8_t manufacturer;
-volatile uint8_t device_id;
-volatile uint8_t data[8];
+uint8_t res;
+uint8_t manufacturer;
+uint8_t device_id;
+uint8_t data[8];
 
 res = w25qxx_advance_init(W25Q128, W25QXX_INTERFACE_SPI, W25QXX_BOOL_TRUE);
-if (res)
+if (res != 0)
 {
     return 1;
 }
@@ -115,9 +117,9 @@ if (res)
 ...
     
 res = w25qxx_advance_get_id((uint8_t *)&manufacturer, (uint8_t *)&device_id);
-if (res)
+if (res != 0)
 {
-    w25qxx_advance_deinit();
+    (void)w25qxx_advance_deinit();
     
     return 1;
 }
@@ -126,9 +128,9 @@ w25qxx_interface_debug_print("w25qxx: manufacturer is 0x%02X device id is 0x%02X
 ...    
     
 res = w25qxx_advance_write(0x00000000, (uint8_t *)data, 8);
-if (res)
+if (res != 0)
 {
-    w25qxx_advance_deinit();
+    (void)w25qxx_advance_deinit();
     
     return 1;
 }
@@ -136,16 +138,18 @@ if (res)
 ...
 
 res = w25qxx_advance_read(0x00000000, (uint8_t *)data, 8);
-if (res)
+if (res != 0)
 {
-    w25qxx_advance_deinit();
+    (void)w25qxx_advance_deinit();
     
     return 1;
 }
 
 ...
     
-w25qxx_advance_deinit();
+(void)w25qxx_advance_deinit();
+
+return 0;
 ```
 
 ### 文檔
