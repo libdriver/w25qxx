@@ -109,7 +109,7 @@
  *             - 1 write read failed
  * @note       none
  */
-static uint8_t a_w25qxx_spi_write_read(w25qxx_handle_t *handle, uint8_t *in_buf, uint16_t in_len, uint8_t *out_buf, uint16_t out_len)
+static uint8_t a_w25qxx_spi_write_read(w25qxx_handle_t *handle, uint8_t *in_buf, uint32_t in_len, uint8_t *out_buf, uint32_t out_len)
 {
     if (handle->spi_qspi_write_read(0x00, 0x00, 0x00000000, 0x00, 0x00,                /* write read data */
                                     0x00000000, 0x00, 0x00, 
@@ -3575,7 +3575,7 @@ uint8_t w25qxx_only_spi_read(w25qxx_handle_t *handle, uint32_t addr, uint8_t *da
                 buf[1] = (addr >> 16) & 0xFF;                                                             /* 23 - 16 bits */
                 buf[2] = (addr >> 8) & 0xFF;                                                              /* 15 - 8  bits */
                 buf[3] = (addr >> 0) & 0xFF;                                                              /* 7 - 0 bits */
-                res = a_w25qxx_spi_write_read(handle, (uint8_t *)buf, 4, (uint8_t *)data, (uint16_t)len); /* spi write read */
+                res = a_w25qxx_spi_write_read(handle, (uint8_t *)buf, 4, (uint8_t *)data, (uint32_t)len); /* spi write read */
                 if (res != 0)                                                                             /* check result */
                 {
                     handle->debug_print("w25qxx: only spi read failed.\n");                               /* only spi read failed */
@@ -3591,7 +3591,7 @@ uint8_t w25qxx_only_spi_read(w25qxx_handle_t *handle, uint32_t addr, uint8_t *da
                 buf[2] = (addr >> 16) & 0xFF;                                                             /* 23 - 16 bits */
                 buf[3] = (addr >> 8) & 0xFF;                                                              /* 15 - 8  bits */
                 buf[4] = (addr >> 0) & 0xFF;                                                              /* 7 - 0 bits */
-                res = a_w25qxx_spi_write_read(handle, (uint8_t *)buf, 5, (uint8_t *)data, (uint16_t)len); /* spi write read */
+                res = a_w25qxx_spi_write_read(handle, (uint8_t *)buf, 5, (uint8_t *)data, (uint32_t)len); /* spi write read */
                 if (res != 0)                                                                             /* check result */
                 {
                     handle->debug_print("w25qxx: only spi read failed.\n");                               /* only spi read failed */
@@ -3739,7 +3739,7 @@ uint8_t w25qxx_fast_read(w25qxx_handle_t *handle, uint32_t addr, uint8_t *data, 
                 buf[2] = (addr >> 8) & 0xFF;                                                              /* 15 - 8  bits */
                 buf[3] = (addr >> 0) & 0xFF;                                                              /* 7 - 0 bits */
                 buf[4] = 0x00;                                                                            /* dummy */
-                res = a_w25qxx_spi_write_read(handle, (uint8_t *)buf, 5, (uint8_t *)data, (uint16_t)len); /* spi write read */
+                res = a_w25qxx_spi_write_read(handle, (uint8_t *)buf, 5, (uint8_t *)data, (uint32_t)len); /* spi write read */
                 if (res != 0)                                                                             /* check result */
                 {
                     handle->debug_print("w25qxx: fast read failed.\n");                                   /* fast read failed */
@@ -3756,7 +3756,7 @@ uint8_t w25qxx_fast_read(w25qxx_handle_t *handle, uint32_t addr, uint8_t *data, 
                 buf[3] = (addr >> 8) & 0xFF;                                                              /* 15 - 8  bits */
                 buf[4] = (addr >> 0) & 0xFF;                                                              /* 7 - 0 bits */
                 buf[5] = 0x00;                                                                            /* dummy */
-                res = a_w25qxx_spi_write_read(handle, (uint8_t *)buf, 6, (uint8_t *)data, (uint16_t)len); /* spi write read */
+                res = a_w25qxx_spi_write_read(handle, (uint8_t *)buf, 6, (uint8_t *)data, (uint32_t)len); /* spi write read */
                 if (res != 0)                                                                             /* check result */
                 {
                     handle->debug_print("w25qxx: fast read failed.\n");                                   /* fast read failed */
@@ -7394,7 +7394,7 @@ uint8_t w25qxx_read(w25qxx_handle_t *handle, uint32_t addr, uint8_t *data, uint3
                 buf[2] = (addr >> 8) & 0xFF;                                                              /* 15 - 8  bits */
                 buf[3] = (addr >> 0) & 0xFF;                                                              /* 7 - 0 bits */
                 buf[4] = 0x00;                                                                            /* dummy */
-                res = a_w25qxx_spi_write_read(handle, (uint8_t *)buf, 5, (uint8_t *)data, (uint16_t)len); /* spi write read */
+                res = a_w25qxx_spi_write_read(handle, (uint8_t *)buf, 5, (uint8_t *)data, (uint32_t)len); /* spi write read */
                 if (res != 0)                                                                             /* check result */
                 {
                     handle->debug_print("w25qxx: fast read failed.\n");                                   /* fast read failed */
@@ -7411,7 +7411,7 @@ uint8_t w25qxx_read(w25qxx_handle_t *handle, uint32_t addr, uint8_t *data, uint3
                 buf[3] = (addr >> 8) & 0xFF;                                                              /* 15 - 8  bits */
                 buf[4] = (addr >> 0) & 0xFF;                                                              /* 7 - 0 bits */
                 buf[5] = 0x00;                                                                            /* dummy */
-                res = a_w25qxx_spi_write_read(handle, (uint8_t *)buf, 6, (uint8_t *)data, (uint16_t)len); /* spi write read */
+                res = a_w25qxx_spi_write_read(handle, (uint8_t *)buf, 6, (uint8_t *)data, (uint32_t)len); /* spi write read */
                 if (res != 0)                                                                             /* check result */
                 {
                     handle->debug_print("w25qxx: fast read failed.\n");                                   /* fast read failed */
@@ -7604,7 +7604,7 @@ static uint8_t a_w25qxx_read(w25qxx_handle_t *handle, uint32_t addr, uint8_t *da
                 buf[2] = (addr >> 8) & 0xFF;                                                              /* 15 - 8  bits */
                 buf[3] = (addr >> 0) & 0xFF;                                                              /* 7 - 0 bits */
                 buf[4] = 0x00;                                                                            /* dummy */
-                res = a_w25qxx_spi_write_read(handle, (uint8_t *)buf, 5, (uint8_t *)data, (uint16_t)len); /* spi write read */
+                res = a_w25qxx_spi_write_read(handle, (uint8_t *)buf, 5, (uint8_t *)data, (uint32_t)len); /* spi write read */
                 if (res != 0)                                                                             /* check result */
                 {
                     handle->debug_print("w25qxx: fast read failed.\n");                                   /* fast read failed */
@@ -7620,7 +7620,7 @@ static uint8_t a_w25qxx_read(w25qxx_handle_t *handle, uint32_t addr, uint8_t *da
                 buf[3] = (addr >> 8) & 0xFF;                                                              /* 15 - 8  bits */
                 buf[4] = (addr >> 0) & 0xFF;                                                              /* 7 - 0 bits */
                 buf[5] = 0x00;                                                                            /* dummy */
-                res = a_w25qxx_spi_write_read(handle, (uint8_t *)buf, 6, (uint8_t *)data, (uint16_t)len); /* spi write read */
+                res = a_w25qxx_spi_write_read(handle, (uint8_t *)buf, 6, (uint8_t *)data, (uint32_t)len); /* spi write read */
                 if (res != 0)                                                                             /* check result */
                 {
                     handle->debug_print("w25qxx: fast read failed.\n");                                   /* fast read failed */
