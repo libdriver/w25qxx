@@ -660,7 +660,7 @@
             <data>
                 <extensions></extensions>
                 <cmdline></cmdline>
-                <hasPrio>64</hasPrio>
+                <hasPrio>1</hasPrio>
                 <buildSequence>inputOutputBased</buildSequence>
             </data>
         </settings>
@@ -1343,16 +1343,16 @@
     <group>
         <name>startup</name>
         <file>
-            <name>$PROJ_DIR$\..\..\..\test\driver_w25qxx_register_test.c</name>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\hal\asm\startup_stm32f767_ew.s</name>
+            <name>$PROJ_DIR$\..\hal\asm\startup_stm32f767xx_ew.s</name>
         </file>
     </group>
     <group>
         <name>test</name>
         <file>
             <name>$PROJ_DIR$\..\..\..\test\driver_w25qxx_read_test.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\..\test\driver_w25qxx_register_test.c</name>
         </file>
     </group>
     <group>

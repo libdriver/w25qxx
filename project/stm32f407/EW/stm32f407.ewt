@@ -1721,7 +1721,7 @@
     <group>
         <name>startup</name>
         <file>
-            <name>$PROJ_DIR$\..\hal\asm\startup_stm32f407_ew.s</name>
+            <name>$PROJ_DIR$\..\hal\asm\startup_stm32f407xx_ew.s</name>
         </file>
     </group>
     <group>

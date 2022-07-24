@@ -1,20 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
     <fileVersion>5</fileVersion>
-    <fileChecksum>2998000976</fileChecksum>
+    <fileChecksum>4104993926</fileChecksum>
     <configuration>
         <name>Release</name>
         <outputs>
-            <file>$PROJ_DIR$\..\interface\src\delay.c</file>
-            <file>$PROJ_DIR$\..\interface\src\uart.c</file>
-            <file>$PROJ_DIR$\..\interface\src\spi.c</file>
-            <file>$PROJ_DIR$\..\interface\src\clock.c</file>
-            <file>$PROJ_DIR$\..\..\..\example\driver_w25qxx_advance.c</file>
-            <file>$PROJ_DIR$\..\..\..\test\driver_w25qxx_read_test.c</file>
-            <file>$PROJ_DIR$\..\..\..\src\driver_w25qxx.c</file>
-            <file>$PROJ_DIR$\..\..\..\example\driver_w25qxx_basic.c</file>
-            <file>$PROJ_DIR$\..\driver\src\stm32f407_driver_w25qxx_interface.c</file>
             <file>$PROJ_DIR$\..\..\..\test\driver_w25qxx_register_test.c</file>
+            <file>$PROJ_DIR$\..\..\..\test\driver_w25qxx_read_test.c</file>
+            <file>$PROJ_DIR$\..\hal\asm\startup_stm32f407xx_ew.s</file>
         </outputs>
         <forcedrebuild>
             <name>[REBUILD_ALL]</name>

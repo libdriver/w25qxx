@@ -925,9 +925,9 @@
           <GroupName>startup</GroupName>
           <Files>
             <File>
-              <FileName>startup_stm32f407_mdk.s</FileName>
+              <FileName>startup_stm32f407xx_mdk.s</FileName>
               <FileType>2</FileType>
-              <FilePath>..\hal\asm\startup_stm32f407_mdk.s</FilePath>
+              <FilePath>..\hal\asm\startup_stm32f407xx_mdk.s</FilePath>
             </File>
           </Files>
         </Group>
