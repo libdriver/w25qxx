@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <fileVersion>5</fileVersion>
+    <fileChecksum>4260931802</fileChecksum>
+    <configuration>
+        <name>Release</name>
+        <outputs>
+            <file>$PROJ_DIR$\..\hal\asm\startup_stm32f767xx_ew.s</file>
+            <file>$PROJ_DIR$\..\..\..\test\driver_w25qxx_read_test.c</file>
+            <file>$PROJ_DIR$\..\usr\src\system_stm32f7xx.c</file>
+            <file>$PROJ_DIR$\..\usr\src\stm32f7xx_hal_msp.c</file>
+            <file>$PROJ_DIR$\..\..\..\test\driver_w25qxx_register_test.c</file>
+            <file>$PROJ_DIR$\..\usr\src\shell.c</file>
+            <file>$PROJ_DIR$\..\usr\src\stm32f7xx_it.c</file>
+            <file>$PROJ_DIR$\..\usr\src\main.c</file>
+        </outputs>
+        <forcedrebuild>
+            <name>[REBUILD_ALL]</name>
+        </forcedrebuild>
+    </configuration>
+</project>
