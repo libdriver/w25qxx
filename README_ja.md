@@ -51,6 +51,8 @@ LibDriver W25QXXは、LibDriverによって起動されたW25QXXの全機能ド�
 #### example basic
 
 ```C
+#include "driver_w25qxx_basic.h"
+
 uint8_t res;
 uint8_t manufacturer;
 uint8_t device_id;
@@ -103,6 +105,8 @@ return 0;
 #### example advance
 
 ```c
+#include "driver_w25qxx_advance.h"
+
 uint8_t res;
 uint8_t manufacturer;
 uint8_t device_id;
