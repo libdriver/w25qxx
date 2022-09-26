@@ -1,6 +1,6 @@
-### 1. chip
+### 1. Chip
 
-#### 1.1 chip info
+#### 1.1 Chip Info
 
 chip name : STM32F407ZGT6.
 
@@ -10,23 +10,23 @@ uart pin: TX/RX PA9/PA10.
 
 spi pin: SCK/MISO/MOSI/CS  PA5/PA6/PA7/PA4.
 
-### 2. shell
+### 2. Shell
 
-#### 2.1 shell parameter
+#### 2.1 Shell Parameter
 
-baud rate: 115200
+baud rate: 115200.
 
-data bits : 8
+data bits : 8.
 
-stop bits: 1
+stop bits: 1.
 
-parity: none
+parity: none.
 
-flow control: none
+flow control: none.
 
-### 3. w25qxx
+### 3. W25QXX
 
-#### 3.1 command Instruction
+#### 3.1 Command Instruction
 
 ​          w25qxx is a basic command which can test all w25qxx driver function:
 
@@ -134,7 +134,7 @@ flow control: none
 
 ​           -c advance -type <type>  spi_set_burst <wrap>        run w25qxx advance set burst function. type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.wrap is the burst wrap and it can be WRAP_NONE,WRAP_8_BYTE,WRAP_16_BYTE,WRAP_32_BYTE,WRAP_64_BYTE.
 
-#### 3.2 command example
+#### 3.2 Command Example
 
 ```shell
 w25qxx -i
