@@ -51,6 +51,8 @@ LibDriver W25QXX是LibDriver推出的W25QXX全功能驱动，该驱动提供Flas
 #### example basic
 
 ```C
+#include "driver_w25qxx_basic.h"
+
 uint8_t res;
 uint8_t manufacturer;
 uint8_t device_id;
@@ -103,6 +105,8 @@ return 0;
 #### example advance
 
 ```C
+#include "driver_w25qxx_advance.h"
+
 uint8_t res;
 uint8_t manufacturer;
 uint8_t device_id;

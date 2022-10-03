@@ -28,15 +28,15 @@ LibDriver W25QXX is the full function driver of W25QXX launched by LibDriver.It 
 
 /src includes LibDriver W25QXX source files.
 
-/interface includes LibDriver W25QXX SPI or QSPI platform independent template。
+/interface includes LibDriver W25QXX SPI or QSPI platform independent template.
 
-/test includes LibDriver W25QXX driver test code and this code can test the chip necessary function simply。
+/test includes LibDriver W25QXX driver test code and this code can test the chip necessary function simply.
 
 /example includes LibDriver W25QXX sample code.
 
 /doc includes LibDriver W25QXX offline document.
 
-/datasheet includes W25QXX datasheet。
+/datasheet includes W25QXX datasheet.
 
 /project includes the common Linux and MCU development board sample code. All projects use the shell script to debug the driver and the detail instruction can be found in each project's README.md.
 
@@ -51,6 +51,8 @@ Add /src, /interface and /example to your project.
 #### example basic
 
 ```C
+#include "driver_w25qxx_basic.h"
+
 uint8_t res;
 uint8_t manufacturer;
 uint8_t device_id;
@@ -103,6 +105,8 @@ return 0;
 #### example advance
 
 ```C
+#include "driver_w25qxx_advance.h"
+
 uint8_t res;
 uint8_t manufacturer;
 uint8_t device_id;
