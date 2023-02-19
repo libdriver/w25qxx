@@ -1,6 +1,6 @@
 /**
   ******************************************************************************
-  * @file    ADC/ADC_RegularConversion_DMA/Inc/stm32f4xx_hal_conf.h
+  * @file    stm32f4xx_hal_conf.h
   * @author  MCD Application Team
   * @brief   HAL configuration file
   ******************************************************************************
@@ -51,14 +51,14 @@
 #define HAL_MODULE_ENABLED         
 #define HAL_ADC_MODULE_ENABLED      
 #define HAL_CAN_MODULE_ENABLED
-/* #define HAL_CAN_LEGACY_MODULE_ENABLED      */
+/* #define HAL_CAN_LEGACY_MODULE_ENABLED */
 #define HAL_CRC_MODULE_ENABLED
 #define HAL_CRYP_MODULE_ENABLED
 #define HAL_DAC_MODULE_ENABLED
 #define HAL_DCMI_MODULE_ENABLED
 #define HAL_DMA_MODULE_ENABLED 
 #define HAL_DMA2D_MODULE_ENABLED 
-//#define HAL_ETH_MODULE_ENABLED
+/* #define HAL_ETH_MODULE_ENABLED */
 #define HAL_FLASH_MODULE_ENABLED 
 #define HAL_NAND_MODULE_ENABLED
 #define HAL_NOR_MODULE_ENABLED
@@ -87,7 +87,6 @@
 #define HAL_CORTEX_MODULE_ENABLED
 #define HAL_PCD_MODULE_ENABLED
 #define HAL_HCD_MODULE_ENABLED
-
 
 /* ########################## HSE/HSI Values adaptation ##################### */
 /**

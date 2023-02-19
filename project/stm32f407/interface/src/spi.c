@@ -25,12 +25,12 @@
  * @brief     spi source file
  * @version   1.0.0
  * @author    Shifeng Li
- * @date      2021-2-12
+ * @date      2022-11-11
  *
  * <h3>history</h3>
  * <table>
  * <tr><th>Date        <th>Version  <th>Author      <th>Description
- * <tr><td>2021/02/12  <td>1.0      <td>Shifeng Li  <td>first upload
+ * <tr><td>2022/11/11  <td>1.0      <td>Shifeng Li  <td>first upload
  * </table>
  */
 
@@ -42,17 +42,19 @@
 SPI_HandleTypeDef g_spi_handle;        /**< spi handle */
 
 /**
-  * @func   spi_cs_init(void)
-  * @brief  spi cs init
-  * @retval success return 0
-  * @note   none
-  */
-static uint8_t _spi_cs_init(void)
+ * @brief  spi cs init
+ * @return status code
+ *         - 0 success
+ * @note   none
+ */
+static uint8_t a_spi_cs_init(void)
 {
     GPIO_InitTypeDef GPIO_InitStruct;
-  
+    
+    /* enable cs gpio clock */
     __HAL_RCC_GPIOA_CLK_ENABLE();
-  
+    
+    /* gpio init */
     GPIO_InitStruct.Pin = GPIO_PIN_4;
     GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
     GPIO_InitStruct.Pull = GPIO_PULLUP;
@@ -63,12 +65,12 @@ static uint8_t _spi_cs_init(void)
 }
 
 /**
- * @brief  spi bus init
- * @return status code
- *         - 0 success
- *         - 1 init failed
- *         - 2 mode is invalid
- * @note   SCLK is PA5, MOSI is PA7 MISO is PA6 and CS is PA4
+ * @brief     spi bus init
+ * @param[in] mode is the spi mode
+ * @return    status code
+ *            - 0 success
+ *            - 1 init failed
+ * @note      SCLK is PA5, MOSI is PA7 MISO is PA6 and CS is PA4
  */
 uint8_t spi_init(spi_mode_t mode)
 {
@@ -77,6 +79,7 @@ uint8_t spi_init(spi_mode_t mode)
     g_spi_handle.Init.Direction = SPI_DIRECTION_2LINES;
     g_spi_handle.Init.DataSize = SPI_DATASIZE_8BIT;
     
+    /* set the mode */
     if (mode == SPI_MODE_0)
     {
         g_spi_handle.Init.CLKPolarity = SPI_POLARITY_LOW;
@@ -92,16 +95,11 @@ uint8_t spi_init(spi_mode_t mode)
         g_spi_handle.Init.CLKPolarity = SPI_POLARITY_HIGH;
         g_spi_handle.Init.CLKPhase = SPI_PHASE_1EDGE;
     }
-    else if (mode == SPI_MODE_3)
+    else
     {
         g_spi_handle.Init.CLKPolarity = SPI_POLARITY_HIGH;
         g_spi_handle.Init.CLKPhase = SPI_PHASE_2EDGE;
     }
-    else
-    {
-        return 2;
-    }
-    
     g_spi_handle.Init.NSS = SPI_NSS_SOFT;
     g_spi_handle.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_8;
     g_spi_handle.Init.FirstBit = SPI_FIRSTBIT_MSB;
@@ -109,24 +107,68 @@ uint8_t spi_init(spi_mode_t mode)
     g_spi_handle.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
     g_spi_handle.Init.CRCPolynomial = 10;
     
-    if (HAL_SPI_Init(&g_spi_handle))
+    /* spi init */
+    if (HAL_SPI_Init(&g_spi_handle) != HAL_OK)
     {
         return 1;
     }
     
-    return _spi_cs_init();
+    return a_spi_cs_init();
 }
 
 /**
  * @brief  spi bus deinit
  * @return status code
  *         - 0 success
- * @note   SCLK is PA5, MOSI is PA7 MISO is PA6 and CS is PA4
+ *         - 1 deinit failed
+ * @note   none
  */
 uint8_t spi_deinit(void)
 {
+    /* cs deinit */
     HAL_GPIO_DeInit(GPIOA, GPIO_PIN_4);
-    HAL_SPI_DeInit(&g_spi_handle);
+    
+    /* spi deinit */
+    if (HAL_SPI_DeInit(&g_spi_handle) != HAL_OK)
+    {
+        return 1;
+    }
+    
+    return 0;
+}
+
+/**
+ * @brief     spi bus write command
+ * @param[in] *buf points to a data buffer
+ * @param[in] len is the length of the data buffer
+ * @return    status code
+ *            - 0 success
+ *            - 1 write failed
+ * @note      none
+ */
+uint8_t spi_write_cmd(uint8_t *buf, uint16_t len)
+{
+    uint8_t res;
+    
+    /* set cs low */
+    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_RESET);
+    
+    /* if len > 0 */
+    if (len > 0)
+    {
+        /* transmit the buffer */
+        res = HAL_SPI_Transmit(&g_spi_handle, buf, len, 1000);
+        if (res != HAL_OK)
+        {
+            /* set cs high */
+            HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
+            
+            return 1;
+        }
+    }
+    
+    /* set cs high */
+    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
     
     return 0;
 }
@@ -139,58 +181,128 @@ uint8_t spi_deinit(void)
  * @return    status code
  *            - 0 success
  *            - 1 write failed
- * @note      SCLK is PA5, MOSI is PA7 MISO is PA6 and CS is PA4
+ * @note      none
  */
 uint8_t spi_write(uint8_t addr, uint8_t *buf, uint16_t len)
 {
     uint8_t buffer;
     uint8_t res;
     
+    /* set cs low */
     HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_RESET);
     
+    /* transmit the addr */
     buffer = addr;
     res = HAL_SPI_Transmit(&g_spi_handle, (uint8_t *)&buffer, 1, 1000);
-    if (res)
+    if (res != HAL_OK)
     {
+        /* set cs high */
         HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
         
         return 1;
     }
     
-    res = HAL_SPI_Transmit(&g_spi_handle, buf, len, 1000);
-    if (res)
+    /* if len > 0 */
+    if (len > 0)
     {
-        HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
-        
-        return 1;
+        /* transmit the buffer */
+        res = HAL_SPI_Transmit(&g_spi_handle, buf, len, 1000);
+        if (res != HAL_OK)
+        {
+            /* set cs high */
+            HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
+            
+            return 1;
+        }
     }
     
+    /* set cs high */
     HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
     
     return 0;
 }
 
 /**
- * @brief     spi bus write command
+ * @brief     spi bus write address 16
+ * @param[in] addr is the spi register address
  * @param[in] *buf points to a data buffer
  * @param[in] len is the length of the data buffer
  * @return    status code
  *            - 0 success
  *            - 1 write failed
- * @note      SCLK is PA5, MOSI is PA7 MISO is PA6 and CS is PA4
+ * @note      none
  */
-uint8_t spi_write_cmd(uint8_t *buf, uint16_t len)
+uint8_t spi_write_address16(uint16_t addr, uint8_t *buf, uint16_t len)
+{
+    uint8_t buffer[2];
+    uint8_t res;
+    
+    /* set cs low */
+    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_RESET);
+    
+    /* transmit the addr  */
+    buffer[0] = (addr >> 8) & 0xFF;
+    buffer[1] = addr & 0xFF;
+    res = HAL_SPI_Transmit(&g_spi_handle, (uint8_t *)buffer, 2, 1000);
+    if (res != HAL_OK)
+    {
+        /* set cs high */
+        HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
+       
+        return 1;
+    }
+    
+    /* if len > 0 */
+    if (len > 0)
+    {
+        /* transmit the buffer */
+        res = HAL_SPI_Transmit(&g_spi_handle, buf, len, 1000);
+        if (res != HAL_OK)
+        {
+            /* set cs high */
+            HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
+           
+            return 1;
+        }
+    }
+    
+    /* set cs high */
+    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
+    
+    return 0;
+}
+
+/**
+ * @brief      spi bus read command
+ * @param[out] *buf points to a data buffer
+ * @param[in]  len is the length of the data buffer
+ * @return     status code
+ *             - 0 success
+ *             - 1 read failed
+ * @note       none
+ */
+uint8_t spi_read_cmd(uint8_t *buf, uint16_t len)
 {
     uint8_t res;
     
+    /* set cs low */
     HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_RESET);
-    res = HAL_SPI_Transmit(&g_spi_handle, buf, len, 1000);
-    if (res)
+    
+    /* if len > 0 */
+    if (len > 0)
     {
-        HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
-        
-        return 1;
+        /* receive to the buffer */
+        res = HAL_SPI_Receive(&g_spi_handle, buf, len, 1000);
+        if (res != HAL_OK)
+        {
+            /* set cs high */
+            HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
+            
+            return 1;
+        }
     }
+    
+    /* set cs high */
     HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
     
     return 0;
@@ -204,57 +316,129 @@ uint8_t spi_write_cmd(uint8_t *buf, uint16_t len)
  * @return     status code
  *             - 0 success
  *             - 1 read failed
- * @note       SCLK is PA5, MOSI is PA7 MISO is PA6 and CS is PA4
+ * @note       none
  */
 uint8_t spi_read(uint8_t addr, uint8_t *buf, uint16_t len)
 {
     uint8_t buffer;
     uint8_t res;
     
+    /* set cs low */
     HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_RESET);
-   
+    
+    /* transmit the addr */
     buffer = addr;
     res = HAL_SPI_Transmit(&g_spi_handle, (uint8_t *)&buffer, 1, 1000);
-    if (res)
+    if (res != HAL_OK)
     {
+        /* set cs high */
         HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
        
         return 1;
     }
-    res = HAL_SPI_Receive(&g_spi_handle, buf, len, 1000);
-    if (res)
+    
+    /* if len > 0 */
+    if (len > 0)
     {
-        HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
-       
-        return 1;
+        /* receive to the buffer */
+        res = HAL_SPI_Receive(&g_spi_handle, buf, len, 1000);
+        if (res != HAL_OK)
+        {
+            /* set cs high */
+            HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
+           
+            return 1;
+        }
     }
-
+    
+    /* set cs high */
     HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
-
+    
     return 0;
 }
 
 /**
- * @brief      spi bus read command
+ * @brief      spi bus read address 16
+ * @param[in]  addr is the spi register address
  * @param[out] *buf points to a data buffer
  * @param[in]  len is the length of the data buffer
  * @return     status code
  *             - 0 success
  *             - 1 read failed
- * @note       SCLK is PA5, MOSI is PA7 MISO is PA6 and CS is PA4
+ * @note       none
  */
-uint8_t spi_read_cmd(uint8_t *buf, uint16_t len)
+uint8_t spi_read_address16(uint16_t addr, uint8_t *buf, uint16_t len)
+{
+    uint8_t buffer[2];
+    uint8_t res;
+    
+    /* set cs low */
+    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_RESET);
+    
+    /* transmit the addr  */
+    buffer[0] = (addr >> 8) & 0xFF;
+    buffer[1] = addr & 0xFF;
+    res = HAL_SPI_Transmit(&g_spi_handle, (uint8_t *)buffer, 2, 1000);
+    if (res != HAL_OK)
+    {
+        /* set cs high */
+        HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
+       
+        return 1;
+    }
+    
+    /* if len > 0 */
+    if (len > 0)
+    {
+        /* receive to the buffer */
+        res = HAL_SPI_Receive(&g_spi_handle, buf, len, 1000);
+        if (res != HAL_OK)
+        {
+            /* set cs high */
+            HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
+           
+            return 1;
+        }
+    }
+    
+    /* set cs high */
+    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
+    
+    return 0;
+}
+
+/**
+ * @brief      spi transmit
+ * @param[in]  *tx points to a tx buffer
+ * @param[out] *rx points to a rx buffer
+ * @param[in]  len is the length of the data buffer
+ * @return     status code
+ *             - 0 success
+ *             - 1 transmit failed
+ * @note       none
+ */
+uint8_t spi_transmit(uint8_t *tx, uint8_t *rx, uint16_t len)
 {
     uint8_t res;
     
+    /* set cs low */
     HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_RESET);
-    res = HAL_SPI_Receive(&g_spi_handle, buf, len, 1000);
-    if (res)
+    
+    /* if len > 0 */
+    if (len > 0)
     {
-        HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
-        
-        return 1;
+        /* transmit */
+        res = HAL_SPI_TransmitReceive(&g_spi_handle, tx, rx, len, 1000);
+        if (res != HAL_OK)
+        {
+            /* set cs high */
+            HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
+            
+            return 1;
+        }
     }
+    
+    /* set cs high */
     HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
     
     return 0;
@@ -262,43 +446,52 @@ uint8_t spi_read_cmd(uint8_t *buf, uint16_t len)
 
 /**
  * @brief      spi bus write read
- * @param[in]  *in_buf points to a input buffer
+ * @param[in]  *in_buf points to an input buffer
  * @param[in]  in_len is the input length
- * @param[out] *out_buf points to a output buffer
+ * @param[out] *out_buf points to an output buffer
  * @param[in]  out_len is the output length
  * @return     status code
  *             - 0 success
  *             - 1 write read failed
- * @note       SCLK is PA5, MOSI is PA7 MISO is PA6 and CS is PA4
+ * @note       none
  */
 uint8_t spi_write_read(uint8_t *in_buf, uint32_t in_len, uint8_t *out_buf, uint32_t out_len)
 {
     uint8_t res;
     
+    /* set cs low */
     HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_RESET);
-   
-    if (in_len)
+    
+    /* if in_len > 0 */
+    if (in_len > 0)
     {
+        /* transmit the input buffer */
         res = HAL_SPI_Transmit(&g_spi_handle, in_buf, in_len, 1000);
-        if (res)
+        if (res != HAL_OK)
         {
+            /* set cs high */
             HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
            
             return 1;
         }
     }
-    if (out_len)
+    
+    /* if out_len > 0 */
+    if (out_len > 0)
     {
+        /* transmit to the output buffer */
         res = HAL_SPI_Receive(&g_spi_handle, out_buf, out_len, 1000);
-        if (res)
+        if (res != HAL_OK)
         {
+            /* set cs high */
             HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
            
             return 1;
         }
     }
-
+    
+    /* set cs high */
     HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
-
+    
     return 0;
 }

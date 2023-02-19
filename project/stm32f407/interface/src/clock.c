@@ -25,12 +25,12 @@
  * @brief     clock source file
  * @version   1.0.0
  * @author    Shifeng Li
- * @date      2021-2-12
+ * @date      2022-11-11
  *
  * <h3>history</h3>
  * <table>
  * <tr><th>Date        <th>Version  <th>Author      <th>Description
- * <tr><td>2021/02/12  <td>1.0      <td>Shifeng Li  <td>first upload
+ * <tr><td>2022/11/11  <td>1.0      <td>Shifeng Li  <td>first upload
  * </table>
  */
  
@@ -44,11 +44,13 @@ void clock_init(void)
 {    
     RCC_OscInitTypeDef RCC_OscInitStructure;
     RCC_ClkInitTypeDef RCC_ClkInitStructure;
-    HAL_StatusTypeDef ret = HAL_OK;
-
+    HAL_StatusTypeDef ret;
+    
+    /* enable power clock */
     __HAL_RCC_PWR_CLK_ENABLE();
     __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
 
+    /* use HSE */
     RCC_OscInitStructure.OscillatorType = RCC_OSCILLATORTYPE_HSE;
     RCC_OscInitStructure.HSEState = RCC_HSE_ON;
     RCC_OscInitStructure.PLL.PLLState = RCC_PLL_ON;
@@ -63,6 +65,7 @@ void clock_init(void)
         while(1);
     }
     
+    /* config clock */
     RCC_ClkInitStructure.ClockType = RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2;
     RCC_ClkInitStructure.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
     RCC_ClkInitStructure.AHBCLKDivider = RCC_SYSCLK_DIV1;
@@ -73,11 +76,14 @@ void clock_init(void)
     {
         while(1);
     }
+    
+    /* check the id and enable flash prefetch buffer */
     if (HAL_GetREVID() == 0x1001)
     {
         __HAL_FLASH_PREFETCH_BUFFER_ENABLE();
     }
     
+    /* hal init */
     ret = HAL_Init();
     if (ret != HAL_OK)
     {

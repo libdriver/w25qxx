@@ -1,0 +1,20 @@
+name: 🏆 General issues
+description: Report any other non-support related issues
+labels: [general issues]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for your report.
+        
+        Please fill in as much of the following form as you're able.
+  - type: textarea
+    attributes:
+      label: Description of the issues
+      description: Please describe the issues as much detail as possible.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Additional context
+      description:  Add any other context about the issues here.

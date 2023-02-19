@@ -1,6 +1,6 @@
 var structw25qxx__handle__s =
 [
-    [ "adress_mode", "structw25qxx__handle__s.html#a40d8a21abe81fd9b9945d8df45f19869", null ],
+    [ "address_mode", "structw25qxx__handle__s.html#a5aafa09a37ea9bdb7d3788ff5d39c729", null ],
     [ "buf", "structw25qxx__handle__s.html#a2121914a1858618e9216fa2daf0a42a2", null ],
     [ "buf_4k", "structw25qxx__handle__s.html#ac80aa2927adf500634749513e88c474b", null ],
     [ "debug_print", "structw25qxx__handle__s.html#a769d5b3a6c14790a0e126e8fe70b384b", null ],

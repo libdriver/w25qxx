@@ -127,14 +127,14 @@ void w25qxx_interface_delay_us(uint32_t us)
 void w25qxx_interface_debug_print(const char *const fmt, ...)
 {
     char str[256];
-    uint8_t len;
+    uint16_t len;
     va_list args;
     
     memset((char *)str, 0, sizeof(char) * 256); 
     va_start(args, fmt);
-    vsnprintf((char *)str, 256, (char const *)fmt, args);
+    vsnprintf((char *)str, 255, (char const *)fmt, args);
     va_end(args);
     
     len = strlen((char *)str);
-    (void)uart1_write((uint8_t *)str, len);
+    (void)uart_write((uint8_t *)str, len);
 }

@@ -2,137 +2,343 @@
 
 #### 1.1 Chip Info
 
-chip name : STM32F767IGT6.
+Chip Name: STM32F767IGT6.
 
-extern oscillator : 25MHz.
+Extern Oscillator: 25MHz.
 
-uart pin: TX/RX PA9/PA10.
+UART Pin: TX/RX PA9/PA10.
 
-spi pin: SCK/IO0/IO1/IO2/IO3/CS  PB2/PF8/PF9/PF7/PF6/PB6.
+QSPI Pin: SCK/IO0/IO1/IO2/IO3/CS  PB2/PF8/PF9/PF7/PF6/PB6.
 
-### 2. Shell
+### 2. Development and Debugging
 
-#### 2.1 Shell Parameter
+#### 2.1 Integrated Development Environment
 
-baud rate: 115200.
+LidDriver provides both Keil and IAR integrated development environment projects.
 
-data bits : 8.
+MDK is the Keil ARM project and your Keil version must be 5 or higher.Keil ARM project needs STMicroelectronics STM32F4 Series Device Family Pack and you can download from https://www.keil.com/dd2/stmicroelectronics/stm32f407zgtx.
 
-stop bits: 1.
+EW is the IAR ARM project and your IAR version must be 9 or higher.
 
-parity: none.
+#### 2.2 Serial Port Parameter
 
-flow control: none.
+Baud Rate: 115200.
+
+Data Bits : 8.
+
+Stop Bits: 1.
+
+Parity: None.
+
+Flow Control: None.
+
+#### 2.3 Serial Port Assistant
+
+We use '\n' to wrap lines.If your serial port assistant displays exceptions (e.g. the displayed content does not divide lines), please modify the configuration of your serial port assistant or replace one that supports '\n' parsing.
 
 ### 3. W25QXX
 
 #### 3.1 Command Instruction
 
-​          w25qxx is a basic command which can test all w25qxx driver function:
+1. Show w25qxx chip and driver information.
 
-​           -i        show w25qxx chip and driver information.
+   ```shell
+   w25qxx (-i | --information)
+   ```
 
-​           -h       show w25qxx help.
+2. Show w25qxx help.
 
-​           -p       show w25qxx pin connections of the current board.
+   ```shell
+   w25qxx (-h | --help)
+   ```
 
-​           -t (reg -type <type> (-spi| -qspi) | read -type <type> (-spi | -qspi)) 
+3. Show w25qxx pin connections of the current board.
 
-​           -t reg -type <type> (-spi | -qspi)       run w25qxx register test and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.
+   ```shell
+   w25qxx (-p | --port)
+   ```
 
-​           -t read -type <type> (-spi | -qspi)        run w25qxx read test and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.
+4. Run w25qxx register test.
 
-​           -c (basic -type <type> power_down (-spi| -qspi) | basic -type <type> wake_up (-spi| -qspi) | basic -type <type> chip_erase (-spi| -qspi) | basic -type <type> get_id (-spi| -qspi) | basic -type <type> read <addr> (-spi| -qspi)  | basic -type <type> write <addr> <data> (-spi| -qspi) | advance -type <type> power_down (-spi| -qspi) | advance -type <type> wake_up (-spi| -qspi) | advance -type <type> chip_erase (-spi| -qspi) | advance -type <type> get_id (-spi| -qspi) | advance -type <type> read <addr> (-spi| -qspi)  | advance -type <type> write <addr> <data> (-spi| -qspi) | advance -type <type> page_program <addr> <data> (-spi| -qspi) | advance -type <type> erase_4k <addr> (-spi| -qspi) | advance -type <type> erase_32k <addr> (-spi| -qspi) | advance -type <type>  erase_64k <addr> (-spi| -qspi) | advance -type <type> fast_read <addr> (-spi| -qspi)  | advance -type <type> get_status1 (-spi| -qspi) | advance -type <type> get_status2 (-spi| -qspi) |  advance -type <type> get_status3 (-spi| -qspi) | advance -type <type> set_status1 <status> (-spi| -qspi) | advance -type <type> set_status2 <status> (-spi| -qspi) | advance -type <type>  set_status3 <status> (-spi| -qspi) | advance -type <type> get_jedec_id (-spi| -qspi) | advance -type <type> global_lock (-spi| -qspi) | advance -type <type> global_unlock (-spi| -qspi) |  advance -type <type> block_lock <addr> (-spi| -qspi) | advance -type <type> block_unlock <addr> (-spi| -qspi) | advance -type <type> read_block <addr> (-spi| -qspi) | advance -type <type> reset (-spi| -qspi) | advance -type <type> spi_read <addr> | advance  -type <type> spi_dual_output_read <addr> | advance -type <type> spi_quad_output_read <addr> | advance -type <type> spi_dual_io_read <addr> | advance -type <type>  spi_quad_io_read <addr> | advance -type <type> spi_word_quad_io_read <addr> | advance -type <type>   spi_octal_word_quad_io_read <addr> | advance -type <type> spi_page_program_quad_input <addr>  <data>| advance -type <type>   spi_get_id_dual_io | advance -type <type> spi_get_id_quad_io | advance -type <type> spi_get_sfdp |  advance -type <type>   spi_write_security_reg <num> <data> |   advance -type <type> spi_read_security_reg <num> | advance -type <type> qspi_set_read_parameters <dummy> <length> | advance -type <type>  spi_set_burst <wrap>)
+   ```shell
+   w25qxx (-t reg | --test=reg) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>]
+   ```
 
-​           -c basic -type <type> power_down (-spi| -qspi)        run w25qxx basic power down function.type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.
+5. Run w25qxx read test.
 
-​           -c basic -type <type> wake_up (-spi| -qspi)        run w25qxx basic wake up function.type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.
+   ```shell
+   w25qxx (-t read | --test=read) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>]
+   ```
 
-​           -c basic -type <type> chip_erase (-spi| -qspi)        run w25qxx basic chip erase function.type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.
+6. Run w25qxx basic power down function.
 
-​           -c basic -type <type> get_id (-spi| -qspi)        run w25qxx basic get id function.type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.
+   ```shell
+   w25qxx (-e power-down | --example=power-down) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>]
+   ```
 
-​           -c basic -type <type> read <addr> (-spi| -qspi)        run w25qxx basic read function.type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.addr is the flash address.
+7. Run w25qxx basic wake up function.
 
-​           -c basic -type <type> write <addr> <data> (-spi| -qspi)        run w25qxx basic write function. type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.addr is the flash address.
+   ```shell
+   w25qxx (-e wake-up | --example=wake-up) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>]
+   ```
 
-​           -c advance -type <type> power_down (-spi| -qspi)        run w25qxx advance power down function.type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.
+8. Run w25qxx basic chip erase function.
 
-​           -c advance -type <type> wake_up (-spi| -qspi)        run w25qxx advance wake up function.type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.
+   ```shell
+   w25qxx (-e chip-erase | --example=chip-erase) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>]
+   ```
 
-​           -c advance -type <type> chip_erase (-spi| -qspi)        run w25qxx advance chip erase function.type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.
+9. Run w25qxx basic get id function.
 
-​           -c advance -type <type> get_id (-spi| -qspi)        run w25qxx advance get id function.type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.
+   ```shell
+   w25qxx (-e get-id | --example=get-id) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>]
+   ```
 
-​           -c advance -type <type> read <addr> (-spi| -qspi)        run w25qxx advance read function. type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.addr is the flash address.
+10. Run w25qxx basic read function, address is the read address.
 
-​           -c advance -type <type> write <addr> <data> (-spi| -qspi)        run w25qxx advance write function. type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.addr is the flash address. data is the written data.
+    ```shell
+    w25qxx (-e read | --example=read) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>] --addr=<address>
+    ```
 
-​           -c advance -type <type> page_program <addr> <data> (-spi| -qspi)        run w25qxx advance page program function. type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.addr is the flash address.data is the written data.
+11. Run w25qxx basic write function, address is the write address, hex is the write data.
 
-​           -c advance -type <type> erase_4k <addr> (-spi| -qspi)        run w25qxx advance erase 4k function. type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.addr is the flash address.
+    ```shell
+    w25qxx (-e write | --example=write) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>] --addr=<address> --data=<hex>
+    ```
 
-​           -c advance -type <type> erase_32k <addr> (-spi| -qspi)        run w25qxx advance erase 32k function. type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.addr is the flash address.
+12. Run w25qxx advance power down function.
 
-​           -c advance -type <type> erase_64k <addr> (-spi| -qspi)        run w25qxx advance erase 64k function. type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.addr is the flash address.
+    ```shell
+    w25qxx (-e advance-power-down | --example=advance-power-down) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>]
+    ```
 
-​           -c advance -type <type> fast_read <addr> (-spi| -qspi)        run w25qxx advance fast read function. type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.addr is the flash address. 
+13. Run w25qxx advance wake up function.
 
-​           -c advance -type <type> get_status1 (-spi| -qspi)         run w25qxx advance get status1 function.type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.
+    ```shell
+    w25qxx (-e advance-wake-up | --example=advance-wake-up) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>]
+    ```
 
-​           -c advance -type <type> get_status2 (-spi| -qspi)          run w25qxx advance get status2 function.type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.
+14. Run w25qxx advance chip erase function.
 
-​           -c advance -type <type> get_status3 (-spi| -qspi)          run w25qxx advance get status3 function.type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.
+    ```shell
+    w25qxx (-e advance-chip-erase | --example=advance-chip-erase) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>]
+    ```
 
-​           -c advance -type <type> set_status1 <status> (-spi| -qspi)          run w25qxx advance set status1 function. type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.status is the set status.
+15. Run w25qxx advance get id function.
 
-​           -c advance -type <type> set_status2 <status> (-spi| -qspi)          run w25qxx advance set status2 function. type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.status is the set status.
+    ```shell
+    w25qxx (-e advance-get-id | --example=advance-get-id) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>]
+    ```
 
-​           -c advance -type <type> set_status3 <status> (-spi| -qspi)          run w25qxx advance set status3 function. type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.status is the set status.
+16. Run w25qxx advance read function, address is the read address.
 
-​           -c advance -type <type> get_jedec_id (-spi| -qspi)         run w25qxx advance get jedec id function.type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.
+    ```shell
+    w25qxx (-e advance-read | --example=advance-read) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>] --addr=<address>
+    ```
 
-​           -c advance -type <type> global_lock (-spi| -qspi)          run w25qxx advance global lock function.type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.
+17. Run w25qxx advance write function, address is the write address, hex is the write data.
 
-​           -c advance -type <type> global_unlock (-spi| -qspi)          run w25qxx advance global unlock function. type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.
+    ```shell
+    w25qxx (-e advance-write | --example=advance-write) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>] --addr=<address> --data=<hex>
+    ```
 
-​           -c advance -type <type> block_lock <addr> (-spi| -qspi)        run w25qxx advance block lock function. type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.addr is the flash address.
+18. Run w25qxx advance page program function, address is the program address, hex is the write data.
 
-​           -c advance -type <type> block_unlock <addr> (-spi| -qspi)        run w25qxx advance block unlock function. type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.addr is the flash address.
+    ```shell
+    w25qxx (-e advance-page-program | --example=advance-page-program) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>] --addr=<address> --data=<hex>
+    ```
 
-​           -c advance -type <type> read_block <addr> (-spi| -qspi)         run w25qxx advance read block function. type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.addr is the flash address.
+19. Run w25qxx advance erase 4k function, address is the erase address.
 
-​           -c advance -type <type> reset (-spi| -qspi)        run w25qxx advance reset function.type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.
+    ```shell
+    w25qxx (-e advance-erase-4k | --example=advance-erase-4k) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>] --addr=<address>
+    ```
 
-​           -c advance -type <type> spi_read <addr>        run w25qxx advance spi read function.  type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.addr is the flash address.
+20. Run w25qxx advance erase 32k function, address is the erase address.
 
-​           -c advance -type <type> spi_dual_output_read <addr>         run w25qxx advance spi dual output read function. type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.addr is the flash address.
+    ```shell
+    w25qxx (-e advance-erase-32k | --example=advance-erase-32k) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>] --addr=<address>
+    ```
 
-​           -c advance -type <type> spi_quad_output_read <addr>        run w25qxx advance spi quad output read function. type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.addr is the flash address. 
+21. Run w25qxx advance erase 64k function, address is the erase address.
 
-​           -c advance -type <type> spi_dual_io_read <addr>        run w25qxx advance spi dual io read function. type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.addr is the flash address.  
+    ```shell
+    w25qxx (-e advance-erase-64k | --example=advance-erase-64k) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>] --addr=<address>
+    ```
 
-​           -c advance -type <type> spi_quad_io_read <addr>       run w25qxx advance spi quad io read function. type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.addr is the flash address.  
+22. Run w25qxx advance fast read function, address is the read address. 
 
-​           -c advance -type <type> spi_word_quad_io_read <addr>       run w25qxx advance spi word quad io read function. type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.addr is the flash address.   
+    ```shell
+    w25qxx (-e advance-fast-read | --example=advance-fast-read) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>] --addr=<address>
+    ```
 
-​           -c advance -type <type> spi_octal_word_quad_io_read <addr>       run w25qxx advance spi octal word quad io read function. type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.addr is the flash address.    
+23. Run w25qxx advance get status1 function.
 
-​           -c advance -type <type> spi_page_program_quad_input <addr> <data>      run w25qxx advance page program quad input function.type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.addr is the flash address. data is the written data.   
+    ```shell
+    w25qxx (-e advance-get-status1 | --example=advance-get-status1) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>]
+    ```
 
-​           -c advance -type <type> spi_get_id_dual_io        run w25qxx advance get id dual io function.type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.
+24. Run w25qxx advance get status2 function.
 
-​           -c advance -type <type> spi_get_id_quad_io        run w25qxx advance get id quad io function.type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.
+    ```shell
+    w25qxx (-e advance-get-status2 | --example=advance-get-status2) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>]
+    ```
 
-​           -c advance -type <type> spi_get_sfdp        run w25qxx advance get sfdp function.type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.
+25. Run w25qxx advance get status3 function.
 
-​           -c advance -type <type> spi_write_security_reg <num> <data>        run w25qxx advance write security register function. type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.num is the security register number. data is the written data.    
+    ```shell
+    w25qxx (-e advance-get-status3 | --example=advance-get-status3) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>]
+    ```
 
-​           -c advance -type <type> spi_read_security_reg <num>         run w25qxx advance read security register function. type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.num is the security register number. num can be 1, 2, 3.
+26. Run w25qxx advance set status1 function, hex is the set status.
 
-​           -c advance -type <type> qspi_set_read_parameters <dummy> <length>         run w25qxx advance set read parameters function. type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.dummy is the read dummy and it can be DUMMY_2_33MHZ, DUMMY_4_55MHZ, DUMMY_6_80MHZ, DUMMY_8_80MHZ. length is the wrap length and it can be 8, 16, 32 or 64.
+    ```shell
+    w25qxx (-e advance-set-status1 | --example=advance-set-status1) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>] --status=<hex>
+    ```
 
-​           -c advance -type <type>  spi_set_burst <wrap>        run w25qxx advance set burst function. type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.wrap is the burst wrap and it can be WRAP_NONE,WRAP_8_BYTE,WRAP_16_BYTE,WRAP_32_BYTE,WRAP_64_BYTE.
+27. Run w25qxx advance set status2 function, hex is the set status.
+
+    ```shell
+    w25qxx (-e advance-set-status2 | --example=advance-set-status2) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>] --status=<hex>
+    ```
+
+28. Run w25qxx advance set status3 function, hex is the set status.
+
+    ```shell
+    w25qxx (-e advance-set-status3 | --example=advance-set-status3) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>] --status=<hex>
+    ```
+
+29. Run w25qxx advance get jedec id function.
+
+    ```shell
+    w25qxx (-e advance-get-jedec-id | --example=advance-get-jedec-id) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>]
+    ```
+
+30. Run w25qxx advance global lock function.
+
+    ```shell
+    w25qxx (-e advance-global-lock | --example=advance-global-lock) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>]
+    ```
+
+31. Run w25qxx advance global unlock function.
+
+    ```shell
+    w25qxx (-e advance-global-unlock | --example=advance-global-unlock) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>]
+    ```
+
+32. Run w25qxx advance block lock function, address is the block address.
+
+    ```shell
+    w25qxx (-e advance-block-lock | --example=advance-block-lock) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>] --addr=<address>
+    ```
+
+33. Run w25qxx advance block unlock function, address is the block address.
+
+    ```shell
+    w25qxx (-e advance-block-unlock | --example=advance-block-unlock) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>] --addr=<address>
+    ```
+
+34. Run w25qxx advance read block function, address is the read address.
+
+    ```shell
+    w25qxx (-e advance-read-block | --example=advance-read-block) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>] --addr=<address>
+    ```
+
+35. Run w25qxx advance reset function.
+
+    ```shell
+    w25qxx (-e advance-reset | --example=advance-reset) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>]
+    ```
+
+36. Run w25qxx advance spi read function, address is the read address.
+
+    ```shell
+    w25qxx (-e advance-spi-read | --example=advance-spi-read) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] --addr=<address>
+    ```
+
+37. Run w25qxx advance spi dual output read function, address is the read address.
+
+    ```shell
+    w25qxx (-e advance-spi-dual-output-read | --example=advance-spi-dual-output-read) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] --addr=<address>
+    ```
+
+38. Run w25qxx advance spi quad output read function, address is the read address. 
+
+    ```shell
+    w25qxx (-e advance-spi-quad-output-read | --example=advance-spi-quad-output-read) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] --addr=<address>
+    ```
+
+39. Run w25qxx advance spi dual io read function, address is the read address.  
+
+    ```shell
+    w25qxx (-e advance-spi-dual-io-read | --example=advance-spi-dual-io-read) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] --addr=<address>
+    ```
+
+40. Run w25qxx advance spi quad io read function, address is the read address.  
+
+    ```shell
+    w25qxx (-e advance-spi-quad-io-read | --example=advance-spi-quad-io-read) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] --addr=<address>
+    ```
+
+41. Run w25qxx advance spi word quad io read function, address is the read address. 
+
+    ```shell
+    w25qxx (-e advance-spi-word-quad-io-read | --example=advance-spi-word-quad-io-read) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] --addr=<address>
+    ```
+
+42. Run w25qxx advance spi octal word quad io read function, address is the read address.    
+
+    ```shell
+    w25qxx (-e advance-spi-octal-word-quad-io-read | --example=advance-spi-octal-word-quad-io-read) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] --addr=<address>
+    ```
+
+43. Run w25qxx advance page program quad input function, address is the write address, hex is the write data.   
+
+    ```shell
+    w25qxx (-e advance-spi-page-program-quad-input | --example=advance-spi-page-program-quad-input) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] --addr=<address> --data=<hex>
+    ```
+
+44. Run w25qxx advance get id dual io function.
+
+    ```shell
+    w25qxx (-e advance-spi-get-id-dual-io | --example=advance-spi-get-id-dual-io) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>]
+    ```
+
+45. Run w25qxx advance get id quad io function.
+
+    ```shell
+    w25qxx (-e advance-spi-get-id-quad-io | --example=advance-spi-get-id-quad-io) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>]
+    ```
+
+46. Run w25qxx advance get sfdp function.
+
+    ```shell
+    w25qxx (-e advance-spi-get-sfdp | --example=advance-spi-get-sfdp) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>]
+    ```
+
+47. Run w25qxx advance write security register function, hex is the write data.    
+
+    ```shell
+    w25qxx (-e advance-spi-write-security | --example=advance-spi-write-security) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] --num=<1 | 2 | 3> --data=<hex>
+    ```
+
+48. Run w25qxx advance read security register function.
+
+    ```shell
+    w25qxx (-e advance-spi-read-security | --example=advance-spi-read-security) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] --num=<1 | 2 | 3>
+    ```
+
+49. Run w25qxx advance set read parameters function.
+
+    ```shell
+    w25qxx (-e advance-qspi-set-read-parameters | --example=advance-qspi-set-read-parameters) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] --dummy=<DUMMY_2_33MHZ | DUMMY_4_55MHZ | DUMMY_6_80MHZ | DUMMY_8_80MHZ> --length=<8 | 16 | 32 | 64>
+    ```
+
+50. Run w25qxx advance set burst function. 
+
+    ```shell
+    w25qxx (-e advance-spi-set-burst | --example=advance-spi-set-burst) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] --wrap=<WRAP_NONE | WRAP_8_BYTE | WRAP_16_BYTE | WRAP_32_BYTE | WRAP_64_BYTE>
+    ```
 
 #### 3.2 Command Example
 
@@ -162,7 +368,7 @@ w25qxx: QSPI interface CS connected to GPIOB PIN6.
 ```
 
 ```shell
-w25qxx -t reg -type W25Q256 -spi
+w25qxx -t reg --type=W25Q256 --interface=qspi
 
 w25qxx: chip is Winbond W25QXX.
 w25qxx: manufacturer is Winbond.
@@ -195,9 +401,7 @@ w25qxx: check chip interface ok.
 w25qxx: w25qxx_get_manufacturer_device_id test.
 w25qxx: manufacturer is 0xEF, device id is 0x18.
 w25qxx: w25qxx_get_jedec_id test.
-w25qxx: manufacturer is 0xEF, device id is 0x40 0x19.
-w25qxx: w25qxx_get_unique_id test.
-w25qxx: unique id 0x00 0x00 0x00 0x00 0xD3 0x64 0x38 0x65.
+w25qxx: manufacturer is 0xEF, device id is 0x60 0x19.
 w25qxx: w25qxx_set_status1/w25qxx_get_status1 test.
 w25qxx: status1 is 0x00.
 w25qxx: w25qxx_set_status2/w25qxx_get_status2 test.
@@ -209,7 +413,7 @@ w25qxx: check enable write ok.
 w25qxx: w25qxx_disable_write test.
 w25qxx: check disable write ok.
 w25qxx: w25qxx_enable_write test.
-w25qxx: check enable volatile sr write ok.
+w25qxx: check enable sr write ok.
 w25qxx: w25qxx_erase_program_suspend test.
 w25qxx: check erase program suspend ok.
 w25qxx: w25qxx_erase_program_suspend test.
@@ -224,27 +428,35 @@ w25qxx: w25qxx_read_block_lock test.
 w25qxx: check read block lock ok with 1.
 w25qxx: w25qxx_individual_block_unlock test.
 w25qxx: check individual block unlock ok.
-w25qxx: w25qxx_set_burst_with_wrap test.
-w25qxx: check set burst with wrap ok.
 w25qxx: w25qxx_power_down test.
 w25qxx: w25qxx_release_power_down test.
 w25qxx: w25qxx_enable_reset test.
 w25qxx: w25qxx_reset_device test.
 w25qxx: set address mode 4 byte.
-w25qxx: w25qxx_get_unique_id test.
-w25qxx: unique id 0x00 0x00 0x00 0x00 0xD3 0x64 0x38 0x65.
 w25qxx: w25qxx_individual_block_lock test.
 w25qxx: check individual block lock ok.
-w25qxx: w25qxx_read_block_lock test.
-w25qxx: check read block lock ok with 1.
 w25qxx: w25qxx_individual_block_unlock test.
 w25qxx: check individual block unlock ok.
+w25qxx: w25qxx_read_block_lock test.
+w25qxx: check read block lock ok with 0.
 w25qxx: set address mode 3 byte.
+w25qxx: enter to spi mode.
+w25qxx: w25qxx_get_manufacturer_device_id_dual_io test.
+w25qxx: manufacturer is 0xEF, device id is 0x18.
+w25qxx: w25qxx_get_manufacturer_device_id_quad_io test.
+w25qxx: manufacturer is 0xEF, device id is 0x18.
+w25qxx: set address mode 4 byte.
+w25qxx: w25qxx_get_manufacturer_device_id_dual_io test.
+w25qxx: manufacturer is 0xEF, device id is 0x18.
+w25qxx: w25qxx_get_manufacturer_device_id_quad_io test.
+w25qxx: manufacturer is 0xEF, device id is 0x18.
+w25qxx: set address mode 3 byte.
+w25qxx: enter to qspi mode.
 w25qxx: finish register test.
 ```
 
 ```shell
-w25qxx -t read -type W25Q256 -qspi
+w25qxx -t read --type=W25Q256 --interface=qspi
 
 w25qxx: chip is Winbond W25QXX.
 w25qxx: manufacturer is Winbond.
@@ -398,336 +610,336 @@ w25qxx: finish read test.
 ```
 
 ```shell
-w25qxx -c basic -type W25Q256 power_down -spi  
+w25qxx -e power-down --type=W25Q256 --interface=qspi
 
 w25qxx: power down successful.
 ```
 
 ```shell
-w25qxx -c basic -type W25Q256 wake_up -spi
+w25qxx -e wake-up --type=W25Q256 --interface=qspi
 
 w25qxx: wake up successful.
 ```
 
 ```shell
-w25qxx -c basic -type W25Q256 chip_erase -spi
+w25qxx -e chip-erase --type=W25Q256 --interface=qspi
 
 w25qxx: start chip erase.
 w25qxx: chip erase successful.
 ```
 
 ```shell
-w25qxx -c basic -type W25Q256 get_id -spi
+w25qxx -e get-id --type=W25Q256 --interface=qspi
 
 w25qxx: manufacturer is 0xEF device id is 0x18.
 ```
 
 ```shell
-w25qxx -c basic -type W25Q256 read 00 -spi
+w25qxx -e read --type=W25Q256 --interface=qspi --addr=0x000000
 
-w25qxx: addr 0 is 8.
+w25qxx: addr 0 is 255.
 ```
 
 ```shell
-w25qxx -c basic -type W25Q256 write 00 8 -spi
+w25qxx -e write --type=W25Q256 --interface=qspi --addr=0x000000 --data=0x08
 
 w25qxx: addr 0 write data 8.
 ```
 
 ```shell
-w25qxx -c advance -type W25Q256 power_down -qspi  
+w25qxx -e advance-power-down --type=W25Q256 --interface=qspi
 
 w25qxx: power down successful.
 ```
 
 ```shell
-w25qxx -c advance -type W25Q256 wake_up -qspi
+w25qxx -e advance-wake-up --type=W25Q256 --interface=qspi
 
 w25qxx: wake up successful.
 ```
 
 ```shell
-w25qxx -c advance -type W25Q256 chip_erase -qspi
+w25qxx -e advance-chip-erase --type=W25Q256 --interface=qspi
 
 w25qxx: start chip erase.
 w25qxx: chip erase successful.
 ```
 
 ```shell
-w25qxx -c advance -type W25Q256 get_id -qspi
+w25qxx -e advance-get-id --type=W25Q256 --interface=qspi
 
 w25qxx: manufacturer is 0xEF device id is 0x18.
 ```
 
 ```shell
-w25qxx -c advance -type W25Q256 read 00 -qspi
+w25qxx -e advance-read --type=W25Q256 --interface=qspi --addr=0x000000
 
-w25qxx: addr 0 is 2.
+w25qxx: addr 0 is 255.
 ```
 
 ```shell
-w25qxx -c advance -type W25Q256 write 00 2 -qspi
+w25qxx -e advance-write --type=W25Q256 --interface=qspi --addr=0x000000 --data=0x02
 
 w25qxx: addr 0 write data 2.
 ```
 
 ```shell
-w25qxx -c advance -type W25Q256 page_program 00 6 -qspi
+w25qxx -e advance-page-program --type=W25Q256 --interface=qspi --addr=0x000000 --data=0x06
 
 w25qxx: addr 0 page program data 6.
 ```
 
 ```shell
-w25qxx -c advance -type W25Q256 erase_4k 00 -qspi
+w25qxx -e advance-erase-4k --type=W25Q256 --interface=qspi --addr=0x000000
 
 w25qxx: erase 4k addr 0 successful.
 ```
 
 ```shell
-w25qxx -c advance -type W25Q256 erase_32k 00 -qspi
+w25qxx -e advance-erase-32k --type=W25Q256 --interface=qspi --addr=0x000000
 
 w25qxx: erase 32k addr 0 successful.
 ```
 
 ```shell
-w25qxx -c advance -type W25Q256 erase_64k 00 -qspi
+w25qxx -e advance-erase-64k --type=W25Q256 --interface=qspi --addr=0x000000
 
 w25qxx: erase 64k addr 0 successful.
 ```
 
 ```shell
-w25qxx -c advance -type W25Q256 fast_read 00 -qspi  
+w25qxx -e advance-fast-read --type=W25Q256 --interface=qspi --addr=0x000000
 
-w25qxx: addr 0 is 7.
+w25qxx: addr 0 is 255.
 ```
 
 ```shell
-w25qxx -c advance -type W25Q256 get_status1 -qspi 
+w25qxx -e advance-get-status1 --type=W25Q256 --interface=qspi
 
 w25qxx: get status1 is 0x00.
 ```
 
 ```shell
-w25qxx -c advance -type W25Q256 get_status2 -qspi 
+w25qxx -e advance-get-status2 --type=W25Q256 --interface=qspi
 
 w25qxx: get status2 is 0x02.
 ```
 
 ```shell
-w25qxx -c advance -type W25Q256 get_status3 -qspi 
+w25qxx -e advance-get-status3 --type=W25Q256 --interface=qspi
 
 w25qxx: get status3 is 0x01.
 ```
 
 ```shell
-w25qxx -c advance -type W25Q256 set_status1 00 -qspi
+w25qxx -e advance-set-status1 --type=W25Q256 --interface=qspi --status=0x00
 
 w25qxx: set status1 0x00.
 ```
 
 ```shell
-w25qxx -c advance -type W25Q256 set_status2 02 -qspi
+w25qxx -e advance-set-status2 --type=W25Q256 --interface=qspi --status=0x02
 
 w25qxx: set status2 0x02.
 ```
 
 ```shell
-w25qxx -c advance -type W25Q256 set_status3 96 -qspi
+w25qxx -e advance-set-status3 --type=W25Q256 --interface=qspi --status=0x60
 
 w25qxx: set status3 0x60.
 ```
 
 ```shell
-w25qxx -c advance -type W25Q256 get_jedec_id -qspi
+w25qxx -e advance-get-jedec-id --type=W25Q256 --interface=qspi
 
 w25qxx: manufacturer is 0xEF device id is 0x60 0x19.
 ```
 
 ```shell
-w25qxx -c advance -type W25Q256 global_lock -qspi  
+w25qxx -e advance-global-lock --type=W25Q256 --interface=qspi
 
-w25qxx: global block lock successful.  
+w25qxx: global block lock successful.
 ```
 
 ```shell
-w25qxx -c advance -type W25Q256 global_unlock -qspi  
+w25qxx -e advance-global-unlock --type=W25Q256 --interface=qspi
 
 w25qxx: global block unlock successful.
 ```
 
 ```shell
-w25qxx -c advance -type W25Q256 block_lock 00 -qspi 
+w25qxx -e advance-block-lock --type=W25Q256 --interface=qspi --addr=0x000000
 
 w25qxx: block lock addr 0.
 ```
 
 ```shell
-w25qxx -c advance -type W25Q256 block_unlock 00 -qspi
+w25qxx -e advance-block-unlock --type=W25Q256 --interface=qspi --addr=0x000000
 
 w25qxx: block unlock addr 0.
 ```
 
 ```shell
-w25qxx -c advance -type W25Q256 read_block 00 -qspi
+w25qxx -e advance-read-block --type=W25Q256 --interface=qspi --addr=0x000000
 
-w25qxx: read block addr 0 is 1. 
+w25qxx: read block addr 0 is 1.
 ```
 
 ```shell
-w25qxx -c advance -type W25Q256 reset -qspi
+w25qxx -e advance-reset --type=W25Q256 --interface=qspi
 
 w25qxx: reset successful.
 ```
 
 ```shell
-w25qxx -c advance -type W25Q256 spi_read 00
+w25qxx -e advance-spi-read --type=W25Q256 --addr=0x000000 --interface=spi
 
-w25qxx: add 0 spi read is 0x07.
+w25qxx: add 0 spi read is 0xFF.
 ```
 
 ```shell
-w25qxx -c advance -type W25Q256 spi_dual_output_read 00
+w25qxx -e advance-spi-dual-output-read --type=W25Q256 --addr=0x000000 --interface=spi
 
-w25qxx: add 0 spi dual output read is 0x07.
+w25qxx: add 0 spi dual output read is 0xFF.
 ```
 
 ```shell
-w25qxx -c advance -type W25Q256 spi_quad_output_read 00
+w25qxx -e advance-spi-quad-output-read --type=W25Q256 --addr=0x000000 --interface=spi
 
-w25qxx: add 0 spi quad output read is 0x07.
+w25qxx: add 0 spi quad output read is 0xFF.
 ```
 
 ```shell
-w25qxx -c advance -type W25Q256 spi_dual_io_read 00
+w25qxx -e advance-spi-dual-io-read --type=W25Q256 --addr=0x000000 --interface=spi
 
-w25qxx: add 0 spi dual io read is 0x07.
+w25qxx: add 0 spi dual io read is 0xFF.
 ```
 
 ```shell
-w25qxx -c advance -type W25Q256 spi_quad_io_read 00
+w25qxx -e advance-spi-quad-io-read --type=W25Q256 --addr=0x000000 --interface=spi
 
-w25qxx: add 0 spi quad io read is 0x07.
+w25qxx: add 0 spi quad io read is 0xFF.
 ```
 
 ```shell
-w25qxx -c advance -type W25Q256 spi_word_quad_io_read 00
+w25qxx -e advance-spi-word-quad-io-read --type=W25Q256 --addr=0x000000 --interface=spi
 
-w25qxx: add 0 spi word quad io read is 0x07.
+w25qxx: add 0 spi word quad io read is 0xFF.
 ```
 
 ```shell
-w25qxx -c advance -type W25Q256 spi_octal_word_quad_io_read 00
+w25qxx -e advance-spi-octal-word-quad-io-read --type=W25Q256 --addr=0x000000 --interface=spi
 
-w25qxx: add 0 spi octal word quad io read is 0x07.
+w25qxx: add 0 spi octal word quad io read is 0xFF.
 ```
 
 ```shell
-w25qxx -c advance -type W25Q256 spi_read_security_reg 1
+w25qxx -e advance-spi-read-security --type=W25Q256 --num=1 --interface=spi
 
-w25qxx: read 1 security register.
-w25qxx: 0xC5 0xF7 0xDB 0x02 0x52 0x43 0xE1 0x94.
-w25qxx: 0xDA 0x6C 0x5C 0x25 0xDE 0xE7 0xB3 0x51.
-w25qxx: 0x49 0xE2 0xDB 0x68 0x16 0x0F 0x3D 0xA3.
-w25qxx: 0x32 0xB8 0xE0 0xA3 0x41 0xD1 0x3C 0x65.
-w25qxx: 0x51 0x25 0x55 0x34 0x76 0x5C 0x4A 0x6E.
-w25qxx: 0x24 0x68 0x9F 0x7C 0x07 0xC7 0x40 0xD1.
-w25qxx: 0x40 0x74 0x41 0xC6 0x11 0xC0 0x64 0x2A.
-w25qxx: 0x48 0x00 0x57 0x86 0xB9 0x3D 0xDE 0x48.
-w25qxx: 0x90 0xC4 0xC4 0x5A 0xEE 0x7A 0x91 0x1A.
-w25qxx: 0x22 0x4F 0xA9 0xDC 0x20 0xFD 0x07 0x5C.
-w25qxx: 0x00 0xE0 0xFA 0xC7 0x8A 0x79 0x43 0x99.
-w25qxx: 0xB5 0x19 0xF8 0xD0 0x4A 0xC4 0xFF 0x3E.
-w25qxx: 0x8A 0xEE 0x25 0xE3 0xE7 0x3D 0xD8 0x9C.
-w25qxx: 0x74 0x21 0xC0 0xD8 0x4A 0xDD 0x6D 0xE1.
-w25qxx: 0xB5 0x70 0x7E 0x89 0x87 0xA2 0x47 0xCE.
-w25qxx: 0x4E 0xB2 0x7F 0xD1 0x61 0xCE 0xF2 0xBE.
-w25qxx: 0xC3 0xCA 0x9C 0xF8 0x47 0xE4 0xC9 0xE1.
-w25qxx: 0x95 0x6A 0x45 0x13 0x00 0xE5 0xE0 0x83.
-w25qxx: 0x67 0xAA 0x4F 0x1B 0x25 0xCD 0x30 0x48.
-w25qxx: 0xB1 0xEF 0x7F 0xDF 0x84 0xBC 0x65 0x55.
-w25qxx: 0xB6 0x2A 0x1D 0x5D 0xDD 0x52 0xC1 0x38.
-w25qxx: 0xD7 0x28 0xD8 0xA2 0xC7 0x14 0xFE 0x96.
-w25qxx: 0x63 0x6E 0x50 0x40 0x52 0xAE 0x23 0x18.
-w25qxx: 0x80 0xC6 0x15 0xA4 0xC1 0x1B 0xA2 0xCD.
-w25qxx: 0x41 0x6D 0xEB 0xA2 0xAC 0xF4 0x81 0xFD.
-w25qxx: 0x0D 0xBD 0x6B 0x65 0x1F 0xDE 0x6B 0xC9.
-w25qxx: 0x6F 0x45 0xF4 0x28 0x7D 0x80 0xF7 0x83.
-w25qxx: 0x6B 0x8A 0x48 0x7F 0xFE 0xB5 0xB9 0xD4.
-w25qxx: 0x35 0x95 0x0D 0x2C 0x33 0xDC 0x01 0x2C.
-w25qxx: 0xDD 0x95 0x34 0x7A 0x2B 0xA3 0x0F 0x03.
-w25qxx: 0x31 0x9F 0xEC 0x40 0x19 0x57 0x86 0x15.
-w25qxx: 0xA2 0x80 0xAF 0xD8 0x27 0x5D 0xFE 0x39.
+w25qxx: read 4096 security register.
+w25qxx: 0xDC 0x47 0x8E 0x74 0x3F 0xFD 0x49 0xB7.
+w25qxx: 0x9E 0xF1 0xC1 0x74 0xE2 0x08 0x9F 0x14.
+w25qxx: 0x8C 0x12 0x87 0x18 0x03 0xF8 0x29 0x85.
+w25qxx: 0xA6 0xD6 0x05 0xEF 0xDC 0x09 0xE3 0x8D.
+w25qxx: 0x33 0xCF 0x1B 0xDF 0x48 0xA0 0x63 0x50.
+w25qxx: 0x6B 0xA7 0xB7 0xCD 0x0C 0xEA 0x23 0xAE.
+w25qxx: 0xD8 0x15 0x3E 0x71 0x4D 0x06 0x54 0x69.
+w25qxx: 0x7A 0x5D 0x8F 0x1E 0x45 0xE9 0x1A 0xEE.
+w25qxx: 0x5C 0x68 0x2B 0xAF 0x14 0x89 0x37 0x3A.
+w25qxx: 0xEA 0x9C 0x56 0x74 0x45 0x2F 0xD9 0x0F.
+w25qxx: 0x50 0x62 0x7E 0xFA 0x4E 0xCC 0xA7 0x21.
+w25qxx: 0x2B 0x83 0x0A 0xF7 0xB4 0xEC 0x87 0xA5.
+w25qxx: 0x91 0x53 0x23 0x80 0x2F 0x52 0x87 0xE7.
+w25qxx: 0x65 0xA0 0xEF 0x47 0x54 0x20 0x10 0x9B.
+w25qxx: 0x88 0x12 0x28 0x3C 0x9D 0x06 0x75 0x01.
+w25qxx: 0xF9 0x7E 0xD2 0x94 0xB8 0x89 0xC1 0xD1.
+w25qxx: 0x01 0xF6 0x63 0x8C 0x83 0xF9 0x1F 0xEB.
+w25qxx: 0xEA 0x90 0x22 0x8A 0x69 0xAD 0x96 0x2C.
+w25qxx: 0x7C 0x88 0xC9 0x48 0xA4 0x10 0x66 0x62.
+w25qxx: 0x54 0x19 0xE3 0xBB 0xD5 0x80 0x06 0x50.
+w25qxx: 0x8A 0x7F 0x69 0xDE 0x89 0xBD 0x31 0xB4.
+w25qxx: 0x8E 0xB0 0x05 0xE5 0xAA 0x85 0x67 0x5B.
+w25qxx: 0xD2 0xEB 0x77 0x73 0x5E 0x41 0xD7 0x51.
+w25qxx: 0x80 0xE2 0xF5 0x61 0x82 0xDC 0x1C 0x9E.
+w25qxx: 0x1E 0xD2 0x8F 0x4E 0x57 0x1B 0x93 0xD7.
+w25qxx: 0x5A 0xB4 0xBF 0x17 0x6E 0xA7 0x39 0xA5.
+w25qxx: 0x99 0xC5 0xB0 0x36 0x02 0xE2 0x6C 0x28.
+w25qxx: 0x9D 0x3B 0x6D 0xD7 0x14 0x4C 0x47 0x65.
+w25qxx: 0x0A 0xB9 0xA4 0xC1 0xF3 0x0E 0x94 0x77.
+w25qxx: 0x84 0x3C 0x23 0x94 0x43 0xB9 0xBD 0xA8.
+w25qxx: 0x7F 0x30 0xCE 0x59 0xF0 0x68 0xE5 0x83.
+w25qxx: 0xDC 0x48 0xF2 0x18 0x0E 0xA1 0x6B 0xD1.
 ```
 
 ```shell
-w25qxx -c advance -type W25Q256 spi_get_id_dual_io 
+w25qxx -e advance-spi-get-id-dual-io --type=W25Q256 --interface=spi
 
 w25qxx: manufacturer is 0xEF device id is 0x18.
 ```
 
 ```shell
-w25qxx -c advance -type W25Q256 spi_get_id_quad_io 
+w25qxx -e advance-spi-get-id-quad-io --type=W25Q256 --interface=spi
 
 w25qxx: manufacturer is 0xEF device id is 0x18.
 ```
 
 ```shell
-w25qxx -c advance -type W25Q256 spi_get_sfdp
+w25qxx -e advance-spi-get-sfdp --type=W25Q256 --interface=spi
 
-w25qxx: sdfp[0-7] is 0xC5 0xF7 0xDB 0x02 0x52 0x43 0xE1 0x94.
-w25qxx: sdfp[8-15] is 0xDA 0x6C 0x5C 0x25 0xDE 0xE7 0xB3 0x51.
-w25qxx: sdfp[16-23] is 0x49 0xE2 0xDB 0x68 0x16 0x0F 0x3D 0xA3.
-w25qxx: sdfp[24-31] is 0x32 0xB8 0xE0 0xA3 0x41 0xD1 0x3C 0x65.
-w25qxx: sdfp[32-39] is 0x51 0x25 0x55 0x34 0x76 0x5C 0x4A 0x6E.
-w25qxx: sdfp[40-47] is 0x24 0x68 0x9F 0x7C 0x07 0xC7 0x40 0xD1.
-w25qxx: sdfp[48-55] is 0x40 0x74 0x41 0xC6 0x11 0xC0 0x64 0x2A.
-w25qxx: sdfp[56-63] is 0x48 0x00 0x57 0x86 0xB9 0x3D 0xDE 0x48.
-w25qxx: sdfp[64-71] is 0x90 0xC4 0xC4 0x5A 0xEE 0x7A 0x91 0x1A.
-w25qxx: sdfp[72-79] is 0x22 0x4F 0xA9 0xDC 0x20 0xFD 0x07 0x5C.
-w25qxx: sdfp[80-87] is 0x00 0xE0 0xFA 0xC7 0x8A 0x79 0x43 0x99.
-w25qxx: sdfp[88-95] is 0xB5 0x19 0xF8 0xD0 0x4A 0xC4 0xFF 0x3E.
-w25qxx: sdfp[96-103] is 0x8A 0xEE 0x25 0xE3 0xE7 0x3D 0xD8 0x9C.
-w25qxx: sdfp[104-111] is 0x74 0x21 0xC0 0xD8 0x4A 0xDD 0x6D 0xE1.
-w25qxx: sdfp[112-119] is 0xB5 0x70 0x7E 0x89 0x87 0xA2 0x47 0xCE.
-w25qxx: sdfp[120-127] is 0x4E 0xB2 0x7F 0xD1 0x61 0xCE 0xF2 0xBE.
-w25qxx: sdfp[128-135] is 0xC3 0xCA 0x9C 0xF8 0x47 0xE4 0xC9 0xE1.
-w25qxx: sdfp[136-143] is 0x95 0x6A 0x45 0x13 0x00 0xE5 0xE0 0x83.
-w25qxx: sdfp[144-151] is 0x67 0xAA 0x4F 0x1B 0x25 0xCD 0x30 0x48.
-w25qxx: sdfp[152-159] is 0xB1 0xEF 0x7F 0xDF 0x84 0xBC 0x65 0x55.
-w25qxx: sdfp[160-167] is 0xB6 0x2A 0x1D 0x5D 0xDD 0x52 0xC1 0x38.
-w25qxx: sdfp[168-175] is 0xD7 0x28 0xD8 0xA2 0xC7 0x14 0xFE 0x96.
-w25qxx: sdfp[176-183] is 0x63 0x6E 0x50 0x40 0x52 0xAE 0x23 0x18.
-w25qxx: sdfp[184-191] is 0x80 0xC6 0x15 0xA4 0xC1 0x1B 0xA2 0xCD.
-w25qxx: sdfp[192-199] is 0x41 0x6D 0xEB 0xA2 0xAC 0xF4 0x81 0xFD.
-w25qxx: sdfp[200-207] is 0x0D 0xBD 0x6B 0x65 0x1F 0xDE 0x6B 0xC9.
-w25qxx: sdfp[208-215] is 0x6F 0x45 0xF4 0x28 0x7D 0x80 0xF7 0x83.
-w25qxx: sdfp[216-223] is 0x6B 0x8A 0x48 0x7F 0xFE 0xB5 0xB9 0xD4.
-w25qxx: sdfp[224-231] is 0x35 0x95 0x0D 0x2C 0x33 0xDC 0x01 0x2C.
-w25qxx: sdfp[232-239] is 0xDD 0x95 0x34 0x7A 0x2B 0xA3 0x0F 0x03.
-w25qxx: sdfp[240-247] is 0x31 0x9F 0xEC 0x40 0x19 0x57 0x86 0x15.
-w25qxx: sdfp[248-255] is 0xA2 0x80 0xAF 0xD8 0x27 0x5D 0xFE 0x39.
+w25qxx: sdfp[0-7] is 0xDC 0x47 0x8E 0x74 0x3F 0xFD 0x49 0xB7.
+w25qxx: sdfp[8-15] is 0x9E 0xF1 0xC1 0x74 0xE2 0x08 0x9F 0x14.
+w25qxx: sdfp[16-23] is 0x8C 0x12 0x87 0x18 0x03 0xF8 0x29 0x85.
+w25qxx: sdfp[24-31] is 0xA6 0xD6 0x05 0xEF 0xDC 0x09 0xE3 0x8D.
+w25qxx: sdfp[32-39] is 0x33 0xCF 0x1B 0xDF 0x48 0xA0 0x63 0x50.
+w25qxx: sdfp[40-47] is 0x6B 0xA7 0xB7 0xCD 0x0C 0xEA 0x23 0xAE.
+w25qxx: sdfp[48-55] is 0xD8 0x15 0x3E 0x71 0x4D 0x06 0x54 0x69.
+w25qxx: sdfp[56-63] is 0x7A 0x5D 0x8F 0x1E 0x45 0xE9 0x1A 0xEE.
+w25qxx: sdfp[64-71] is 0x5C 0x68 0x2B 0xAF 0x14 0x89 0x37 0x3A.
+w25qxx: sdfp[72-79] is 0xEA 0x9C 0x56 0x74 0x45 0x2F 0xD9 0x0F.
+w25qxx: sdfp[80-87] is 0x50 0x62 0x7E 0xFA 0x4E 0xCC 0xA7 0x21.
+w25qxx: sdfp[88-95] is 0x2B 0x83 0x0A 0xF7 0xB4 0xEC 0x87 0xA5.
+w25qxx: sdfp[96-103] is 0x91 0x53 0x23 0x80 0x2F 0x52 0x87 0xE7.
+w25qxx: sdfp[104-111] is 0x65 0xA0 0xEF 0x47 0x54 0x20 0x10 0x9B.
+w25qxx: sdfp[112-119] is 0x88 0x12 0x28 0x3C 0x9D 0x06 0x75 0x01.
+w25qxx: sdfp[120-127] is 0xF9 0x7E 0xD2 0x94 0xB8 0x89 0xC1 0xD1.
+w25qxx: sdfp[128-135] is 0x01 0xF6 0x63 0x8C 0x83 0xF9 0x1F 0xEB.
+w25qxx: sdfp[136-143] is 0xEA 0x90 0x22 0x8A 0x69 0xAD 0x96 0x2C.
+w25qxx: sdfp[144-151] is 0x7C 0x88 0xC9 0x48 0xA4 0x10 0x66 0x62.
+w25qxx: sdfp[152-159] is 0x54 0x19 0xE3 0xBB 0xD5 0x80 0x06 0x50.
+w25qxx: sdfp[160-167] is 0x8A 0x7F 0x69 0xDE 0x89 0xBD 0x31 0xB4.
+w25qxx: sdfp[168-175] is 0x8E 0xB0 0x05 0xE5 0xAA 0x85 0x67 0x5B.
+w25qxx: sdfp[176-183] is 0xD2 0xEB 0x77 0x73 0x5E 0x41 0xD7 0x51.
+w25qxx: sdfp[184-191] is 0x80 0xE2 0xF5 0x61 0x82 0xDC 0x1C 0x9E.
+w25qxx: sdfp[192-199] is 0x1E 0xD2 0x8F 0x4E 0x57 0x1B 0x93 0xD7.
+w25qxx: sdfp[200-207] is 0x5A 0xB4 0xBF 0x17 0x6E 0xA7 0x39 0xA5.
+w25qxx: sdfp[208-215] is 0x99 0xC5 0xB0 0x36 0x02 0xE2 0x6C 0x28.
+w25qxx: sdfp[216-223] is 0x9D 0x3B 0x6D 0xD7 0x14 0x4C 0x47 0x65.
+w25qxx: sdfp[224-231] is 0x0A 0xB9 0xA4 0xC1 0xF3 0x0E 0x94 0x77.
+w25qxx: sdfp[232-239] is 0x84 0x3C 0x23 0x94 0x43 0xB9 0xBD 0xA8.
+w25qxx: sdfp[240-247] is 0x7F 0x30 0xCE 0x59 0xF0 0x68 0xE5 0x83.
+w25qxx: sdfp[248-255] is 0xDC 0x48 0xF2 0x18 0x0E 0xA1 0x6B 0xD1.
 ```
 
 ```shell
-w25qxx -c advance -type W25Q256 spi_page_program_quad_input 00 8
+w25qxx -e advance-spi-page-program-quad-input --type=W25Q256 --addr=0x000000 --data=0x08 --interface=spi
 
 w25qxx: add 0 page program quad input successful.
 ```
 
 ```shell
-w25qxx -c advance -type W25Q256 spi_write_security_reg 1 8
+w25qxx -e advance-spi-write-security --type=W25Q256 --num=1 --data=0x08 --interface=spi
 
-w25qxx: write 1 security register successful.
+w25qxx: write 4096 security register successful.
 ```
 
 ```shell
-w25qxx -c advance -type W25Q256 qspi_set_read_parameters DUMMY_8_80MHZ 8 
+w25qxx -e advance-qspi-set-read-parameters --type=W25Q256 --dummy=DUMMY_8_80MHZ --length=8 --interface=qspi
 
 w25qxx: set read parameters successful.
 ```
 
 ```shell
-w25qxx -c advance -type W25Q256 spi_set_burst WRAP_8_BYTE
+w25qxx -e advance-spi-set-burst --type=W25Q256 --wrap=WRAP_8_BYTE --interface=spi
 
 w25qxx: set burst with wrap successful.
 ```
@@ -735,97 +947,118 @@ w25qxx: set burst with wrap successful.
 ```shell
 w25qxx -h
 
-w25qxx -i
-	show w25qxx chip and driver information.
-w25qxx -h
-	show w25qxx help.
-w25qxx -p
-	show w25qxx pin connections of the current board.
-w25qxx -c basic -type <type> power_down (-spi| -qspi)
-	run w25qxx basic power down function.type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.
-w25qxx -c basic -type <type> wake_up (-spi| -qspi)
-	run w25qxx basic wake up function.type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.
-w25qxx -c basic -type <type> chip_erase (-spi| -qspi)
-	run w25qxx basic chip erase function.type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.
-w25qxx -c basic -type <type> get_id (-spi| -qspi)
-	run w25qxx basic get id function.type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.
-w25qxx -c basic -type <type> read <addr> (-spi| -qspi)
-	run w25qxx basic read function.type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.addr is the flash address.
-w25qxx -c basic -type <type> write <addr> <data> (-spi| -qspi)
-	run w25qxx basic write function.type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.addr is the flash address.
-w25qxx -c advance -type <type> power_down (-spi| -qspi)
-	run w25qxx advance power down function.type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.
-w25qxx -c advance -type <type> wake_up (-spi| -qspi)
-	run w25qxx advance wake up function.type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.
-w25qxx -c advance -type <type> chip_erase (-spi| -qspi)
-	run w25qxx advance chip erase function.type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.
-w25qxx -c advance -type <type> get_id (-spi| -qspi)
-	run w25qxx advance get id function.type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.
-w25qxx -c advance -type <type> read <addr> (-spi| -qspi)
-	run w25qxx advance read function.type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.addr is the flash address.
-w25qxx -c advance -type <type> write <addr> <data> (-spi| -qspi)
-	run w25qxx advance write function.type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.addr is the flash address.
-w25qxx -c advance -type <type> page_program <addr> <data> (-spi| -qspi)
-	run w25qxx advance page program function.type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.addr is the flash address.
-w25qxx -c advance -type <type> erase_4k <addr> (-spi| -qspi)
-	run w25qxx advance erase 4k function.type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.addr is the flash address.
-w25qxx -c advance -type <type> erase_32k <addr> (-spi| -qspi)
-	run w25qxx advance erase 32k function.type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.addr is the flash address.
-w25qxx -c advance -type <type> erase_64k <addr> (-spi| -qspi)
-	run w25qxx advance erase 64k function.type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.addr is the flash address.
-w25qxx -c advance -type <type> fast_read <addr> (-spi| -qspi)
-	run w25qxx advance fast read function.type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.addr is the flash address.
-w25qxx -c advance -type <type> get_status1 (-spi| -qspi)
-	run w25qxx advance get status1 function.type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.
-w25qxx -c advance -type <type> get_status2 (-spi| -qspi)
-	run w25qxx advance get status2 function.type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.
-w25qxx -c advance -type <type> get_status3 (-spi| -qspi)
-	run w25qxx advance get status3 function.type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.
-w25qxx -c advance -type <type> set_status1 <status> (-spi| -qspi)
-	run w25qxx advance set status1 function.type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.status is the set status.
-w25qxx -c advance -type <type> set_status2 <status> (-spi| -qspi)
-	run w25qxx advance set status2 function.type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.status is the set status.
-w25qxx -c advance -type <type> set_status3 <status> (-spi| -qspi)
-	run w25qxx advance set status3 function.type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.status is the set status.
-w25qxx -c advance -type <type> get_jedec_id (-spi| -qspi)
-	run w25qxx advance get jedec id function.type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.
-w25qxx -c advance -type <type> global_lock (-spi| -qspi)
-	run w25qxx advance global lock function.type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.
-w25qxx -c advance -type <type> global_unlock (-spi| -qspi)
-	run w25qxx advance global unlock function.type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.
-w25qxx -c advance -type <type> read_block <addr> (-spi| -qspi)
-	run w25qxx advance read block function.type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.addr is the flash address.
-w25qxx -c advance -type <type> reset (-spi| -qspi)
-	run w25qxx advance reset function.type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.
-w25qxx -c advance -type <type> spi_read <addr>
-	run w25qxx advance spi read function.type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.addr is the flash address.
-w25qxx -c advance -type <type> spi_dual_output_read <addr>
-	run w25qxx advance spi dual output read function.type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.addr is the flash address.
-w25qxx -c advance -type <type> spi_quad_output_read <addr>
-	run w25qxx advance spi quad output read function.type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.addr is the flash address.
-w25qxx -c advance -type <type> spi_dual_io_read <addr>
-	run w25qxx advance spi dual io read function.type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.addr is the flash address.
-w25qxx -c advance -type <type> spi_quad_io_read <addr>
-	run w25qxx advance spi quad io read function.type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.addr is the flash address.
-w25qxx -c advance -type <type> spi_word_quad_io_read <addr>
-	run w25qxx advance spi word quad io read function.type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.addr is the flash address.
-w25qxx -c advance -type <type> spi_octal_word_quad_io_read <addr>
-	run w25qxx advance spi octal word quad io read function.type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.addr is the flash address.
-w25qxx -c advance -type <type> spi_page_program_quad_input <addr> <data>
-	run w25qxx advance page program quad input function.type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.addr is the flash address.data is the written data.
-w25qxx -c advance -type <type> spi_get_id_dual_io
-	run w25qxx advance get id dual io function.type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.
-w25qxx -c advance -type <type> spi_get_id_quad_io
-	run w25qxx advance get id quad io function.type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.
-w25qxx -c advance -type <type> spi_get_sfdp
-	run w25qxx advance get sfdp function.type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.
-w25qxx -c advance -type <type> spi_write_security_reg <num> <data>
-	run w25qxx advance write security register function.type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.addr is the flash address.num is the security register number.data is the written data.
-w25qxx -c advance -type <type> spi_read_security_reg <num>
-	run w25qxx advance read security register function.type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.num is the security register number.num can be 1, 2, 3.
-w25qxx -c advance -type <type> qspi_set_read_parameters <dummy> <length>
-	run w25qxx advance set read parameters function.type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.dummy is the read dummy and it can be DUMMY_2_33MHZ, DUMMY_4_55MHZ, DUMMY_6_80MHZ, DUMMY_8_80MHZ.length is the wrap length and it can be 8, 16, 32 or 64.
-w25qxx -c advance -type <type> spi_set_burst <wrap>
-	run w25qxx advance set burst function.type is the chip type and type can be W25Q80, W25Q16, W25Q32, W25Q64, W25Q128 or W25Q256.wrap is the burst wrap and it can be WRAP_NONE,WRAP_8_BYTE,WRAP_16_BYTE,WRAP_32_BYTE,WRAP_64_BYTE.
+Usage:
+  w25qxx (-i | --information)
+  w25qxx (-h | --help)
+  w25qxx (-p | --port)
+  w25qxx (-t reg | --test=reg) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>]
+  w25qxx (-t read | --test=read) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>]
+  w25qxx (-e power-down | --example=power-down) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>]
+  w25qxx (-e wake-up | --example=wake-up) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>]
+  w25qxx (-e chip-erase | --example=chip-erase) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>]
+  w25qxx (-e get-id | --example=get-id) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>]
+  w25qxx (-e read | --example=read) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>]
+         --addr=<address>
+  w25qxx (-e write | --example=write) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>]
+         --addr=<address> --data=<hex>
+  w25qxx (-e advance-power-down | --example=advance-power-down) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>]
+  w25qxx (-e advance-wake-up | --example=advance-wake-up) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>]
+  w25qxx (-e advance-chip-erase | --example=advance-chip-erase) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>]
+  w25qxx (-e advance-get-id | --example=advance-get-id) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>]
+  w25qxx (-e advance-read | --example=advance-read) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>]
+         --addr=<address>
+  w25qxx (-e advance-write | --example=advance-write) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>]
+         --addr=<address> --data=<hex>
+  w25qxx (-e advance-page-program | --example=advance-page-program) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>]
+         --addr=<address> --data=<hex>
+  w25qxx (-e advance-erase-4k | --example=advance-erase-4k) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>]
+         --addr=<address>
+  w25qxx (-e advance-erase-32k | --example=advance-erase-32k) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>]
+         --addr=<address>
+  w25qxx (-e advance-erase-64k | --example=advance-erase-64k) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>]
+         --addr=<address>
+  w25qxx (-e advance-fast-read | --example=advance-fast-read) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>]
+         --addr=<address>
+  w25qxx (-e advance-get-status1 | --example=advance-get-status1) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>]
+  w25qxx (-e advance-get-status2 | --example=advance-get-status2) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>]
+  w25qxx (-e advance-get-status3 | --example=advance-get-status3) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>]
+  w25qxx (-e advance-set-status1 | --example=advance-set-status1) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>]
+         --status=<hex>
+  w25qxx (-e advance-set-status2 | --example=advance-set-status2) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>]
+         --status=<hex>
+  w25qxx (-e advance-set-status3 | --example=advance-set-status3) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>]
+         --status=<hex>
+  w25qxx (-e advance-get-jedec-id | --example=advance-get-jedec-id) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>]
+  w25qxx (-e advance-global-lock | --example=advance-global-lock) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>]
+  w25qxx (-e advance-global-unlock | --example=advance-global-unlock) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>]
+  w25qxx (-e advance-block-lock | --example=advance-block-lock) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>]
+         --addr=<address>
+  w25qxx (-e advance-block-unlock | --example=advance-block-unlock) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>]
+         --addr=<address>
+  w25qxx (-e advance-read-block | --example=advance-read-block) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>]
+         --addr=<address>
+  w25qxx (-e advance-reset | --example=advance-reset) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] [--interface=<spi | qspi>]
+  w25qxx (-e advance-spi-read | --example=advance-spi-read) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>] --addr=<address>
+  w25qxx (-e advance-spi-dual-output-read | --example=advance-spi-dual-output-read) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>]
+         --addr=<address>
+  w25qxx (-e advance-spi-quad-output-read | --example=advance-spi-quad-output-read) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>]
+         --addr=<address>
+  w25qxx (-e advance-spi-dual-io-read | --example=advance-spi-dual-io-read) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>]
+         --addr=<address>
+  w25qxx (-e advance-spi-quad-io-read | --example=advance-spi-quad-io-read) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>]
+         --addr=<address>
+  w25qxx (-e advance-spi-word-quad-io-read | --example=advance-spi-word-quad-io-read) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>]
+         --addr=<address>
+  w25qxx (-e advance-spi-octal-word-quad-io-read | --example=advance-spi-octal-word-quad-io-read) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>]
+         --addr=<address>
+  w25qxx (-e advance-spi-page-program-quad-input | --example=advance-spi-page-program-quad-input) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>]
+         --addr=<address> --data=<hex>
+  w25qxx (-e advance-spi-get-id-dual-io | --example=advance-spi-get-id-dual-io) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>]
+  w25qxx (-e advance-spi-get-id-quad-io | --example=advance-spi-get-id-quad-io) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>]
+  w25qxx (-e advance-spi-get-sfdp | --example=advance-spi-get-sfdp) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>]
+  w25qxx (-e advance-spi-write-security | --example=advance-spi-write-security) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>]
+         --num=<1 | 2 | 3> --data=<hex>
+  w25qxx (-e advance-spi-read-security | --example=advance-spi-read-security) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>]
+         --num=<1 | 2 | 3>
+  w25qxx (-e advance-qspi-set-read-parameters | --example=advance-qspi-set-read-parameters) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>]
+         --dummy=<DUMMY_2_33MHZ | DUMMY_4_55MHZ | DUMMY_6_80MHZ | DUMMY_8_80MHZ> --length=<8 | 16 | 32 | 64>
+  w25qxx (-e advance-spi-set-burst | --example=advance-spi-set-burst) [--type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>]
+         --wrap=<WRAP_NONE | WRAP_8_BYTE | WRAP_16_BYTE | WRAP_32_BYTE | WRAP_64_BYTE>
+
+Options:
+      --addr=<address>               Set the operator address and it is hexadecimal.([default: 0x00000000])
+      --data=<hex>                   Set the input data and it is hexadecimal.([default: 0x00000000])
+      --dummy=<DUMMY_2_33MHZ | DUMMY_4_55MHZ | DUMMY_6_80MHZ | DUMMY_8_80MHZ>
+                                     Set the dummy.([default: DUMMY_8_80MHZ])
+  -e <power-down | wake-up | chip-erase | get-id | read | write | advance-power-down | advance-wake-up | advance-chip-erase
+     | advance-get-id | advance-read | advance-write | advance-page-program | advance-erase-4k | advance-erase-32k | advance-erase-64k
+     | advance-fast-read | advance-get-status1 | advance-get-status2 | advance-get-status3 | advance-set-status1 | advance-set-status2
+     | advance-set-status3 | advance-get-jedec-id | advance-global-lock | advance-global-unlock | advance-block-lock | advance-block-unlock
+     | advance-read-block | advance-reset | advance-spi-read | advance-spi-dual-output-read | advance-spi-quad-output-read
+     | advance-spi-dual-io-read | advance-spi-quad-io-read | advance-spi-word-quad-io-read | advance-spi-octal-word-quad-io-read
+     | advance-spi-page-program-quad-input | advance-spi-get-id-dual-io | advance-spi-get-id-quad-io | advance-spi-get-sfdp
+     | advance-spi-write-security | advance-spi-read-security | advance-qspi-set-read-parameters | advance-spi-set-burst>, --example=<power-down
+     | wake-up | chip-erase | get-id | read | write | advance-power-down | advance-wake-up | advance-chip-erase
+     | advance-get-id | advance-read | advance-write | advance-page-program | advance-erase-4k | advance-erase-32k | advance-erase-64k
+     | advance-fast-read | advance-get-status1 | advance-get-status2 | advance-get-status3 | advance-set-status1 | advance-set-status2
+     | advance-set-status3 | advance-get-jedec-id | advance-global-lock | advance-global-unlock | advance-block-lock | advance-block-unlock
+     | advance-read-block | advance-reset | advance-spi-read | advance-spi-dual-output-read | advance-spi-quad-output-read
+     | advance-spi-dual-io-read | advance-spi-quad-io-read | advance-spi-word-quad-io-read | advance-spi-octal-word-quad-io-read
+     | advance-spi-page-program-quad-input | advance-spi-get-id-dual-io | advance-spi-get-id-quad-io | advance-spi-get-sfdp
+     | advance-spi-write-security | advance-spi-read-security | advance-qspi-set-read-parameters | advance-spi-set-burst>
+                                     Run the driver example.
+  -h, --help                         Show the help.
+      --length=<8 | 16 | 32 | 64>    Set the dummy length.([default: 8])
+  -i, --information                  Show the chip information.
+      --interface=<spi | qspi>       Set the chip interface.([default: spi])
+      --num=<1 | 2 | 3>              Set the security number.([default: 1])
+  -p, --port                         Display the pin connections of the current board.
+      --status=<hex>                 Set the status and it is hexadecimal.([default: 0x00])
+  -t <reg | read>, --test=<reg | read>
+                                     Run the driver test.
+      --type=<W25Q80 | W25Q16 | W25Q32 | W25Q64 | W25Q128 | W25Q256>
+                                     Set the chip type.([default: W25Q128])
+      --wrap=<WRAP_NONE | WRAP_8_BYTE | WRAP_16_BYTE | WRAP_32_BYTE | WRAP_64_BYTE>
+                                     Set the wrap.([default: WRAP_8_BYTE])
 ```
 

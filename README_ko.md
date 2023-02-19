@@ -1,7 +1,7 @@
 [English](/README.md) | [ 简体中文](/README_zh-Hans.md) | [繁體中文](/README_zh-Hant.md) | [日本語](/README_ja.md) | [Deutsch](/README_de.md) | [한국어](/README_ko.md)
 
 <div align=center>
-<img src="/doc/image/logo.png"/>
+<img src="/doc/image/logo.svg" width="400" height="150"/>
 </div>
 
 ## LibDriver W25QXX
@@ -39,6 +39,8 @@ LibDriver W25QXX는 LibDriver에서 출시한 W25QXX의 전체 기능 드라이�
 /datasheet 디렉토리에는 W25QXX데이터시트가 있습니다.
 
 /project 디렉토리에는 일반적으로 사용되는 Linux 및 마이크로컨트롤러 개발 보드의 프로젝트 샘플이 포함되어 있습니다. 모든 프로젝트는 디버깅 방법으로 셸 스크립트를 사용하며, 자세한 내용은 각 프로젝트의 README.md를 참조하십시오.
+
+/misra 에는 LibDriver misra 코드 검색 결과가 포함됩니다.
 
 ### 설치
 
@@ -158,13 +160,13 @@ return 0;
 
 ### 문서
 
-온라인 문서: https://www.libdriver.com/docs/w25qxx/index.html
+온라인 문서: [https://www.libdriver.com/docs/w25qxx/index.html](https://www.libdriver.com/docs/w25qxx/index.html).
 
-오프라인 문서: /doc/html/index.html
+오프라인 문서: /doc/html/index.html.
 
 ### 기고
 
-연락주세요lishifenging@outlook.com
+CONTRIBUTING.md 를 참조하십시오.
 
 ### 저작권
 
@@ -180,4 +182,4 @@ MIT 라이선스(MIT)
 
 ### 문의하기
 
-연락주세요lishifenging@outlook.com
+연락주세요lishifenging@outlook.com.

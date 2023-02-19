@@ -25,12 +25,12 @@
  * @brief     shell source file
  * @version   1.0.0
  * @author    Shifeng Li
- * @date      2021-2-12
+ * @date      2022-11-11
  *
  * <h3>history</h3>
  * <table>
  * <tr><th>Date        <th>Version  <th>Author      <th>Description
- * <tr><td>2021/02/12  <td>1.0      <td>Shifeng Li  <td>first upload
+ * <tr><td>2022/11/11  <td>1.0      <td>Shifeng Li  <td>first upload
  * </table>
  */
 
@@ -40,9 +40,9 @@ static shell_t gs_shell;        /**< shell handle */
 
 /**
  * @brief      shell pretreatment
- * @param[in]  *buf points to a in data buffer
+ * @param[in]  *buf points to an in data buffer
  * @param[in]  in_len is the length of in data
- * @param[out] *buf_out points to a out data buffer
+ * @param[out] *buf_out points to an out data buffer
  * @param[out] *out_len points to the length of a out data buffer
  * @param[out] **argv points to a argv buffer
  * @param[out] *argc points to a argc buffer
@@ -51,7 +51,7 @@ static shell_t gs_shell;        /**< shell handle */
  *             - 1 pretreatment failed
  * @note       none
  */
-static uint8_t _shell_pretreatment(char *buf, uint16_t in_len, char *buf_out, uint16_t *out_len, char **argv, uint8_t *argc)
+static uint8_t a_shell_pretreatment(char *buf, uint16_t in_len, char *buf_out, uint16_t *out_len, char **argv, uint8_t *argc)
 {
     uint16_t i;
     uint8_t flag = 0;
@@ -86,7 +86,7 @@ static uint8_t _shell_pretreatment(char *buf, uint16_t in_len, char *buf_out, ui
             }
         }
     }
-  
+    
     return 0;
 }
 
@@ -99,10 +99,10 @@ static uint8_t _shell_pretreatment(char *buf, uint16_t in_len, char *buf_out, ui
  *            - 1 find failed
  * @note      none
  */
-static uint8_t _shell_find(shell_t *handle, char *name)
+static uint8_t a_shell_find(shell_t *handle, char *name)
 {
     uint16_t i;
-  
+    
     for (i = 0; i < SHELL_MAX_REG_SIZE; i++)
     {
        if (strcmp(handle->fuc[i].name, name) == 0)
@@ -110,7 +110,7 @@ static uint8_t _shell_find(shell_t *handle, char *name)
            return 0;
        }
     }
-  
+    
     return 1;
 }
 
@@ -125,22 +125,22 @@ static uint8_t _shell_find(shell_t *handle, char *name)
  *            - 2 find function failed
  * @note      none
  */
-static uint8_t _shell_run(shell_t *handle, uint8_t argc, char **argv)
+static uint8_t a_shell_run(shell_t *handle, uint8_t argc, char **argv)
 {
     uint16_t i;
-  
+    
     for (i = 0; i < SHELL_MAX_REG_SIZE; i++)
     {
         if (strcmp(handle->fuc[i].name, argv[0]) == 0)
         {
-            if (handle->fuc[i].fuc)
+            if (handle->fuc[i].fuc != NULL)
             {
                 return handle->fuc[i].fuc(argc, argv);
             }
         }
     }
     
-    return 2;  
+    return 2;
 }
 
 /**
@@ -158,11 +158,11 @@ uint8_t shell_register(char *name, uint8_t (*fuc)(uint8_t argc, char **argv))
     {
         return 1;
     }
-  
+    
     strncpy(gs_shell.fuc[gs_shell.fuc_i].name, name, SHELL_MAX_NAME);
     gs_shell.fuc[gs_shell.fuc_i].fuc = fuc;
     gs_shell.fuc_i++;
-  
+    
     return 0;
 }
 
@@ -175,7 +175,7 @@ uint8_t shell_register(char *name, uint8_t (*fuc)(uint8_t argc, char **argv))
 uint8_t shell_init(void)
 {
     memset(&gs_shell, 0 , sizeof(shell_t));
-  
+    
     return 0;
 }
 
@@ -195,20 +195,21 @@ uint8_t shell_parse(char *buf, uint16_t len)
 {
     uint8_t argc;
     uint16_t out_len;
-  
+    
     if (len > SHELL_MAX_BUF_SIZE)
     {
         return 3;
     }
+    
     memset(&gs_shell.buf_out, 0 , sizeof(uint8_t) * SHELL_MAX_BUF_SIZE);
-    if (_shell_pretreatment(buf, len, gs_shell.buf_out, (uint16_t *)&out_len, gs_shell.argv, (uint8_t *)(&argc)))
+    if (a_shell_pretreatment(buf, len, gs_shell.buf_out, (uint16_t *)&out_len, gs_shell.argv, (uint8_t *)(&argc)) != 0)
     {
         return 4;
     }
-    if (_shell_find(&gs_shell, (char *)gs_shell.argv[0]))
+    if (a_shell_find(&gs_shell, (char *)gs_shell.argv[0]) != 0)
     {
         return 2;
     } 
-  
-    return _shell_run(&gs_shell, argc, (char **)gs_shell.argv);
+    
+    return a_shell_run(&gs_shell, argc, (char **)gs_shell.argv);
 }

@@ -25,12 +25,12 @@
  * @brief     qspi source file
  * @version   1.0.0
  * @author    Shifeng Li
- * @date      2021-08-07
+ * @date      2022-11-11
  *
  * <h3>history</h3>
  * <table>
  * <tr><th>Date        <th>Version  <th>Author      <th>Description
- * <tr><td>2021/08/07  <td>1.0      <td>Shifeng Li  <td>first upload
+ * <tr><td>2022/11/11  <td>1.0      <td>Shifeng Li  <td>first upload
  * </table>
  */
 
@@ -39,7 +39,7 @@
 /**
  * @brief qspi var definition
  */
-QSPI_HandleTypeDef g_qspi_handle;        /**< qspi handle */
+static QSPI_HandleTypeDef gs_qspi_handle;        /**< qspi handle */
 
 /**
  * @brief     qspi bus init
@@ -52,28 +52,29 @@ QSPI_HandleTypeDef g_qspi_handle;        /**< qspi handle */
  */
 uint8_t qspi_init(qspi_mode_t mode)
 {
-    g_qspi_handle.Instance = QUADSPI;
-    g_qspi_handle.Init.ClockPrescaler = 128;
-    g_qspi_handle.Init.FifoThreshold = 4;
-    g_qspi_handle.Init.SampleShifting = QSPI_SAMPLE_SHIFTING_HALFCYCLE;
-    g_qspi_handle.Init.FlashSize = POSITION_VAL(0X2000000) - 1;
-    g_qspi_handle.Init.ChipSelectHighTime = QSPI_CS_HIGH_TIME_4_CYCLE;
+    gs_qspi_handle.Instance = QUADSPI;
+    gs_qspi_handle.Init.ClockPrescaler = 2;
+    gs_qspi_handle.Init.FifoThreshold = 4;
+    gs_qspi_handle.Init.SampleShifting = QSPI_SAMPLE_SHIFTING_HALFCYCLE;
+    gs_qspi_handle.Init.FlashSize = POSITION_VAL(0X2000000) - 1;
+    gs_qspi_handle.Init.ChipSelectHighTime = QSPI_CS_HIGH_TIME_4_CYCLE;
     if (mode == QSPI_MODE_0)
     {
-        g_qspi_handle.Init.ClockMode = QSPI_CLOCK_MODE_0;
+        gs_qspi_handle.Init.ClockMode = QSPI_CLOCK_MODE_0;
     }
     else if (mode == QSPI_CLOCK_MODE_3)
     {
-        g_qspi_handle.Init.ClockMode = QSPI_CLOCK_MODE_3;
+        gs_qspi_handle.Init.ClockMode = QSPI_CLOCK_MODE_3;
     }
     else
     {
         return 2;
     }
-    g_qspi_handle.Init.FlashID = QSPI_FLASH_ID_1;
-    g_qspi_handle.Init.DualFlash = QSPI_DUALFLASH_DISABLE;
+    gs_qspi_handle.Init.FlashID = QSPI_FLASH_ID_1;
+    gs_qspi_handle.Init.DualFlash = QSPI_DUALFLASH_DISABLE;
     
-    if (HAL_QSPI_Init(&g_qspi_handle) != HAL_OK)
+    /* qspi init */
+    if (HAL_QSPI_Init(&gs_qspi_handle) != HAL_OK)
     {
         return 1;
     }
@@ -114,11 +115,13 @@ uint8_t qspi_write_read(uint8_t instruction, uint8_t instruction_line,
 {
     QSPI_CommandTypeDef cmd_handler;
     
-    if (in_len && out_len)
+    /* check the len */
+    if ((in_len != 0) && (out_len != 0))
     {
         return 2;
     }
     
+    /* set the instruction */
     cmd_handler.Instruction = instruction;
     if (instruction_line == 0)
     {
@@ -141,6 +144,7 @@ uint8_t qspi_write_read(uint8_t instruction, uint8_t instruction_line,
         return 2;
     }
     
+    /* set the address_line */
     if (address_line == 0)
     {
         cmd_handler.AddressMode = QSPI_ADDRESS_NONE;
@@ -161,6 +165,8 @@ uint8_t qspi_write_read(uint8_t instruction, uint8_t instruction_line,
     {
         return 2;
     }
+    
+    /* set the address_len */
     if (address_len == 0)
     {
         cmd_handler.Address = address & 0xFF;
@@ -191,6 +197,7 @@ uint8_t qspi_write_read(uint8_t instruction, uint8_t instruction_line,
         return 2;
     }
     
+    /* set the alternate */
     cmd_handler.AlternateBytes = alternate;
     if (alternate_line == 0)
     {
@@ -212,6 +219,8 @@ uint8_t qspi_write_read(uint8_t instruction, uint8_t instruction_line,
     {
         return 2;
     }
+    
+    /* set the alternate_len */
     if (alternate_len == 0)
     {
         cmd_handler.AlternateBytesSize = QSPI_ALTERNATE_BYTES_8_BITS;
@@ -237,8 +246,10 @@ uint8_t qspi_write_read(uint8_t instruction, uint8_t instruction_line,
         return 2;
     }
     
+    /* set the dummy */
     cmd_handler.DummyCycles = dummy;
     
+    /* set the data_line */
     if (data_line == 0)
     {
         cmd_handler.DataMode = QSPI_DATA_NONE;
@@ -260,27 +271,32 @@ uint8_t qspi_write_read(uint8_t instruction, uint8_t instruction_line,
         return 2;
     }
     
+    /* set the param */
     cmd_handler.SIOOMode = QSPI_SIOO_INST_EVERY_CMD;
     cmd_handler.DdrMode = QSPI_DDR_MODE_DISABLE;
     cmd_handler.DdrHoldHalfCycle = QSPI_DDR_HHC_ANALOG_DELAY;
     
-    if (HAL_QSPI_Command(&g_qspi_handle, &cmd_handler, 1000))
+    /* set the qspi */
+    if (HAL_QSPI_Command(&gs_qspi_handle, &cmd_handler, 1000) != HAL_OK)
     {
         return 1;
     }
     
-    if (in_len)
+    /* if input */
+    if (in_len != 0)
     {
-        g_qspi_handle.Instance->DLR = in_len - 1;
-        if (HAL_QSPI_Transmit(&g_qspi_handle, in_buf, 1000))
+        gs_qspi_handle.Instance->DLR = in_len - 1;
+        if (HAL_QSPI_Transmit(&gs_qspi_handle, in_buf, 1000) != HAL_OK)
         {
             return 1;
         }
     }
-    if (out_len)
+    
+    /* if output */
+    if (out_len != 0)
     {
-        g_qspi_handle.Instance->DLR = out_len - 1;
-        if (HAL_QSPI_Receive(&g_qspi_handle, out_buf, 1000))
+        gs_qspi_handle.Instance->DLR = out_len - 1;
+        if (HAL_QSPI_Receive(&gs_qspi_handle, out_buf, 1000) != HAL_OK)
         {
             return 1;
         }
@@ -293,11 +309,16 @@ uint8_t qspi_write_read(uint8_t instruction, uint8_t instruction_line,
  * @brief  qspi bus deinit
  * @return status code
  *         - 0 success
+ *         - 1 deinit failed
  * @note   none
  */
 uint8_t qspi_deinit(void)
 {
-    HAL_QSPI_DeInit(&g_qspi_handle);
+    /* qspi deint */
+    if (HAL_QSPI_DeInit(&gs_qspi_handle) != HAL_OK)
+    {
+        return 1;
+    }
     
     return 0;
 }

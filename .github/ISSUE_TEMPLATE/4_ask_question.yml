@@ -1,0 +1,20 @@
+name: ❓ Ask question
+description: Ask a usage or consultation question
+labels: [ask question]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for your question.
+        
+        Please fill in as much of the following form as you're able.
+  - type: textarea
+    attributes:
+      label: Please ask your question
+      description: Enter your question as detailed as possible.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Additional context
+      description:  Add any other context about the question here.

@@ -6,27 +6,26 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; Copyright (c) 2017 STMicroelectronics.
-  * All rights reserved.</center></h2>
+  * Copyright (c) 2017 STMicroelectronics.
+  * All rights reserved.
   *
-  * This software component is licensed by ST under BSD 3-Clause license,
-  * the "License"; You may not use this file except in compliance with the
-  * License. You may obtain a copy of the License at:
-  *                        opensource.org/licenses/BSD-3-Clause
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
-  */ 
+  */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef __STM32F4xx_HAL_SAI_EX_H
 #define __STM32F4xx_HAL_SAI_EX_H
 
 #ifdef __cplusplus
- extern "C" {
+extern "C" {
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-#include "stm32f4xx_hal_def.h"  
+#include "stm32f4xx_hal_def.h"
 
 /** @addtogroup STM32F4xx_HAL_Driver
   * @{
@@ -45,12 +44,12 @@
 /** @defgroup SAI_Clock_Source  SAI Clock Source
   * @{
   */
-#if defined(STM32F413xx) || defined(STM32F423xx)      
+#if defined(STM32F413xx) || defined(STM32F423xx)
 #define SAI_CLKSOURCE_PLLI2S             0x00000000U
 #define SAI_CLKSOURCE_EXT                0x00100000U
 #define SAI_CLKSOURCE_PLLR               0x00200000U
 #define SAI_CLKSOURCE_HS                 0x00300000U
-#else      
+#else
 #define SAI_CLKSOURCE_PLLSAI             0x00000000U
 #define SAI_CLKSOURCE_PLLI2S             0x00100000U
 #define SAI_CLKSOURCE_EXT                0x00200000U
@@ -61,7 +60,7 @@
 /**
   * @}
   */
-      
+
 /* Exported functions --------------------------------------------------------*/
 /** @addtogroup SAIEx_Exported_Functions
   * @{
@@ -85,7 +84,7 @@ uint32_t SAI_GetInputClock(SAI_HandleTypeDef *hsai);
 /* Private variables ---------------------------------------------------------*/
 /* Private constants ---------------------------------------------------------*/
 /* Private macros ------------------------------------------------------------*/
-#if defined(STM32F413xx) || defined(STM32F423xx) 
+#if defined(STM32F413xx) || defined(STM32F423xx)
 #define IS_SAI_CLK_SOURCE(SOURCE) (((SOURCE) == SAI_CLKSOURCE_PLLI2S) ||\
                                    ((SOURCE) == SAI_CLKSOURCE_EXT)||\
                                    ((SOURCE) == SAI_CLKSOURCE_PLLR)||\
@@ -113,4 +112,3 @@ uint32_t SAI_GetInputClock(SAI_HandleTypeDef *hsai);
 
 #endif /* __STM32F4xx_HAL_SAI_EX_H */
 
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

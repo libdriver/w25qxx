@@ -42,8 +42,9 @@
  * @brief spi device name definition
  */
 #define SPI_DEVICE_NAME "/dev/spidev0.0"    /**< spi device name */
+
 /**
- * @brief spi device hanble definition
+ * @brief spi device handle definition
  */
 static int gs_fd;                           /**< spi handle */
 
@@ -133,13 +134,13 @@ void w25qxx_interface_delay_us(uint32_t us)
  */
 void w25qxx_interface_debug_print(const char *const fmt, ...)
 {
-     char str[256];
-     uint8_t len;
+    char str[256];
+    uint16_t len;
     va_list args;
     
     memset((char *)str, 0, sizeof(char) * 256); 
     va_start(args, fmt);
-    vsnprintf((char *)str, 256, (char const *)fmt, args);
+    vsnprintf((char *)str, 255, (char const *)fmt, args);
     va_end(args);
     
     len = strlen((char *)str);
