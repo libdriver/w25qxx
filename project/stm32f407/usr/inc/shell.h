@@ -25,12 +25,12 @@
  * @brief     shell header file
  * @version   1.0.0
  * @author    Shifeng Li
- * @date      2021-2-12
+ * @date      2022-11-11
  *
  * <h3>history</h3>
  * <table>
  * <tr><th>Date        <th>Version  <th>Author      <th>Description
- * <tr><td>2021/02/12  <td>1.0      <td>Shifeng Li  <td>first upload
+ * <tr><td>2022/11/11  <td>1.0      <td>Shifeng Li  <td>first upload
  * </table>
  */
 
@@ -54,10 +54,10 @@ extern "C"{
 /**
  * @brief shell param definition
  */
-#define SHELL_MAX_SIZE     32         /**< shell max function number */
-#define SHELL_MAX_NAME     32         /**< shell max function name length */
-#define SHELL_MAX_REG_SIZE 32         /**< shell max register number */
-#define SHELL_MAX_BUF_SIZE 256        /**< shell max buffer size */
+#define SHELL_MAX_SIZE        32         /**< shell max function number */
+#define SHELL_MAX_NAME        32         /**< shell max function name length */
+#define SHELL_MAX_REG_SIZE    32         /**< shell max register number */
+#define SHELL_MAX_BUF_SIZE    256        /**< shell max buffer size */
 
 /**
  * @brief function struture definition
@@ -66,7 +66,7 @@ typedef struct function_s
 {
     char name[SHELL_MAX_NAME];                        /**< functon name */
     uint8_t (*fuc)(uint8_t argc, char **argv);        /**< function address */
-}function_t;
+} function_t;
 
 /**
  * @brief shell struture definition
@@ -74,10 +74,10 @@ typedef struct function_s
 typedef struct shell_s
 {
     function_t fuc[SHELL_MAX_REG_SIZE];         /**< functon buffer */
-    uint8_t fuc_i;                              /**< functon number */
+    uint16_t fuc_i;                             /**< functon number */
     char *argv[SHELL_MAX_SIZE];                 /**< argv temp buffer */
     char buf_out[SHELL_MAX_BUF_SIZE];           /**< output buffer */
-}shell_t;
+} shell_t;
 
 /**
  * @brief  init shell
@@ -99,16 +99,16 @@ uint8_t shell_init(void);
 uint8_t shell_register(char *name, uint8_t (*fuc)(uint8_t argc, char **argv));
 
 /**
- * @brief      shell parse command
- * @param[in]  *buf points to a buffer address
- * @param[in]  len is the buffer length
- * @return     status code
- *             - 0 success
- *             - 1 run failed
- *             - 2 find function failed
- *             - 3 length is too big
- *             - 4 pretreat failed
- * @note       none
+ * @brief     shell parse command
+ * @param[in] *buf points to a buffer address
+ * @param[in] len is the buffer length
+ * @return    status code
+ *            - 0 success
+ *            - 1 run failed
+ *            - 2 find function failed
+ *            - 3 length is too big
+ *            - 4 pretreat failed
+ * @note      none
  */
 uint8_t shell_parse(char *buf, uint16_t len);
 

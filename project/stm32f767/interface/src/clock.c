@@ -25,12 +25,12 @@
  * @brief     clock source file
  * @version   1.0.0
  * @author    Shifeng Li
- * @date      2021-08-07
+ * @date      2022-11-11
  *
  * <h3>history</h3>
  * <table>
  * <tr><th>Date        <th>Version  <th>Author      <th>Description
- * <tr><td>2021/08/07  <td>1.0      <td>Shifeng Li  <td>first upload
+ * <tr><td>2022/11/11  <td>1.0      <td>Shifeng Li  <td>first upload
  * </table>
  */
  
@@ -46,13 +46,16 @@ void clock_init(void)
     RCC_ClkInitTypeDef RCC_ClkInitStructure;
     HAL_StatusTypeDef ret = HAL_OK;
     
+    /* enable cache */
     SCB_EnableICache();
     SCB_EnableDCache();
     SCB->CACR |= 1 << 2;
     
+    /* enable power clock */
     __HAL_RCC_PWR_CLK_ENABLE();
     __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
 
+    /* use HSE */
     RCC_OscInitStructure.OscillatorType = RCC_OSCILLATORTYPE_HSE;
     RCC_OscInitStructure.HSEState = RCC_HSE_ON;
     RCC_OscInitStructure.PLL.PLLState = RCC_PLL_ON;
@@ -67,6 +70,7 @@ void clock_init(void)
         while(1);
     }
     
+    /* config clock */
     RCC_ClkInitStructure.ClockType = RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2;
     RCC_ClkInitStructure.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
     RCC_ClkInitStructure.AHBCLKDivider = RCC_SYSCLK_DIV1;
@@ -78,6 +82,7 @@ void clock_init(void)
         while(1);
     }
 
+    /* hal init */
     ret = HAL_Init();
     if (ret != HAL_OK)
     {

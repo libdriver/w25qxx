@@ -1,9 +1,7 @@
-## Pull request type(fix, feat,docs,style,etc.)
+## PR type(fix, feat, docs, style, etc.)
 
 
 
-## Pull request change
+## PR change and describe
 
 
-
-## Pull request describe

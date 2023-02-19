@@ -25,17 +25,17 @@
  * @brief     stm32f7xx it header file
  * @version   1.0.0
  * @author    Shifeng Li
- * @date      2021-08-07
+ * @date      2022-11-1
  *
  * <h3>history</h3>
  * <table>
  * <tr><th>Date        <th>Version  <th>Author      <th>Description
- * <tr><td>2021/08/07  <td>1.0      <td>Shifeng Li  <td>first upload
+ * <tr><td>2022/11/11  <td>1.0      <td>Shifeng Li  <td>first upload
  * </table>
  */
 
-#ifndef _STM32F7xx_IT_H_
-#define _STM32F7xx_IT_H_
+#ifndef STM32F7XX_IT_H
+#define STM32F7XX_IT_H
 
 #include "stm32f7xx_hal.h"
 
@@ -44,7 +44,7 @@
 #endif 
 
 /** 
- * @defgroup it HAL_IT_Private_Functions
+ * @defgroup IT HAL_IT_Private_Functions
  * @{
  */
 

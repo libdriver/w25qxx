@@ -12,6 +12,8 @@ body:
     attributes:
       label: Please ask your question
       description: Enter your question as detailed as possible.
+    validations:
+      required: true
   - type: textarea
     attributes:
       label: Additional context

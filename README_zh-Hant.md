@@ -40,6 +40,8 @@ LibDriver W25QXX是LibDriver推出的W25QXX全功能驅動，該驅動提供Flas
 
 /project目錄包含了常用Linux與單片機開發板的工程樣例。所有工程均採用shell腳本作為調試方法，詳細內容可參考每個工程裡面的README.md。
 
+/misra目錄包含了LibDriver MISRA程式碼掃描結果。
+
 ### 安裝
 
 參考/interface目錄下與平台無關的SPI和QSPI總線模板，完成指定平台的SPI或QSPI總線驅動。
@@ -158,13 +160,13 @@ return 0;
 
 ### 文檔
 
-在線文檔: https://www.libdriver.com/docs/w25qxx/index.html
+在線文檔: [https://www.libdriver.com/docs/w25qxx/index.html](https://www.libdriver.com/docs/w25qxx/index.html)。
 
-離線文檔: /doc/html/index.html
+離線文檔: /doc/html/index.html。
 
 ### 貢獻
 
-請聯繫lishifenging@outlook.com
+請參攷CONTRIBUTING.md。
 
 ### 版權
 
@@ -180,4 +182,4 @@ MIT 許可證（MIT）
 
 ### 聯繫我們
 
-請聯繫lishifenging@outlook.com
+請聯繫lishifenging@outlook.com。

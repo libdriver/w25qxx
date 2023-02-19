@@ -25,12 +25,12 @@
  * @brief     uart header file
  * @version   1.0.0
  * @author    Shifeng Li
- * @date      2021-2-12
+ * @date      2022-11-11
  *
  * <h3>history</h3>
  * <table>
  * <tr><th>Date        <th>Version  <th>Author      <th>Description
- * <tr><td>2021/02/12  <td>1.0      <td>Shifeng Li  <td>first upload
+ * <tr><td>2022/11/11  <td>1.0      <td>Shifeng Li  <td>first upload
  * </table>
  */
 
@@ -52,47 +52,30 @@ extern "C"{
 /**
  * @brief uart max rx buffer length definition
  */
-#define UART1_MAX_LEN 256        /**< uart1 max len */
-#define UART2_MAX_LEN 256        /**< uart2 max len */
+#define UART_MAX_LEN        256        /**< uart max len */
+#define UART2_MAX_LEN       512        /**< uart2 max len */
 
 /**
- * @brief uart1 var definition
- */
-extern UART_HandleTypeDef g_uart1_handle;               /**< uart1 handle */
-extern uint8_t g_uart1_rx_buffer[UART1_MAX_LEN];        /**< uart1 rx buffer */
-extern uint8_t g_uart1_buffer;                          /**< uart1 one buffer */
-extern uint16_t g_uart1_point;                          /**< uart1 rx point */
-extern uint8_t g_uart1_tx_done;                         /**< uart1 tx done flag */
-
-/**
- * @brief uart2 var definition
- */
-extern UART_HandleTypeDef g_uart2_handle;               /**< uart2 handle */
-extern uint8_t g_uart2_rx_buffer[UART2_MAX_LEN];        /**< uart2 rx buffer */
-extern uint8_t g_uart2_buffer;                          /**< uart2 one buffer */
-extern uint16_t g_uart2_point;                          /**< uart2 rx point */
-extern uint8_t g_uart2_tx_done;                         /**< uart2 tx done flag */
-
-/**
- * @brief     uart1 init with 8 data bits, 1 stop bit and no parity
- * @param[in] baud rate
+ * @brief     uart init with 8 data bits, 1 stop bit and no parity
+ * @param[in] baud is the baud rate
  * @return    status code
  *            - 0 success
  *            - 1 init failed
  * @note      TX is PA9 and RX is PA10
  */
-uint8_t uart1_init(uint32_t baud_rate);
+uint8_t uart_init(uint32_t baud_rate);
 
 /**
- * @brief  uart1 deint
+ * @brief  uart deint
  * @return status code
  *         - 0 success
- * @note   TX is PA9 and RX is PA10
+ *         - 1 deinit
+ * @note   none
  */
-uint8_t uart1_deinit(void);
+uint8_t uart_deinit(void);
 
 /**
- * @brief     uart1 write data
+ * @brief     uart write data
  * @param[in] *buf points to a data buffer
  * @param[in] len is the data length
  * @return    status code
@@ -100,50 +83,68 @@ uint8_t uart1_deinit(void);
  *            - 1 write failed
  * @note      none
  */
-uint8_t uart1_write(uint8_t *buf, uint16_t len);
+uint8_t uart_write(uint8_t *buf, uint16_t len);
 
 /**
- * @brief      uart1 read data
+ * @brief      uart read data
  * @param[out] *buf points to a data buffer
  * @param[in]  len is the data length
- * @return     status code
- *             - 0 success
- *             - 1 read failed
+ * @return     length of the read data
  * @note       this function will clear all received buffer even read length is less than received length
  */
-uint16_t uart1_read(uint8_t *buf, uint16_t len);
+uint16_t uart_read(uint8_t *buf, uint16_t len);
 
 /**
- * @brief  uart1 flush data
+ * @brief  uart flush data
  * @return status code
  *         - 0 success
  * @note   none
  */
-uint16_t uart1_flush(void);
+uint16_t uart_flush(void);
 
 /**
- * @brief     uart1 print format data
+ * @brief     uart print format data
  * @param[in] fmt is the format data
- * @return    sent length of data
+ * @return    length of the sent data
  * @note      none
  */
-uint16_t uart1_print(char  *fmt, ...);
+uint16_t uart_print(const char *const fmt, ...);
+
+/**
+ * @brief  uart get the handle
+ * @return points to a uart handle
+ * @note   none
+ */
+UART_HandleTypeDef* uart_get_handle(void);
+
+/**
+ * @brief uart set tx done
+ * @note  none
+ */
+void uart_set_tx_done(void);
+
+/**
+ * @brief uart irq handler
+ * @note  none
+ */
+void uart_irq_handler(void);
 
 /**
  * @brief     uart2 init with 8 data bits, 1 stop bit and no parity
- * @param[in] baud rate
+ * @param[in] baud is the baud rate
  * @return    status code
  *            - 0 success
  *            - 1 init failed
  * @note      TX is PA2 and RX is PA3
  */
-uint8_t uart2_init(uint32_t baud_rate);
+uint8_t uart2_init(uint32_t baud);
 
 /**
  * @brief  uart2 deint
  * @return status code
  *         - 0 success
- * @note   TX is PA2 and RX is PA3
+ *         - 1 deinit
+ * @note   none
  */
 uint8_t uart2_deinit(void);
 
@@ -162,9 +163,7 @@ uint8_t uart2_write(uint8_t *buf, uint16_t len);
  * @brief      uart2 read data
  * @param[out] *buf points to a data buffer
  * @param[in]  len is the data length
- * @return     status code
- *             - 0 success
- *             - 1 read failed
+ * @return     length of the read data
  * @note       this function will clear all received buffer even read length is less than received length
  */
 uint16_t uart2_read(uint8_t *buf, uint16_t len);
@@ -176,6 +175,25 @@ uint16_t uart2_read(uint8_t *buf, uint16_t len);
  * @note   none
  */
 uint16_t uart2_flush(void);
+
+/**
+ * @brief  uart2 get the handle
+ * @return points to a uart handle
+ * @note   none
+ */
+UART_HandleTypeDef* uart2_get_handle(void);
+
+/**
+ * @brief uart2 set tx done
+ * @note  none
+ */
+void uart2_set_tx_done(void);
+
+/**
+ * @brief uart2 irq handler
+ * @note  none
+ */
+void uart2_irq_handler(void);
 
 /**
  * @}

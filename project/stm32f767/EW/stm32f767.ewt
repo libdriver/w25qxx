@@ -1727,6 +1727,9 @@
     <group>
         <name>usr</name>
         <file>
+            <name>$PROJ_DIR$\..\usr\src\getopt.c</name>
+        </file>
+        <file>
             <name>$PROJ_DIR$\..\usr\src\main.c</name>
         </file>
         <file>

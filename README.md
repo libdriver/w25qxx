@@ -40,6 +40,8 @@ LibDriver W25QXX is the full function driver of W25QXX launched by LibDriver.It 
 
 /project includes the common Linux and MCU development board sample code. All projects use the shell script to debug the driver and the detail instruction can be found in each project's README.md.
 
+/misra includes the LibDriver MISRA code scanning results.
+
 ### Install
 
 Reference /interface SPI or QSPI platform independent template and finish your platform SPI or QSPI driver.
@@ -158,13 +160,13 @@ return 0;
 
 ### Document
 
-Online documents: https://www.libdriver.com/docs/w25qxx/index.html
+Online documents: [https://www.libdriver.com/docs/w25qxx/index.html](https://www.libdriver.com/docs/w25qxx/index.html).
 
-Offline documents: /doc/html/index.html
+Offline documents: /doc/html/index.html.
 
 ### Contributing
 
-Please sent an e-mail to lishifenging@outlook.com
+Please refer to CONTRIBUTING.md.
 
 ### License
 
@@ -212,4 +214,4 @@ SOFTWARE.
 
 ### Contact Us
 
-Please sent an e-mail to lishifenging@outlook.com
+Please sent an e-mail to lishifenging@outlook.com.

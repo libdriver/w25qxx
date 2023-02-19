@@ -25,12 +25,12 @@
  * @brief     delay source file
  * @version   1.0.0
  * @author    Shifeng Li
- * @date      2021-08-07
+ * @date      2022-11-11
  *
  * <h3>history</h3>
  * <table>
  * <tr><th>Date        <th>Version  <th>Author      <th>Description
- * <tr><td>2021/08/07  <td>1.0      <td>Shifeng Li  <td>first upload
+ * <tr><td>2022/11/11  <td>1.0      <td>Shifeng Li  <td>first upload
  * </table>
  */
 
@@ -46,8 +46,10 @@ static uint32_t gs_fac_us = 0;        /**< fac cnt */
  */
 uint8_t delay_init(void)
 {
+    /* usr HCLK */
     HAL_SYSTICK_CLKSourceConfig(SYSTICK_CLKSOURCE_HCLK);
-        
+    
+    /* set fac */
     gs_fac_us = 216;
   
     return 0;
@@ -61,11 +63,18 @@ uint8_t delay_init(void)
 void delay_us(uint32_t us)
 {
     uint32_t ticks;
-    uint32_t told, tnow, tcnt=0;
-    uint32_t reload = SysTick->LOAD;
+    uint32_t told;
+    uint32_t tnow;
+    uint32_t tcnt;
+    uint32_t reload;
+    
+    /* set the used param */
+    tcnt = 0;
+    reload = SysTick->LOAD;
     ticks = us * gs_fac_us;
     told = SysTick->VAL;
-        
+    
+    /* delay */
     while(1)
     {
         tnow = SysTick->VAL;
@@ -95,5 +104,6 @@ void delay_us(uint32_t us)
  */
 void delay_ms(uint32_t ms)
 {
+    /* use the hal delay */
     HAL_Delay(ms);
 }

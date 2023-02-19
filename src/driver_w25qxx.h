@@ -220,7 +220,7 @@ typedef struct w25qxx_handle_s
     void (*debug_print)(const char *const fmt, ...);                                                   /**< point to a debug_print function address */
     uint8_t inited;                                                                                    /**< inited flag */
     uint16_t type;                                                                                     /**< chip type */
-    uint8_t adress_mode;                                                                               /**< address mode */
+    uint8_t address_mode;                                                                              /**< address mode */
     uint8_t param;                                                                                     /**< param */
     uint8_t dummy;                                                                                     /**< dummy */
     uint8_t dual_quad_spi_enable;                                                                      /**< dual spi and quad spi enable */
@@ -416,7 +416,7 @@ uint8_t w25qxx_set_address_mode(w25qxx_handle_t *handle, w25qxx_address_mode_t m
 /**
  * @brief      get the chip address mode
  * @param[in]  *handle points to a w25qxx handle structure
- * @param[out] *mode points to a address mode buffer
+ * @param[out] *mode points to an address mode buffer
  * @return     status code
  *             - 0 success
  *             - 2 handle is NULL
@@ -500,7 +500,7 @@ uint8_t w25qxx_write(w25qxx_handle_t *handle, uint32_t addr, uint8_t *data, uint
  *             - 2 handle is NULL
  *             - 3 handle is not initialized
  *             - 4 address mode is invalid
- *             - 5 only spi interface can use this funciton
+ *             - 5 only spi interface can use this function
  * @note       none
  */
 uint8_t w25qxx_only_spi_read(w25qxx_handle_t *handle, uint32_t addr, uint8_t *data, uint32_t len);
@@ -1058,7 +1058,7 @@ uint8_t w25qxx_reset_device(w25qxx_handle_t *handle);
 /**
  * @brief      get the unique id
  * @param[in]  *handle points to a w25qxx handle structure
- * @param[out] *id points to a id buffer
+ * @param[out] *id points to an id buffer
  * @return     status code
  *             - 0 success
  *             - 1 get the unique id failed
@@ -1073,7 +1073,7 @@ uint8_t w25qxx_get_unique_id(w25qxx_handle_t *handle, uint8_t id[8]);
 /**
  * @brief      get the sfdp
  * @param[in]  *handle points to a w25qxx handle structure
- * @param[out] *sfdp points to a sfdp buffer
+ * @param[out] *sfdp points to an sfdp buffer
  * @return     status code
  *             - 0 success
  *             - 1 get the sfdp failed
@@ -1214,9 +1214,9 @@ uint8_t w25qxx_set_burst_with_wrap(w25qxx_handle_t *handle, w25qxx_burst_wrap_t 
  * @param[in]  alternate_line is the alternate phy lines
  * @param[in]  alternate_len is the alternate length
  * @param[in]  dummy is the dummy cycle
- * @param[in]  *in_buf points to a input buffer
+ * @param[in]  *in_buf points to an input buffer
  * @param[in]  in_len is the input length
- * @param[out] *out_buf points to a output buffer
+ * @param[out] *out_buf points to an output buffer
  * @param[in]  out_len is the output length
  * @param[in]  data_line is the data phy lines
  * @return     status code

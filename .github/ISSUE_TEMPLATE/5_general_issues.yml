@@ -12,6 +12,8 @@ body:
     attributes:
       label: Description of the issues
       description: Please describe the issues as much detail as possible.
+    validations:
+      required: true
   - type: textarea
     attributes:
       label: Additional context

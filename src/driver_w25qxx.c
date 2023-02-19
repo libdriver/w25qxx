@@ -100,9 +100,9 @@
 /**
  * @brief      spi interface write read bytes
  * @param[in]  *handle points to a w25qxx handle structure
- * @param[in]  *in_buf points to a input buffer
+ * @param[in]  *in_buf points to an input buffer
  * @param[in]  in_len is the input length
- * @param[out] *out_buf points to a output buffer
+ * @param[out] *out_buf points to an output buffer
  * @param[in]  out_len is the output length
  * @return     status code
  *             - 0 success
@@ -135,9 +135,9 @@ static uint8_t a_w25qxx_spi_write_read(w25qxx_handle_t *handle, uint8_t *in_buf,
  * @param[in]  alternate_line is the alternate phy lines
  * @param[in]  alternate_len is the alternate length
  * @param[in]  dummy is the dummy cycle
- * @param[in]  *in_buf points to a input buffer
+ * @param[in]  *in_buf points to an input buffer
  * @param[in]  in_len is the input length
- * @param[out] *out_buf points to a output buffer
+ * @param[out] *out_buf points to an output buffer
  * @param[in]  out_len is the output length
  * @param[in]  data_line is the data phy lines
  * @return     status code
@@ -387,7 +387,7 @@ uint8_t w25qxx_set_address_mode(w25qxx_handle_t *handle, w25qxx_address_mode_t m
         }
     }
     
-    handle->adress_mode = (uint8_t)mode;                                              /* set address mode */
+    handle->address_mode = (uint8_t)mode;                                             /* set address mode */
     
     return 0;                                                                         /* success return 0 */
 }
@@ -395,7 +395,7 @@ uint8_t w25qxx_set_address_mode(w25qxx_handle_t *handle, w25qxx_address_mode_t m
 /**
  * @brief      get the chip address mode
  * @param[in]  *handle points to a w25qxx handle structure
- * @param[out] *mode points to a address mode buffer
+ * @param[out] *mode points to an address mode buffer
  * @return     status code
  *             - 0 success
  *             - 2 handle is NULL
@@ -413,7 +413,7 @@ uint8_t w25qxx_get_address_mode(w25qxx_handle_t *handle, w25qxx_address_mode_t *
         return 3;                                                /* return error */
     }
 
-    *mode = (w25qxx_address_mode_t)(handle->adress_mode);        /* get address mode */
+    *mode = (w25qxx_address_mode_t)(handle->address_mode);       /* get address mode */
     
     return 0;                                                    /* success return 0 */
 }
@@ -2057,7 +2057,7 @@ uint8_t w25qxx_get_manufacturer_device_id_dual_io(w25qxx_handle_t *handle, uint8
            
             return 6;                                                                               /* return error */
         }
-        if (handle->adress_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                      /* 3 address mode */
+        if (handle->address_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                     /* 3 address mode */
         {
             res = a_w25qxx_qspi_write_read(handle, W25QXX_COMMAND_DEVICE_ID_DUAL_IO, 1,
                                            0x00000000, 2, 3,
@@ -2071,7 +2071,7 @@ uint8_t w25qxx_get_manufacturer_device_id_dual_io(w25qxx_handle_t *handle, uint8
                 return 1;                                                                           /* return error */
             }
         }
-        else if ((handle->adress_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
+        else if ((handle->address_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
         {
             res = a_w25qxx_qspi_write_read(handle, W25QXX_COMMAND_DEVICE_ID_DUAL_IO, 1,
                                            0x00000000, 2, 4,
@@ -2141,7 +2141,7 @@ uint8_t w25qxx_get_manufacturer_device_id_quad_io(w25qxx_handle_t *handle, uint8
            
             return 6;                                                                               /* return error */
         }
-        if (handle->adress_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                      /* 3 address mode */
+        if (handle->address_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                     /* 3 address mode */
         {
             res = a_w25qxx_qspi_write_read(handle, W25QXX_COMMAND_DEVICE_ID_QUAD_IO, 1,
                                            0x00000000, 4, 3,
@@ -2155,7 +2155,7 @@ uint8_t w25qxx_get_manufacturer_device_id_quad_io(w25qxx_handle_t *handle, uint8
                 return 1;                                                                           /* return error */
             }
         }
-        else if ((handle->adress_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
+        else if ((handle->address_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
         {
             res = a_w25qxx_qspi_write_read(handle, W25QXX_COMMAND_DEVICE_ID_QUAD_IO, 1,
                                            0x00000000, 4, 4,
@@ -2751,7 +2751,7 @@ uint8_t w25qxx_reset_device(w25qxx_handle_t *handle)
 /**
  * @brief      get the unique id
  * @param[in]  *handle points to a w25qxx handle structure
- * @param[out] *id points to a id buffer
+ * @param[out] *id points to an id buffer
  * @return     status code
  *             - 0 success
  *             - 1 get the unique id failed
@@ -2779,7 +2779,7 @@ uint8_t w25qxx_get_unique_id(w25qxx_handle_t *handle, uint8_t id[8])
     {
         if (handle->dual_quad_spi_enable != 0)                                                                    /* enable dual quad spi */
         {
-            if (handle->adress_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                                /* 3 address mode */
+            if (handle->address_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                               /* 3 address mode */
             {
                 res = a_w25qxx_qspi_write_read(handle, W25QXX_COMMAND_READ_UNIQUE_ID, 1,
                                                0x00000000, 0x00, 0x00,
@@ -2793,7 +2793,7 @@ uint8_t w25qxx_get_unique_id(w25qxx_handle_t *handle, uint8_t id[8])
                     return 1;                                                                                     /* return error */
                 }
             }
-            else if ((handle->adress_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
+            else if ((handle->address_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
             {
                 res = a_w25qxx_qspi_write_read(handle, W25QXX_COMMAND_READ_UNIQUE_ID, 1,
                                                0x00000000, 0x00, 0x00,
@@ -2816,7 +2816,7 @@ uint8_t w25qxx_get_unique_id(w25qxx_handle_t *handle, uint8_t id[8])
         }
         else                                                                                                      /* single spi */
         {
-            if (handle->adress_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                                /* 3 address mode */
+            if (handle->address_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                               /* 3 address mode */
             {
                 buf[0] = W25QXX_COMMAND_READ_UNIQUE_ID;                                                           /* read unique id command */
                 buf[1] = 0x00;                                                                                    /* dummy */
@@ -2831,7 +2831,7 @@ uint8_t w25qxx_get_unique_id(w25qxx_handle_t *handle, uint8_t id[8])
                     return 1;                                                                                     /* return error */
                 }
             }
-            else if ((handle->adress_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
+            else if ((handle->address_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
             {
                 buf[0] = W25QXX_COMMAND_READ_UNIQUE_ID;                                                           /* read unique id command */
                 buf[1] = 0x00;                                                                                    /* dummy */
@@ -2868,7 +2868,7 @@ uint8_t w25qxx_get_unique_id(w25qxx_handle_t *handle, uint8_t id[8])
 /**
  * @brief      get the sfdp
  * @param[in]  *handle points to a w25qxx handle structure
- * @param[out] *sfdp points to a sfdp buffer
+ * @param[out] *sfdp points to an sfdp buffer
  * @return     status code
  *             - 0 success
  *             - 1 get the sfdp failed
@@ -2981,7 +2981,7 @@ uint8_t w25qxx_erase_security_register(w25qxx_handle_t *handle, w25qxx_security_
                
                 return 1;                                                                                     /* return error */
             }
-            if (handle->adress_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                            /* 3 address mode */
+            if (handle->address_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                           /* 3 address mode */
             {
                 res = a_w25qxx_qspi_write_read(handle,
                                                W25QXX_COMMAND_ERASE_SECURITY_REGISTER, 1,
@@ -2996,7 +2996,7 @@ uint8_t w25qxx_erase_security_register(w25qxx_handle_t *handle, w25qxx_security_
                     return 1;                                                                                 /* return error */
                 }
             }
-            else if ((handle->adress_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
+            else if ((handle->address_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
             {
                 res = a_w25qxx_qspi_write_read(handle,
                                                W25QXX_COMMAND_ERASE_SECURITY_REGISTER, 1,
@@ -3057,7 +3057,7 @@ uint8_t w25qxx_erase_security_register(w25qxx_handle_t *handle, w25qxx_security_
                
                 return 1;                                                                                     /* return error */
             }
-            if (handle->adress_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                            /* 3 address mode */
+            if (handle->address_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                           /* 3 address mode */
             {
                 buf[0] = W25QXX_COMMAND_ERASE_SECURITY_REGISTER;                                              /* erase security register command */
                 buf[1] = 0x00;                                                                                /* 0x00 */
@@ -3071,7 +3071,7 @@ uint8_t w25qxx_erase_security_register(w25qxx_handle_t *handle, w25qxx_security_
                     return 1;                                                                                 /* return error */
                 }
             }
-            else if ((handle->adress_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
+            else if ((handle->address_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
             {
                 buf[0] = W25QXX_COMMAND_ERASE_SECURITY_REGISTER;                                              /* erase security register command */
                 buf[1] = 0x00;                                                                                /* 0x00 */
@@ -3176,7 +3176,7 @@ uint8_t w25qxx_program_security_register(w25qxx_handle_t *handle, w25qxx_securit
                
                 return 1;                                                                                     /* return error */
             }
-            if (handle->adress_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                            /* 3 address mode */
+            if (handle->address_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                           /* 3 address mode */
             {
                 res = a_w25qxx_qspi_write_read(handle,
                                                W25QXX_COMMAND_PROGRAM_SECURITY_REGISTER, 1,
@@ -3191,7 +3191,7 @@ uint8_t w25qxx_program_security_register(w25qxx_handle_t *handle, w25qxx_securit
                     return 1;                                                                                 /* return error */
                 }
             }
-            else if ((handle->adress_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
+            else if ((handle->address_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
             {
                 res = a_w25qxx_qspi_write_read(handle,
                                                W25QXX_COMMAND_PROGRAM_SECURITY_REGISTER, 1,
@@ -3252,7 +3252,7 @@ uint8_t w25qxx_program_security_register(w25qxx_handle_t *handle, w25qxx_securit
                
                 return 1;                                                                                     /* return error */
             }
-            if (handle->adress_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                            /* 3 address mode */
+            if (handle->address_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                           /* 3 address mode */
             {
                 handle->buf[0] = W25QXX_COMMAND_PROGRAM_SECURITY_REGISTER;                                    /* program security register command */
                 handle->buf[1] = 0x00;                                                                        /* 0x00 */
@@ -3267,7 +3267,7 @@ uint8_t w25qxx_program_security_register(w25qxx_handle_t *handle, w25qxx_securit
                     return 1;                                                                                 /* return error */
                 }
             }
-            else if ((handle->adress_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
+            else if ((handle->address_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
             {
                 handle->buf[0] = W25QXX_COMMAND_PROGRAM_SECURITY_REGISTER;                                    /* program security register command */
                 handle->buf[1] = 0x00;                                                                        /* 0x00 */
@@ -3359,7 +3359,7 @@ uint8_t w25qxx_read_security_register(w25qxx_handle_t *handle, w25qxx_security_r
     {
         if (handle->dual_quad_spi_enable != 0)                                                                /* enable dual quad spi */
         {
-            if (handle->adress_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                            /* 3 address mode */
+            if (handle->address_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                           /* 3 address mode */
             {
                 res = a_w25qxx_qspi_write_read(handle,
                                                W25QXX_COMMAND_READ_SECURITY_REGISTER, 1,
@@ -3374,7 +3374,7 @@ uint8_t w25qxx_read_security_register(w25qxx_handle_t *handle, w25qxx_security_r
                     return 1;                                                                                 /* return error */
                 }
             }
-            else if ((handle->adress_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))        /* 4 address mode */
+            else if ((handle->address_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))       /* 4 address mode */
             {
                 res = a_w25qxx_qspi_write_read(handle,
                                                W25QXX_COMMAND_READ_SECURITY_REGISTER, 1,
@@ -3398,7 +3398,7 @@ uint8_t w25qxx_read_security_register(w25qxx_handle_t *handle, w25qxx_security_r
         }
         else                                                                                                  /* single spi */
         {
-            if (handle->adress_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                            /* 3 address mode */
+            if (handle->address_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                           /* 3 address mode */
             {
                 buf[0] = W25QXX_COMMAND_READ_SECURITY_REGISTER;                                               /* read security register command */
                 buf[1] = 0x00;                                                                                /* 0x00 */
@@ -3413,7 +3413,7 @@ uint8_t w25qxx_read_security_register(w25qxx_handle_t *handle, w25qxx_security_r
                     return 1;                                                                                 /* return error */
                 }
             }
-            else if ((handle->adress_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
+            else if ((handle->address_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
             {
                 buf[0] = W25QXX_COMMAND_READ_SECURITY_REGISTER;                                               /* read security register command */
                 buf[1] = 0x00;                                                                                /* 0x00 */
@@ -3459,7 +3459,7 @@ uint8_t w25qxx_read_security_register(w25qxx_handle_t *handle, w25qxx_security_r
  *             - 2 handle is NULL
  *             - 3 handle is not initialized
  *             - 4 address mode is invalid
- *             - 5 only spi interface can use this funciton
+ *             - 5 only spi interface can use this function
  * @note       none
  */
 uint8_t w25qxx_only_spi_read(w25qxx_handle_t *handle, uint32_t addr, uint8_t *data, uint32_t len)
@@ -3480,7 +3480,7 @@ uint8_t w25qxx_only_spi_read(w25qxx_handle_t *handle, uint32_t addr, uint8_t *da
     {
         if (handle->dual_quad_spi_enable != 0)                                                            /* enable dual quad spi */
         {
-            if (handle->adress_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                        /* 3 address mode */
+            if (handle->address_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                       /* 3 address mode */
             {
                 if (handle->type >= W25Q256)                                                              /* >128Mb */
                 {
@@ -3524,7 +3524,7 @@ uint8_t w25qxx_only_spi_read(w25qxx_handle_t *handle, uint32_t addr, uint8_t *da
                     return 1;                                                                             /* return error */
                 }
             }
-            else if ((handle->adress_mode == W25QXX_ADDRESS_MODE_4_BYTE) && 
+            else if ((handle->address_mode == W25QXX_ADDRESS_MODE_4_BYTE) && 
                      (handle->type >= W25Q256))                                                           /* check address mode */
             {
                 res = a_w25qxx_qspi_write_read(handle,
@@ -3549,7 +3549,7 @@ uint8_t w25qxx_only_spi_read(w25qxx_handle_t *handle, uint32_t addr, uint8_t *da
         }
         else                                                                                              /* single spi */
         {
-            if (handle->adress_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                        /* 3 address mode */
+            if (handle->address_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                       /* 3 address mode */
             {
                 if (handle->type >= W25Q256)                                                              /* >128Mb */
                 {
@@ -3583,7 +3583,7 @@ uint8_t w25qxx_only_spi_read(w25qxx_handle_t *handle, uint32_t addr, uint8_t *da
                     return 1;                                                                             /* return error */
                 }
             }
-            else if ((handle->adress_mode == W25QXX_ADDRESS_MODE_4_BYTE) && 
+            else if ((handle->address_mode == W25QXX_ADDRESS_MODE_4_BYTE) && 
                      (handle->type >= W25Q256))                                                           /* check address mode */
             {
                 buf[0] = W25QXX_COMMAND_READ_DATA;                                                        /* only spi read command */
@@ -3609,7 +3609,7 @@ uint8_t w25qxx_only_spi_read(w25qxx_handle_t *handle, uint32_t addr, uint8_t *da
     }
     else
     {
-        handle->debug_print("w25qxx: only spi interface can use this funciton.\n");                       /* only spi interface can use this funciton */
+        handle->debug_print("w25qxx: only spi interface can use this function.\n");                       /* only spi interface can use this function */
        
         return 5;                                                                                         /* return error */
     }
@@ -3649,7 +3649,7 @@ uint8_t w25qxx_fast_read(w25qxx_handle_t *handle, uint32_t addr, uint8_t *data, 
     {
         if (handle->dual_quad_spi_enable != 0)                                                            /* enable dual quad spi */
         {
-            if (handle->adress_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                        /* 3 address mode */
+            if (handle->address_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                       /* 3 address mode */
             {
                 if (handle->type >= W25Q256)                                                              /* >128Mb */
                 {
@@ -3689,7 +3689,7 @@ uint8_t w25qxx_fast_read(w25qxx_handle_t *handle, uint32_t addr, uint8_t *data, 
                     return 1;                                                                             /* return error */
                 }
             }
-            else if ((handle->adress_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
+            else if ((handle->address_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
             {
                 res = a_w25qxx_qspi_write_read(handle, W25QXX_COMMAND_FAST_READ, 1,
                                                addr, 1, 4,
@@ -3712,7 +3712,7 @@ uint8_t w25qxx_fast_read(w25qxx_handle_t *handle, uint32_t addr, uint8_t *data, 
         }
         else                                                                                              /* single spi */
         {
-            if (handle->adress_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                        /* 3 address mode */
+            if (handle->address_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                       /* 3 address mode */
             {
                 if (handle->type >= W25Q256)                                                              /* >128Mb */
                 {
@@ -3747,7 +3747,7 @@ uint8_t w25qxx_fast_read(w25qxx_handle_t *handle, uint32_t addr, uint8_t *data, 
                     return 1;                                                                             /* return error */
                 }
             }
-            else if ((handle->adress_mode == W25QXX_ADDRESS_MODE_4_BYTE)
+            else if ((handle->address_mode == W25QXX_ADDRESS_MODE_4_BYTE)
                      && (handle->type >= W25Q256))                                                        /* check address mode */
             {
                 buf[0] = W25QXX_COMMAND_FAST_READ;                                                        /* fast read command */
@@ -3774,7 +3774,7 @@ uint8_t w25qxx_fast_read(w25qxx_handle_t *handle, uint32_t addr, uint8_t *data, 
     }
     else                                                                                                  /* qspi interface */
     {
-        if (handle->adress_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                            /* 3 address mode */
+        if (handle->address_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                           /* 3 address mode */
         {
             if (handle->type >= W25Q256)                                                                  /* >128Mb */
             {
@@ -3814,7 +3814,7 @@ uint8_t w25qxx_fast_read(w25qxx_handle_t *handle, uint32_t addr, uint8_t *data, 
                 return 1;                                                                                 /* return error */
             }
         }
-        else if ((handle->adress_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
+        else if ((handle->address_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
         {
             res = a_w25qxx_qspi_write_read(handle, W25QXX_COMMAND_FAST_READ, 4,
                                            addr, 4, 4,
@@ -3877,7 +3877,7 @@ uint8_t w25qxx_fast_read_dual_output(w25qxx_handle_t *handle, uint32_t addr, uin
            
             return 6;                                                                                     /* return error */
         }
-        if (handle->adress_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                            /* 3 address mode */
+        if (handle->address_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                           /* 3 address mode */
         {
             if (handle->type >= W25Q256)                                                                  /* >128Mb */
             {
@@ -3917,7 +3917,7 @@ uint8_t w25qxx_fast_read_dual_output(w25qxx_handle_t *handle, uint32_t addr, uin
                 return 1;                                                                                 /* return error */
             }
         }
-        else if ((handle->adress_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
+        else if ((handle->address_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
         {
             res = a_w25qxx_qspi_write_read(handle, W25QXX_COMMAND_FAST_READ_DUAL_OUTPUT, 1,
                                            addr, 1, 4,
@@ -3986,7 +3986,7 @@ uint8_t w25qxx_fast_read_quad_output(w25qxx_handle_t *handle, uint32_t addr, uin
            
             return 6;                                                                                     /* return error */
         }
-        if (handle->adress_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                            /* 3 address mode */
+        if (handle->address_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                           /* 3 address mode */
         {
             if (handle->type >= W25Q256)                                                                  /* >128Mb */
             {
@@ -4026,7 +4026,7 @@ uint8_t w25qxx_fast_read_quad_output(w25qxx_handle_t *handle, uint32_t addr, uin
                 return 1;                                                                                 /* return error */
             }
         }
-        else if ((handle->adress_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
+        else if ((handle->address_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
         {
             res = a_w25qxx_qspi_write_read(handle, W25QXX_COMMAND_FAST_READ_QUAD_OUTPUT, 1,
                                            addr, 1, 4,
@@ -4095,7 +4095,7 @@ uint8_t w25qxx_fast_read_dual_io(w25qxx_handle_t *handle, uint32_t addr, uint8_t
            
             return 6;                                                                                     /* return error */
         }
-        if (handle->adress_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                            /* 3 address mode */
+        if (handle->address_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                           /* 3 address mode */
         {
             if (handle->type >= W25Q256)                                                                  /* >128Mb */
             {
@@ -4135,7 +4135,7 @@ uint8_t w25qxx_fast_read_dual_io(w25qxx_handle_t *handle, uint32_t addr, uint8_t
                 return 1;                                                                                 /* return error */
             }
         }
-        else if ((handle->adress_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
+        else if ((handle->address_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
         {
             res = a_w25qxx_qspi_write_read(handle, W25QXX_COMMAND_FAST_READ_DUAL_IO, 1,
                                            addr, 2, 4,
@@ -4203,7 +4203,7 @@ uint8_t w25qxx_fast_read_quad_io(w25qxx_handle_t *handle, uint32_t addr, uint8_t
            
             return 6;                                                                                     /* return error */
         }
-        if (handle->adress_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                            /* 3 address mode */
+        if (handle->address_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                           /* 3 address mode */
         {
             if (handle->type >= W25Q256)                                                                  /* >128Mb */
             {
@@ -4243,7 +4243,7 @@ uint8_t w25qxx_fast_read_quad_io(w25qxx_handle_t *handle, uint32_t addr, uint8_t
                 return 1;                                                                                 /* return error */
             }
         }
-        else if ((handle->adress_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
+        else if ((handle->address_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
         {
             res = a_w25qxx_qspi_write_read(handle, W25QXX_COMMAND_FAST_READ_QUAD_IO, 1,
                                            addr, 4, 4,
@@ -4266,7 +4266,7 @@ uint8_t w25qxx_fast_read_quad_io(w25qxx_handle_t *handle, uint32_t addr, uint8_t
     }
     else
     {
-        if (handle->adress_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                            /* 3 address mode */
+        if (handle->address_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                           /* 3 address mode */
         {
             if (handle->type >= W25Q256)                                                                  /* >128Mb */
             {
@@ -4306,7 +4306,7 @@ uint8_t w25qxx_fast_read_quad_io(w25qxx_handle_t *handle, uint32_t addr, uint8_t
                 return 1;                                                                                 /* return error */
             }
         }
-        else if ((handle->adress_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
+        else if ((handle->address_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
         {
             res = a_w25qxx_qspi_write_read(handle, W25QXX_COMMAND_FAST_READ_QUAD_IO, 4,
                                            addr, 4, 4,
@@ -4369,7 +4369,7 @@ uint8_t w25qxx_word_read_quad_io(w25qxx_handle_t *handle, uint32_t addr, uint8_t
            
             return 6;                                                                                     /* return error */
         }
-        if (handle->adress_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                            /* 3 address mode */
+        if (handle->address_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                           /* 3 address mode */
         {
             if (handle->type >= W25Q256)                                                                  /* >128Mb */
             {
@@ -4409,7 +4409,7 @@ uint8_t w25qxx_word_read_quad_io(w25qxx_handle_t *handle, uint32_t addr, uint8_t
                 return 1;                                                                                 /* return error */
             }
         }
-        else if ((handle->adress_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
+        else if ((handle->address_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
         {
             res = a_w25qxx_qspi_write_read(handle, W25QXX_COMMAND_WORD_READ_QUAD_IO, 1,
                                            addr, 4, 4,
@@ -4478,7 +4478,7 @@ uint8_t w25qxx_octal_word_read_quad_io(w25qxx_handle_t *handle, uint32_t addr, u
            
             return 6;                                                                                     /* return error */
         }
-        if (handle->adress_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                            /* 3 address mode */
+        if (handle->address_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                           /* 3 address mode */
         {
             if (handle->type >= W25Q256)                                                                  /* >128Mb */
             {
@@ -4518,7 +4518,7 @@ uint8_t w25qxx_octal_word_read_quad_io(w25qxx_handle_t *handle, uint32_t addr, u
                 return 1;                                                                                 /* return error */
             }
         }
-        else if ((handle->adress_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
+        else if ((handle->address_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
         {
             res = a_w25qxx_qspi_write_read(handle, W25QXX_COMMAND_OCTAL_WORD_READ_QUAD_IO, 1,
                                            addr, 4, 4,
@@ -4609,7 +4609,7 @@ uint8_t w25qxx_page_program(w25qxx_handle_t *handle, uint32_t addr, uint8_t *dat
                
                 return 1;                                                                                   /* return error */
             }
-            if (handle->adress_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                          /* 3 address mode */
+            if (handle->address_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                         /* 3 address mode */
             {
                 if (handle->type >= W25Q256)                                                                /* >128Mb */
                 {
@@ -4649,7 +4649,7 @@ uint8_t w25qxx_page_program(w25qxx_handle_t *handle, uint32_t addr, uint8_t *dat
                       return 1;                                                                             /* return error */
                 }
             }
-            else if ((handle->adress_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
+            else if ((handle->address_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
             {
                 res = a_w25qxx_qspi_write_read(handle, W25QXX_COMMAND_PAGE_PROGRAM, 1,
                                                addr, 1, 4,
@@ -4708,7 +4708,7 @@ uint8_t w25qxx_page_program(w25qxx_handle_t *handle, uint32_t addr, uint8_t *dat
                
                 return 1;                                                                                   /* return error */
             }
-            if (handle->adress_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                          /* 3 address mode */
+            if (handle->address_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                         /* 3 address mode */
             {
                 if (handle->type >= W25Q256)                                                                /* >128Mb */
                 {
@@ -4743,7 +4743,7 @@ uint8_t w25qxx_page_program(w25qxx_handle_t *handle, uint32_t addr, uint8_t *dat
                     return 1;                                                                               /* return error */
                 }
             }
-            else if ((handle->adress_mode == W25QXX_ADDRESS_MODE_4_BYTE)
+            else if ((handle->address_mode == W25QXX_ADDRESS_MODE_4_BYTE)
                      && (handle->type >= W25Q256))                                                          /* 4 address mode */
             {
                 handle->buf[0] = W25QXX_COMMAND_PAGE_PROGRAM;                                               /* page program command */
@@ -4806,7 +4806,7 @@ uint8_t w25qxx_page_program(w25qxx_handle_t *handle, uint32_t addr, uint8_t *dat
            
             return 1;                                                                                       /* return error */
         }
-        if (handle->adress_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                              /* 3 address mode */
+        if (handle->address_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                             /* 3 address mode */
         {
             if (handle->type >= W25Q256)                                                                    /* >128Mb */
             {
@@ -4846,7 +4846,7 @@ uint8_t w25qxx_page_program(w25qxx_handle_t *handle, uint32_t addr, uint8_t *dat
                 return 1;                                                                                   /* return error */
             }
         }
-        else if ((handle->adress_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
+        else if ((handle->address_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
         {
             res = a_w25qxx_qspi_write_read(handle, W25QXX_COMMAND_PAGE_PROGRAM, 4,
                                            addr, 4, 4,
@@ -4970,7 +4970,7 @@ uint8_t w25qxx_page_program_quad_input(w25qxx_handle_t *handle, uint32_t addr, u
            
             return 1;                                                                                       /* return error */
         }
-        if (handle->adress_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                              /* 3 address mode */
+        if (handle->address_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                             /* 3 address mode */
         {
             if (handle->type >= W25Q256)                                                                    /* >128Mb */
             {
@@ -5010,7 +5010,7 @@ uint8_t w25qxx_page_program_quad_input(w25qxx_handle_t *handle, uint32_t addr, u
                   return 1;                                                                                 /* return error */
             }
         }
-        else if ((handle->adress_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
+        else if ((handle->address_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
         {
             res = a_w25qxx_qspi_write_read(handle, W25QXX_COMMAND_QUAD_PAGE_PROGRAM, 1,
                                            addr, 1, 4,
@@ -5114,7 +5114,7 @@ uint8_t w25qxx_sector_erase_4k(w25qxx_handle_t *handle, uint32_t addr)
                
                 return 1;                                                                                   /* return error */
             }
-            if (handle->adress_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                          /* 3 address mode */
+            if (handle->address_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                         /* 3 address mode */
             {
                 if (handle->type >= W25Q256)                                                                /* >128Mb */
                 {
@@ -5154,7 +5154,7 @@ uint8_t w25qxx_sector_erase_4k(w25qxx_handle_t *handle, uint32_t addr)
                     return 1;                                                                               /* return error */
                 }
             }
-            else if ((handle->adress_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
+            else if ((handle->address_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
             {
                 res = a_w25qxx_qspi_write_read(handle, W25QXX_COMMAND_SECTOR_ERASE_4K, 1,
                                                addr, 1, 4,
@@ -5213,7 +5213,7 @@ uint8_t w25qxx_sector_erase_4k(w25qxx_handle_t *handle, uint32_t addr)
                
                 return 1;                                                                                   /* return error */
             }
-            if (handle->adress_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                          /* 3 address mode */
+            if (handle->address_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                         /* 3 address mode */
             {
                 if (handle->type >= W25Q256)                                                                /* >128Mb */
                 {
@@ -5247,7 +5247,7 @@ uint8_t w25qxx_sector_erase_4k(w25qxx_handle_t *handle, uint32_t addr)
                     return 1;                                                                               /* return error */
                 }
             }
-            else if ((handle->adress_mode == W25QXX_ADDRESS_MODE_4_BYTE)
+            else if ((handle->address_mode == W25QXX_ADDRESS_MODE_4_BYTE)
                      && (handle->type >= W25Q256))
             {
                 buf[0] = W25QXX_COMMAND_SECTOR_ERASE_4K;                                                    /* sector erase 4k command */
@@ -5309,7 +5309,7 @@ uint8_t w25qxx_sector_erase_4k(w25qxx_handle_t *handle, uint32_t addr)
            
             return 1;                                                                                       /* return error */
         }
-        if (handle->adress_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                              /* 3 address mode */
+        if (handle->address_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                             /* 3 address mode */
         {
             if (handle->type >= W25Q256)                                                                    /* >128Mb */
             {
@@ -5349,7 +5349,7 @@ uint8_t w25qxx_sector_erase_4k(w25qxx_handle_t *handle, uint32_t addr)
                 return 1;                                                                                   /* return error */
             }
         }
-        else if ((handle->adress_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
+        else if ((handle->address_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
         {
             res = a_w25qxx_qspi_write_read(handle, W25QXX_COMMAND_SECTOR_ERASE_4K, 4,
                                            addr, 4, 4,
@@ -5453,7 +5453,7 @@ uint8_t w25qxx_block_erase_32k(w25qxx_handle_t *handle, uint32_t addr)
                
                 return 1;                                                                                   /* return error */
             }
-            if (handle->adress_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                          /* 3 address mode */
+            if (handle->address_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                         /* 3 address mode */
             {
                 if (handle->type >= W25Q256)                                                                /* >128Mb */
                 {
@@ -5493,7 +5493,7 @@ uint8_t w25qxx_block_erase_32k(w25qxx_handle_t *handle, uint32_t addr)
                     return 1;                                                                               /* return error */
                 }
             }
-            else if ((handle->adress_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
+            else if ((handle->address_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
             {
                 res = a_w25qxx_qspi_write_read(handle, W25QXX_COMMAND_BLOCK_ERASE_32K, 1,
                                                addr, 1, 4,
@@ -5552,7 +5552,7 @@ uint8_t w25qxx_block_erase_32k(w25qxx_handle_t *handle, uint32_t addr)
                
                 return 1;                                                                                   /* return error */
             }
-            if (handle->adress_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                          /* 3 address mode */
+            if (handle->address_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                         /* 3 address mode */
             {
                 if (handle->type >= W25Q256)                                                                /* >128Mb */
                 {
@@ -5586,7 +5586,7 @@ uint8_t w25qxx_block_erase_32k(w25qxx_handle_t *handle, uint32_t addr)
                     return 1;                                                                               /* return error */
                 }
             }
-            else if ((handle->adress_mode == W25QXX_ADDRESS_MODE_4_BYTE)
+            else if ((handle->address_mode == W25QXX_ADDRESS_MODE_4_BYTE)
                      && (handle->type >= W25Q256))
             {
                 buf[0] = W25QXX_COMMAND_BLOCK_ERASE_32K;                                                    /* block erase 32k command */
@@ -5648,7 +5648,7 @@ uint8_t w25qxx_block_erase_32k(w25qxx_handle_t *handle, uint32_t addr)
            
             return 1;                                                                                       /* return error */
         }
-        if (handle->adress_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                              /* 3 address mode */
+        if (handle->address_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                             /* 3 address mode */
         {
             if (handle->type >= W25Q256)                                                                    /* >128Mb */
             {
@@ -5688,7 +5688,7 @@ uint8_t w25qxx_block_erase_32k(w25qxx_handle_t *handle, uint32_t addr)
                 return 1;                                                                                   /* return error */
             }
         }
-        else if ((handle->adress_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
+        else if ((handle->address_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
         {
             res = a_w25qxx_qspi_write_read(handle, W25QXX_COMMAND_BLOCK_ERASE_32K, 4,
                                            addr, 4, 4,
@@ -5792,7 +5792,7 @@ uint8_t w25qxx_block_erase_64k(w25qxx_handle_t *handle, uint32_t addr)
                
                 return 1;                                                                                   /* return error */
             }
-            if (handle->adress_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                          /* 3 address mode */
+            if (handle->address_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                         /* 3 address mode */
             {
                 if (handle->type >= W25Q256)                                                                /* >128Mb */
                 {
@@ -5832,7 +5832,7 @@ uint8_t w25qxx_block_erase_64k(w25qxx_handle_t *handle, uint32_t addr)
                     return 1;                                                                               /* return error */
                 }
             }
-            else if ((handle->adress_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
+            else if ((handle->address_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
             {
                 res = a_w25qxx_qspi_write_read(handle, W25QXX_COMMAND_BLOCK_ERASE_64K, 1,
                                                addr, 1, 4,
@@ -5891,7 +5891,7 @@ uint8_t w25qxx_block_erase_64k(w25qxx_handle_t *handle, uint32_t addr)
                
                 return 1;                                                                                   /* return error */
             }
-            if (handle->adress_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                          /* 3 address mode */
+            if (handle->address_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                         /* 3 address mode */
             {
                 if (handle->type >= W25Q256)                                                                /* >128Mb */
                 {
@@ -5925,7 +5925,7 @@ uint8_t w25qxx_block_erase_64k(w25qxx_handle_t *handle, uint32_t addr)
                     return 1;                                                                               /* return error */
                 }
             }
-            else if ((handle->adress_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
+            else if ((handle->address_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
             {
                 buf[0] = W25QXX_COMMAND_BLOCK_ERASE_64K;                                                    /* block erase 64k command */
                 buf[1] = (addr >> 24) & 0xFF;                                                               /* 31 - 24 bits */
@@ -5986,7 +5986,7 @@ uint8_t w25qxx_block_erase_64k(w25qxx_handle_t *handle, uint32_t addr)
            
             return 1;                                                                                       /* return error */
         }
-        if (handle->adress_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                              /* 3 address mode */
+        if (handle->address_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                             /* 3 address mode */
         {
             if (handle->type >= W25Q256)                                                                    /* >128Mb */
             {
@@ -6026,7 +6026,7 @@ uint8_t w25qxx_block_erase_64k(w25qxx_handle_t *handle, uint32_t addr)
                 return 1;                                                                                   /* return error */
             }
         }
-        else if ((handle->adress_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
+        else if ((handle->address_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
         {
             res = a_w25qxx_qspi_write_read(handle, W25QXX_COMMAND_BLOCK_ERASE_64K, 4,
                                            addr, 4, 4,
@@ -6109,7 +6109,7 @@ uint8_t w25qxx_individual_block_lock(w25qxx_handle_t *handle, uint32_t addr)
     {
         if (handle->dual_quad_spi_enable != 0)                                                              /* enable dual quad spi */
         {
-            if (handle->adress_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                          /* 3 address mode */
+            if (handle->address_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                         /* 3 address mode */
             {
                 if (handle->type >= W25Q256)                                                                /* >128Mb */
                 {
@@ -6149,7 +6149,7 @@ uint8_t w25qxx_individual_block_lock(w25qxx_handle_t *handle, uint32_t addr)
                     return 1;                                                                               /* return error */
                 }
             }
-            else if ((handle->adress_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
+            else if ((handle->address_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
             {
                 res = a_w25qxx_qspi_write_read(handle, W25QXX_COMMAND_INDIVIDUAL_BLOCK_LOCK, 1,
                                                addr, 1, 4,
@@ -6172,7 +6172,7 @@ uint8_t w25qxx_individual_block_lock(w25qxx_handle_t *handle, uint32_t addr)
         }
         else                                                                                                /* single spi */
         {
-            if (handle->adress_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                          /* 3 address mode */
+            if (handle->address_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                         /* 3 address mode */
             {
                 if (handle->type >= W25Q256)                                                                /* >128Mb */
                 {
@@ -6206,7 +6206,7 @@ uint8_t w25qxx_individual_block_lock(w25qxx_handle_t *handle, uint32_t addr)
                     return 1;                                                                               /* return error */
                 }
             }
-            else if ((handle->adress_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
+            else if ((handle->address_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
             {
                 buf[0] = W25QXX_COMMAND_INDIVIDUAL_BLOCK_LOCK;                                              /* individual block lock command */
                 buf[1] = (addr >> 24) & 0xFF;                                                               /* 31 - 24 bits */
@@ -6231,7 +6231,7 @@ uint8_t w25qxx_individual_block_lock(w25qxx_handle_t *handle, uint32_t addr)
     }
     else
     {
-        if (handle->adress_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                              /* 3 address mode */
+        if (handle->address_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                             /* 3 address mode */
         {
             if (handle->type >= W25Q256)                                                                    /* >128Mb */
             {
@@ -6271,7 +6271,7 @@ uint8_t w25qxx_individual_block_lock(w25qxx_handle_t *handle, uint32_t addr)
                 return 1;                                                                                   /* return error */
             }
         }
-        else if ((handle->adress_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
+        else if ((handle->address_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
         {
             res = a_w25qxx_qspi_write_read(handle, W25QXX_COMMAND_INDIVIDUAL_BLOCK_LOCK, 4,
                                            addr, 4, 4,
@@ -6326,7 +6326,7 @@ uint8_t w25qxx_individual_block_unlock(w25qxx_handle_t *handle, uint32_t addr)
     {
         if (handle->dual_quad_spi_enable != 0)                                                              /* enable dual quad spi */
         {
-            if (handle->adress_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                          /* 3 address mode */
+            if (handle->address_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                         /* 3 address mode */
             {
                 if (handle->type >= W25Q256)                                                                /* >128Mb */
                 {
@@ -6366,7 +6366,7 @@ uint8_t w25qxx_individual_block_unlock(w25qxx_handle_t *handle, uint32_t addr)
                     return 1;                                                                               /* return error */
                 }
             }
-            else if ((handle->adress_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
+            else if ((handle->address_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
             {
                 res = a_w25qxx_qspi_write_read(handle, W25QXX_COMMAND_INDIVIDUAL_BLOCK_UNLOCK, 1,
                                                addr, 1, 4,
@@ -6389,7 +6389,7 @@ uint8_t w25qxx_individual_block_unlock(w25qxx_handle_t *handle, uint32_t addr)
         }
         else                                                                                                /* single spi */
         {
-            if (handle->adress_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                          /* 3 address mode */
+            if (handle->address_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                         /* 3 address mode */
             {
                 if (handle->type >= W25Q256)                                                                /* >128Mb */
                 {
@@ -6423,7 +6423,7 @@ uint8_t w25qxx_individual_block_unlock(w25qxx_handle_t *handle, uint32_t addr)
                     return 1;                                                                               /* return error */
                 }
             }
-            else if ((handle->adress_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
+            else if ((handle->address_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
             {
                 buf[0] = W25QXX_COMMAND_INDIVIDUAL_BLOCK_UNLOCK;                                            /* individual block unlock command */
                 buf[1] = (addr >> 24) & 0xFF;                                                               /* 31 - 24 bits */
@@ -6448,7 +6448,7 @@ uint8_t w25qxx_individual_block_unlock(w25qxx_handle_t *handle, uint32_t addr)
     }
     else
     {
-        if (handle->adress_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                              /* 3 address mode */
+        if (handle->address_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                             /* 3 address mode */
         {
             if (handle->type >= W25Q256)                                                                    /* >128Mb */
             {
@@ -6488,7 +6488,7 @@ uint8_t w25qxx_individual_block_unlock(w25qxx_handle_t *handle, uint32_t addr)
                 return 1;                                                                                   /* return error */
             }
         }
-        else if ((handle->adress_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
+        else if ((handle->address_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
         {
             res = a_w25qxx_qspi_write_read(handle, W25QXX_COMMAND_INDIVIDUAL_BLOCK_UNLOCK, 4,
                                            addr, 4, 4,
@@ -6544,7 +6544,7 @@ uint8_t w25qxx_read_block_lock(w25qxx_handle_t *handle, uint32_t addr, uint8_t *
     {
         if (handle->dual_quad_spi_enable != 0)                                                              /* enable dual quad spi */
         {
-            if (handle->adress_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                          /* 3 address mode */
+            if (handle->address_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                         /* 3 address mode */
             {
                 if (handle->type >= W25Q256)                                                                /* >128Mb */
                 {
@@ -6584,7 +6584,7 @@ uint8_t w25qxx_read_block_lock(w25qxx_handle_t *handle, uint32_t addr, uint8_t *
                     return 1;                                                                               /* return error */
                 }
             }
-            else if ((handle->adress_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
+            else if ((handle->address_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
             {
                 res = a_w25qxx_qspi_write_read(handle, W25QXX_COMMAND_READ_BLOCK_LOCK, 1,
                                                addr, 1, 4,
@@ -6607,7 +6607,7 @@ uint8_t w25qxx_read_block_lock(w25qxx_handle_t *handle, uint32_t addr, uint8_t *
         }
         else                                                                                                /* single spi */
         {
-            if (handle->adress_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                          /* 3 address mode */
+            if (handle->address_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                         /* 3 address mode */
             {
                 if (handle->type >= W25Q256)                                                                /* >128Mb */
                 {
@@ -6641,7 +6641,7 @@ uint8_t w25qxx_read_block_lock(w25qxx_handle_t *handle, uint32_t addr, uint8_t *
                     return 1;                                                                               /* return error */
                 }
             }
-            else if ((handle->adress_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
+            else if ((handle->address_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
             {
                 buf[0] = W25QXX_COMMAND_READ_BLOCK_LOCK;                                                    /* read block lock command */
                 buf[1] = (addr >> 24) & 0xFF;                                                               /* 31 - 24 bits */
@@ -6666,7 +6666,7 @@ uint8_t w25qxx_read_block_lock(w25qxx_handle_t *handle, uint32_t addr, uint8_t *
     }
     else
     {
-        if (handle->adress_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                              /* 3 address mode */
+        if (handle->address_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                             /* 3 address mode */
         {
             if (handle->type >= W25Q256)                                                                    /* >128Mb */
             {
@@ -6706,7 +6706,7 @@ uint8_t w25qxx_read_block_lock(w25qxx_handle_t *handle, uint32_t addr, uint8_t *
                 return 1;                                                                                   /* return error */
             }
         }
-        else if ((handle->adress_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
+        else if ((handle->address_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
         {
             res = a_w25qxx_qspi_write_read(handle, W25QXX_COMMAND_READ_BLOCK_LOCK, 4,
                                            addr, 4, 4,
@@ -6770,7 +6770,7 @@ uint8_t w25qxx_set_burst_with_wrap(w25qxx_handle_t *handle, w25qxx_burst_wrap_t 
                                            NULL, 0x00, 1);                           /* spi write read */
             if (res != 0)                                                            /* check result */
             {
-                handle->debug_print("w25qxx: set burst with wrap failed.\n");        /* set burst with wrap failed failed */
+                handle->debug_print("w25qxx: set burst with wrap failed.\n");        /* set burst with wrap failed */
                
                 return 1;                                                            /* return error */
             }
@@ -7175,7 +7175,7 @@ uint8_t w25qxx_init(w25qxx_handle_t *handle)
             }
         }
     }
-    handle->adress_mode = W25QXX_ADDRESS_MODE_3_BYTE;                                      /* set address mode */
+    handle->address_mode = W25QXX_ADDRESS_MODE_3_BYTE;                                     /* set address mode */
     handle->inited = 1;                                                                    /* initialize inited */
     
     return 0;                                                                              /* success return 0 */
@@ -7304,7 +7304,7 @@ uint8_t w25qxx_read(w25qxx_handle_t *handle, uint32_t addr, uint8_t *data, uint3
     {
         if (handle->dual_quad_spi_enable != 0)                                                            /* enable dual quad spi */
         {
-            if (handle->adress_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                        /* 3 address mode */
+            if (handle->address_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                       /* 3 address mode */
             {
                 if (handle->type >= W25Q256)                                                              /* >128Mb */
                 {
@@ -7344,7 +7344,7 @@ uint8_t w25qxx_read(w25qxx_handle_t *handle, uint32_t addr, uint8_t *data, uint3
                     return 1;                                                                             /* return error */
                 }
             }
-            else if ((handle->adress_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
+            else if ((handle->address_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
             {
                 res = a_w25qxx_qspi_write_read(handle, W25QXX_COMMAND_FAST_READ, 1,
                                                addr, 1, 4,
@@ -7367,7 +7367,7 @@ uint8_t w25qxx_read(w25qxx_handle_t *handle, uint32_t addr, uint8_t *data, uint3
         }
         else                                                                                              /* single spi */
         {
-            if (handle->adress_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                        /* 3 address mode */
+            if (handle->address_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                       /* 3 address mode */
             {
                 if (handle->type >= W25Q256)                                                              /* >128Mb */
                 {
@@ -7402,7 +7402,7 @@ uint8_t w25qxx_read(w25qxx_handle_t *handle, uint32_t addr, uint8_t *data, uint3
                     return 1;                                                                             /* return error */
                 }
             }
-            else if ((handle->adress_mode == W25QXX_ADDRESS_MODE_4_BYTE)
+            else if ((handle->address_mode == W25QXX_ADDRESS_MODE_4_BYTE)
                     && (handle->type >= W25Q256))                                                         /* check address mode */
             {
                 buf[0] = W25QXX_COMMAND_FAST_READ;                                                        /* fast read command */
@@ -7429,7 +7429,7 @@ uint8_t w25qxx_read(w25qxx_handle_t *handle, uint32_t addr, uint8_t *data, uint3
     }
     else                                                                                                  /* qspi interface */
     {
-        if (handle->adress_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                            /* 3 address mode */
+        if (handle->address_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                           /* 3 address mode */
         {
             if (handle->type >= W25Q256)                                                                  /* >128Mb */
             {
@@ -7469,7 +7469,7 @@ uint8_t w25qxx_read(w25qxx_handle_t *handle, uint32_t addr, uint8_t *data, uint3
                 return 1;                                                                                 /* return error */
             }
         }
-        else if ((handle->adress_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
+        else if ((handle->address_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
         {
             res = a_w25qxx_qspi_write_read(handle, W25QXX_COMMAND_FAST_READ, 4,
                                            addr, 4, 4,
@@ -7514,7 +7514,7 @@ static uint8_t a_w25qxx_read(w25qxx_handle_t *handle, uint32_t addr, uint8_t *da
     {
         if (handle->dual_quad_spi_enable != 0)                                                            /* enable dual quad spi */
         {
-            if (handle->adress_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                        /* 3 address mode */
+            if (handle->address_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                       /* 3 address mode */
             {
                 if (handle->type >= W25Q256)                                                              /* >128Mb */
                 {
@@ -7554,7 +7554,7 @@ static uint8_t a_w25qxx_read(w25qxx_handle_t *handle, uint32_t addr, uint8_t *da
                     return 1;                                                                             /* return error */
                 }
             }
-            else if ((handle->adress_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
+            else if ((handle->address_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
             {
                 res = a_w25qxx_qspi_write_read(handle, W25QXX_COMMAND_FAST_READ, 1,
                                                addr, 1, 4,
@@ -7577,7 +7577,7 @@ static uint8_t a_w25qxx_read(w25qxx_handle_t *handle, uint32_t addr, uint8_t *da
         }
         else
         {
-            if (handle->adress_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                        /* 3 address mode */
+            if (handle->address_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                       /* 3 address mode */
             {
                 if (handle->type >= W25Q256)                                                              /* >128Mb */
                 {
@@ -7612,7 +7612,7 @@ static uint8_t a_w25qxx_read(w25qxx_handle_t *handle, uint32_t addr, uint8_t *da
                     return 1;                                                                             /* return error */
                 }
             }
-            else if ((handle->adress_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))    /* check address mode */
+            else if ((handle->address_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))   /* check address mode */
             {
                 buf[0] = W25QXX_COMMAND_FAST_READ;                                                        /* fast read command */
                 buf[1] = (addr >> 24) & 0xFF;                                                             /* 31 - 24 bits */
@@ -7638,7 +7638,7 @@ static uint8_t a_w25qxx_read(w25qxx_handle_t *handle, uint32_t addr, uint8_t *da
     }
     else                                                                                                  /* qspi interface */
     {
-        if (handle->adress_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                            /* 3 address mode */
+        if (handle->address_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                           /* 3 address mode */
         {
             if (handle->type >= W25Q256)                                                                  /* >128Mb */
             {
@@ -7678,7 +7678,7 @@ static uint8_t a_w25qxx_read(w25qxx_handle_t *handle, uint32_t addr, uint8_t *da
                 return 1;                                                                                 /* return error */
             }
         }
-        else if ((handle->adress_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
+        else if ((handle->address_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
         {
             res = a_w25qxx_qspi_write_read(handle, W25QXX_COMMAND_FAST_READ, 4,
                                            addr, 4, 4,
@@ -7734,7 +7734,7 @@ static uint8_t a_w25qxx_erase_sector(w25qxx_handle_t *handle, uint32_t addr)
                
                 return 1;                                                                                   /* return error */
             }
-            if (handle->adress_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                          /* 3 address mode */
+            if (handle->address_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                         /* 3 address mode */
             {
                 if (handle->type >= W25Q256)                                                                /* >128Mb */
                 {
@@ -7774,7 +7774,7 @@ static uint8_t a_w25qxx_erase_sector(w25qxx_handle_t *handle, uint32_t addr)
                     return 1;                                                                               /* return error */
                 }
             }
-            else if ((handle->adress_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
+            else if ((handle->address_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
             {
                 res = a_w25qxx_qspi_write_read(handle, W25QXX_COMMAND_SECTOR_ERASE_4K, 1,
                                                addr, 1, 4,
@@ -7833,7 +7833,7 @@ static uint8_t a_w25qxx_erase_sector(w25qxx_handle_t *handle, uint32_t addr)
                
                 return 1;                                                                                   /* return error */
             }
-            if (handle->adress_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                          /* 3 address mode */
+            if (handle->address_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                         /* 3 address mode */
             {
                 if (handle->type >= W25Q256)                                                                /* >128Mb */
                 {
@@ -7867,7 +7867,7 @@ static uint8_t a_w25qxx_erase_sector(w25qxx_handle_t *handle, uint32_t addr)
                     return 1;                                                                               /* return error */
                 }
             }
-            else if ((handle->adress_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
+            else if ((handle->address_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
             {
                 buf[0] = W25QXX_COMMAND_SECTOR_ERASE_4K;                                                    /* sector erase 4k command */
                 buf[1] = (addr >> 24) & 0xFF;                                                               /* 31 - 24 bits */
@@ -7928,7 +7928,7 @@ static uint8_t a_w25qxx_erase_sector(w25qxx_handle_t *handle, uint32_t addr)
            
             return 1;                                                                                       /* return error */
         }
-        if (handle->adress_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                              /* 3 address mode */
+        if (handle->address_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                             /* 3 address mode */
         {
             if (handle->type >= W25Q256)                                                                    /* >128Mb */
             {
@@ -7968,7 +7968,7 @@ static uint8_t a_w25qxx_erase_sector(w25qxx_handle_t *handle, uint32_t addr)
                 return 1;                                                                                   /* return error */
             }
         }
-        else if ((handle->adress_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
+        else if ((handle->address_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
         {
             res = a_w25qxx_qspi_write_read(handle, W25QXX_COMMAND_SECTOR_ERASE_4K, 4,
                                            addr, 4, 4,
@@ -8054,7 +8054,7 @@ static uint8_t a_w25qxx_page_program(w25qxx_handle_t *handle, uint32_t addr, uin
                
                 return 1;                                                                                   /* return error */
             }
-            if (handle->adress_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                          /* 3 address mode */
+            if (handle->address_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                         /* 3 address mode */
             {
                 if (handle->type >= W25Q256)                                                                /* >128Mb */
                 {
@@ -8094,7 +8094,7 @@ static uint8_t a_w25qxx_page_program(w25qxx_handle_t *handle, uint32_t addr, uin
                     return 1;                                                                               /* return error */
                 }
             }
-            else if ((handle->adress_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
+            else if ((handle->address_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
             {
                 res = a_w25qxx_qspi_write_read(handle, W25QXX_COMMAND_PAGE_PROGRAM, 1,
                                                addr, 1, 4,
@@ -8153,7 +8153,7 @@ static uint8_t a_w25qxx_page_program(w25qxx_handle_t *handle, uint32_t addr, uin
                
                 return 1;                                                                                   /* return error */
             }
-            if (handle->adress_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                          /* 3 address mode */
+            if (handle->address_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                         /* 3 address mode */
             {
                 if (handle->type >= W25Q256)                                                                /* >128Mb */
                 {
@@ -8188,7 +8188,7 @@ static uint8_t a_w25qxx_page_program(w25qxx_handle_t *handle, uint32_t addr, uin
                     return 1;                                                                               /* return error */
                 }
             }
-            else if ((handle->adress_mode == W25QXX_ADDRESS_MODE_4_BYTE)
+            else if ((handle->address_mode == W25QXX_ADDRESS_MODE_4_BYTE)
                      && (handle->type >= W25Q256))                                                          /* 4 address mode */
             {
                 handle->buf[0] = W25QXX_COMMAND_PAGE_PROGRAM;                                               /* page program command */
@@ -8251,7 +8251,7 @@ static uint8_t a_w25qxx_page_program(w25qxx_handle_t *handle, uint32_t addr, uin
            
             return 1;                                                                                       /* return error */
         }
-        if (handle->adress_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                              /* 3 address mode */
+        if (handle->address_mode == W25QXX_ADDRESS_MODE_3_BYTE)                                             /* 3 address mode */
         {
             if (handle->type >= W25Q256)                                                                    /* >128Mb */
             {
@@ -8291,7 +8291,7 @@ static uint8_t a_w25qxx_page_program(w25qxx_handle_t *handle, uint32_t addr, uin
                   return 1;                                                                                 /* return error */
             }
         }
-        else if ((handle->adress_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
+        else if ((handle->address_mode == W25QXX_ADDRESS_MODE_4_BYTE) && (handle->type >= W25Q256))
         {
             res = a_w25qxx_qspi_write_read(handle, W25QXX_COMMAND_PAGE_PROGRAM, 4,
                                            addr, 4, 4,
@@ -8429,7 +8429,7 @@ uint8_t w25qxx_write(w25qxx_handle_t *handle, uint32_t addr, uint8_t *data, uint
         return 3;                                                                              /* return error */
     }
 
-    sec_pos = addr / 4096;                                                                     /* get sector posistion */
+    sec_pos = addr / 4096;                                                                     /* get sector position */
     sec_off = addr % 4096;                                                                     /* get sector offset */
     sec_remain = 4096 - sec_off;                                                               /* get sector remain */
     if (len <= sec_remain)                                                                     /* check length */
@@ -8491,9 +8491,9 @@ uint8_t w25qxx_write(w25qxx_handle_t *handle, uint32_t addr, uint8_t *data, uint
         {
             sec_pos++;                                                                         /* sector++ */
             sec_off = 0;                                                                       /* set offset */
-            data += sec_remain;                                                                /* data + remian */
-            addr += sec_remain;                                                                /* addr + remian */
-            len -= sec_remain;                                                                 /* len - remian */
+            data += sec_remain;                                                                /* data + remain */
+            addr += sec_remain;                                                                /* addr + remain */
+            len -= sec_remain;                                                                 /* len - remain */
             if (len > 4096)                                                                    /* check length */
             {
                 sec_remain = 4096;                                                             /* set 4096 */
@@ -8520,9 +8520,9 @@ uint8_t w25qxx_write(w25qxx_handle_t *handle, uint32_t addr, uint8_t *data, uint
  * @param[in]  alternate_line is the alternate phy lines
  * @param[in]  alternate_len is the alternate length
  * @param[in]  dummy is the dummy cycle
- * @param[in]  *in_buf points to a input buffer
+ * @param[in]  *in_buf points to an input buffer
  * @param[in]  in_len is the input length
- * @param[out] *out_buf points to a output buffer
+ * @param[out] *out_buf points to an output buffer
  * @param[in]  out_len is the output length
  * @param[in]  data_line is the data phy lines
  * @return     status code
@@ -8579,7 +8579,7 @@ uint8_t w25qxx_info(w25qxx_info_t *info)
     info->max_current_ma = MAX_CURRENT;                             /* set maximum current */
     info->temperature_max = TEMPERATURE_MAX;                        /* set minimal temperature */
     info->temperature_min = TEMPERATURE_MIN;                        /* set maximum temperature */
-    info->driver_version = DRIVER_VERSION;                          /* set driver verison */
+    info->driver_version = DRIVER_VERSION;                          /* set driver version */
     
     return 0;                                                       /* success return 0 */
 }

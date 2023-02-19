@@ -20,7 +20,7 @@ body:
       required: true
   - type: textarea
     attributes:
-      label: To Reproduce
+      label: Reproduce
       description: Steps to reproduce the behavior.
   - type: textarea
     attributes:

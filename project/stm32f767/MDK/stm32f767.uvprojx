@@ -10,8 +10,8 @@
       <TargetName>stm32f767</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pCCUsed>5060750::V5.06 update 6 (build 750)::.\ARMCC</pCCUsed>
-      <uAC6>0</uAC6>
+      <pCCUsed>6140000::V6.14::ARMCLANG</pCCUsed>
+      <uAC6>1</uAC6>
       <TargetOption>
         <TargetCommonOption>
           <Device>STM32F767IGTx</Device>
@@ -211,7 +211,7 @@
             <Ra2Chk>0</Ra2Chk>
             <Ra3Chk>0</Ra3Chk>
             <Im1Chk>1</Im1Chk>
-            <Im2Chk>0</Im2Chk>
+            <Im2Chk>1</Im2Chk>
             <OnChipMemories>
               <Ocm1>
                 <Type>0</Type>
@@ -322,7 +322,7 @@
             <PlainCh>0</PlainCh>
             <Ropi>0</Ropi>
             <Rwpi>0</Rwpi>
-            <wLevel>2</wLevel>
+            <wLevel>3</wLevel>
             <uThumb>0</uThumb>
             <uSurpInc>0</uSurpInc>
             <uC99>1</uC99>
@@ -337,7 +337,7 @@
             <v6Rtti>0</v6Rtti>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define>STM32F767xx,USE_HAL_DRIVER</Define>
+              <Define>USE_HAL_DRIVER,STM32F767xx</Define>
               <Undefine></Undefine>
               <IncludePath>..\cmsis;..\hal\inc;..\interface\inc;..\usr\inc;..\..\..\src;..\..\..\interface;..\..\..\example;..\..\..\test</IncludePath>
             </VariousControls>
@@ -387,6 +387,11 @@
               <FileName>main.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\usr\src\main.c</FilePath>
+            </File>
+            <File>
+              <FileName>getopt.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\usr\src\getopt.c</FilePath>
             </File>
             <File>
               <FileName>shell.c</FileName>
@@ -584,6 +589,11 @@
               <FilePath>..\hal\src\stm32f7xx_hal_eth.c</FilePath>
             </File>
             <File>
+              <FileName>stm32f7xx_hal_exti.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\hal\src\stm32f7xx_hal_exti.c</FilePath>
+            </File>
+            <File>
               <FileName>stm32f7xx_hal_flash.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\hal\src\stm32f7xx_hal_flash.c</FilePath>
@@ -774,6 +784,11 @@
               <FilePath>..\hal\src\stm32f7xx_hal_spi.c</FilePath>
             </File>
             <File>
+              <FileName>stm32f7xx_hal_spi_ex.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\hal\src\stm32f7xx_hal_spi_ex.c</FilePath>
+            </File>
+            <File>
               <FileName>stm32f7xx_hal_sram.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\hal\src\stm32f7xx_hal_sram.c</FilePath>
@@ -792,6 +807,11 @@
               <FileName>stm32f7xx_hal_uart.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\hal\src\stm32f7xx_hal_uart.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f7xx_hal_uart_ex.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\hal\src\stm32f7xx_hal_uart_ex.c</FilePath>
             </File>
             <File>
               <FileName>stm32f7xx_hal_usart.c</FileName>
@@ -897,6 +917,11 @@
               <FileName>stm32f7xx_ll_usb.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\hal\src\stm32f7xx_ll_usb.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f7xx_ll_utils.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\hal\src\stm32f7xx_ll_utils.c</FilePath>
             </File>
           </Files>
         </Group>

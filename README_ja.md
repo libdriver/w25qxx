@@ -40,6 +40,8 @@ LibDriver W25QXXは、LibDriverによって起動されたW25QXXの全機能ド�
 
 / projectディレクトリには、一般的に使用されるLinuxおよびマイクロコントローラー開発ボードのプロジェクトサンプルが含まれています。 すべてのプロジェクトは、デバッグ方法としてシェルスクリプトを使用しています。詳細については、各プロジェクトのREADME.mdを参照してください。
 
+/ misraはLibDriver misraコードスキャン結果を含む。
+
 ### インストール
 
 / interfaceディレクトリにあるプラットフォームに依存しないSPI, QSPIバステンプレートを参照して、指定したプラットフォームのSPI, QSPIバスドライバを完成させます。
@@ -158,13 +160,13 @@ return 0;
 
 ### ドキュメント
 
-オンラインドキュメント: https://www.libdriver.com/docs/w25qxx/index.html
+オンラインドキュメント: [https://www.libdriver.com/docs/w25qxx/index.html](https://www.libdriver.com/docs/w25qxx/index.html)。
 
-オフラインドキュメント: /doc/html/index.html
+オフラインドキュメント: /doc/html/index.html。
 
 ### 貢献
 
-お問い合わせくださいlishifenging@outlook.com
+CONTRIBUTING.mdを参照してください。
 
 ### 著作権
 
@@ -180,4 +182,4 @@ MITライセンス（MIT）
 
 ### 連絡して
 
-お問い合わせくださいlishifenging@outlook.com
+お問い合わせくださいlishifenging@outlook.com。

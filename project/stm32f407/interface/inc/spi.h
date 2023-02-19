@@ -25,12 +25,12 @@
  * @brief     spi header file
  * @version   1.0.0
  * @author    Shifeng Li
- * @date      2021-2-12
+ * @date      2022-11-11
  *
  * <h3>history</h3>
  * <table>
  * <tr><th>Date        <th>Version  <th>Author      <th>Description
- * <tr><td>2021/02/12  <td>1.0      <td>Shifeng Li  <td>first upload
+ * <tr><td>2022/11/11  <td>1.0      <td>Shifeng Li  <td>first upload
  * </table>
  */
 
@@ -58,15 +58,15 @@ typedef enum
     SPI_MODE_1 = 0x01,        /**< mode 1 */
     SPI_MODE_2 = 0x02,        /**< mode 2 */
     SPI_MODE_3 = 0x03,        /**< mode 3 */
-}spi_mode_t;
+} spi_mode_t;
 
 /**
- * @brief  spi bus init
- * @return status code
- *         - 0 success
- *         - 1 init failed
- *         - 2 mode is invalid
- * @note   SCLK is PA5, MOSI is PA7 MISO is PA6 and CS is PA4
+ * @brief     spi bus init
+ * @param[in] mode is the spi mode
+ * @return    status code
+ *            - 0 success
+ *            - 1 init failed
+ * @note      SCLK is PA5, MOSI is PA7 MISO is PA6 and CS is PA4
  */
 uint8_t spi_init(spi_mode_t mode);
 
@@ -74,32 +74,21 @@ uint8_t spi_init(spi_mode_t mode);
  * @brief  spi bus deinit
  * @return status code
  *         - 0 success
- * @note   SCLK is PA5, MOSI is PA7 MISO is PA6 and CS is PA4
+ *         - 1 deinit failed
+ * @note   none
  */
 uint8_t spi_deinit(void);
 
 /**
- * @brief      spi bus read
- * @param[in]  addr is the spi register address
- * @param[out] *buf points to a data buffer
- * @param[in]  len is the length of the data buffer
- * @return     status code
- *             - 0 success
- *             - 1 read failed
- * @note       SCLK is PA5, MOSI is PA7 MISO is PA6 and CS is PA4
+ * @brief     spi bus write command
+ * @param[in] *buf points to a data buffer
+ * @param[in] len is the length of the data buffer
+ * @return    status code
+ *            - 0 success
+ *            - 1 write failed
+ * @note      none
  */
-uint8_t spi_read(uint8_t addr, uint8_t *buf, uint16_t len);
-
-/**
- * @brief      spi bus read command
- * @param[out] *buf points to a data buffer
- * @param[in]  len is the length of the data buffer
- * @return     status code
- *             - 0 success
- *             - 1 read failed
- * @note       SCLK is PA5, MOSI is PA7 MISO is PA6 and CS is PA4
- */
-uint8_t spi_read_cmd(uint8_t *buf, uint16_t len);
+uint8_t spi_write_cmd(uint8_t *buf, uint16_t len);
 
 /**
  * @brief     spi bus write
@@ -109,33 +98,81 @@ uint8_t spi_read_cmd(uint8_t *buf, uint16_t len);
  * @return    status code
  *            - 0 success
  *            - 1 write failed
- * @note      SCLK is PA5, MOSI is PA7 MISO is PA6 and CS is PA4
+ * @note      none
  */
 uint8_t spi_write(uint8_t addr, uint8_t *buf, uint16_t len);
 
 /**
- * @brief     spi bus write command
+ * @brief     spi bus write address 16
+ * @param[in] addr is the spi register address
  * @param[in] *buf points to a data buffer
  * @param[in] len is the length of the data buffer
  * @return    status code
  *            - 0 success
  *            - 1 write failed
- * @note      SCLK is PA5, MOSI is PA7 MISO is PA6 and CS is PA4
+ * @note      none
  */
-uint8_t spi_write_cmd(uint8_t *buf, uint16_t len);
+uint8_t spi_write_address16(uint16_t addr, uint8_t *buf, uint16_t len);
+
+/**
+ * @brief      spi bus read command
+ * @param[out] *buf points to a data buffer
+ * @param[in]  len is the length of the data buffer
+ * @return     status code
+ *             - 0 success
+ *             - 1 read failed
+ * @note       none
+ */
+uint8_t spi_read_cmd(uint8_t *buf, uint16_t len);
+
+/**
+ * @brief      spi bus read
+ * @param[in]  addr is the spi register address
+ * @param[out] *buf points to a data buffer
+ * @param[in]  len is the length of the data buffer
+ * @return     status code
+ *             - 0 success
+ *             - 1 read failed
+ * @note       none
+ */
+uint8_t spi_read(uint8_t addr, uint8_t *buf, uint16_t len);
+
+/**
+ * @brief      spi bus read address 16
+ * @param[in]  addr is the spi register address
+ * @param[out] *buf points to a data buffer
+ * @param[in]  len is the length of the data buffer
+ * @return     status code
+ *             - 0 success
+ *             - 1 read failed
+ * @note       none
+ */
+uint8_t spi_read_address16(uint16_t addr, uint8_t *buf, uint16_t len);
 
 /**
  * @brief      spi bus write read
- * @param[in]  *in_buf points to a input buffer
+ * @param[in]  *in_buf points to an input buffer
  * @param[in]  in_len is the input length
- * @param[out] *out_buf points to a output buffer
+ * @param[out] *out_buf points to an output buffer
  * @param[in]  out_len is the output length
  * @return     status code
  *             - 0 success
  *             - 1 write read failed
- * @note       SCLK is PA5, MOSI is PA7 MISO is PA6 and CS is PA4
+ * @note       none
  */
 uint8_t spi_write_read(uint8_t *in_buf, uint32_t in_len, uint8_t *out_buf, uint32_t out_len);
+
+/**
+ * @brief      spi transmit
+ * @param[in]  *tx points to a tx buffer
+ * @param[out] *rx points to a rx buffer
+ * @param[in]  len is the length of the data buffer
+ * @return     status code
+ *             - 0 success
+ *             - 1 transmit failed
+ * @note       none
+ */
+uint8_t spi_transmit(uint8_t *tx, uint8_t *rx, uint16_t len);
 
 /**
  * @}

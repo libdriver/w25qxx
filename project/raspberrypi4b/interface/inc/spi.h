@@ -25,21 +25,19 @@
  * @brief     spi header file
  * @version   1.0.0
  * @author    Shifeng Li
- * @date      2021-02-12
+ * @date      2022-11-11
  *
  * <h3>history</h3>
  * <table>
  * <tr><th>Date        <th>Version  <th>Author      <th>Description
- * <tr><td>2021/02/12  <td>1.0      <td>Shifeng Li  <td>first upload
+ * <tr><td>2022/11/11  <td>1.0      <td>Shifeng Li  <td>first upload
  * </table>
  */
 
 #ifndef SPI_H
 #define SPI_H
 
-#include <linux/spi/spidev.h>
-#include <sys/ioctl.h>
-#include <fcntl.h>
+#include <linux/spi/spi.h>
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdint.h>
@@ -51,6 +49,12 @@ extern "C" {
 #endif
 
 /**
+ * @defgroup spi spi function
+ * @brief    spi function modules
+ * @{
+ */
+
+/**
  * @brief spi mode type enumeration definition
  */
 typedef enum  
@@ -59,7 +63,7 @@ typedef enum
     SPI_MODE_TYPE_1 = SPI_MODE_1,        /**< mode 1 */
     SPI_MODE_TYPE_2 = SPI_MODE_2,        /**< mode 2 */
     SPI_MODE_TYPE_3 = SPI_MODE_3,        /**< mode 3 */
-}spi_mode_type_t;
+} spi_mode_type_t;
 
 /**
  * @brief      spi bus init
@@ -76,7 +80,7 @@ uint8_t spi_init(char *name, int *fd, spi_mode_type_t mode, uint32_t freq);
 
 /**
  * @brief     spi bus deinit
- * @param[in] fd is the spi device handle
+ * @param[in] fd is the spi handle
  * @return    status code
  *            - 0 success
  *            - 1 deinit failed
@@ -99,7 +103,7 @@ uint8_t spi_read_cmd(int fd, uint8_t *buf, uint16_t len);
 /**
  * @brief      spi bus read
  * @param[in]  fd is the spi handle
- * @param[in]  reg is spi register address
+ * @param[in]  reg is the spi register address
  * @param[out] *buf points to a data buffer
  * @param[in]  len is the length of the data buffer
  * @return     status code
@@ -108,6 +112,19 @@ uint8_t spi_read_cmd(int fd, uint8_t *buf, uint16_t len);
  * @note       none
  */
 uint8_t spi_read(int fd, uint8_t reg, uint8_t *buf, uint16_t len);
+
+/**
+ * @brief      spi bus read address 16
+ * @param[in]  fd is the spi handle
+ * @param[in]  reg is the spi register address
+ * @param[out] *buf points to a data buffer
+ * @param[in]  len is the length of the data buffer
+ * @return     status code
+ *             - 0 success
+ *             - 1 read failed
+ * @note       none
+ */
+uint8_t spi_read_address16(int fd, uint16_t reg, uint8_t *buf, uint16_t len);
 
 /**
  * @brief     spi bus write command
@@ -124,7 +141,7 @@ uint8_t spi_write_cmd(int fd, uint8_t *buf, uint16_t len);
 /**
  * @brief     spi bus write
  * @param[in] fd is the spi handle
- * @param[in] reg is spi register address
+ * @param[in] reg is the spi register address
  * @param[in] *buf points to a data buffer
  * @param[in] len is the length of the data buffer
  * @return    status code
@@ -135,18 +152,48 @@ uint8_t spi_write_cmd(int fd, uint8_t *buf, uint16_t len);
 uint8_t spi_write(int fd, uint8_t reg, uint8_t *buf, uint16_t len);
 
 /**
+ * @brief     spi bus write address 16
+ * @param[in] fd is the spi handle
+ * @param[in] reg is the spi register address
+ * @param[in] *buf points to a data buffer
+ * @param[in] len is the length of the data buffer
+ * @return    status code
+ *            - 0 success
+ *            - 1 write failed
+ * @note      none
+ */
+uint8_t spi_write_address16(int fd, uint16_t reg, uint8_t *buf, uint16_t len);
+
+/**
  * @brief      spi bus write read
  * @param[in]  fd is the spi handle
- * @param[in]  *in_buf points to a input buffer
+ * @param[in]  *in_buf points to an input buffer
  * @param[in]  in_len is the input length
- * @param[out] *out_buf points to a output buffer
+ * @param[out] *out_buf points to an output buffer
  * @param[in]  out_len is the output length
  * @return     status code
  *             - 0 success
  *             - 1 write read failed
- * @note       SCLK is PA5, MOSI is PA7 MISO is PA6 and CS is PA4
+ * @note       none
  */
 uint8_t spi_write_read(int fd, uint8_t *in_buf, uint32_t in_len, uint8_t *out_buf, uint32_t out_len);
+
+/**
+ * @brief      spi transmit
+ * @param[in]  fd is the spi handle
+ * @param[in]  *tx points to a tx buffer
+ * @param[out] *rx points to a rx buffer
+ * @param[in]  len is the length of the data buffer
+ * @return     status code
+ *             - 0 success
+ *             - 1 transmit failed
+ * @note       none
+ */
+uint8_t spi_transmit(int fd, uint8_t *tx, uint8_t *rx, uint16_t len);
+
+/**
+ * @}
+ */
 
 #ifdef __cplusplus
 }

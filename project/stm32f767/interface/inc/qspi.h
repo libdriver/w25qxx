@@ -25,12 +25,12 @@
  * @brief     qspi header file
  * @version   1.0.0
  * @author    Shifeng Li
- * @date      2021-08-07
+ * @date      2022-11-11
  *
  * <h3>history</h3>
  * <table>
  * <tr><th>Date        <th>Version  <th>Author      <th>Description
- * <tr><td>2021/08/07  <td>1.0      <td>Shifeng Li  <td>first upload
+ * <tr><td>2022/11/11  <td>1.0      <td>Shifeng Li  <td>first upload
  * </table>
  */
 
@@ -56,7 +56,7 @@ typedef enum
 {
     QSPI_MODE_0 = 0x00,        /**< mode 0 */
     QSPI_MODE_3 = 0x01,        /**< mode 3 */
-}qspi_mode_t;
+} qspi_mode_t;
 
 /**
  * @brief     qspi bus init
@@ -102,6 +102,7 @@ uint8_t qspi_write_read(uint8_t instruction, uint8_t instruction_line,
  * @brief  qspi bus deinit
  * @return status code
  *         - 0 success
+ *         - 1 deinit failed
  * @note   none
  */
 uint8_t qspi_deinit(void);

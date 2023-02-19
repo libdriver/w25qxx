@@ -12,10 +12,14 @@ body:
     attributes:
       label: Document Links
       description: Please fill in the link of the online documentation or the path of the offline documentation.
+    validations:
+      required: true
   - type: textarea
     attributes:
       label: Description of the problem
       description: A clear and concise description of the documentation problem.
+    validations:
+      required: true
   - type: textarea
     attributes:
       label: Please give your suggestion
