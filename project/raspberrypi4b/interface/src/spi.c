@@ -383,7 +383,7 @@ uint8_t spi_write_address16(int fd, uint16_t reg, uint8_t *buf, uint16_t len)
     /* set the command */
     command[0] = (reg >> 8) & 0xFF;
     command[1] = reg & 0xFF;
-    memset(&command[2], 0x00, len);
+    memcpy(&command[2], buf, len);
     
     /* clear ioc transfer */
     memset(&k, 0, sizeof(struct spi_ioc_transfer));
