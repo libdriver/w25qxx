@@ -35,7 +35,7 @@ Many MISRA C rules can be characterized as guidelines because under certain cond
 
 ### Code
 
-LibDriver complies with deviated MISRA standards.Libdriver complies with all mandatory guidelines and most required guidelines, the deviations are shown in Table 1.
+LibDriver complies with deviated MISRA standards. LibDriver complies with all mandatory guidelines and most required guidelines, the deviations are shown in Table 1.
 
 <div align=center> Table 1. Guideline Deviations </div>
 
