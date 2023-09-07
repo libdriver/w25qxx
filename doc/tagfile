@@ -1,0 +1,4087 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<tagfile doxygen_version="1.9.8" doxygen_gitid="c2fe5c3e4986974eb2a97608b24086683502f07f">
+  <compound kind="file">
+    <name>mainpage.h</name>
+    <path>doc/mainpage/</path>
+    <filename>mainpage_8h.html</filename>
+  </compound>
+  <compound kind="file">
+    <name>driver_w25qxx_advance.c</name>
+    <path>example/</path>
+    <filename>driver__w25qxx__advance_8c.html</filename>
+    <includes id="driver__w25qxx__advance_8h" name="driver_w25qxx_advance.h" local="yes" import="no" module="no" objc="no">driver_w25qxx_advance.h</includes>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_init</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga413b420bc199d09ce5cafee4a4debb28</anchor>
+      <arglist>(w25qxx_type_t type, w25qxx_interface_t interface, w25qxx_bool_t dual_quad_spi_enable)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_deinit</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>gaf390bbb2c4140f49d25822d963ead722</anchor>
+      <arglist>(void)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_write</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga63f4e1dce2ef7c7de56461524fd22d04</anchor>
+      <arglist>(uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_read</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga013a389763200b54daaa345adf9329dc</anchor>
+      <arglist>(uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_power_down</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga5599de31797633ae75a63bcd5a8f4736</anchor>
+      <arglist>(void)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_wake_up</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga8a57e2d056d452abc14b0a08d4223251</anchor>
+      <arglist>(void)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_chip_erase</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga15cb243f227ef8d897ef3208b622bded</anchor>
+      <arglist>(void)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_get_id</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga0f49d960f8b6c6498ab293b369ffc389</anchor>
+      <arglist>(uint8_t *manufacturer, uint8_t *device_id)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_page_program</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga39ff13988a3d451231cec3260c13a4cd</anchor>
+      <arglist>(uint32_t addr, uint8_t *data, uint16_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_sector_erase_4k</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga9325acc424c95624f15e11631082201d</anchor>
+      <arglist>(uint32_t addr)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_block_erase_32k</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>gaee04edb9e97785e423dffe14a1cad780</anchor>
+      <arglist>(uint32_t addr)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_block_erase_64k</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>gae7cba4e0b22a1043fe304e46148fa13c</anchor>
+      <arglist>(uint32_t addr)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_fast_read</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga7ade25a387b9d03ddecefd86fb328389</anchor>
+      <arglist>(uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_only_spi_read</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>gac1c7f320706dd6d6d937da75b8a4da93</anchor>
+      <arglist>(uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_only_spi_fast_read_dual_output</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga364d891407cf323d3686d36ad6357604</anchor>
+      <arglist>(uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_only_spi_fast_read_quad_output</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>gaf5f978c432de7d6adaf41cd256724a01</anchor>
+      <arglist>(uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_only_spi_fast_read_dual_io</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga4bbaf1a989fae25d16d07edb1e38ca4f</anchor>
+      <arglist>(uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_only_spi_fast_read_quad_io</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga395add1fa33f4f70d0ba52b38842dbdb</anchor>
+      <arglist>(uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_only_spi_word_read_quad_io</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>gaca6b4c6ea32dd96a4ae8714e2862d67a</anchor>
+      <arglist>(uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_only_spi_octal_word_read_quad_io</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga825a567c535236d7d18ffccf07df59e9</anchor>
+      <arglist>(uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_only_spi_page_program_quad_input</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>gad243655eb738e44c50e6079c983fd782</anchor>
+      <arglist>(uint32_t addr, uint8_t *data, uint16_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_get_status1</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga4c1be6979b4dc878d07ec86b8624c9d2</anchor>
+      <arglist>(uint8_t *status)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_get_status2</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>gaf4736fff906c2f0c1dbed26b20847052</anchor>
+      <arglist>(uint8_t *status)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_get_status3</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga31bcd3d2cc68d2fc589685b5087bd8b3</anchor>
+      <arglist>(uint8_t *status)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_set_status1</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga5e4938b4575c417ae22fa82079459b1a</anchor>
+      <arglist>(uint8_t status)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_set_status2</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga9bc0e696b700d66f15b3605e10d33718</anchor>
+      <arglist>(uint8_t status)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_set_status3</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>gab5c990ebd4874137b7d23f2b896d4601</anchor>
+      <arglist>(uint8_t status)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_only_spi_get_manufacturer_device_id_dual_io</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>gac0d9e08a37ee37563c8dbb501608a668</anchor>
+      <arglist>(uint8_t *manufacturer, uint8_t *device_id)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_only_spi_get_manufacturer_device_id_quad_io</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga6142b5a1e8602e2990dec34015812615</anchor>
+      <arglist>(uint8_t *manufacturer, uint8_t *device_id)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_get_get_jedec_id</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>gacc7435a39b61c44f0ce16690d5da896b</anchor>
+      <arglist>(uint8_t *manufacturer, uint8_t device_id[2])</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_global_block_lock</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga2cbcc018dc11a870d2e0fc3a8946b1d8</anchor>
+      <arglist>(void)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_global_block_unlock</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga67c70da103511d1cff9274e61a08ce56</anchor>
+      <arglist>(void)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_individual_block_lock</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>gaa7af99e92b3e81f5b202575b55dc3a7c</anchor>
+      <arglist>(uint32_t addr)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_individual_block_unlock</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga66726fc451c7804e8fec6eb46a6a77d6</anchor>
+      <arglist>(uint32_t addr)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_read_block_lock</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>gac1773fe914a01825ca28346205601036</anchor>
+      <arglist>(uint32_t addr, uint8_t *value)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_reset</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga0f65053ad28443f19ed73dbc3412b5b2</anchor>
+      <arglist>(void)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_only_qspi_set_read_parameters</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>gace2a5b7acd9798cfcaa2b5eb2f18e1d1</anchor>
+      <arglist>(w25qxx_qspi_read_dummy_t dummy, w25qxx_qspi_read_wrap_length_t length)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_only_spi_get_unique_id</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga374d35b73fa61d5f7464c3effdae1d57</anchor>
+      <arglist>(uint8_t id[8])</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_only_spi_get_sfdp</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga9b1854e0ae52f57523bc2fa7cc0656df</anchor>
+      <arglist>(uint8_t sfdp[256])</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_only_spi_write_security_register</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>gaa6c5f97106e769ba071973cc2e782ad4</anchor>
+      <arglist>(w25qxx_security_register_t num, uint8_t data[256])</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_only_spi_read_security_register</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga02652a58ee418b432cf77505809d7d42</anchor>
+      <arglist>(w25qxx_security_register_t num, uint8_t data[256])</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_only_spi_set_burst_with_wrap</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga16411577fcb794f7485912f5db1bdde9</anchor>
+      <arglist>(w25qxx_burst_wrap_t wrap)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>driver_w25qxx_advance.h</name>
+    <path>example/</path>
+    <filename>driver__w25qxx__advance_8h.html</filename>
+    <includes id="driver__w25qxx__interface_8h" name="driver_w25qxx_interface.h" local="yes" import="no" module="no" objc="no">driver_w25qxx_interface.h</includes>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_init</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga413b420bc199d09ce5cafee4a4debb28</anchor>
+      <arglist>(w25qxx_type_t type, w25qxx_interface_t interface, w25qxx_bool_t dual_quad_spi_enable)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_deinit</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>gaf390bbb2c4140f49d25822d963ead722</anchor>
+      <arglist>(void)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_power_down</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga5599de31797633ae75a63bcd5a8f4736</anchor>
+      <arglist>(void)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_wake_up</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga8a57e2d056d452abc14b0a08d4223251</anchor>
+      <arglist>(void)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_chip_erase</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga15cb243f227ef8d897ef3208b622bded</anchor>
+      <arglist>(void)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_get_id</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga0f49d960f8b6c6498ab293b369ffc389</anchor>
+      <arglist>(uint8_t *manufacturer, uint8_t *device_id)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_write</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga63f4e1dce2ef7c7de56461524fd22d04</anchor>
+      <arglist>(uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_read</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga013a389763200b54daaa345adf9329dc</anchor>
+      <arglist>(uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_page_program</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga39ff13988a3d451231cec3260c13a4cd</anchor>
+      <arglist>(uint32_t addr, uint8_t *data, uint16_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_sector_erase_4k</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga9325acc424c95624f15e11631082201d</anchor>
+      <arglist>(uint32_t addr)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_block_erase_32k</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>gaee04edb9e97785e423dffe14a1cad780</anchor>
+      <arglist>(uint32_t addr)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_block_erase_64k</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>gae7cba4e0b22a1043fe304e46148fa13c</anchor>
+      <arglist>(uint32_t addr)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_fast_read</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga7ade25a387b9d03ddecefd86fb328389</anchor>
+      <arglist>(uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_get_status1</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga4c1be6979b4dc878d07ec86b8624c9d2</anchor>
+      <arglist>(uint8_t *status)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_get_status2</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>gaf4736fff906c2f0c1dbed26b20847052</anchor>
+      <arglist>(uint8_t *status)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_get_status3</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga31bcd3d2cc68d2fc589685b5087bd8b3</anchor>
+      <arglist>(uint8_t *status)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_set_status1</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga5e4938b4575c417ae22fa82079459b1a</anchor>
+      <arglist>(uint8_t status)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_set_status2</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga9bc0e696b700d66f15b3605e10d33718</anchor>
+      <arglist>(uint8_t status)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_set_status3</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>gab5c990ebd4874137b7d23f2b896d4601</anchor>
+      <arglist>(uint8_t status)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_get_get_jedec_id</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>gacc7435a39b61c44f0ce16690d5da896b</anchor>
+      <arglist>(uint8_t *manufacturer, uint8_t device_id[2])</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_global_block_lock</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga2cbcc018dc11a870d2e0fc3a8946b1d8</anchor>
+      <arglist>(void)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_global_block_unlock</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga67c70da103511d1cff9274e61a08ce56</anchor>
+      <arglist>(void)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_individual_block_lock</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>gaa7af99e92b3e81f5b202575b55dc3a7c</anchor>
+      <arglist>(uint32_t addr)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_individual_block_unlock</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga66726fc451c7804e8fec6eb46a6a77d6</anchor>
+      <arglist>(uint32_t addr)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_read_block_lock</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>gac1773fe914a01825ca28346205601036</anchor>
+      <arglist>(uint32_t addr, uint8_t *value)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_reset</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga0f65053ad28443f19ed73dbc3412b5b2</anchor>
+      <arglist>(void)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_only_spi_read</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>gac1c7f320706dd6d6d937da75b8a4da93</anchor>
+      <arglist>(uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_only_spi_fast_read_dual_output</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga364d891407cf323d3686d36ad6357604</anchor>
+      <arglist>(uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_only_spi_fast_read_quad_output</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>gaf5f978c432de7d6adaf41cd256724a01</anchor>
+      <arglist>(uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_only_spi_fast_read_dual_io</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga4bbaf1a989fae25d16d07edb1e38ca4f</anchor>
+      <arglist>(uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_only_spi_fast_read_quad_io</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga395add1fa33f4f70d0ba52b38842dbdb</anchor>
+      <arglist>(uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_only_spi_word_read_quad_io</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>gaca6b4c6ea32dd96a4ae8714e2862d67a</anchor>
+      <arglist>(uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_only_spi_octal_word_read_quad_io</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga825a567c535236d7d18ffccf07df59e9</anchor>
+      <arglist>(uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_only_spi_page_program_quad_input</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>gad243655eb738e44c50e6079c983fd782</anchor>
+      <arglist>(uint32_t addr, uint8_t *data, uint16_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_only_spi_get_manufacturer_device_id_dual_io</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>gac0d9e08a37ee37563c8dbb501608a668</anchor>
+      <arglist>(uint8_t *manufacturer, uint8_t *device_id)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_only_spi_get_manufacturer_device_id_quad_io</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga6142b5a1e8602e2990dec34015812615</anchor>
+      <arglist>(uint8_t *manufacturer, uint8_t *device_id)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_only_spi_get_unique_id</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga374d35b73fa61d5f7464c3effdae1d57</anchor>
+      <arglist>(uint8_t id[8])</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_only_spi_get_sfdp</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga9b1854e0ae52f57523bc2fa7cc0656df</anchor>
+      <arglist>(uint8_t sfdp[256])</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_only_spi_write_security_register</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>gaa6c5f97106e769ba071973cc2e782ad4</anchor>
+      <arglist>(w25qxx_security_register_t num, uint8_t data[256])</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_only_spi_read_security_register</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga02652a58ee418b432cf77505809d7d42</anchor>
+      <arglist>(w25qxx_security_register_t num, uint8_t data[256])</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_only_spi_set_burst_with_wrap</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga16411577fcb794f7485912f5db1bdde9</anchor>
+      <arglist>(w25qxx_burst_wrap_t wrap)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_only_qspi_set_read_parameters</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>gace2a5b7acd9798cfcaa2b5eb2f18e1d1</anchor>
+      <arglist>(w25qxx_qspi_read_dummy_t dummy, w25qxx_qspi_read_wrap_length_t length)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>driver_w25qxx_basic.c</name>
+    <path>example/</path>
+    <filename>driver__w25qxx__basic_8c.html</filename>
+    <includes id="driver__w25qxx__basic_8h" name="driver_w25qxx_basic.h" local="yes" import="no" module="no" objc="no">driver_w25qxx_basic.h</includes>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_basic_init</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga1e20768311dfdf33c77b442fa874b61a</anchor>
+      <arglist>(w25qxx_type_t type, w25qxx_interface_t interface, w25qxx_bool_t dual_quad_spi_enable)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_basic_deinit</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>gaeb167c2924a3490e9a8d11e0c57d2dc0</anchor>
+      <arglist>(void)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_basic_power_down</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga572c9f7a0bf2e7ab43dc078121162ec3</anchor>
+      <arglist>(void)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_basic_wake_up</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga02914409a9db38f35bc89d9fc4d96a17</anchor>
+      <arglist>(void)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_basic_chip_erase</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>gaf78e9f136e29b826c1a2b337b8451d6d</anchor>
+      <arglist>(void)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_basic_get_id</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>gacdda3af55c024b55fc9939aa23650356</anchor>
+      <arglist>(uint8_t *manufacturer, uint8_t *device_id)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_basic_write</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga5cf24fc78e1b45e845d02ec9133f46ab</anchor>
+      <arglist>(uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_basic_read</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga143fa1f19a792142339f3d4e9ce078d0</anchor>
+      <arglist>(uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>driver_w25qxx_basic.h</name>
+    <path>example/</path>
+    <filename>driver__w25qxx__basic_8h.html</filename>
+    <includes id="driver__w25qxx__interface_8h" name="driver_w25qxx_interface.h" local="yes" import="no" module="no" objc="no">driver_w25qxx_interface.h</includes>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_basic_init</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga1e20768311dfdf33c77b442fa874b61a</anchor>
+      <arglist>(w25qxx_type_t type, w25qxx_interface_t interface, w25qxx_bool_t dual_quad_spi_enable)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_basic_deinit</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>gaeb167c2924a3490e9a8d11e0c57d2dc0</anchor>
+      <arglist>(void)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_basic_power_down</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga572c9f7a0bf2e7ab43dc078121162ec3</anchor>
+      <arglist>(void)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_basic_wake_up</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga02914409a9db38f35bc89d9fc4d96a17</anchor>
+      <arglist>(void)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_basic_chip_erase</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>gaf78e9f136e29b826c1a2b337b8451d6d</anchor>
+      <arglist>(void)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_basic_get_id</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>gacdda3af55c024b55fc9939aa23650356</anchor>
+      <arglist>(uint8_t *manufacturer, uint8_t *device_id)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_basic_write</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga5cf24fc78e1b45e845d02ec9133f46ab</anchor>
+      <arglist>(uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_basic_read</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga143fa1f19a792142339f3d4e9ce078d0</anchor>
+      <arglist>(uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>driver_w25qxx_interface.h</name>
+    <path>interface/</path>
+    <filename>driver__w25qxx__interface_8h.html</filename>
+    <includes id="driver__w25qxx_8h" name="driver_w25qxx.h" local="yes" import="no" module="no" objc="no">driver_w25qxx.h</includes>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_interface_spi_qspi_init</name>
+      <anchorfile>group__w25qxx__interface__driver.html</anchorfile>
+      <anchor>ga2bdc17a556f1c801a38656331f3bb7b6</anchor>
+      <arglist>(void)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_interface_spi_qspi_deinit</name>
+      <anchorfile>group__w25qxx__interface__driver.html</anchorfile>
+      <anchor>ga091f3607fcdd47f9e5f94cf1397bd46a</anchor>
+      <arglist>(void)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_interface_spi_qspi_write_read</name>
+      <anchorfile>group__w25qxx__interface__driver.html</anchorfile>
+      <anchor>ga3d76ea1f431978f6b55edfd0628c94cd</anchor>
+      <arglist>(uint8_t instruction, uint8_t instruction_line, uint32_t address, uint8_t address_line, uint8_t address_len, uint32_t alternate, uint8_t alternate_line, uint8_t alternate_len, uint8_t dummy, uint8_t *in_buf, uint32_t in_len, uint8_t *out_buf, uint32_t out_len, uint8_t data_line)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>w25qxx_interface_delay_ms</name>
+      <anchorfile>group__w25qxx__interface__driver.html</anchorfile>
+      <anchor>ga964fa232abf98737cb98458eebfff82c</anchor>
+      <arglist>(uint32_t ms)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>w25qxx_interface_delay_us</name>
+      <anchorfile>group__w25qxx__interface__driver.html</anchorfile>
+      <anchor>ga38e79039b913154c9dd1036ff52bb420</anchor>
+      <arglist>(uint32_t us)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>w25qxx_interface_debug_print</name>
+      <anchorfile>group__w25qxx__interface__driver.html</anchorfile>
+      <anchor>ga5325474fa17f6833744e631613fd2a0e</anchor>
+      <arglist>(const char *const fmt,...)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>driver_w25qxx_interface_template.c</name>
+    <path>interface/</path>
+    <filename>driver__w25qxx__interface__template_8c.html</filename>
+    <includes id="driver__w25qxx__interface_8h" name="driver_w25qxx_interface.h" local="yes" import="no" module="no" objc="no">driver_w25qxx_interface.h</includes>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_interface_spi_qspi_init</name>
+      <anchorfile>group__w25qxx__interface__driver.html</anchorfile>
+      <anchor>ga2bdc17a556f1c801a38656331f3bb7b6</anchor>
+      <arglist>(void)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_interface_spi_qspi_deinit</name>
+      <anchorfile>group__w25qxx__interface__driver.html</anchorfile>
+      <anchor>ga091f3607fcdd47f9e5f94cf1397bd46a</anchor>
+      <arglist>(void)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_interface_spi_qspi_write_read</name>
+      <anchorfile>group__w25qxx__interface__driver.html</anchorfile>
+      <anchor>ga3d76ea1f431978f6b55edfd0628c94cd</anchor>
+      <arglist>(uint8_t instruction, uint8_t instruction_line, uint32_t address, uint8_t address_line, uint8_t address_len, uint32_t alternate, uint8_t alternate_line, uint8_t alternate_len, uint8_t dummy, uint8_t *in_buf, uint32_t in_len, uint8_t *out_buf, uint32_t out_len, uint8_t data_line)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>w25qxx_interface_delay_ms</name>
+      <anchorfile>group__w25qxx__interface__driver.html</anchorfile>
+      <anchor>ga964fa232abf98737cb98458eebfff82c</anchor>
+      <arglist>(uint32_t ms)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>w25qxx_interface_delay_us</name>
+      <anchorfile>group__w25qxx__interface__driver.html</anchorfile>
+      <anchor>ga38e79039b913154c9dd1036ff52bb420</anchor>
+      <arglist>(uint32_t us)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>w25qxx_interface_debug_print</name>
+      <anchorfile>group__w25qxx__interface__driver.html</anchorfile>
+      <anchor>ga5325474fa17f6833744e631613fd2a0e</anchor>
+      <arglist>(const char *const fmt,...)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>driver_w25qxx.c</name>
+    <path>src/</path>
+    <filename>driver__w25qxx_8c.html</filename>
+    <includes id="driver__w25qxx_8h" name="driver_w25qxx.h" local="yes" import="no" module="no" objc="no">driver_w25qxx.h</includes>
+    <member kind="define">
+      <type>#define</type>
+      <name>CHIP_NAME</name>
+      <anchorfile>driver__w25qxx_8c.html</anchorfile>
+      <anchor>adc9da0a24824ca1239b593f6459b3954</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>MANUFACTURER_NAME</name>
+      <anchorfile>driver__w25qxx_8c.html</anchorfile>
+      <anchor>aaa2b8f5b105c3019df0cb346f472e803</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>SUPPLY_VOLTAGE_MIN</name>
+      <anchorfile>driver__w25qxx_8c.html</anchorfile>
+      <anchor>aac8d8cbd899667d609787ef4cf37054d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>SUPPLY_VOLTAGE_MAX</name>
+      <anchorfile>driver__w25qxx_8c.html</anchorfile>
+      <anchor>a68eba8b601afe11f1b871d944976c035</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>MAX_CURRENT</name>
+      <anchorfile>driver__w25qxx_8c.html</anchorfile>
+      <anchor>a2989837a37d6d63b59c6dd541b785435</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>TEMPERATURE_MIN</name>
+      <anchorfile>driver__w25qxx_8c.html</anchorfile>
+      <anchor>aab353db5bf4eb787f86a2080f609a551</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>TEMPERATURE_MAX</name>
+      <anchorfile>driver__w25qxx_8c.html</anchorfile>
+      <anchor>a90c0b20d54005712fcc8cb01281360e9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>DRIVER_VERSION</name>
+      <anchorfile>driver__w25qxx_8c.html</anchorfile>
+      <anchor>ae578001fe043b4cca7a0edd801cfe9c4</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>W25QXX_COMMAND_WRITE_ENABLE</name>
+      <anchorfile>driver__w25qxx_8c.html</anchorfile>
+      <anchor>af0708c46377cfee2dff1ff429d8675d5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>W25QXX_COMMAND_VOLATILE_SR_WRITE_ENABLE</name>
+      <anchorfile>driver__w25qxx_8c.html</anchorfile>
+      <anchor>a7c9e980e30f499dd97b02935c91f2c02</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>W25QXX_COMMAND_WRITE_DISABLE</name>
+      <anchorfile>driver__w25qxx_8c.html</anchorfile>
+      <anchor>a36dfb1951fe152d63e3715a161646713</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>W25QXX_COMMAND_READ_STATUS_REG1</name>
+      <anchorfile>driver__w25qxx_8c.html</anchorfile>
+      <anchor>adf682969c34f4b31a87dd92dd18ccea3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>W25QXX_COMMAND_READ_STATUS_REG2</name>
+      <anchorfile>driver__w25qxx_8c.html</anchorfile>
+      <anchor>a4a8cdc5b6ce75029df877263bdf35f2a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>W25QXX_COMMAND_READ_STATUS_REG3</name>
+      <anchorfile>driver__w25qxx_8c.html</anchorfile>
+      <anchor>a09798bdb3fabdf7bb4cfd8bce18100ce</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>W25QXX_COMMAND_WRITE_STATUS_REG1</name>
+      <anchorfile>driver__w25qxx_8c.html</anchorfile>
+      <anchor>a932f54ff92de8bbab4602ab85ac6c155</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>W25QXX_COMMAND_WRITE_STATUS_REG2</name>
+      <anchorfile>driver__w25qxx_8c.html</anchorfile>
+      <anchor>a4be10ed873d56bb183d9b1bde9105135</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>W25QXX_COMMAND_WRITE_STATUS_REG3</name>
+      <anchorfile>driver__w25qxx_8c.html</anchorfile>
+      <anchor>a6d099dc6afb59cc950d3abe96b840158</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>W25QXX_COMMAND_CHIP_ERASE</name>
+      <anchorfile>driver__w25qxx_8c.html</anchorfile>
+      <anchor>a63ec9ecd709fcb69107756f253616a6e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>W25QXX_COMMAND_ERASE_PROGRAM_SUSPEND</name>
+      <anchorfile>driver__w25qxx_8c.html</anchorfile>
+      <anchor>a43f9a1e3c03d4a7d2a991e81f0e89f51</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>W25QXX_COMMAND_ERASE_PROGRAM_RESUME</name>
+      <anchorfile>driver__w25qxx_8c.html</anchorfile>
+      <anchor>a0daeb46fb8b219a3d6b37d426c5c0e95</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>W25QXX_COMMAND_POWER_DOWN</name>
+      <anchorfile>driver__w25qxx_8c.html</anchorfile>
+      <anchor>a6fe4d603e33b7c8b8310a884e02a130b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>W25QXX_COMMAND_RELEASE_POWER_DOWN</name>
+      <anchorfile>driver__w25qxx_8c.html</anchorfile>
+      <anchor>ad344065461b2c71521017984f040b425</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>W25QXX_COMMAND_READ_MANUFACTURER</name>
+      <anchorfile>driver__w25qxx_8c.html</anchorfile>
+      <anchor>af6d9a5bc0b57b041e22af80b85e53f56</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>W25QXX_COMMAND_JEDEC_ID</name>
+      <anchorfile>driver__w25qxx_8c.html</anchorfile>
+      <anchor>a54f3ece548cd5eadc94642235442315a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>W25QXX_COMMAND_GLOBAL_BLOCK_SECTOR_LOCK</name>
+      <anchorfile>driver__w25qxx_8c.html</anchorfile>
+      <anchor>af81bc9ddfc8da8eb911435e835536ffb</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>W25QXX_COMMAND_GLOBAL_BLOCK_SECTOR_UNLOCK</name>
+      <anchorfile>driver__w25qxx_8c.html</anchorfile>
+      <anchor>ab96d2ad8602a5a50c988b8c09d4bbbc5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>W25QXX_COMMAND_ENTER_QSPI_MODE</name>
+      <anchorfile>driver__w25qxx_8c.html</anchorfile>
+      <anchor>a052d5373086b473bf0d450ea1bd73828</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>W25QXX_COMMAND_ENABLE_RESET</name>
+      <anchorfile>driver__w25qxx_8c.html</anchorfile>
+      <anchor>a6dae3a832abc19d1861fafb32f231d94</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>W25QXX_COMMAND_RESET_DEVICE</name>
+      <anchorfile>driver__w25qxx_8c.html</anchorfile>
+      <anchor>ab25182298c921c8f7f42216e0d5aa56b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>W25QXX_COMMAND_READ_UNIQUE_ID</name>
+      <anchorfile>driver__w25qxx_8c.html</anchorfile>
+      <anchor>a6aeed0a651b31064f25ab2f57fdacf2f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>W25QXX_COMMAND_PAGE_PROGRAM</name>
+      <anchorfile>driver__w25qxx_8c.html</anchorfile>
+      <anchor>aebca01f1f7fd279523d29e579998574a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>W25QXX_COMMAND_QUAD_PAGE_PROGRAM</name>
+      <anchorfile>driver__w25qxx_8c.html</anchorfile>
+      <anchor>a8212fac3d1e43024621b6b560a8dddfe</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>W25QXX_COMMAND_SECTOR_ERASE_4K</name>
+      <anchorfile>driver__w25qxx_8c.html</anchorfile>
+      <anchor>a6e7cd159f91e23930450725fd6910f9c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>W25QXX_COMMAND_BLOCK_ERASE_32K</name>
+      <anchorfile>driver__w25qxx_8c.html</anchorfile>
+      <anchor>a8bfb4e869985f5fa21ea7d1d262f90ad</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>W25QXX_COMMAND_BLOCK_ERASE_64K</name>
+      <anchorfile>driver__w25qxx_8c.html</anchorfile>
+      <anchor>a4c5a1ed46f4d662a61bc06573ab548a0</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>W25QXX_COMMAND_READ_DATA</name>
+      <anchorfile>driver__w25qxx_8c.html</anchorfile>
+      <anchor>a23fcd6d9b067580d534d626c43b7cff3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>W25QXX_COMMAND_FAST_READ</name>
+      <anchorfile>driver__w25qxx_8c.html</anchorfile>
+      <anchor>ac957b31a68db8c14f88a196a98b0aa18</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>W25QXX_COMMAND_FAST_READ_DUAL_OUTPUT</name>
+      <anchorfile>driver__w25qxx_8c.html</anchorfile>
+      <anchor>a8d49efa8b978ae8fd3eb18d0e5ae73e8</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>W25QXX_COMMAND_FAST_READ_QUAD_OUTPUT</name>
+      <anchorfile>driver__w25qxx_8c.html</anchorfile>
+      <anchor>a54ddb3d948c4bb95cc62199676c817b2</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>W25QXX_COMMAND_READ_SFDP_REGISTER</name>
+      <anchorfile>driver__w25qxx_8c.html</anchorfile>
+      <anchor>a63774c5ebbdf5445466d840fad567bf6</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>W25QXX_COMMAND_ERASE_SECURITY_REGISTER</name>
+      <anchorfile>driver__w25qxx_8c.html</anchorfile>
+      <anchor>a842f8d646fc8f8ed72422fc1d789498c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>W25QXX_COMMAND_PROGRAM_SECURITY_REGISTER</name>
+      <anchorfile>driver__w25qxx_8c.html</anchorfile>
+      <anchor>a915ab53f5f2d1cad6b954205e76cb4d5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>W25QXX_COMMAND_READ_SECURITY_REGISTER</name>
+      <anchorfile>driver__w25qxx_8c.html</anchorfile>
+      <anchor>a4dc5fb2c3c15ef86df56b534b874a919</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>W25QXX_COMMAND_INDIVIDUAL_BLOCK_LOCK</name>
+      <anchorfile>driver__w25qxx_8c.html</anchorfile>
+      <anchor>a328f6a9635b1ec6868410375de90b0df</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>W25QXX_COMMAND_INDIVIDUAL_BLOCK_UNLOCK</name>
+      <anchorfile>driver__w25qxx_8c.html</anchorfile>
+      <anchor>a3cc8b61583b5eb9d7c1ecd6831689718</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>W25QXX_COMMAND_READ_BLOCK_LOCK</name>
+      <anchorfile>driver__w25qxx_8c.html</anchorfile>
+      <anchor>a19e055bec30de0ad30e7f8ab5feea6a8</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>W25QXX_COMMAND_FAST_READ_DUAL_IO</name>
+      <anchorfile>driver__w25qxx_8c.html</anchorfile>
+      <anchor>a2232ada3558228c2902d654989ca65f1</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>W25QXX_COMMAND_DEVICE_ID_DUAL_IO</name>
+      <anchorfile>driver__w25qxx_8c.html</anchorfile>
+      <anchor>a374c09f79cc61a3e7ac374bca5122e25</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>W25QXX_COMMAND_SET_BURST_WITH_WRAP</name>
+      <anchorfile>driver__w25qxx_8c.html</anchorfile>
+      <anchor>acfb19490258b26729fa83fdd60c4d822</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>W25QXX_COMMAND_FAST_READ_QUAD_IO</name>
+      <anchorfile>driver__w25qxx_8c.html</anchorfile>
+      <anchor>a80d19998d9d1218d0fa69e7d4d6b0ecb</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>W25QXX_COMMAND_WORD_READ_QUAD_IO</name>
+      <anchorfile>driver__w25qxx_8c.html</anchorfile>
+      <anchor>a947382a74ac06eb8a2ff8f5bcb1b744d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>W25QXX_COMMAND_OCTAL_WORD_READ_QUAD_IO</name>
+      <anchorfile>driver__w25qxx_8c.html</anchorfile>
+      <anchor>acb7f8599b26c29356651690ec9b25e66</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>W25QXX_COMMAND_DEVICE_ID_QUAD_IO</name>
+      <anchorfile>driver__w25qxx_8c.html</anchorfile>
+      <anchor>a7573bc250d850078be3221c29521bc5c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_set_dual_quad_spi</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>ga665139209b0abc386474a78d89cce6f2</anchor>
+      <arglist>(w25qxx_handle_t *handle, w25qxx_bool_t enable)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_get_dual_quad_spi</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>gad4c9b8b0a2d0916c13567f9d7e494cf8</anchor>
+      <arglist>(w25qxx_handle_t *handle, w25qxx_bool_t *enable)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_set_type</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>gaa57189cd4170b73f8b1300ca15e27de6</anchor>
+      <arglist>(w25qxx_handle_t *handle, w25qxx_type_t type)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_get_type</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>ga685379998dad173b6d9c0b0da270685c</anchor>
+      <arglist>(w25qxx_handle_t *handle, w25qxx_type_t *type)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_set_interface</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>ga50a62003d566402d46ada2f272c41eb5</anchor>
+      <arglist>(w25qxx_handle_t *handle, w25qxx_interface_t interface)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_get_interface</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>ga86ef839d475f3926a0be46bbc18d4b45</anchor>
+      <arglist>(w25qxx_handle_t *handle, w25qxx_interface_t *interface)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_set_address_mode</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>gad0e125eff304ce66fb3956d2c8c80656</anchor>
+      <arglist>(w25qxx_handle_t *handle, w25qxx_address_mode_t mode)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_get_address_mode</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>ga3a52036a97b12fcbe2280b0901a80b90</anchor>
+      <arglist>(w25qxx_handle_t *handle, w25qxx_address_mode_t *mode)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_enable_write</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gaeb269123feec054eaaf70f2ffb5797a3</anchor>
+      <arglist>(w25qxx_handle_t *handle)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_enable_volatile_sr_write</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga0f8889d6a25c32e150a2ab30753d461d</anchor>
+      <arglist>(w25qxx_handle_t *handle)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_disable_write</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gac16a31269277051baad6c28fe4254b4a</anchor>
+      <arglist>(w25qxx_handle_t *handle)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_get_status1</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gaa77d2b00b4fb9cf586f77ace827ea7c6</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint8_t *status)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_get_status2</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gaa21237ecbd5951b8017799066e7db5d9</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint8_t *status)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_get_status3</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga99cf6a325a00921d4531004f0c1d75b1</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint8_t *status)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_set_status1</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga246e0bb07c8bbb39731f17906779c012</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint8_t status)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_set_status2</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gaab5f28e8930d50dbc2178e39bc9fa456</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint8_t status)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_set_status3</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gada897a6c6d6acb99f4dd4ff9b65ad8ee</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint8_t status)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_chip_erase</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>ga0862833b36831f92684980b2e21f2e39</anchor>
+      <arglist>(w25qxx_handle_t *handle)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_erase_program_suspend</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gac7fbabc574c250eec100be861f5918ff</anchor>
+      <arglist>(w25qxx_handle_t *handle)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_erase_program_resume</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga05c69ac66309544eba4ff38a69f24c00</anchor>
+      <arglist>(w25qxx_handle_t *handle)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_power_down</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>gae4effce67e36120325e3c7b245b90142</anchor>
+      <arglist>(w25qxx_handle_t *handle)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_release_power_down</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>ga09c9b52877516a2ee4c080dc249e7331</anchor>
+      <arglist>(w25qxx_handle_t *handle)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_get_manufacturer_device_id</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>ga921836a777b082ff4d0f322ccfda6b22</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint8_t *manufacturer, uint8_t *device_id)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_get_manufacturer_device_id_dual_io</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga1cd3aec1bdeabbaed5f049fbf83ceeb4</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint8_t *manufacturer, uint8_t *device_id)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_get_manufacturer_device_id_quad_io</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga61bd3ce40b76b6862c6a53e0e37a3455</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint8_t *manufacturer, uint8_t *device_id)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_get_jedec_id</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga8a93ba14a032e10a27f1495fdcf56058</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint8_t *manufacturer, uint8_t device_id[2])</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_global_block_lock</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gab5579bc42bc07a7657848140888a817c</anchor>
+      <arglist>(w25qxx_handle_t *handle)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_global_block_unlock</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga6d62f7d14945cfde7cde7a0e9a4e3afb</anchor>
+      <arglist>(w25qxx_handle_t *handle)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_set_read_parameters</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga9ad10781d888b32b43b9eba45d049624</anchor>
+      <arglist>(w25qxx_handle_t *handle, w25qxx_qspi_read_dummy_t dummy, w25qxx_qspi_read_wrap_length_t length)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_enter_qspi_mode</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gaa5ab3548707a95ded115255432224c5a</anchor>
+      <arglist>(w25qxx_handle_t *handle)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_exit_qspi_mode</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga6b9f75f7426a54ffdb1f5a057f8188f4</anchor>
+      <arglist>(w25qxx_handle_t *handle)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_enable_reset</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gab55b4e071e20feb58584025287949438</anchor>
+      <arglist>(w25qxx_handle_t *handle)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_reset_device</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga2abebfe2a8d9377eb88448ffca73f222</anchor>
+      <arglist>(w25qxx_handle_t *handle)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_get_unique_id</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga11af244389478de68a6777076ee82d69</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint8_t id[8])</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_get_sfdp</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga244a91b9c0c32e899ca89e1943045624</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint8_t sfdp[256])</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_erase_security_register</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gaf297e2c6877c64f8fd10a555f783ddaf</anchor>
+      <arglist>(w25qxx_handle_t *handle, w25qxx_security_register_t num)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_program_security_register</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga4e9c059ff78866e478e835cb27a92899</anchor>
+      <arglist>(w25qxx_handle_t *handle, w25qxx_security_register_t num, uint8_t data[256])</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_read_security_register</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga4c65debc4947bd9a61e0073105164b9c</anchor>
+      <arglist>(w25qxx_handle_t *handle, w25qxx_security_register_t num, uint8_t data[256])</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_only_spi_read</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>ga1e9ebf198137d23558dbf6470213c472</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_fast_read</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>gac345ba10af5ad355578fa97697487123</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_fast_read_dual_output</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga7a19230ca3916816ea8fb7421483d293</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_fast_read_quad_output</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gaf4bfafd1f80aa0316a4b1a15183dcd50</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_fast_read_dual_io</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gac894f4650905cba10dd3a31284de6d5e</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_fast_read_quad_io</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gab97a64bd3776874518f60381d921ae41</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_word_read_quad_io</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gad97d7e410dd77c49334097a0fd332660</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_octal_word_read_quad_io</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga88a62ec42e86db821ff3f0d3ab541dbb</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_page_program</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>ga6280e7e4ab26306436e2c210617a28b3</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint32_t addr, uint8_t *data, uint16_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_page_program_quad_input</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga1f80bbbaaa852eecfffb87737889363d</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint32_t addr, uint8_t *data, uint16_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_sector_erase_4k</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>ga9a03c51b4c84655350c15fbfce0a6b40</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint32_t addr)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_block_erase_32k</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>ga39c8fb382e8c3e4d57232dfa79af781c</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint32_t addr)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_block_erase_64k</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>gaf53bc5f6073482b9b74efd417ec7ac83</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint32_t addr)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_individual_block_lock</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga4f00c2c169cb7c3084841c6cd795e76b</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint32_t addr)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_individual_block_unlock</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga7f88cedf7619071b3235ba094915b2a7</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint32_t addr)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_read_block_lock</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga59e655ca78a175037ca810bbc8539a96</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint32_t addr, uint8_t *value)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_set_burst_with_wrap</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gac19c1d0f3fd48968ea2a93c1dbe3d75d</anchor>
+      <arglist>(w25qxx_handle_t *handle, w25qxx_burst_wrap_t wrap)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_init</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>ga8e7a163b3d255b8c7fc035d0d60f2491</anchor>
+      <arglist>(w25qxx_handle_t *handle)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_deinit</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>gaa293c3a46c4010a3af597a83e646de0d</anchor>
+      <arglist>(w25qxx_handle_t *handle)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_read</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>gae7479fc9ce911a52e3c5b6f1a615b879</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_write</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>gaaee8264d840e51460821cb6e609338ee</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_write_read_reg</name>
+      <anchorfile>group__w25qxx__extern__driver.html</anchorfile>
+      <anchor>ga9623a3bec148b148498480518a66cb2b</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint8_t instruction, uint8_t instruction_line, uint32_t address, uint8_t address_line, uint8_t address_len, uint32_t alternate, uint8_t alternate_line, uint8_t alternate_len, uint8_t dummy, uint8_t *in_buf, uint32_t in_len, uint8_t *out_buf, uint32_t out_len, uint8_t data_line)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_info</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>ga996e2d3009432e7f8c1a5175c4438a57</anchor>
+      <arglist>(w25qxx_info_t *info)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>driver_w25qxx.h</name>
+    <path>src/</path>
+    <filename>driver__w25qxx_8h.html</filename>
+    <class kind="struct">w25qxx_handle_s</class>
+    <class kind="struct">w25qxx_info_s</class>
+    <member kind="define">
+      <type>#define</type>
+      <name>DRIVER_W25QXX_LINK_INIT</name>
+      <anchorfile>group__w25qxx__link__driver.html</anchorfile>
+      <anchor>ga995378489f95bc6bbddbe710557e3384</anchor>
+      <arglist>(HANDLE, STRUCTURE)</arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>DRIVER_W25QXX_LINK_SPI_QSPI_INIT</name>
+      <anchorfile>group__w25qxx__link__driver.html</anchorfile>
+      <anchor>gab2587de93f1dba5664eede8cd787a88a</anchor>
+      <arglist>(HANDLE, FUC)</arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>DRIVER_W25QXX_LINK_SPI_QSPI_DEINIT</name>
+      <anchorfile>group__w25qxx__link__driver.html</anchorfile>
+      <anchor>gaec8b55e83b46907be1dd9e7c50be550d</anchor>
+      <arglist>(HANDLE, FUC)</arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>DRIVER_W25QXX_LINK_SPI_QSPI_WRITE_READ</name>
+      <anchorfile>group__w25qxx__link__driver.html</anchorfile>
+      <anchor>gac8f0ca0a725790bace3241d1d616e3d1</anchor>
+      <arglist>(HANDLE, FUC)</arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>DRIVER_W25QXX_LINK_DELAY_MS</name>
+      <anchorfile>group__w25qxx__link__driver.html</anchorfile>
+      <anchor>ga7555618f13d2de0003ae6d9483085180</anchor>
+      <arglist>(HANDLE, FUC)</arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>DRIVER_W25QXX_LINK_DELAY_US</name>
+      <anchorfile>group__w25qxx__link__driver.html</anchorfile>
+      <anchor>gafc81bf850c80dfa316f0c6ab40be6e67</anchor>
+      <arglist>(HANDLE, FUC)</arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>DRIVER_W25QXX_LINK_DEBUG_PRINT</name>
+      <anchorfile>group__w25qxx__link__driver.html</anchorfile>
+      <anchor>gab8d49ef9dca942fe5f37c30dcd7e22a6</anchor>
+      <arglist>(HANDLE, FUC)</arglist>
+    </member>
+    <member kind="typedef">
+      <type>struct w25qxx_handle_s</type>
+      <name>w25qxx_handle_t</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>ga56d8a7b5f8b7eaed8df0b6dc90c266be</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>struct w25qxx_info_s</type>
+      <name>w25qxx_info_t</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>ga601d841ddd0ff8ad3ab52e07c679ef19</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumeration">
+      <type></type>
+      <name>w25qxx_type_t</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>ga6cb4e5164464df549201dd96cb7a58b1</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25Q80</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>gga6cb4e5164464df549201dd96cb7a58b1a1ad4f72437de5f26cb7b212d4d91e7c2</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25Q16</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>gga6cb4e5164464df549201dd96cb7a58b1a66acb81a2d520a7d92ce1d37210c6435</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25Q32</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>gga6cb4e5164464df549201dd96cb7a58b1a4fdad551be6485441db5951f196db7cb</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25Q64</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>gga6cb4e5164464df549201dd96cb7a58b1a3ea98b2b3e06afa29441c51548bbb16e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25Q128</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>gga6cb4e5164464df549201dd96cb7a58b1a75afcbe71906d3884f4fcc119c1cabd5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25Q256</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>gga6cb4e5164464df549201dd96cb7a58b1ab6db6bd31731e4e95040e8d47f0e45ca</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumeration">
+      <type></type>
+      <name>w25qxx_interface_t</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>gacbf327a42336baf10713a1796ff4f2fe</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_INTERFACE_SPI</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>ggacbf327a42336baf10713a1796ff4f2feafea09c65f02cf1a91216205ed21cf4e8</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_INTERFACE_QSPI</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>ggacbf327a42336baf10713a1796ff4f2fea895dcb5c91da89fad1c12161ffd2d5d4</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumeration">
+      <type></type>
+      <name>w25qxx_bool_t</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>gafb2690946f5baf4be6f3a63dde5491fb</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_BOOL_FALSE</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>ggafb2690946f5baf4be6f3a63dde5491fba02afbdc2c6c3d761cd31ac39c857ee9a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_BOOL_TRUE</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>ggafb2690946f5baf4be6f3a63dde5491fbae2a935d12b0b1bc9fc321246ee0e0df8</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumeration">
+      <type></type>
+      <name>w25qxx_address_mode_t</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>gaa4c45f146d1ade8a2da8e751818fa4a2</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_ADDRESS_MODE_3_BYTE</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>ggaa4c45f146d1ade8a2da8e751818fa4a2a3ed0d9a1ce66f96f0ef6baba28869503</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_ADDRESS_MODE_4_BYTE</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>ggaa4c45f146d1ade8a2da8e751818fa4a2aa29a90b6728795aa010735e44a5292fe</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumeration">
+      <type></type>
+      <name>w25qxx_qspi_read_dummy_t</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga6ff284154302248f00db269146545443</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_QSPI_READ_DUMMY_2_33MHZ</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gga6ff284154302248f00db269146545443ad73634a0f4534c3ae35d4242b2bc8f13</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_QSPI_READ_DUMMY_4_55MHZ</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gga6ff284154302248f00db269146545443a6423b5606e72af6479fe31a6a9883aeb</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_QSPI_READ_DUMMY_6_80MHZ</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gga6ff284154302248f00db269146545443a78393debe12bbb3efb710e38e3c1d550</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_QSPI_READ_DUMMY_8_80MHZ</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gga6ff284154302248f00db269146545443ade1d3511f15c7d92de8c5d8967c471c3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumeration">
+      <type></type>
+      <name>w25qxx_qspi_read_wrap_length_t</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga2fd3023819e1aebe089a4a72eb136da3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_QSPI_READ_WRAP_LENGTH_8_BYTE</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gga2fd3023819e1aebe089a4a72eb136da3a5b8fa1026c564fe83f3f0f0edb89d1dd</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_QSPI_READ_WRAP_LENGTH_16_BYTE</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gga2fd3023819e1aebe089a4a72eb136da3ae6bc2fcd2d4fc3af63f22da56a3b393b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_QSPI_READ_WRAP_LENGTH_32_BYTE</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gga2fd3023819e1aebe089a4a72eb136da3aa5f2e6b5718a85ab9241125e84181216</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_QSPI_READ_WRAP_LENGTH_64_BYTE</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gga2fd3023819e1aebe089a4a72eb136da3a736f25eeae36f6a0b62d4cb1666a689f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumeration">
+      <type></type>
+      <name>w25qxx_security_register_t</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga81ddc7d4b9f4f124163beea19cc33c7e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_SECURITY_REGISTER_1</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gga81ddc7d4b9f4f124163beea19cc33c7eaaf27484a497c13915c8acb0161cf137d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_SECURITY_REGISTER_2</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gga81ddc7d4b9f4f124163beea19cc33c7ea3353a88090850174ca163d56e4d7089c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_SECURITY_REGISTER_3</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gga81ddc7d4b9f4f124163beea19cc33c7ea65b73162d921075bed8cb8d848948900</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumeration">
+      <type></type>
+      <name>w25qxx_burst_wrap_t</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga94bbae2bf8906903e8dc2a28c490723d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_BURST_WRAP_NONE</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gga94bbae2bf8906903e8dc2a28c490723dae39a7ea65512a56d40aad2990d55815d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_BURST_WRAP_8_BYTE</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gga94bbae2bf8906903e8dc2a28c490723da35edf6c31d0fe1771ab79669d13b7af8</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_BURST_WRAP_16_BYTE</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gga94bbae2bf8906903e8dc2a28c490723dafec1eb230b49fbda6ffcc1eeda64179a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_BURST_WRAP_32_BYTE</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gga94bbae2bf8906903e8dc2a28c490723dae2ac810153f9515a145773c34409b995</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_BURST_WRAP_64_BYTE</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gga94bbae2bf8906903e8dc2a28c490723da2a3afd7924b00cf74abe83f5216c8915</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumeration">
+      <type></type>
+      <name>w25qxx_status1_t</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga9e41a72d1e25d39d88ce7108a9b25595</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_STATUS1_STATUS_REGISTER_PROTECT_0</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gga9e41a72d1e25d39d88ce7108a9b25595a00d1d224963ec1f38ac97802480b2129</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_STATUS1_SECTOR_PROTECT_OR_TOP_BOTTOM_PROTECT</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gga9e41a72d1e25d39d88ce7108a9b25595a9522040a098337442eff127e1598776d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_STATUS1_TOP_BOTTOM_PROTECT_OR_BLOCK_PROTECT_3</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gga9e41a72d1e25d39d88ce7108a9b25595a63bc45b7e0e19de7e58e3494eb4046c5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_STATUS1_BLOCK_PROTECT_2</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gga9e41a72d1e25d39d88ce7108a9b25595a9a02180228dbb94e9d302b667fda884f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_STATUS1_BLOCK_PROTECT_1</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gga9e41a72d1e25d39d88ce7108a9b25595a3465f02625d38730630b60cd01e92085</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_STATUS1_BLOCK_PROTECT_0</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gga9e41a72d1e25d39d88ce7108a9b25595a7b7e8922009c0d6a88bbfad76a812262</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_STATUS1_WRITE_ENABLE_LATCH</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gga9e41a72d1e25d39d88ce7108a9b25595a1438a76d1be1aa02e4f7450a045c02e3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_STATUS1_ERASE_WRITE_PROGRESS</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gga9e41a72d1e25d39d88ce7108a9b25595ae1ce566fc564776e98a5c7edefe8c5ea</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumeration">
+      <type></type>
+      <name>w25qxx_status2_t</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga0d28076f6fc7d3ae9dd7f8410069a277</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_STATUS2_SUSPEND_STATUS</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gga0d28076f6fc7d3ae9dd7f8410069a277a3fdb54846709f77391e426c626a19152</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_STATUS2_COMPLEMENT_PROTECT</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gga0d28076f6fc7d3ae9dd7f8410069a277a517e9e50ada30462f902d01e8d5579dc</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_STATUS2_SECURITY_REGISTER_3_LOCK_BITS</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gga0d28076f6fc7d3ae9dd7f8410069a277a0f3e2b3059d56f974724a8284142e69a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_STATUS2_SECURITY_REGISTER_2_LOCK_BITS</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gga0d28076f6fc7d3ae9dd7f8410069a277a24a99f1a97023ae103c1bec3027bbf26</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_STATUS2_SECURITY_REGISTER_1_LOCK_BITS</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gga0d28076f6fc7d3ae9dd7f8410069a277a7a631c1c153cc099a52883b40007079e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_STATUS2_QUAD_ENABLE</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gga0d28076f6fc7d3ae9dd7f8410069a277aa920a9c9a590fb8740419d8d2e4230f3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_STATUS2_STATUS_REGISTER_PROTECT_1</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gga0d28076f6fc7d3ae9dd7f8410069a277a5a89a885ba2a59eccd0445443e3bbac6</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumeration">
+      <type></type>
+      <name>w25qxx_status3_t</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gace18ebb2eac49cbde44a2935916f44ac</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_STATUS3_HOLD_RESET_FUNCTION</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ggace18ebb2eac49cbde44a2935916f44aca9ab13d5388af0156c4e4de08765ec401</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_STATUS3_OUTPUT_DRIVER_STRENGTH_100_PERCENTAGE</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ggace18ebb2eac49cbde44a2935916f44acab5b1ce328b88d08f3d55ed776e01fedb</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_STATUS3_OUTPUT_DRIVER_STRENGTH_75_PERCENTAGE</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ggace18ebb2eac49cbde44a2935916f44aca7ab6ace72a02afc20f92f48e975b60b7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_STATUS3_OUTPUT_DRIVER_STRENGTH_50_PERCENTAGE</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ggace18ebb2eac49cbde44a2935916f44aca8abcd821f1f0d02b3d9179c7ab58d0e0</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_STATUS3_OUTPUT_DRIVER_STRENGTH_25_PERCENTAGE</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ggace18ebb2eac49cbde44a2935916f44acae645c265a6beb76a088352e2f4bfb4e1</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_STATUS3_WRITE_PROTECT_SELECTION</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ggace18ebb2eac49cbde44a2935916f44aca7dc507c444fb395a4956bf50d78f1ee3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_STATUS3_POWER_UP_ADDRESS_MODE</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ggace18ebb2eac49cbde44a2935916f44acadc8d5949eaea0c6ce4e17c6e746f4f65</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_STATUS3_CURRENT_ADDRESS_MODE</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ggace18ebb2eac49cbde44a2935916f44aca3c822d6eacd9747ca2173607a09591ac</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_info</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>ga996e2d3009432e7f8c1a5175c4438a57</anchor>
+      <arglist>(w25qxx_info_t *info)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_set_dual_quad_spi</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>ga665139209b0abc386474a78d89cce6f2</anchor>
+      <arglist>(w25qxx_handle_t *handle, w25qxx_bool_t enable)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_get_dual_quad_spi</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>gad4c9b8b0a2d0916c13567f9d7e494cf8</anchor>
+      <arglist>(w25qxx_handle_t *handle, w25qxx_bool_t *enable)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_set_type</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>gaa57189cd4170b73f8b1300ca15e27de6</anchor>
+      <arglist>(w25qxx_handle_t *handle, w25qxx_type_t type)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_get_type</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>ga685379998dad173b6d9c0b0da270685c</anchor>
+      <arglist>(w25qxx_handle_t *handle, w25qxx_type_t *type)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_set_interface</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>ga50a62003d566402d46ada2f272c41eb5</anchor>
+      <arglist>(w25qxx_handle_t *handle, w25qxx_interface_t interface)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_get_interface</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>ga86ef839d475f3926a0be46bbc18d4b45</anchor>
+      <arglist>(w25qxx_handle_t *handle, w25qxx_interface_t *interface)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_set_address_mode</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>gad0e125eff304ce66fb3956d2c8c80656</anchor>
+      <arglist>(w25qxx_handle_t *handle, w25qxx_address_mode_t mode)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_get_address_mode</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>ga3a52036a97b12fcbe2280b0901a80b90</anchor>
+      <arglist>(w25qxx_handle_t *handle, w25qxx_address_mode_t *mode)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_init</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>ga8e7a163b3d255b8c7fc035d0d60f2491</anchor>
+      <arglist>(w25qxx_handle_t *handle)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_deinit</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>gaa293c3a46c4010a3af597a83e646de0d</anchor>
+      <arglist>(w25qxx_handle_t *handle)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_read</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>gae7479fc9ce911a52e3c5b6f1a615b879</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_write</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>gaaee8264d840e51460821cb6e609338ee</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_only_spi_read</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>ga1e9ebf198137d23558dbf6470213c472</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_fast_read</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>gac345ba10af5ad355578fa97697487123</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_page_program</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>ga6280e7e4ab26306436e2c210617a28b3</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint32_t addr, uint8_t *data, uint16_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_sector_erase_4k</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>ga9a03c51b4c84655350c15fbfce0a6b40</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint32_t addr)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_block_erase_32k</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>ga39c8fb382e8c3e4d57232dfa79af781c</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint32_t addr)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_block_erase_64k</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>gaf53bc5f6073482b9b74efd417ec7ac83</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint32_t addr)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_chip_erase</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>ga0862833b36831f92684980b2e21f2e39</anchor>
+      <arglist>(w25qxx_handle_t *handle)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_power_down</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>gae4effce67e36120325e3c7b245b90142</anchor>
+      <arglist>(w25qxx_handle_t *handle)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_release_power_down</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>ga09c9b52877516a2ee4c080dc249e7331</anchor>
+      <arglist>(w25qxx_handle_t *handle)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_get_manufacturer_device_id</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>ga921836a777b082ff4d0f322ccfda6b22</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint8_t *manufacturer, uint8_t *device_id)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_fast_read_dual_output</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga7a19230ca3916816ea8fb7421483d293</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_fast_read_quad_output</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gaf4bfafd1f80aa0316a4b1a15183dcd50</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_fast_read_dual_io</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gac894f4650905cba10dd3a31284de6d5e</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_fast_read_quad_io</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gab97a64bd3776874518f60381d921ae41</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_word_read_quad_io</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gad97d7e410dd77c49334097a0fd332660</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_octal_word_read_quad_io</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga88a62ec42e86db821ff3f0d3ab541dbb</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_page_program_quad_input</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga1f80bbbaaa852eecfffb87737889363d</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint32_t addr, uint8_t *data, uint16_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_enable_write</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gaeb269123feec054eaaf70f2ffb5797a3</anchor>
+      <arglist>(w25qxx_handle_t *handle)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_enable_volatile_sr_write</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga0f8889d6a25c32e150a2ab30753d461d</anchor>
+      <arglist>(w25qxx_handle_t *handle)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_disable_write</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gac16a31269277051baad6c28fe4254b4a</anchor>
+      <arglist>(w25qxx_handle_t *handle)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_get_status1</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gaa77d2b00b4fb9cf586f77ace827ea7c6</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint8_t *status)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_get_status2</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gaa21237ecbd5951b8017799066e7db5d9</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint8_t *status)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_get_status3</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga99cf6a325a00921d4531004f0c1d75b1</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint8_t *status)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_set_status1</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga246e0bb07c8bbb39731f17906779c012</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint8_t status)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_set_status2</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gaab5f28e8930d50dbc2178e39bc9fa456</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint8_t status)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_set_status3</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gada897a6c6d6acb99f4dd4ff9b65ad8ee</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint8_t status)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_erase_program_suspend</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gac7fbabc574c250eec100be861f5918ff</anchor>
+      <arglist>(w25qxx_handle_t *handle)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_erase_program_resume</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga05c69ac66309544eba4ff38a69f24c00</anchor>
+      <arglist>(w25qxx_handle_t *handle)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_get_manufacturer_device_id_dual_io</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga1cd3aec1bdeabbaed5f049fbf83ceeb4</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint8_t *manufacturer, uint8_t *device_id)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_get_manufacturer_device_id_quad_io</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga61bd3ce40b76b6862c6a53e0e37a3455</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint8_t *manufacturer, uint8_t *device_id)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_get_jedec_id</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga8a93ba14a032e10a27f1495fdcf56058</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint8_t *manufacturer, uint8_t device_id[2])</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_global_block_lock</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gab5579bc42bc07a7657848140888a817c</anchor>
+      <arglist>(w25qxx_handle_t *handle)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_global_block_unlock</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga6d62f7d14945cfde7cde7a0e9a4e3afb</anchor>
+      <arglist>(w25qxx_handle_t *handle)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_set_read_parameters</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga9ad10781d888b32b43b9eba45d049624</anchor>
+      <arglist>(w25qxx_handle_t *handle, w25qxx_qspi_read_dummy_t dummy, w25qxx_qspi_read_wrap_length_t length)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_enter_qspi_mode</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gaa5ab3548707a95ded115255432224c5a</anchor>
+      <arglist>(w25qxx_handle_t *handle)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_exit_qspi_mode</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga6b9f75f7426a54ffdb1f5a057f8188f4</anchor>
+      <arglist>(w25qxx_handle_t *handle)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_enable_reset</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gab55b4e071e20feb58584025287949438</anchor>
+      <arglist>(w25qxx_handle_t *handle)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_reset_device</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga2abebfe2a8d9377eb88448ffca73f222</anchor>
+      <arglist>(w25qxx_handle_t *handle)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_get_unique_id</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga11af244389478de68a6777076ee82d69</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint8_t id[8])</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_get_sfdp</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga244a91b9c0c32e899ca89e1943045624</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint8_t sfdp[256])</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_erase_security_register</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gaf297e2c6877c64f8fd10a555f783ddaf</anchor>
+      <arglist>(w25qxx_handle_t *handle, w25qxx_security_register_t num)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_program_security_register</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga4e9c059ff78866e478e835cb27a92899</anchor>
+      <arglist>(w25qxx_handle_t *handle, w25qxx_security_register_t num, uint8_t data[256])</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_read_security_register</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga4c65debc4947bd9a61e0073105164b9c</anchor>
+      <arglist>(w25qxx_handle_t *handle, w25qxx_security_register_t num, uint8_t data[256])</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_individual_block_lock</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga4f00c2c169cb7c3084841c6cd795e76b</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint32_t addr)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_individual_block_unlock</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga7f88cedf7619071b3235ba094915b2a7</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint32_t addr)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_read_block_lock</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga59e655ca78a175037ca810bbc8539a96</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint32_t addr, uint8_t *value)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_set_burst_with_wrap</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gac19c1d0f3fd48968ea2a93c1dbe3d75d</anchor>
+      <arglist>(w25qxx_handle_t *handle, w25qxx_burst_wrap_t wrap)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_write_read_reg</name>
+      <anchorfile>group__w25qxx__extern__driver.html</anchorfile>
+      <anchor>ga9623a3bec148b148498480518a66cb2b</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint8_t instruction, uint8_t instruction_line, uint32_t address, uint8_t address_line, uint8_t address_len, uint32_t alternate, uint8_t alternate_line, uint8_t alternate_len, uint8_t dummy, uint8_t *in_buf, uint32_t in_len, uint8_t *out_buf, uint32_t out_len, uint8_t data_line)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>driver_w25qxx_read_test.c</name>
+    <path>test/</path>
+    <filename>driver__w25qxx__read__test_8c.html</filename>
+    <includes id="driver__w25qxx__read__test_8h" name="driver_w25qxx_read_test.h" local="yes" import="no" module="no" objc="no">driver_w25qxx_read_test.h</includes>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_read_test</name>
+      <anchorfile>group__w25qxx__test__driver.html</anchorfile>
+      <anchor>ga4ce42ca34d33cd64cb823040780999af</anchor>
+      <arglist>(w25qxx_type_t type, w25qxx_interface_t interface, w25qxx_bool_t dual_quad_spi_enable)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>driver_w25qxx_read_test.h</name>
+    <path>test/</path>
+    <filename>driver__w25qxx__read__test_8h.html</filename>
+    <includes id="driver__w25qxx__interface_8h" name="driver_w25qxx_interface.h" local="yes" import="no" module="no" objc="no">driver_w25qxx_interface.h</includes>
+    <member kind="define">
+      <type>#define</type>
+      <name>W25QXX_ENABLE_ERASE_READ_TEST</name>
+      <anchorfile>group__w25qxx__test__driver.html</anchorfile>
+      <anchor>ga8be86baae6f8448171125c70da1fbfa0</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_read_test</name>
+      <anchorfile>group__w25qxx__test__driver.html</anchorfile>
+      <anchor>ga4ce42ca34d33cd64cb823040780999af</anchor>
+      <arglist>(w25qxx_type_t type, w25qxx_interface_t interface, w25qxx_bool_t dual_quad_spi_enable)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>driver_w25qxx_register_test.c</name>
+    <path>test/</path>
+    <filename>driver__w25qxx__register__test_8c.html</filename>
+    <includes id="driver__w25qxx__register__test_8h" name="driver_w25qxx_register_test.h" local="yes" import="no" module="no" objc="no">driver_w25qxx_register_test.h</includes>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_register_test</name>
+      <anchorfile>group__w25qxx__test__driver.html</anchorfile>
+      <anchor>ga05d07036254d102ebea0d0b1e83862c8</anchor>
+      <arglist>(w25qxx_type_t type, w25qxx_interface_t interface, w25qxx_bool_t dual_quad_spi_enable)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>driver_w25qxx_register_test.h</name>
+    <path>test/</path>
+    <filename>driver__w25qxx__register__test_8h.html</filename>
+    <includes id="driver__w25qxx__interface_8h" name="driver_w25qxx_interface.h" local="yes" import="no" module="no" objc="no">driver_w25qxx_interface.h</includes>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_register_test</name>
+      <anchorfile>group__w25qxx__test__driver.html</anchorfile>
+      <anchor>ga05d07036254d102ebea0d0b1e83862c8</anchor>
+      <arglist>(w25qxx_type_t type, w25qxx_interface_t interface, w25qxx_bool_t dual_quad_spi_enable)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>w25qxx_handle_s</name>
+    <filename>structw25qxx__handle__s.html</filename>
+    <member kind="variable">
+      <type>uint8_t(*</type>
+      <name>spi_qspi_init</name>
+      <anchorfile>structw25qxx__handle__s.html</anchorfile>
+      <anchor>aec834df46e5185868dfdcc6fcec2e801</anchor>
+      <arglist>)(void)</arglist>
+    </member>
+    <member kind="variable">
+      <type>uint8_t(*</type>
+      <name>spi_qspi_deinit</name>
+      <anchorfile>structw25qxx__handle__s.html</anchorfile>
+      <anchor>a4568e23228174b7d32678d9a96d2420c</anchor>
+      <arglist>)(void)</arglist>
+    </member>
+    <member kind="variable">
+      <type>uint8_t(*</type>
+      <name>spi_qspi_write_read</name>
+      <anchorfile>structw25qxx__handle__s.html</anchorfile>
+      <anchor>a2d39cde883403779e3da9dd39c32bec5</anchor>
+      <arglist>)(uint8_t instruction, uint8_t instruction_line, uint32_t address, uint8_t address_line, uint8_t address_len, uint32_t alternate, uint8_t alternate_line, uint8_t alternate_len, uint8_t dummy, uint8_t *in_buf, uint32_t in_len, uint8_t *out_buf, uint32_t out_len, uint8_t data_line)</arglist>
+    </member>
+    <member kind="variable">
+      <type>void(*</type>
+      <name>delay_ms</name>
+      <anchorfile>structw25qxx__handle__s.html</anchorfile>
+      <anchor>a406c9433252b7366de417b7a60915c81</anchor>
+      <arglist>)(uint32_t ms)</arglist>
+    </member>
+    <member kind="variable">
+      <type>void(*</type>
+      <name>delay_us</name>
+      <anchorfile>structw25qxx__handle__s.html</anchorfile>
+      <anchor>a97ffc4fce945527bd6ab25a3596caef7</anchor>
+      <arglist>)(uint32_t us)</arglist>
+    </member>
+    <member kind="variable">
+      <type>void(*</type>
+      <name>debug_print</name>
+      <anchorfile>structw25qxx__handle__s.html</anchorfile>
+      <anchor>a769d5b3a6c14790a0e126e8fe70b384b</anchor>
+      <arglist>)(const char *const fmt,...)</arglist>
+    </member>
+    <member kind="variable">
+      <type>uint8_t</type>
+      <name>inited</name>
+      <anchorfile>structw25qxx__handle__s.html</anchorfile>
+      <anchor>a19bedf28d2b9748f6a62d9ae93f4e68f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>uint16_t</type>
+      <name>type</name>
+      <anchorfile>structw25qxx__handle__s.html</anchorfile>
+      <anchor>acb5cfd209ba75c853d03f701e7f91679</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>uint8_t</type>
+      <name>address_mode</name>
+      <anchorfile>structw25qxx__handle__s.html</anchorfile>
+      <anchor>a5aafa09a37ea9bdb7d3788ff5d39c729</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>uint8_t</type>
+      <name>param</name>
+      <anchorfile>structw25qxx__handle__s.html</anchorfile>
+      <anchor>a3d28993689552e18d554dc0644efcf16</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>uint8_t</type>
+      <name>dummy</name>
+      <anchorfile>structw25qxx__handle__s.html</anchorfile>
+      <anchor>aff7b59f569ec689a7580bd6911daafd5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>uint8_t</type>
+      <name>dual_quad_spi_enable</name>
+      <anchorfile>structw25qxx__handle__s.html</anchorfile>
+      <anchor>ac2bd5f4f7f52f548fd421c9eedbce1c7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>uint8_t</type>
+      <name>spi_qspi</name>
+      <anchorfile>structw25qxx__handle__s.html</anchorfile>
+      <anchor>a9bdb5522ed967c80572351dd53dafe70</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>uint8_t</type>
+      <name>buf</name>
+      <anchorfile>structw25qxx__handle__s.html</anchorfile>
+      <anchor>a2121914a1858618e9216fa2daf0a42a2</anchor>
+      <arglist>[256+6]</arglist>
+    </member>
+    <member kind="variable">
+      <type>uint8_t</type>
+      <name>buf_4k</name>
+      <anchorfile>structw25qxx__handle__s.html</anchorfile>
+      <anchor>ac80aa2927adf500634749513e88c474b</anchor>
+      <arglist>[4096+1]</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>w25qxx_info_s</name>
+    <filename>structw25qxx__info__s.html</filename>
+    <member kind="variable">
+      <type>char</type>
+      <name>chip_name</name>
+      <anchorfile>structw25qxx__info__s.html</anchorfile>
+      <anchor>af890958c72bd715cc6454a10dc846ae6</anchor>
+      <arglist>[32]</arglist>
+    </member>
+    <member kind="variable">
+      <type>char</type>
+      <name>manufacturer_name</name>
+      <anchorfile>structw25qxx__info__s.html</anchorfile>
+      <anchor>ad25285dbf810c90f8eaf3fcef6f2b2ea</anchor>
+      <arglist>[32]</arglist>
+    </member>
+    <member kind="variable">
+      <type>char</type>
+      <name>interface</name>
+      <anchorfile>structw25qxx__info__s.html</anchorfile>
+      <anchor>a5778305279cae46b2ecf862e97f73600</anchor>
+      <arglist>[16]</arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>supply_voltage_min_v</name>
+      <anchorfile>structw25qxx__info__s.html</anchorfile>
+      <anchor>ad8bde6ddadaf43d951e62f3befb9d35a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>supply_voltage_max_v</name>
+      <anchorfile>structw25qxx__info__s.html</anchorfile>
+      <anchor>a3d2b12bcac7a85ea8646bff9debe8660</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>max_current_ma</name>
+      <anchorfile>structw25qxx__info__s.html</anchorfile>
+      <anchor>a9db82802561bf22d799b03a345f1d1dc</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>temperature_min</name>
+      <anchorfile>structw25qxx__info__s.html</anchorfile>
+      <anchor>a8f9dbe66ac0b66ebae0a36fcb4ba368e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>temperature_max</name>
+      <anchorfile>structw25qxx__info__s.html</anchorfile>
+      <anchor>a3366a5dce9b829e03c3d321c2b4df3f6</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>uint32_t</type>
+      <name>driver_version</name>
+      <anchorfile>structw25qxx__info__s.html</anchorfile>
+      <anchor>a41b0bd442708b70d252c50b92c75265a</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="group">
+    <name>w25qxx_driver</name>
+    <title>w25qxx driver function</title>
+    <filename>group__w25qxx__driver.html</filename>
+    <subgroup>w25qxx_link_driver</subgroup>
+    <subgroup>w25qxx_basic_driver</subgroup>
+    <subgroup>w25qxx_advance_driver</subgroup>
+    <subgroup>w25qxx_extern_driver</subgroup>
+    <subgroup>w25qxx_interface_driver</subgroup>
+    <subgroup>w25qxx_example_driver</subgroup>
+    <subgroup>w25qxx_test_driver</subgroup>
+  </compound>
+  <compound kind="group">
+    <name>w25qxx_link_driver</name>
+    <title>w25qxx link driver function</title>
+    <filename>group__w25qxx__link__driver.html</filename>
+    <member kind="define">
+      <type>#define</type>
+      <name>DRIVER_W25QXX_LINK_INIT</name>
+      <anchorfile>group__w25qxx__link__driver.html</anchorfile>
+      <anchor>ga995378489f95bc6bbddbe710557e3384</anchor>
+      <arglist>(HANDLE, STRUCTURE)</arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>DRIVER_W25QXX_LINK_SPI_QSPI_INIT</name>
+      <anchorfile>group__w25qxx__link__driver.html</anchorfile>
+      <anchor>gab2587de93f1dba5664eede8cd787a88a</anchor>
+      <arglist>(HANDLE, FUC)</arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>DRIVER_W25QXX_LINK_SPI_QSPI_DEINIT</name>
+      <anchorfile>group__w25qxx__link__driver.html</anchorfile>
+      <anchor>gaec8b55e83b46907be1dd9e7c50be550d</anchor>
+      <arglist>(HANDLE, FUC)</arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>DRIVER_W25QXX_LINK_SPI_QSPI_WRITE_READ</name>
+      <anchorfile>group__w25qxx__link__driver.html</anchorfile>
+      <anchor>gac8f0ca0a725790bace3241d1d616e3d1</anchor>
+      <arglist>(HANDLE, FUC)</arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>DRIVER_W25QXX_LINK_DELAY_MS</name>
+      <anchorfile>group__w25qxx__link__driver.html</anchorfile>
+      <anchor>ga7555618f13d2de0003ae6d9483085180</anchor>
+      <arglist>(HANDLE, FUC)</arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>DRIVER_W25QXX_LINK_DELAY_US</name>
+      <anchorfile>group__w25qxx__link__driver.html</anchorfile>
+      <anchor>gafc81bf850c80dfa316f0c6ab40be6e67</anchor>
+      <arglist>(HANDLE, FUC)</arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>DRIVER_W25QXX_LINK_DEBUG_PRINT</name>
+      <anchorfile>group__w25qxx__link__driver.html</anchorfile>
+      <anchor>gab8d49ef9dca942fe5f37c30dcd7e22a6</anchor>
+      <arglist>(HANDLE, FUC)</arglist>
+    </member>
+  </compound>
+  <compound kind="group">
+    <name>w25qxx_basic_driver</name>
+    <title>w25qxx basic driver function</title>
+    <filename>group__w25qxx__basic__driver.html</filename>
+    <class kind="struct">w25qxx_handle_s</class>
+    <class kind="struct">w25qxx_info_s</class>
+    <member kind="typedef">
+      <type>struct w25qxx_handle_s</type>
+      <name>w25qxx_handle_t</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>ga56d8a7b5f8b7eaed8df0b6dc90c266be</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>struct w25qxx_info_s</type>
+      <name>w25qxx_info_t</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>ga601d841ddd0ff8ad3ab52e07c679ef19</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumeration">
+      <type></type>
+      <name>w25qxx_type_t</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>ga6cb4e5164464df549201dd96cb7a58b1</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25Q80</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>gga6cb4e5164464df549201dd96cb7a58b1a1ad4f72437de5f26cb7b212d4d91e7c2</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25Q16</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>gga6cb4e5164464df549201dd96cb7a58b1a66acb81a2d520a7d92ce1d37210c6435</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25Q32</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>gga6cb4e5164464df549201dd96cb7a58b1a4fdad551be6485441db5951f196db7cb</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25Q64</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>gga6cb4e5164464df549201dd96cb7a58b1a3ea98b2b3e06afa29441c51548bbb16e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25Q128</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>gga6cb4e5164464df549201dd96cb7a58b1a75afcbe71906d3884f4fcc119c1cabd5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25Q256</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>gga6cb4e5164464df549201dd96cb7a58b1ab6db6bd31731e4e95040e8d47f0e45ca</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumeration">
+      <type></type>
+      <name>w25qxx_interface_t</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>gacbf327a42336baf10713a1796ff4f2fe</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_INTERFACE_SPI</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>ggacbf327a42336baf10713a1796ff4f2feafea09c65f02cf1a91216205ed21cf4e8</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_INTERFACE_QSPI</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>ggacbf327a42336baf10713a1796ff4f2fea895dcb5c91da89fad1c12161ffd2d5d4</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumeration">
+      <type></type>
+      <name>w25qxx_bool_t</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>gafb2690946f5baf4be6f3a63dde5491fb</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_BOOL_FALSE</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>ggafb2690946f5baf4be6f3a63dde5491fba02afbdc2c6c3d761cd31ac39c857ee9a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_BOOL_TRUE</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>ggafb2690946f5baf4be6f3a63dde5491fbae2a935d12b0b1bc9fc321246ee0e0df8</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumeration">
+      <type></type>
+      <name>w25qxx_address_mode_t</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>gaa4c45f146d1ade8a2da8e751818fa4a2</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_ADDRESS_MODE_3_BYTE</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>ggaa4c45f146d1ade8a2da8e751818fa4a2a3ed0d9a1ce66f96f0ef6baba28869503</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_ADDRESS_MODE_4_BYTE</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>ggaa4c45f146d1ade8a2da8e751818fa4a2aa29a90b6728795aa010735e44a5292fe</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_info</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>ga996e2d3009432e7f8c1a5175c4438a57</anchor>
+      <arglist>(w25qxx_info_t *info)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_set_dual_quad_spi</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>ga665139209b0abc386474a78d89cce6f2</anchor>
+      <arglist>(w25qxx_handle_t *handle, w25qxx_bool_t enable)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_get_dual_quad_spi</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>gad4c9b8b0a2d0916c13567f9d7e494cf8</anchor>
+      <arglist>(w25qxx_handle_t *handle, w25qxx_bool_t *enable)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_set_type</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>gaa57189cd4170b73f8b1300ca15e27de6</anchor>
+      <arglist>(w25qxx_handle_t *handle, w25qxx_type_t type)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_get_type</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>ga685379998dad173b6d9c0b0da270685c</anchor>
+      <arglist>(w25qxx_handle_t *handle, w25qxx_type_t *type)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_set_interface</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>ga50a62003d566402d46ada2f272c41eb5</anchor>
+      <arglist>(w25qxx_handle_t *handle, w25qxx_interface_t interface)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_get_interface</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>ga86ef839d475f3926a0be46bbc18d4b45</anchor>
+      <arglist>(w25qxx_handle_t *handle, w25qxx_interface_t *interface)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_set_address_mode</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>gad0e125eff304ce66fb3956d2c8c80656</anchor>
+      <arglist>(w25qxx_handle_t *handle, w25qxx_address_mode_t mode)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_get_address_mode</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>ga3a52036a97b12fcbe2280b0901a80b90</anchor>
+      <arglist>(w25qxx_handle_t *handle, w25qxx_address_mode_t *mode)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_init</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>ga8e7a163b3d255b8c7fc035d0d60f2491</anchor>
+      <arglist>(w25qxx_handle_t *handle)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_deinit</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>gaa293c3a46c4010a3af597a83e646de0d</anchor>
+      <arglist>(w25qxx_handle_t *handle)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_read</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>gae7479fc9ce911a52e3c5b6f1a615b879</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_write</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>gaaee8264d840e51460821cb6e609338ee</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_only_spi_read</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>ga1e9ebf198137d23558dbf6470213c472</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_fast_read</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>gac345ba10af5ad355578fa97697487123</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_page_program</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>ga6280e7e4ab26306436e2c210617a28b3</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint32_t addr, uint8_t *data, uint16_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_sector_erase_4k</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>ga9a03c51b4c84655350c15fbfce0a6b40</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint32_t addr)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_block_erase_32k</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>ga39c8fb382e8c3e4d57232dfa79af781c</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint32_t addr)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_block_erase_64k</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>gaf53bc5f6073482b9b74efd417ec7ac83</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint32_t addr)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_chip_erase</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>ga0862833b36831f92684980b2e21f2e39</anchor>
+      <arglist>(w25qxx_handle_t *handle)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_power_down</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>gae4effce67e36120325e3c7b245b90142</anchor>
+      <arglist>(w25qxx_handle_t *handle)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_release_power_down</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>ga09c9b52877516a2ee4c080dc249e7331</anchor>
+      <arglist>(w25qxx_handle_t *handle)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_get_manufacturer_device_id</name>
+      <anchorfile>group__w25qxx__basic__driver.html</anchorfile>
+      <anchor>ga921836a777b082ff4d0f322ccfda6b22</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint8_t *manufacturer, uint8_t *device_id)</arglist>
+    </member>
+  </compound>
+  <compound kind="group">
+    <name>w25qxx_advance_driver</name>
+    <title>w25qxx advance driver function</title>
+    <filename>group__w25qxx__advance__driver.html</filename>
+    <member kind="enumeration">
+      <type></type>
+      <name>w25qxx_qspi_read_dummy_t</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga6ff284154302248f00db269146545443</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_QSPI_READ_DUMMY_2_33MHZ</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gga6ff284154302248f00db269146545443ad73634a0f4534c3ae35d4242b2bc8f13</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_QSPI_READ_DUMMY_4_55MHZ</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gga6ff284154302248f00db269146545443a6423b5606e72af6479fe31a6a9883aeb</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_QSPI_READ_DUMMY_6_80MHZ</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gga6ff284154302248f00db269146545443a78393debe12bbb3efb710e38e3c1d550</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_QSPI_READ_DUMMY_8_80MHZ</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gga6ff284154302248f00db269146545443ade1d3511f15c7d92de8c5d8967c471c3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumeration">
+      <type></type>
+      <name>w25qxx_qspi_read_wrap_length_t</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga2fd3023819e1aebe089a4a72eb136da3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_QSPI_READ_WRAP_LENGTH_8_BYTE</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gga2fd3023819e1aebe089a4a72eb136da3a5b8fa1026c564fe83f3f0f0edb89d1dd</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_QSPI_READ_WRAP_LENGTH_16_BYTE</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gga2fd3023819e1aebe089a4a72eb136da3ae6bc2fcd2d4fc3af63f22da56a3b393b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_QSPI_READ_WRAP_LENGTH_32_BYTE</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gga2fd3023819e1aebe089a4a72eb136da3aa5f2e6b5718a85ab9241125e84181216</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_QSPI_READ_WRAP_LENGTH_64_BYTE</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gga2fd3023819e1aebe089a4a72eb136da3a736f25eeae36f6a0b62d4cb1666a689f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumeration">
+      <type></type>
+      <name>w25qxx_security_register_t</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga81ddc7d4b9f4f124163beea19cc33c7e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_SECURITY_REGISTER_1</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gga81ddc7d4b9f4f124163beea19cc33c7eaaf27484a497c13915c8acb0161cf137d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_SECURITY_REGISTER_2</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gga81ddc7d4b9f4f124163beea19cc33c7ea3353a88090850174ca163d56e4d7089c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_SECURITY_REGISTER_3</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gga81ddc7d4b9f4f124163beea19cc33c7ea65b73162d921075bed8cb8d848948900</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumeration">
+      <type></type>
+      <name>w25qxx_burst_wrap_t</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga94bbae2bf8906903e8dc2a28c490723d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_BURST_WRAP_NONE</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gga94bbae2bf8906903e8dc2a28c490723dae39a7ea65512a56d40aad2990d55815d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_BURST_WRAP_8_BYTE</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gga94bbae2bf8906903e8dc2a28c490723da35edf6c31d0fe1771ab79669d13b7af8</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_BURST_WRAP_16_BYTE</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gga94bbae2bf8906903e8dc2a28c490723dafec1eb230b49fbda6ffcc1eeda64179a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_BURST_WRAP_32_BYTE</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gga94bbae2bf8906903e8dc2a28c490723dae2ac810153f9515a145773c34409b995</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_BURST_WRAP_64_BYTE</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gga94bbae2bf8906903e8dc2a28c490723da2a3afd7924b00cf74abe83f5216c8915</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumeration">
+      <type></type>
+      <name>w25qxx_status1_t</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga9e41a72d1e25d39d88ce7108a9b25595</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_STATUS1_STATUS_REGISTER_PROTECT_0</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gga9e41a72d1e25d39d88ce7108a9b25595a00d1d224963ec1f38ac97802480b2129</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_STATUS1_SECTOR_PROTECT_OR_TOP_BOTTOM_PROTECT</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gga9e41a72d1e25d39d88ce7108a9b25595a9522040a098337442eff127e1598776d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_STATUS1_TOP_BOTTOM_PROTECT_OR_BLOCK_PROTECT_3</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gga9e41a72d1e25d39d88ce7108a9b25595a63bc45b7e0e19de7e58e3494eb4046c5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_STATUS1_BLOCK_PROTECT_2</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gga9e41a72d1e25d39d88ce7108a9b25595a9a02180228dbb94e9d302b667fda884f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_STATUS1_BLOCK_PROTECT_1</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gga9e41a72d1e25d39d88ce7108a9b25595a3465f02625d38730630b60cd01e92085</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_STATUS1_BLOCK_PROTECT_0</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gga9e41a72d1e25d39d88ce7108a9b25595a7b7e8922009c0d6a88bbfad76a812262</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_STATUS1_WRITE_ENABLE_LATCH</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gga9e41a72d1e25d39d88ce7108a9b25595a1438a76d1be1aa02e4f7450a045c02e3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_STATUS1_ERASE_WRITE_PROGRESS</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gga9e41a72d1e25d39d88ce7108a9b25595ae1ce566fc564776e98a5c7edefe8c5ea</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumeration">
+      <type></type>
+      <name>w25qxx_status2_t</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga0d28076f6fc7d3ae9dd7f8410069a277</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_STATUS2_SUSPEND_STATUS</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gga0d28076f6fc7d3ae9dd7f8410069a277a3fdb54846709f77391e426c626a19152</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_STATUS2_COMPLEMENT_PROTECT</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gga0d28076f6fc7d3ae9dd7f8410069a277a517e9e50ada30462f902d01e8d5579dc</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_STATUS2_SECURITY_REGISTER_3_LOCK_BITS</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gga0d28076f6fc7d3ae9dd7f8410069a277a0f3e2b3059d56f974724a8284142e69a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_STATUS2_SECURITY_REGISTER_2_LOCK_BITS</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gga0d28076f6fc7d3ae9dd7f8410069a277a24a99f1a97023ae103c1bec3027bbf26</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_STATUS2_SECURITY_REGISTER_1_LOCK_BITS</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gga0d28076f6fc7d3ae9dd7f8410069a277a7a631c1c153cc099a52883b40007079e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_STATUS2_QUAD_ENABLE</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gga0d28076f6fc7d3ae9dd7f8410069a277aa920a9c9a590fb8740419d8d2e4230f3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_STATUS2_STATUS_REGISTER_PROTECT_1</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gga0d28076f6fc7d3ae9dd7f8410069a277a5a89a885ba2a59eccd0445443e3bbac6</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumeration">
+      <type></type>
+      <name>w25qxx_status3_t</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gace18ebb2eac49cbde44a2935916f44ac</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_STATUS3_HOLD_RESET_FUNCTION</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ggace18ebb2eac49cbde44a2935916f44aca9ab13d5388af0156c4e4de08765ec401</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_STATUS3_OUTPUT_DRIVER_STRENGTH_100_PERCENTAGE</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ggace18ebb2eac49cbde44a2935916f44acab5b1ce328b88d08f3d55ed776e01fedb</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_STATUS3_OUTPUT_DRIVER_STRENGTH_75_PERCENTAGE</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ggace18ebb2eac49cbde44a2935916f44aca7ab6ace72a02afc20f92f48e975b60b7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_STATUS3_OUTPUT_DRIVER_STRENGTH_50_PERCENTAGE</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ggace18ebb2eac49cbde44a2935916f44aca8abcd821f1f0d02b3d9179c7ab58d0e0</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_STATUS3_OUTPUT_DRIVER_STRENGTH_25_PERCENTAGE</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ggace18ebb2eac49cbde44a2935916f44acae645c265a6beb76a088352e2f4bfb4e1</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_STATUS3_WRITE_PROTECT_SELECTION</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ggace18ebb2eac49cbde44a2935916f44aca7dc507c444fb395a4956bf50d78f1ee3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_STATUS3_POWER_UP_ADDRESS_MODE</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ggace18ebb2eac49cbde44a2935916f44acadc8d5949eaea0c6ce4e17c6e746f4f65</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>W25QXX_STATUS3_CURRENT_ADDRESS_MODE</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ggace18ebb2eac49cbde44a2935916f44aca3c822d6eacd9747ca2173607a09591ac</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_fast_read_dual_output</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga7a19230ca3916816ea8fb7421483d293</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_fast_read_quad_output</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gaf4bfafd1f80aa0316a4b1a15183dcd50</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_fast_read_dual_io</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gac894f4650905cba10dd3a31284de6d5e</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_fast_read_quad_io</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gab97a64bd3776874518f60381d921ae41</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_word_read_quad_io</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gad97d7e410dd77c49334097a0fd332660</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_octal_word_read_quad_io</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga88a62ec42e86db821ff3f0d3ab541dbb</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_page_program_quad_input</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga1f80bbbaaa852eecfffb87737889363d</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint32_t addr, uint8_t *data, uint16_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_enable_write</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gaeb269123feec054eaaf70f2ffb5797a3</anchor>
+      <arglist>(w25qxx_handle_t *handle)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_enable_volatile_sr_write</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga0f8889d6a25c32e150a2ab30753d461d</anchor>
+      <arglist>(w25qxx_handle_t *handle)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_disable_write</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gac16a31269277051baad6c28fe4254b4a</anchor>
+      <arglist>(w25qxx_handle_t *handle)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_get_status1</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gaa77d2b00b4fb9cf586f77ace827ea7c6</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint8_t *status)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_get_status2</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gaa21237ecbd5951b8017799066e7db5d9</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint8_t *status)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_get_status3</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga99cf6a325a00921d4531004f0c1d75b1</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint8_t *status)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_set_status1</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga246e0bb07c8bbb39731f17906779c012</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint8_t status)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_set_status2</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gaab5f28e8930d50dbc2178e39bc9fa456</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint8_t status)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_set_status3</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gada897a6c6d6acb99f4dd4ff9b65ad8ee</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint8_t status)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_erase_program_suspend</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gac7fbabc574c250eec100be861f5918ff</anchor>
+      <arglist>(w25qxx_handle_t *handle)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_erase_program_resume</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga05c69ac66309544eba4ff38a69f24c00</anchor>
+      <arglist>(w25qxx_handle_t *handle)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_get_manufacturer_device_id_dual_io</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga1cd3aec1bdeabbaed5f049fbf83ceeb4</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint8_t *manufacturer, uint8_t *device_id)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_get_manufacturer_device_id_quad_io</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga61bd3ce40b76b6862c6a53e0e37a3455</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint8_t *manufacturer, uint8_t *device_id)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_get_jedec_id</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga8a93ba14a032e10a27f1495fdcf56058</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint8_t *manufacturer, uint8_t device_id[2])</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_global_block_lock</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gab5579bc42bc07a7657848140888a817c</anchor>
+      <arglist>(w25qxx_handle_t *handle)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_global_block_unlock</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga6d62f7d14945cfde7cde7a0e9a4e3afb</anchor>
+      <arglist>(w25qxx_handle_t *handle)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_set_read_parameters</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga9ad10781d888b32b43b9eba45d049624</anchor>
+      <arglist>(w25qxx_handle_t *handle, w25qxx_qspi_read_dummy_t dummy, w25qxx_qspi_read_wrap_length_t length)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_enter_qspi_mode</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gaa5ab3548707a95ded115255432224c5a</anchor>
+      <arglist>(w25qxx_handle_t *handle)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_exit_qspi_mode</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga6b9f75f7426a54ffdb1f5a057f8188f4</anchor>
+      <arglist>(w25qxx_handle_t *handle)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_enable_reset</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gab55b4e071e20feb58584025287949438</anchor>
+      <arglist>(w25qxx_handle_t *handle)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_reset_device</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga2abebfe2a8d9377eb88448ffca73f222</anchor>
+      <arglist>(w25qxx_handle_t *handle)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_get_unique_id</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga11af244389478de68a6777076ee82d69</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint8_t id[8])</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_get_sfdp</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga244a91b9c0c32e899ca89e1943045624</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint8_t sfdp[256])</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_erase_security_register</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gaf297e2c6877c64f8fd10a555f783ddaf</anchor>
+      <arglist>(w25qxx_handle_t *handle, w25qxx_security_register_t num)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_program_security_register</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga4e9c059ff78866e478e835cb27a92899</anchor>
+      <arglist>(w25qxx_handle_t *handle, w25qxx_security_register_t num, uint8_t data[256])</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_read_security_register</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga4c65debc4947bd9a61e0073105164b9c</anchor>
+      <arglist>(w25qxx_handle_t *handle, w25qxx_security_register_t num, uint8_t data[256])</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_individual_block_lock</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga4f00c2c169cb7c3084841c6cd795e76b</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint32_t addr)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_individual_block_unlock</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga7f88cedf7619071b3235ba094915b2a7</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint32_t addr)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_read_block_lock</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>ga59e655ca78a175037ca810bbc8539a96</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint32_t addr, uint8_t *value)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_set_burst_with_wrap</name>
+      <anchorfile>group__w25qxx__advance__driver.html</anchorfile>
+      <anchor>gac19c1d0f3fd48968ea2a93c1dbe3d75d</anchor>
+      <arglist>(w25qxx_handle_t *handle, w25qxx_burst_wrap_t wrap)</arglist>
+    </member>
+  </compound>
+  <compound kind="group">
+    <name>w25qxx_extern_driver</name>
+    <title>w25qxx extern driver function</title>
+    <filename>group__w25qxx__extern__driver.html</filename>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_write_read_reg</name>
+      <anchorfile>group__w25qxx__extern__driver.html</anchorfile>
+      <anchor>ga9623a3bec148b148498480518a66cb2b</anchor>
+      <arglist>(w25qxx_handle_t *handle, uint8_t instruction, uint8_t instruction_line, uint32_t address, uint8_t address_line, uint8_t address_len, uint32_t alternate, uint8_t alternate_line, uint8_t alternate_len, uint8_t dummy, uint8_t *in_buf, uint32_t in_len, uint8_t *out_buf, uint32_t out_len, uint8_t data_line)</arglist>
+    </member>
+  </compound>
+  <compound kind="group">
+    <name>w25qxx_interface_driver</name>
+    <title>w25qxx interface driver function</title>
+    <filename>group__w25qxx__interface__driver.html</filename>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_interface_spi_qspi_init</name>
+      <anchorfile>group__w25qxx__interface__driver.html</anchorfile>
+      <anchor>ga2bdc17a556f1c801a38656331f3bb7b6</anchor>
+      <arglist>(void)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_interface_spi_qspi_deinit</name>
+      <anchorfile>group__w25qxx__interface__driver.html</anchorfile>
+      <anchor>ga091f3607fcdd47f9e5f94cf1397bd46a</anchor>
+      <arglist>(void)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_interface_spi_qspi_write_read</name>
+      <anchorfile>group__w25qxx__interface__driver.html</anchorfile>
+      <anchor>ga3d76ea1f431978f6b55edfd0628c94cd</anchor>
+      <arglist>(uint8_t instruction, uint8_t instruction_line, uint32_t address, uint8_t address_line, uint8_t address_len, uint32_t alternate, uint8_t alternate_line, uint8_t alternate_len, uint8_t dummy, uint8_t *in_buf, uint32_t in_len, uint8_t *out_buf, uint32_t out_len, uint8_t data_line)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>w25qxx_interface_delay_ms</name>
+      <anchorfile>group__w25qxx__interface__driver.html</anchorfile>
+      <anchor>ga964fa232abf98737cb98458eebfff82c</anchor>
+      <arglist>(uint32_t ms)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>w25qxx_interface_delay_us</name>
+      <anchorfile>group__w25qxx__interface__driver.html</anchorfile>
+      <anchor>ga38e79039b913154c9dd1036ff52bb420</anchor>
+      <arglist>(uint32_t us)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>w25qxx_interface_debug_print</name>
+      <anchorfile>group__w25qxx__interface__driver.html</anchorfile>
+      <anchor>ga5325474fa17f6833744e631613fd2a0e</anchor>
+      <arglist>(const char *const fmt,...)</arglist>
+    </member>
+  </compound>
+  <compound kind="group">
+    <name>w25qxx_example_driver</name>
+    <title>w25qxx example driver function</title>
+    <filename>group__w25qxx__example__driver.html</filename>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_init</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga413b420bc199d09ce5cafee4a4debb28</anchor>
+      <arglist>(w25qxx_type_t type, w25qxx_interface_t interface, w25qxx_bool_t dual_quad_spi_enable)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_deinit</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>gaf390bbb2c4140f49d25822d963ead722</anchor>
+      <arglist>(void)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_power_down</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga5599de31797633ae75a63bcd5a8f4736</anchor>
+      <arglist>(void)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_wake_up</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga8a57e2d056d452abc14b0a08d4223251</anchor>
+      <arglist>(void)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_chip_erase</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga15cb243f227ef8d897ef3208b622bded</anchor>
+      <arglist>(void)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_get_id</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga0f49d960f8b6c6498ab293b369ffc389</anchor>
+      <arglist>(uint8_t *manufacturer, uint8_t *device_id)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_write</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga63f4e1dce2ef7c7de56461524fd22d04</anchor>
+      <arglist>(uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_read</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga013a389763200b54daaa345adf9329dc</anchor>
+      <arglist>(uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_page_program</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga39ff13988a3d451231cec3260c13a4cd</anchor>
+      <arglist>(uint32_t addr, uint8_t *data, uint16_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_sector_erase_4k</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga9325acc424c95624f15e11631082201d</anchor>
+      <arglist>(uint32_t addr)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_block_erase_32k</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>gaee04edb9e97785e423dffe14a1cad780</anchor>
+      <arglist>(uint32_t addr)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_block_erase_64k</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>gae7cba4e0b22a1043fe304e46148fa13c</anchor>
+      <arglist>(uint32_t addr)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_fast_read</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga7ade25a387b9d03ddecefd86fb328389</anchor>
+      <arglist>(uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_get_status1</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga4c1be6979b4dc878d07ec86b8624c9d2</anchor>
+      <arglist>(uint8_t *status)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_get_status2</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>gaf4736fff906c2f0c1dbed26b20847052</anchor>
+      <arglist>(uint8_t *status)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_get_status3</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga31bcd3d2cc68d2fc589685b5087bd8b3</anchor>
+      <arglist>(uint8_t *status)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_set_status1</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga5e4938b4575c417ae22fa82079459b1a</anchor>
+      <arglist>(uint8_t status)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_set_status2</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga9bc0e696b700d66f15b3605e10d33718</anchor>
+      <arglist>(uint8_t status)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_set_status3</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>gab5c990ebd4874137b7d23f2b896d4601</anchor>
+      <arglist>(uint8_t status)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_get_get_jedec_id</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>gacc7435a39b61c44f0ce16690d5da896b</anchor>
+      <arglist>(uint8_t *manufacturer, uint8_t device_id[2])</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_global_block_lock</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga2cbcc018dc11a870d2e0fc3a8946b1d8</anchor>
+      <arglist>(void)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_global_block_unlock</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga67c70da103511d1cff9274e61a08ce56</anchor>
+      <arglist>(void)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_individual_block_lock</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>gaa7af99e92b3e81f5b202575b55dc3a7c</anchor>
+      <arglist>(uint32_t addr)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_individual_block_unlock</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga66726fc451c7804e8fec6eb46a6a77d6</anchor>
+      <arglist>(uint32_t addr)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_read_block_lock</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>gac1773fe914a01825ca28346205601036</anchor>
+      <arglist>(uint32_t addr, uint8_t *value)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_reset</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga0f65053ad28443f19ed73dbc3412b5b2</anchor>
+      <arglist>(void)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_only_spi_read</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>gac1c7f320706dd6d6d937da75b8a4da93</anchor>
+      <arglist>(uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_only_spi_fast_read_dual_output</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga364d891407cf323d3686d36ad6357604</anchor>
+      <arglist>(uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_only_spi_fast_read_quad_output</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>gaf5f978c432de7d6adaf41cd256724a01</anchor>
+      <arglist>(uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_only_spi_fast_read_dual_io</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga4bbaf1a989fae25d16d07edb1e38ca4f</anchor>
+      <arglist>(uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_only_spi_fast_read_quad_io</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga395add1fa33f4f70d0ba52b38842dbdb</anchor>
+      <arglist>(uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_only_spi_word_read_quad_io</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>gaca6b4c6ea32dd96a4ae8714e2862d67a</anchor>
+      <arglist>(uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_only_spi_octal_word_read_quad_io</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga825a567c535236d7d18ffccf07df59e9</anchor>
+      <arglist>(uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_only_spi_page_program_quad_input</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>gad243655eb738e44c50e6079c983fd782</anchor>
+      <arglist>(uint32_t addr, uint8_t *data, uint16_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_only_spi_get_manufacturer_device_id_dual_io</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>gac0d9e08a37ee37563c8dbb501608a668</anchor>
+      <arglist>(uint8_t *manufacturer, uint8_t *device_id)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_only_spi_get_manufacturer_device_id_quad_io</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga6142b5a1e8602e2990dec34015812615</anchor>
+      <arglist>(uint8_t *manufacturer, uint8_t *device_id)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_only_spi_get_unique_id</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga374d35b73fa61d5f7464c3effdae1d57</anchor>
+      <arglist>(uint8_t id[8])</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_only_spi_get_sfdp</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga9b1854e0ae52f57523bc2fa7cc0656df</anchor>
+      <arglist>(uint8_t sfdp[256])</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_only_spi_write_security_register</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>gaa6c5f97106e769ba071973cc2e782ad4</anchor>
+      <arglist>(w25qxx_security_register_t num, uint8_t data[256])</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_only_spi_read_security_register</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga02652a58ee418b432cf77505809d7d42</anchor>
+      <arglist>(w25qxx_security_register_t num, uint8_t data[256])</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_only_spi_set_burst_with_wrap</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga16411577fcb794f7485912f5db1bdde9</anchor>
+      <arglist>(w25qxx_burst_wrap_t wrap)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_advance_only_qspi_set_read_parameters</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>gace2a5b7acd9798cfcaa2b5eb2f18e1d1</anchor>
+      <arglist>(w25qxx_qspi_read_dummy_t dummy, w25qxx_qspi_read_wrap_length_t length)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_basic_init</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga1e20768311dfdf33c77b442fa874b61a</anchor>
+      <arglist>(w25qxx_type_t type, w25qxx_interface_t interface, w25qxx_bool_t dual_quad_spi_enable)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_basic_deinit</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>gaeb167c2924a3490e9a8d11e0c57d2dc0</anchor>
+      <arglist>(void)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_basic_power_down</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga572c9f7a0bf2e7ab43dc078121162ec3</anchor>
+      <arglist>(void)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_basic_wake_up</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga02914409a9db38f35bc89d9fc4d96a17</anchor>
+      <arglist>(void)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_basic_chip_erase</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>gaf78e9f136e29b826c1a2b337b8451d6d</anchor>
+      <arglist>(void)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_basic_get_id</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>gacdda3af55c024b55fc9939aa23650356</anchor>
+      <arglist>(uint8_t *manufacturer, uint8_t *device_id)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_basic_write</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga5cf24fc78e1b45e845d02ec9133f46ab</anchor>
+      <arglist>(uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_basic_read</name>
+      <anchorfile>group__w25qxx__example__driver.html</anchorfile>
+      <anchor>ga143fa1f19a792142339f3d4e9ce078d0</anchor>
+      <arglist>(uint32_t addr, uint8_t *data, uint32_t len)</arglist>
+    </member>
+  </compound>
+  <compound kind="group">
+    <name>w25qxx_test_driver</name>
+    <title>w25qxx test driver function</title>
+    <filename>group__w25qxx__test__driver.html</filename>
+    <member kind="define">
+      <type>#define</type>
+      <name>W25QXX_ENABLE_ERASE_READ_TEST</name>
+      <anchorfile>group__w25qxx__test__driver.html</anchorfile>
+      <anchor>ga8be86baae6f8448171125c70da1fbfa0</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_read_test</name>
+      <anchorfile>group__w25qxx__test__driver.html</anchorfile>
+      <anchor>ga4ce42ca34d33cd64cb823040780999af</anchor>
+      <arglist>(w25qxx_type_t type, w25qxx_interface_t interface, w25qxx_bool_t dual_quad_spi_enable)</arglist>
+    </member>
+    <member kind="function">
+      <type>uint8_t</type>
+      <name>w25qxx_register_test</name>
+      <anchorfile>group__w25qxx__test__driver.html</anchorfile>
+      <anchor>ga05d07036254d102ebea0d0b1e83862c8</anchor>
+      <arglist>(w25qxx_type_t type, w25qxx_interface_t interface, w25qxx_bool_t dual_quad_spi_enable)</arglist>
+    </member>
+  </compound>
+  <compound kind="page">
+    <name>index</name>
+    <title>LibDriver W25QXX</title>
+    <filename>index.html</filename>
+  </compound>
+</tagfile>
