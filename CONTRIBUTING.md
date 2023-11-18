@@ -1992,7 +1992,7 @@ CMakeLists.txt needs to follow the LibDriver CMake style and its content is as f
     # set the package depends
     set(CPACK_DEBIAN_PACKAGE_DEPENDS "libc6")
     
-    # .tar.gz outpout
+    # .tar.gz output
     # set(CPACK_GENERATOR TGZ)
     
     # set the package name
