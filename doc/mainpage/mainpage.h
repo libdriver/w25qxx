@@ -1,6 +1,6 @@
 /**
  * @mainpage  LibDriver W25QXX
- * @brief     libdriver w25qxx is a full function driver of w25qxx and it can run in both MCU and Linux platform.
+ * @brief     LibDriver W25QXX is a full function driver of W25QXX and it can run in both MCU and Linux platform.
  * @version   1.0.0
  * @author    Shifeng Li
  *
