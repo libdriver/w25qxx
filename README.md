@@ -50,6 +50,8 @@ Add /src, /interface and /example to your project.
 
 ### Usage
 
+You can refer to the examples in the/example directory to complete your own driver. If you want to use the default programming examples, here's how to use them.
+
 #### example basic
 
 ```C
