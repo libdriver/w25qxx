@@ -46,11 +46,11 @@ LibDriver W25QXX is the full function driver of W25QXX launched by LibDriver.It 
 
 Reference /interface SPI or QSPI platform independent template and finish your platform SPI or QSPI driver.
 
-Add /src, /interface and /example to your project.
+Add the /src directory, the interface driver for your platform, and your own drivers to your project, if you want to use the default example drivers, add the /example directory to your project.
 
 ### Usage
 
-You can refer to the examples in the/example directory to complete your own driver. If you want to use the default programming examples, here's how to use them.
+You can refer to the examples in the /example directory to complete your own driver. If you want to use the default programming examples, here's how to use them.
 
 #### example basic
 
