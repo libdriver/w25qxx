@@ -133,9 +133,9 @@ typedef enum
  */
 typedef enum
 {
-    W25QXX_SECURITY_REGISTER_1 = 0x1000,        /**< security register 1 */
-    W25QXX_SECURITY_REGISTER_2 = 0x2000,        /**< security register 2 */
-    W25QXX_SECURITY_REGISTER_3 = 0x3000,        /**< security register 3 */
+    W25QXX_SECURITY_REGISTER_1 = 0x10,        /**< security register 1 */
+    W25QXX_SECURITY_REGISTER_2 = 0x20,        /**< security register 2 */
+    W25QXX_SECURITY_REGISTER_3 = 0x30,        /**< security register 3 */
 } w25qxx_security_register_t;
 
 /**
