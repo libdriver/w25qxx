@@ -8,7 +8,7 @@
 
 [![MISRA](https://img.shields.io/badge/misra-compliant-brightgreen.svg)](/misra/README.md) [![API](https://img.shields.io/badge/api-reference-blue.svg)](https://www.libdriver.com/docs/w25qxx/index.html) [![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](/LICENSE)
 
-W25QXX串行Flash存储器面向受限于空间、引脚和功耗的系统，提供了一种存储解决方案。25Q系列存储器相比于普通的串行Flash器件提供更好的灵活性和性能表现。它们是代码存储、代码直接通过双线/四线SPI运行、存储音频、文本和数据的理想选择。该器件可在2.7V到3.6V的供电电压下工作，工作时电流消耗最低4mA，在掉电模式下消耗仅1uA。所有的器件都提供节省空间的封装。
+W25QXX串行Flash存储器面向受限于空间、引脚和功耗的系统，提供了一种存储解决方案。25Q系列存储器相比于普通的串行Flash器件提供更好的灵活性和性能表现。它们是代码存储、代码运行、存储音频、文本和数据的理想选择。该器件可在2.7V到3.6V的供电电压下工作，工作时电流消耗最低4mA，在掉电模式下消耗仅1uA。所有的器件都提供节省空间的封装。
 
 LibDriver W25QXX是LibDriver推出的W25QXX全功能驱动，该驱动提供Flash读取，Flash写入等功能并且它符合MISRA标准。
 
