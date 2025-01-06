@@ -269,7 +269,7 @@ Functions</h2></td></tr>
 <p>advance example erase the 32k block </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">addr</td><td>is the erase address </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">addr</td><td>erase address </td></tr>
   </table>
   </dd>
 </dl>
@@ -303,7 +303,7 @@ Functions</h2></td></tr>
 <p>advance example erase the 64k block </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">addr</td><td>is the erase address </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">addr</td><td>erase address </td></tr>
   </table>
   </dd>
 </dl>
@@ -409,9 +409,9 @@ Functions</h2></td></tr>
 <p>advance example read in the fast mode </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">addr</td><td>is the read address </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*data</td><td>points to a data buffer </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>is the data length </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">addr</td><td>read address </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*data</td><td>pointer to a data buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>data length </td></tr>
   </table>
   </dd>
 </dl>
@@ -455,8 +455,8 @@ Functions</h2></td></tr>
 <p>advance example get the jedec id information </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">*manufacturer</td><td>points to a manufacturer buffer </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*device_id</td><td>points to a device id buffer </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*manufacturer</td><td>pointer to a manufacturer buffer </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*device_id</td><td>pointer to a device id buffer </td></tr>
   </table>
   </dd>
 </dl>
@@ -500,8 +500,8 @@ Functions</h2></td></tr>
 <p>advance example get the manufacturer &amp;&amp; device id information </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">*manufacturer</td><td>points to a manufacturer buffer </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*device_id</td><td>points to a device id buffer </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*manufacturer</td><td>pointer to a manufacturer buffer </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*device_id</td><td>pointer to a device id buffer </td></tr>
   </table>
   </dd>
 </dl>
@@ -535,7 +535,7 @@ Functions</h2></td></tr>
 <p>advance example get the status 1 </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">*status</td><td>points to a status buffer </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*status</td><td>pointer to a status buffer </td></tr>
   </table>
   </dd>
 </dl>
@@ -569,7 +569,7 @@ Functions</h2></td></tr>
 <p>advance example get the status 2 </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">*status</td><td>points to a status buffer </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*status</td><td>pointer to a status buffer </td></tr>
   </table>
   </dd>
 </dl>
@@ -603,7 +603,7 @@ Functions</h2></td></tr>
 <p>advance example get the status 3 </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">*status</td><td>points to a status buffer </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*status</td><td>pointer to a status buffer </td></tr>
   </table>
   </dd>
 </dl>
@@ -693,7 +693,7 @@ Functions</h2></td></tr>
 <p>advance example lock the individual block </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">addr</td><td>is the block address </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">addr</td><td>block address </td></tr>
   </table>
   </dd>
 </dl>
@@ -727,7 +727,7 @@ Functions</h2></td></tr>
 <p>advance example unlock the individual block </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">addr</td><td>is the block address </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">addr</td><td>block address </td></tr>
   </table>
   </dd>
 </dl>
@@ -777,9 +777,9 @@ Functions</h2></td></tr>
 <p>advance example init </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>is the chip type </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">interface</td><td>is the chip interface </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">dual_quad_spi_enable</td><td>is a bool value </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>chip type </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">interface</td><td>chip interface </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dual_quad_spi_enable</td><td>bool value </td></tr>
   </table>
   </dd>
 </dl>
@@ -823,8 +823,8 @@ Functions</h2></td></tr>
 <p>advance example set the read parameters only in the qspi interface </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">dummy</td><td>is the qspi read dummy </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">length</td><td>is the qspi read wrap length </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dummy</td><td>qspi read dummy </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">length</td><td>qspi read wrap length </td></tr>
   </table>
   </dd>
 </dl>
@@ -874,9 +874,9 @@ Functions</h2></td></tr>
 <p>advance example fast read only in the spi dual io interface </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">addr</td><td>is the read address </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*data</td><td>points to a data buffer </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>is the data length </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">addr</td><td>read address </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*data</td><td>pointer to a data buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>data length </td></tr>
   </table>
   </dd>
 </dl>
@@ -926,9 +926,9 @@ Functions</h2></td></tr>
 <p>advance example fast read only in the spi dual output interface </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">addr</td><td>is the read address </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*data</td><td>points to a data buffer </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>is the data length </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">addr</td><td>read address </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*data</td><td>pointer to a data buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>data length </td></tr>
   </table>
   </dd>
 </dl>
@@ -978,9 +978,9 @@ Functions</h2></td></tr>
 <p>advance example fast read only in the spi quad io interface </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">addr</td><td>is the read address </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*data</td><td>points to a data buffer </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>is the data length </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">addr</td><td>read address </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*data</td><td>pointer to a data buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>data length </td></tr>
   </table>
   </dd>
 </dl>
@@ -1030,9 +1030,9 @@ Functions</h2></td></tr>
 <p>advance example fast read only in the spi quad output interface </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">addr</td><td>is the read address </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*data</td><td>points to a data buffer </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>is the data length </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">addr</td><td>read address </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*data</td><td>pointer to a data buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>data length </td></tr>
   </table>
   </dd>
 </dl>
@@ -1076,8 +1076,8 @@ Functions</h2></td></tr>
 <p>advance example get the manufacturer &amp;&amp; device id information only in the spi dual io interface </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">*manufacturer</td><td>points to a manufacturer buffer </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*device_id</td><td>points to a device id buffer </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*manufacturer</td><td>pointer to a manufacturer buffer </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*device_id</td><td>pointer to a device id buffer </td></tr>
   </table>
   </dd>
 </dl>
@@ -1121,8 +1121,8 @@ Functions</h2></td></tr>
 <p>advance example get the manufacturer &amp;&amp; device id information only in the spi quad io interface </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">*manufacturer</td><td>points to a manufacturer buffer </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*device_id</td><td>points to a device id buffer </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*manufacturer</td><td>pointer to a manufacturer buffer </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*device_id</td><td>pointer to a device id buffer </td></tr>
   </table>
   </dd>
 </dl>
@@ -1156,7 +1156,7 @@ Functions</h2></td></tr>
 <p>advance example get the sfdp only in the spi interface </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">*sfdp</td><td>points to a sfdp buffer </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*sfdp</td><td>pointer to a sfdp buffer </td></tr>
   </table>
   </dd>
 </dl>
@@ -1190,7 +1190,7 @@ Functions</h2></td></tr>
 <p>advance example get the unique id only in the spi interface </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">*id</td><td>points to a id buffer </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*id</td><td>pointer to a id buffer </td></tr>
   </table>
   </dd>
 </dl>
@@ -1240,9 +1240,9 @@ Functions</h2></td></tr>
 <p>advance example octal word read only in the spi quad io interface </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">addr</td><td>is the read address </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*data</td><td>points to a data buffer </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>is the data length </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">addr</td><td>read address </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*data</td><td>pointer to a data buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>data length </td></tr>
   </table>
   </dd>
 </dl>
@@ -1292,9 +1292,9 @@ Functions</h2></td></tr>
 <p>advance example quad page program only in the spi quad input interface </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">addr</td><td>is the programming address </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">*data</td><td>points to a data buffer </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>is the data length </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">addr</td><td>programming address </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*data</td><td>pointer to a data buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>data length </td></tr>
   </table>
   </dd>
 </dl>
@@ -1344,9 +1344,9 @@ Functions</h2></td></tr>
 <p>advance example read only in the spi interface </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">addr</td><td>is the read address </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*data</td><td>points to a data buffer </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>is the data length </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">addr</td><td>read address </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*data</td><td>pointer to a data buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>data length </td></tr>
   </table>
   </dd>
 </dl>
@@ -1390,8 +1390,8 @@ Functions</h2></td></tr>
 <p>advance example read the security register only in the spi interface </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">num</td><td>is the security register number </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*data</td><td>points to a data buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">num</td><td>security register number </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*data</td><td>pointer to a data buffer </td></tr>
   </table>
   </dd>
 </dl>
@@ -1425,7 +1425,7 @@ Functions</h2></td></tr>
 <p>advance example set the burst with wrap only in the spi interface </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">wrap</td><td>is the burst wrap </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">wrap</td><td>burst wrap </td></tr>
   </table>
   </dd>
 </dl>
@@ -1475,9 +1475,9 @@ Functions</h2></td></tr>
 <p>advance example word read only in the spi quad io interface </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">addr</td><td>is the read address </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*data</td><td>points to a data buffer </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>is the data length </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">addr</td><td>read address </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*data</td><td>pointer to a data buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>data length </td></tr>
   </table>
   </dd>
 </dl>
@@ -1521,8 +1521,8 @@ Functions</h2></td></tr>
 <p>advance example write the security register only in the spi interface </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">num</td><td>is the security register number </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">*data</td><td>points to a data buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">num</td><td>security register number </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*data</td><td>pointer to a data buffer </td></tr>
   </table>
   </dd>
 </dl>
@@ -1572,9 +1572,9 @@ Functions</h2></td></tr>
 <p>advance example page program </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">addr</td><td>is the programming address </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">*data</td><td>points to a data buffer </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>is the data length </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">addr</td><td>programming address </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*data</td><td>pointer to a data buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>data length </td></tr>
   </table>
   </dd>
 </dl>
@@ -1652,9 +1652,9 @@ Functions</h2></td></tr>
 <p>advance example read </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">addr</td><td>is the read address </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*data</td><td>points to a data buffer </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>is the data length </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">addr</td><td>read address </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*data</td><td>pointer to a data buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>data length </td></tr>
   </table>
   </dd>
 </dl>
@@ -1698,8 +1698,8 @@ Functions</h2></td></tr>
 <p>advance example read the block lock </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">addr</td><td>is the block address </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*value</td><td>points to a value buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">addr</td><td>block address </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*value</td><td>pointer to a value buffer </td></tr>
   </table>
   </dd>
 </dl>
@@ -1761,7 +1761,7 @@ Functions</h2></td></tr>
 <p>advance example erase the 4k sector </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">addr</td><td>is the erase address </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">addr</td><td>erase address </td></tr>
   </table>
   </dd>
 </dl>
@@ -1795,7 +1795,7 @@ Functions</h2></td></tr>
 <p>advance example set the status 1 </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">status</td><td>is the set status </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">status</td><td>set status </td></tr>
   </table>
   </dd>
 </dl>
@@ -1829,7 +1829,7 @@ Functions</h2></td></tr>
 <p>advance example set the status 2 </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">status</td><td>is the set status </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">status</td><td>set status </td></tr>
   </table>
   </dd>
 </dl>
@@ -1863,7 +1863,7 @@ Functions</h2></td></tr>
 <p>advance example set the status 3 </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">status</td><td>is the set status </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">status</td><td>set status </td></tr>
   </table>
   </dd>
 </dl>
@@ -1941,9 +1941,9 @@ Functions</h2></td></tr>
 <p>advance example write </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">addr</td><td>is the write address </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">*data</td><td>points to a data buffer </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>is the data length </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">addr</td><td>written address </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*data</td><td>pointer to a data buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>data length </td></tr>
   </table>
   </dd>
 </dl>
@@ -2043,8 +2043,8 @@ Functions</h2></td></tr>
 <p>basic example get the manufacturer &amp;&amp; device id information </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">*manufacturer</td><td>points to a manufacturer buffer </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*device_id</td><td>points to a device id buffer </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*manufacturer</td><td>pointer to a manufacturer buffer </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*device_id</td><td>pointer to a device id buffer </td></tr>
   </table>
   </dd>
 </dl>
@@ -2094,9 +2094,9 @@ Functions</h2></td></tr>
 <p>basic example init </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>is the chip type </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">interface</td><td>is the chip interface </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">dual_quad_spi_enable</td><td>is a bool value </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>chip type </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">interface</td><td>chip interface </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dual_quad_spi_enable</td><td>bool value </td></tr>
   </table>
   </dd>
 </dl>
@@ -2174,9 +2174,9 @@ Functions</h2></td></tr>
 <p>basic example read </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">addr</td><td>is the read address </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*data</td><td>points to a data buffer </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>is the data length </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">addr</td><td>read address </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*data</td><td>pointer to a data buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>data length </td></tr>
   </table>
   </dd>
 </dl>
@@ -2254,9 +2254,9 @@ Functions</h2></td></tr>
 <p>basic example write </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">addr</td><td>is the write address </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">*data</td><td>points to a data buffer </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>is the data length </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">addr</td><td>written address </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*data</td><td>pointer to a data buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>data length </td></tr>
   </table>
   </dd>
 </dl>

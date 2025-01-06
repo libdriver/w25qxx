@@ -40,9 +40,9 @@ static w25qxx_handle_t gs_handle;        /**< w25qxx handle */
 
 /**
  * @brief     advance example init
- * @param[in] type is the chip type
- * @param[in] interface is the chip interface
- * @param[in] dual_quad_spi_enable is a bool value
+ * @param[in] type chip type
+ * @param[in] interface chip interface
+ * @param[in] dual_quad_spi_enable bool value
  * @return    status code
  *            - 0 success
  *            - 1 init failed
@@ -136,9 +136,9 @@ uint8_t w25qxx_advance_deinit(void)
 
 /**
  * @brief     advance example write
- * @param[in] addr is the write address
- * @param[in] *data points to a data buffer
- * @param[in] len is the data length
+ * @param[in] addr written address
+ * @param[in] *data pointer to a data buffer
+ * @param[in] len data length
  * @return    status code
  *            - 0 success
  *            - 1 write failed
@@ -158,9 +158,9 @@ uint8_t w25qxx_advance_write(uint32_t addr, uint8_t *data, uint32_t len)
 
 /**
  * @brief      advance example read
- * @param[in]  addr is the read address
- * @param[out] *data points to a data buffer
- * @param[in]  len is the data length
+ * @param[in]  addr read address
+ * @param[out] *data pointer to a data buffer
+ * @param[in]  len data length
  * @return     status code
  *             - 0 success
  *             - 1 read failed
@@ -237,8 +237,8 @@ uint8_t w25qxx_advance_chip_erase(void)
 
 /**
  * @brief      advance example get the manufacturer && device id information
- * @param[out] *manufacturer points to a manufacturer buffer
- * @param[out] *device_id points to a device id buffer
+ * @param[out] *manufacturer pointer to a manufacturer buffer
+ * @param[out] *device_id pointer to a device id buffer
  * @return     status code
  *             - 0 success
  *             - 1 get manufacturer device id failed
@@ -258,9 +258,9 @@ uint8_t w25qxx_advance_get_id(uint8_t *manufacturer, uint8_t *device_id)
 
 /**
  * @brief     advance example page program
- * @param[in] addr is the programming address
- * @param[in] *data points to a data buffer
- * @param[in] len is the data length
+ * @param[in] addr programming address
+ * @param[in] *data pointer to a data buffer
+ * @param[in] len data length
  * @return    status code
  *            - 0 success
  *            - 1 page program failed
@@ -280,7 +280,7 @@ uint8_t w25qxx_advance_page_program(uint32_t addr, uint8_t *data, uint16_t len)
 
 /**
  * @brief     advance example erase the 4k sector
- * @param[in] addr is the erase address
+ * @param[in] addr erase address
  * @return    status code
  *            - 0 success
  *            - 1 sector erase 4k failed
@@ -300,7 +300,7 @@ uint8_t w25qxx_advance_sector_erase_4k(uint32_t addr)
 
 /**
  * @brief     advance example erase the 32k block
- * @param[in] addr is the erase address
+ * @param[in] addr erase address
  * @return    status code
  *            - 0 success
  *            - 1 block erase 32k failed
@@ -320,7 +320,7 @@ uint8_t w25qxx_advance_block_erase_32k(uint32_t addr)
 
 /**
  * @brief     advance example erase the 64k block
- * @param[in] addr is the erase address
+ * @param[in] addr erase address
  * @return    status code
  *            - 0 success
  *            - 1 block erase 64k failed
@@ -340,9 +340,9 @@ uint8_t w25qxx_advance_block_erase_64k(uint32_t addr)
 
 /**
  * @brief      advance example read in the fast mode
- * @param[in]  addr is the read address
- * @param[out] *data points to a data buffer
- * @param[in]  len is the data length
+ * @param[in]  addr read address
+ * @param[out] *data pointer to a data buffer
+ * @param[in]  len data length
  * @return     status code
  *             - 0 success
  *             - 1 fast read failed
@@ -362,9 +362,9 @@ uint8_t w25qxx_advance_fast_read(uint32_t addr, uint8_t *data, uint32_t len)
 
 /**
  * @brief      advance example read only in the spi interface
- * @param[in]  addr is the read address
- * @param[out] *data points to a data buffer
- * @param[in]  len is the data length
+ * @param[in]  addr read address
+ * @param[out] *data pointer to a data buffer
+ * @param[in]  len data length
  * @return     status code
  *             - 0 success
  *             - 1 only spi read failed
@@ -384,9 +384,9 @@ uint8_t w25qxx_advance_only_spi_read(uint32_t addr, uint8_t *data, uint32_t len)
 
 /**
  * @brief      advance example fast read only in the spi dual output interface
- * @param[in]  addr is the read address
- * @param[out] *data points to a data buffer
- * @param[in]  len is the data length
+ * @param[in]  addr read address
+ * @param[out] *data pointer to a data buffer
+ * @param[in]  len data length
  * @return     status code
  *             - 0 success
  *             - 1 read failed
@@ -406,9 +406,9 @@ uint8_t w25qxx_advance_only_spi_fast_read_dual_output(uint32_t addr, uint8_t *da
 
 /**
  * @brief      advance example fast read only in the spi quad output interface
- * @param[in]  addr is the read address
- * @param[out] *data points to a data buffer
- * @param[in]  len is the data length
+ * @param[in]  addr read address
+ * @param[out] *data pointer to a data buffer
+ * @param[in]  len data length
  * @return     status code
  *             - 0 success
  *             - 1 read failed
@@ -428,9 +428,9 @@ uint8_t w25qxx_advance_only_spi_fast_read_quad_output(uint32_t addr, uint8_t *da
 
 /**
  * @brief      advance example fast read only in the spi dual io interface
- * @param[in]  addr is the read address
- * @param[out] *data points to a data buffer
- * @param[in]  len is the data length
+ * @param[in]  addr read address
+ * @param[out] *data pointer to a data buffer
+ * @param[in]  len data length
  * @return     status code
  *             - 0 success
  *             - 1 read failed
@@ -450,9 +450,9 @@ uint8_t w25qxx_advance_only_spi_fast_read_dual_io(uint32_t addr, uint8_t *data, 
 
 /**
  * @brief      advance example fast read only in the spi quad io interface
- * @param[in]  addr is the read address
- * @param[out] *data points to a data buffer
- * @param[in]  len is the data length
+ * @param[in]  addr read address
+ * @param[out] *data pointer to a data buffer
+ * @param[in]  len data length
  * @return     status code
  *             - 0 success
  *             - 1 read failed
@@ -472,9 +472,9 @@ uint8_t w25qxx_advance_only_spi_fast_read_quad_io(uint32_t addr, uint8_t *data, 
 
 /**
  * @brief      advance example word read only in the spi quad io interface
- * @param[in]  addr is the read address
- * @param[out] *data points to a data buffer
- * @param[in]  len is the data length
+ * @param[in]  addr read address
+ * @param[out] *data pointer to a data buffer
+ * @param[in]  len data length
  * @return     status code
  *             - 0 success
  *             - 1 read failed
@@ -494,9 +494,9 @@ uint8_t w25qxx_advance_only_spi_word_read_quad_io(uint32_t addr, uint8_t *data, 
  
 /**
  * @brief      advance example octal word read only in the spi quad io interface
- * @param[in]  addr is the read address
- * @param[out] *data points to a data buffer
- * @param[in]  len is the data length
+ * @param[in]  addr read address
+ * @param[out] *data pointer to a data buffer
+ * @param[in]  len data length
  * @return     status code
  *             - 0 success
  *             - 1 read failed
@@ -516,9 +516,9 @@ uint8_t w25qxx_advance_only_spi_octal_word_read_quad_io(uint32_t addr, uint8_t *
 
 /**
  * @brief     advance example quad page program only in the spi quad input interface
- * @param[in] addr is the programming address
- * @param[in] *data points to a data buffer
- * @param[in] len is the data length
+ * @param[in] addr programming address
+ * @param[in] *data pointer to a data buffer
+ * @param[in] len data length
  * @return    status code
  *            - 0 success
  *            - 1 quad page program failed
@@ -538,7 +538,7 @@ uint8_t w25qxx_advance_only_spi_page_program_quad_input(uint32_t addr, uint8_t *
 
 /**
  * @brief      advance example get the status 1
- * @param[out] *status points to a status buffer
+ * @param[out] *status pointer to a status buffer
  * @return     status code
  *             - 0 success
  *             - 1 get status 1 failed
@@ -558,7 +558,7 @@ uint8_t w25qxx_advance_get_status1(uint8_t *status)
 
 /**
  * @brief      advance example get the status 2
- * @param[out] *status points to a status buffer
+ * @param[out] *status pointer to a status buffer
  * @return     status code
  *             - 0 success
  *             - 1 get status 2 failed
@@ -578,7 +578,7 @@ uint8_t w25qxx_advance_get_status2(uint8_t *status)
 
 /**
  * @brief      advance example get the status 3
- * @param[out] *status points to a status buffer
+ * @param[out] *status pointer to a status buffer
  * @return     status code
  *             - 0 success
  *             - 1 get status 3 failed
@@ -598,7 +598,7 @@ uint8_t w25qxx_advance_get_status3(uint8_t *status)
 
 /**
  * @brief     advance example set the status 1
- * @param[in] status is the set status
+ * @param[in] status set status
  * @return    status code
  *            - 0 success
  *            - 1 set status 1 failed
@@ -618,7 +618,7 @@ uint8_t w25qxx_advance_set_status1(uint8_t status)
 
 /**
  * @brief     advance example set the status 2
- * @param[in] status is the set status
+ * @param[in] status set status
  * @return    status code
  *            - 0 success
  *            - 1 set status 2 failed
@@ -638,7 +638,7 @@ uint8_t w25qxx_advance_set_status2(uint8_t status)
 
 /**
  * @brief     advance example set the status 3
- * @param[in] status is the set status
+ * @param[in] status set status
  * @return    status code
  *            - 0 success
  *            - 1 set status 3 failed
@@ -658,8 +658,8 @@ uint8_t w25qxx_advance_set_status3(uint8_t status)
 
 /**
  * @brief      advance example get the manufacturer && device id information only in the spi dual io interface
- * @param[out] *manufacturer points to a manufacturer buffer
- * @param[out] *device_id points to a device id buffer
+ * @param[out] *manufacturer pointer to a manufacturer buffer
+ * @param[out] *device_id pointer to a device id buffer
  * @return     status code
  *             - 0 success
  *             - 1 get manufacturer device id dual io failed
@@ -679,8 +679,8 @@ uint8_t w25qxx_advance_only_spi_get_manufacturer_device_id_dual_io(uint8_t *manu
 
 /**
  * @brief      advance example get the manufacturer && device id information only in the spi quad io interface
- * @param[out] *manufacturer points to a manufacturer buffer
- * @param[out] *device_id points to a device id buffer
+ * @param[out] *manufacturer pointer to a manufacturer buffer
+ * @param[out] *device_id pointer to a device id buffer
  * @return     status code
  *             - 0 success
  *             - 1 get manufacturer device id quad io failed
@@ -700,8 +700,8 @@ uint8_t w25qxx_advance_only_spi_get_manufacturer_device_id_quad_io(uint8_t *manu
 
 /**
  * @brief      advance example get the jedec id information
- * @param[out] *manufacturer points to a manufacturer buffer
- * @param[out] *device_id points to a device id buffer
+ * @param[out] *manufacturer pointer to a manufacturer buffer
+ * @param[out] *device_id pointer to a device id buffer
  * @return     status code
  *             - 0 success
  *             - 1 get jedec id failed
@@ -759,7 +759,7 @@ uint8_t w25qxx_advance_global_block_unlock(void)
 
 /**
  * @brief     advance example lock the individual block
- * @param[in] addr is the block address
+ * @param[in] addr block address
  * @return    status code
  *            - 0 success
  *            - 1 individual block lock failed
@@ -779,7 +779,7 @@ uint8_t w25qxx_advance_individual_block_lock(uint32_t addr)
 
 /**
  * @brief     advance example unlock the individual block
- * @param[in] addr is the block address
+ * @param[in] addr block address
  * @return    status code
  *            - 0 success
  *            - 1 individual block unlock failed
@@ -799,8 +799,8 @@ uint8_t w25qxx_advance_individual_block_unlock(uint32_t addr)
 
 /**
  * @brief      advance example read the block lock
- * @param[in]  addr is the block address
- * @param[out] *value points to a value buffer
+ * @param[in]  addr block address
+ * @param[out] *value pointer to a value buffer
  * @return     status code
  *             - 0 success
  *             - 1 read block lock failed
@@ -843,8 +843,8 @@ uint8_t w25qxx_advance_reset(void)
 
 /**
  * @brief     advance example set the read parameters only in the qspi interface
- * @param[in] dummy is the qspi read dummy
- * @param[in] length is the qspi read wrap length
+ * @param[in] dummy qspi read dummy
+ * @param[in] length qspi read wrap length
  * @return    status code
  *            - 0 success
  *            - 1 set read parameters failed
@@ -864,7 +864,7 @@ uint8_t w25qxx_advance_only_qspi_set_read_parameters(w25qxx_qspi_read_dummy_t du
 
 /**
  * @brief      advance example get the unique id only in the spi interface
- * @param[out] *id points to a id buffer
+ * @param[out] *id pointer to a id buffer
  * @return     status code
  *             - 0 success
  *             - 1 get the unique id failed
@@ -884,7 +884,7 @@ uint8_t w25qxx_advance_only_spi_get_unique_id(uint8_t id[8])
 
 /**
  * @brief      advance example get the sfdp only in the spi interface
- * @param[out] *sfdp points to a sfdp buffer
+ * @param[out] *sfdp pointer to a sfdp buffer
  * @return     status code
  *             - 0 success
  *             - 1 get the sfdp failed
@@ -904,8 +904,8 @@ uint8_t w25qxx_advance_only_spi_get_sfdp(uint8_t sfdp[256])
 
 /**
  * @brief     advance example write the security register only in the spi interface
- * @param[in] num is the security register number
- * @param[in] *data points to a data buffer
+ * @param[in] num security register number
+ * @param[in] *data pointer to a data buffer
  * @return    status code
  *            - 0 success
  *            - 1 write security register failed
@@ -929,8 +929,8 @@ uint8_t w25qxx_advance_only_spi_write_security_register(w25qxx_security_register
 
 /**
  * @brief      advance example read the security register only in the spi interface
- * @param[in]  num is the security register number
- * @param[out] *data points to a data buffer
+ * @param[in]  num security register number
+ * @param[out] *data pointer to a data buffer
  * @return     status code
  *             - 0 success
  *             - 1 read security register failed
@@ -950,7 +950,7 @@ uint8_t w25qxx_advance_only_spi_read_security_register(w25qxx_security_register_
 
 /**
  * @brief     advance example set the burst with wrap only in the spi interface
- * @param[in] wrap is the burst wrap
+ * @param[in] wrap burst wrap
  * @return    status code
  *            - 0 success
  *            - 1 set burst with wrap failed

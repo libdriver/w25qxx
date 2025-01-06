@@ -125,6 +125,10 @@ Enumerations</h2></td></tr>
 , <br />
 &#160;&#160;<a class="el" href="group__w25qxx__basic__driver.html#gga6cb4e5164464df549201dd96cb7a58b1a75afcbe71906d3884f4fcc119c1cabd5">W25Q128</a> = 0XEF17U
 , <a class="el" href="group__w25qxx__basic__driver.html#gga6cb4e5164464df549201dd96cb7a58b1ab6db6bd31731e4e95040e8d47f0e45ca">W25Q256</a> = 0XEF18U
+, <a class="el" href="group__w25qxx__basic__driver.html#gga6cb4e5164464df549201dd96cb7a58b1a5bd3078157449d9ba4ed74f94e5f6eb0">W25Q512</a> = 0XEF19U
+, <a class="el" href="group__w25qxx__basic__driver.html#gga6cb4e5164464df549201dd96cb7a58b1a69e58baba71411544e64abea679090bb">W25Q1024</a> = 0XEF20U
+, <br />
+&#160;&#160;<a class="el" href="group__w25qxx__basic__driver.html#gga6cb4e5164464df549201dd96cb7a58b1a8daad13a8f1372188bfb9c4f1abf9667">W25Q2048</a> = 0XEF21U
 <br />
  }</td></tr>
 <tr class="memdesc:ga6cb4e5164464df549201dd96cb7a58b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">w25qxx type enumeration definition  <a href="group__w25qxx__basic__driver.html#ga6cb4e5164464df549201dd96cb7a58b1">More...</a><br /></td></tr>
@@ -273,7 +277,7 @@ Functions</h2></td></tr>
 </td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="driver__w25qxx_8h_source.html#l00093">93</a> of file <a class="el" href="driver__w25qxx_8h_source.html">driver_w25qxx.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="driver__w25qxx_8h_source.html#l00096">96</a> of file <a class="el" href="driver__w25qxx_8h_source.html">driver_w25qxx.h</a>.</p>
 
 </div>
 </div>
@@ -297,7 +301,7 @@ Functions</h2></td></tr>
 </td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="driver__w25qxx_8h_source.html#l00084">84</a> of file <a class="el" href="driver__w25qxx_8h_source.html">driver_w25qxx.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="driver__w25qxx_8h_source.html#l00087">87</a> of file <a class="el" href="driver__w25qxx_8h_source.html">driver_w25qxx.h</a>.</p>
 
 </div>
 </div>
@@ -321,7 +325,7 @@ Functions</h2></td></tr>
 </td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="driver__w25qxx_8h_source.html#l00075">75</a> of file <a class="el" href="driver__w25qxx_8h_source.html">driver_w25qxx.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="driver__w25qxx_8h_source.html#l00078">78</a> of file <a class="el" href="driver__w25qxx_8h_source.html">driver_w25qxx.h</a>.</p>
 
 </div>
 </div>
@@ -350,6 +354,12 @@ Functions</h2></td></tr>
 <tr><td class="fieldname"><a id="gga6cb4e5164464df549201dd96cb7a58b1a75afcbe71906d3884f4fcc119c1cabd5"></a>W25Q128&#160;</td><td class="fielddoc"><p>w25q128 </p>
 </td></tr>
 <tr><td class="fieldname"><a id="gga6cb4e5164464df549201dd96cb7a58b1ab6db6bd31731e4e95040e8d47f0e45ca"></a>W25Q256&#160;</td><td class="fielddoc"><p>w25q256 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga6cb4e5164464df549201dd96cb7a58b1a5bd3078157449d9ba4ed74f94e5f6eb0"></a>W25Q512&#160;</td><td class="fielddoc"><p>w25q512 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga6cb4e5164464df549201dd96cb7a58b1a69e58baba71411544e64abea679090bb"></a>W25Q1024&#160;</td><td class="fielddoc"><p>w25q01 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga6cb4e5164464df549201dd96cb7a58b1a8daad13a8f1372188bfb9c4f1abf9667"></a>W25Q2048&#160;</td><td class="fielddoc"><p>w25q02 </p>
 </td></tr>
 </table>
 
@@ -387,8 +397,8 @@ Functions</h2></td></tr>
 <p>erase the 32k block </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a w25qxx handle structure </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">addr</td><td>is the erase address </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a w25qxx handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">addr</td><td>erase address </td></tr>
   </table>
   </dd>
 </dl>
@@ -437,8 +447,8 @@ Functions</h2></td></tr>
 <p>erase the 64k block </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a w25qxx handle structure </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">addr</td><td>is the erase address </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a w25qxx handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">addr</td><td>erase address </td></tr>
   </table>
   </dd>
 </dl>
@@ -477,7 +487,7 @@ Functions</h2></td></tr>
 <p>erase the chip </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a w25qxx handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a w25qxx handle structure </td></tr>
   </table>
   </dd>
 </dl>
@@ -514,7 +524,7 @@ Functions</h2></td></tr>
 <p>close the chip </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a w25qxx handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a w25qxx handle structure </td></tr>
   </table>
   </dd>
 </dl>
@@ -573,10 +583,10 @@ Functions</h2></td></tr>
 <p>read in the fast mode </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a w25qxx handle structure </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">addr</td><td>is the read address </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*data</td><td>points to a data buffer </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>is the data length </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a w25qxx handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">addr</td><td>read address </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*data</td><td>pointer to a data buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>data length </td></tr>
   </table>
   </dd>
 </dl>
@@ -623,8 +633,8 @@ Functions</h2></td></tr>
 <p>get the chip address mode </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a w25qxx handle structure </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*mode</td><td>points to an address mode buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a w25qxx handle structure </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*mode</td><td>pointer to an address mode buffer </td></tr>
   </table>
   </dd>
 </dl>
@@ -669,8 +679,8 @@ Functions</h2></td></tr>
 <p>get the dual quad spi status </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a w25qxx handle structure </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">enable</td><td>points to a bool value buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a w25qxx handle structure </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*enable</td><td>pointer to a bool value buffer </td></tr>
   </table>
   </dd>
 </dl>
@@ -714,8 +724,8 @@ Functions</h2></td></tr>
 <p>get the chip interface </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a w25qxx handle structure </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*interface</td><td>points to a chip interface buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a w25qxx handle structure </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*interface</td><td>pointer to a chip interface buffer </td></tr>
   </table>
   </dd>
 </dl>
@@ -765,9 +775,9 @@ Functions</h2></td></tr>
 <p>get the manufacturer &amp;&amp; device id information </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a w25qxx handle structure </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*manufacturer</td><td>points to a manufacturer buffer </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*device_id</td><td>points to a device id buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a w25qxx handle structure </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*manufacturer</td><td>pointer to a manufacturer buffer </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*device_id</td><td>pointer to a device id buffer </td></tr>
   </table>
   </dd>
 </dl>
@@ -813,8 +823,8 @@ Functions</h2></td></tr>
 <p>get the chip type </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a w25qxx handle structure </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*type</td><td>points to a chip type buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a w25qxx handle structure </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*type</td><td>pointer to a chip type buffer </td></tr>
   </table>
   </dd>
 </dl>
@@ -848,7 +858,7 @@ Functions</h2></td></tr>
 <p>get chip's information </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">*info</td><td>points to a w25qxx info structure </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*info</td><td>pointer to a w25qxx info structure </td></tr>
   </table>
   </dd>
 </dl>
@@ -882,7 +892,7 @@ Functions</h2></td></tr>
 <p>initialize the chip </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a w25qxx handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a w25qxx handle structure </td></tr>
   </table>
   </dd>
 </dl>
@@ -899,6 +909,29 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+<p>deinit</p>
+<p>deinit</p>
+<p>deinit</p>
+<p>deinit</p>
+<p>deinit</p>
+<p>deinit</p>
+<p>deinit</p>
+<p>deinit</p>
+<p>deinit</p>
+<p>deinit</p>
+<p>deinit</p>
+<p>deinit</p>
+<p>deinit</p>
+<p>deinit</p>
+<p>deinit</p>
+<p>deinit</p>
+<p>deinit</p>
+<p>deinit</p>
+<p>deinit</p>
+<p>deinit</p>
+<p>deinit</p>
+<p>deinit</p>
+<p>deinit</p>
 
 <p class="definition">Definition at line <a class="el" href="driver__w25qxx_8c_source.html#l06819">6819</a> of file <a class="el" href="driver__w25qxx_8c_source.html">driver_w25qxx.c</a>.</p>
 
@@ -945,10 +978,10 @@ Functions</h2></td></tr>
 <p>read only in the spi interface </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a w25qxx handle structure </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">addr</td><td>is the read address </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*data</td><td>points to a data buffer </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>is the data length </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a w25qxx handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">addr</td><td>read address </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*data</td><td>pointer to a data buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>data length </td></tr>
   </table>
   </dd>
 </dl>
@@ -1008,10 +1041,10 @@ Functions</h2></td></tr>
 <p>page program </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a w25qxx handle structure </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">addr</td><td>is the programming address </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">*data</td><td>points to a data buffer </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>is the data length </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a w25qxx handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">addr</td><td>programming address </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*data</td><td>pointer to a data buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>data length </td></tr>
   </table>
   </dd>
 </dl>
@@ -1051,7 +1084,7 @@ Functions</h2></td></tr>
 <p>power down </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a w25qxx handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a w25qxx handle structure </td></tr>
   </table>
   </dd>
 </dl>
@@ -1109,10 +1142,10 @@ Functions</h2></td></tr>
 <p>read data </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a w25qxx handle structure </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">addr</td><td>is the read address </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*data</td><td>points to a data buffer </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>is the data length </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a w25qxx handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">addr</td><td>read address </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*data</td><td>pointer to a data buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>data length </td></tr>
   </table>
   </dd>
 </dl>
@@ -1149,7 +1182,7 @@ Functions</h2></td></tr>
 <p>release power down </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a w25qxx handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a w25qxx handle structure </td></tr>
   </table>
   </dd>
 </dl>
@@ -1195,8 +1228,8 @@ Functions</h2></td></tr>
 <p>erase the 4k sector </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a w25qxx handle structure </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">addr</td><td>is the erase address </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a w25qxx handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">addr</td><td>erase address </td></tr>
   </table>
   </dd>
 </dl>
@@ -1245,8 +1278,8 @@ Functions</h2></td></tr>
 <p>set the chip address mode </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a w25qxx handle structure </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">mode</td><td>is the address mode </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a w25qxx handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mode</td><td>address mode </td></tr>
   </table>
   </dd>
 </dl>
@@ -1293,8 +1326,8 @@ Functions</h2></td></tr>
 <p>enable or disable the dual quad spi </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a w25qxx handle structure </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">enable</td><td>is a bool value </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a w25qxx handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">enable</td><td>bool value </td></tr>
   </table>
   </dd>
 </dl>
@@ -1338,8 +1371,8 @@ Functions</h2></td></tr>
 <p>set the chip interface </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a w25qxx handle structure </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">interface</td><td>is the chip interface </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a w25qxx handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">interface</td><td>chip interface </td></tr>
   </table>
   </dd>
 </dl>
@@ -1383,8 +1416,8 @@ Functions</h2></td></tr>
 <p>set the chip type </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a w25qxx handle structure </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>is the chip type </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a w25qxx handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>chip type </td></tr>
   </table>
   </dd>
 </dl>
@@ -1440,10 +1473,10 @@ Functions</h2></td></tr>
 <p>write data </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a w25qxx handle structure </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">addr</td><td>is the write address </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">*data</td><td>points to a data buffer </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>is the data length </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a w25qxx handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">addr</td><td>written address </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*data</td><td>pointer to a data buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>data length </td></tr>
   </table>
   </dd>
 </dl>

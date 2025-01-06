@@ -70,20 +70,20 @@ uint8_t w25qxx_interface_spi_qspi_deinit(void);
 
 /**
  * @brief      interface spi qspi bus write read
- * @param[in]  instruction is the sent instruction
- * @param[in]  instruction_line is the instruction phy lines
- * @param[in]  address is the register address
- * @param[in]  address_line is the address phy lines
- * @param[in]  address_len is the address length
- * @param[in]  alternate is the register address
- * @param[in]  alternate_line is the alternate phy lines
- * @param[in]  alternate_len is the alternate length
- * @param[in]  dummy is the dummy cycle
- * @param[in]  *in_buf points to a input buffer
- * @param[in]  in_len is the input length
- * @param[out] *out_buf points to a output buffer
- * @param[in]  out_len is the output length
- * @param[in]  data_line is the data phy lines
+ * @param[in]  instruction sent instruction
+ * @param[in]  instruction_line instruction phy lines
+ * @param[in]  address register address
+ * @param[in]  address_line address phy lines
+ * @param[in]  address_len address length
+ * @param[in]  alternate register address
+ * @param[in]  alternate_line alternate phy lines
+ * @param[in]  alternate_len alternate length
+ * @param[in]  dummy dummy cycle
+ * @param[in]  *in_buf pointer to a input buffer
+ * @param[in]  in_len input length
+ * @param[out] *out_buf pointer to a output buffer
+ * @param[in]  out_len output length
+ * @param[in]  data_line data phy lines
  * @return     status code
  *             - 0 success
  *             - 1 write read failed
@@ -97,21 +97,21 @@ uint8_t w25qxx_interface_spi_qspi_write_read(uint8_t instruction, uint8_t instru
 
 /**
  * @brief     interface delay ms
- * @param[in] ms
+ * @param[in] ms time
  * @note      none
  */
 void w25qxx_interface_delay_ms(uint32_t ms);
 
 /**
  * @brief     interface delay us
- * @param[in] us
+ * @param[in] us time
  * @note      none
  */
 void w25qxx_interface_delay_us(uint32_t us);
 
 /**
  * @brief     interface print format data
- * @param[in] fmt is the format data
+ * @param[in] fmt format data
  * @note      none
  */
 void w25qxx_interface_debug_print(const char *const fmt, ...);
