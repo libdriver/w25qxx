@@ -54,8 +54,8 @@ volatile uint16_t g_len;        /**< uart buffer length */
 
 /**
  * @brief     w25qxx full function
- * @param[in] argc is arg numbers
- * @param[in] **argv is the arg address
+ * @param[in] argc arg numbers
+ * @param[in] **argv arg address
  * @return    status code
  *             - 0 success
  *             - 1 run failed
@@ -484,6 +484,18 @@ uint8_t w25qxx(uint8_t argc, char **argv)
                 else if (strcmp("W25Q256", optarg) == 0)
                 {
                     chip_type = W25Q256;
+                }
+                else if (strcmp("W25Q512", optarg) == 0)
+                {
+                    chip_type = W25Q512;
+                }
+                else if (strcmp("W25Q1024", optarg) == 0)
+                {
+                    chip_type = W25Q1024;
+                }
+                else if (strcmp("W25Q2048", optarg) == 0)
+                {
+                    chip_type = W25Q2048;
                 }
                 else
                 {

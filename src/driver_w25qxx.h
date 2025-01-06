@@ -61,12 +61,15 @@ extern "C"{
  */
 typedef enum
 {
-    W25Q80  = 0XEF13U,        /**< w25q80 */
-    W25Q16  = 0XEF14U,        /**< w25q16 */
-    W25Q32  = 0XEF15U,        /**< w25q32 */
-    W25Q64  = 0XEF16U,        /**< w25q64 */
-    W25Q128 = 0XEF17U,        /**< w25q128 */
-    W25Q256 = 0XEF18U,        /**< w25q256 */
+    W25Q80   = 0XEF13U,        /**< w25q80 */
+    W25Q16   = 0XEF14U,        /**< w25q16 */
+    W25Q32   = 0XEF15U,        /**< w25q32 */
+    W25Q64   = 0XEF16U,        /**< w25q64 */
+    W25Q128  = 0XEF17U,        /**< w25q128 */
+    W25Q256  = 0XEF18U,        /**< w25q256 */
+    W25Q512  = 0XEF19U,        /**< w25q512 */
+    W25Q1024 = 0XEF20U,        /**< w25q01 */
+    W25Q2048 = 0XEF21U,        /**< w25q02 */
 } w25qxx_type_t;
 
 /**
@@ -258,56 +261,56 @@ typedef struct w25qxx_info_s
 
 /**
  * @brief     initialize w25qxx_handle_t structure
- * @param[in] HANDLE points to a w25qxx handle structure
- * @param[in] STRUCTURE is w25qxx_handle_t
+ * @param[in] HANDLE pointer to a w25qxx handle structure
+ * @param[in] STRUCTURE w25qxx_handle_t
  * @note      none
  */
 #define DRIVER_W25QXX_LINK_INIT(HANDLE, STRUCTURE)                memset(HANDLE, 0, sizeof(STRUCTURE))
 
 /**
  * @brief     link spi_qspi_init function
- * @param[in] HANDLE points to a w25qxx handle structure
- * @param[in] FUC points to a spi_qspi_init function address
+ * @param[in] HANDLE pointer to a w25qxx handle structure
+ * @param[in] FUC pointer to a spi_qspi_init function address
  * @note      none
  */
 #define DRIVER_W25QXX_LINK_SPI_QSPI_INIT(HANDLE, FUC)             (HANDLE)->spi_qspi_init = FUC
 
 /**
  * @brief     link spi_qspi_deinit function
- * @param[in] HANDLE points to a w25qxx handle structure
- * @param[in] FUC points to a spi_qspi_deinit function address
+ * @param[in] HANDLE pointer to a w25qxx handle structure
+ * @param[in] FUC pointer to a spi_qspi_deinit function address
  * @note      none
  */
 #define DRIVER_W25QXX_LINK_SPI_QSPI_DEINIT(HANDLE, FUC)           (HANDLE)->spi_qspi_deinit = FUC
 
 /**
  * @brief     link spi_qspi_write_read function
- * @param[in] HANDLE points to a w25qxx handle structure
- * @param[in] FUC points to a spi_qspi_write_read function address
+ * @param[in] HANDLE pointer to a w25qxx handle structure
+ * @param[in] FUC pointer to a spi_qspi_write_read function address
  * @note      none
  */
 #define DRIVER_W25QXX_LINK_SPI_QSPI_WRITE_READ(HANDLE, FUC)       (HANDLE)->spi_qspi_write_read = FUC
 
 /**
  * @brief     link delay_ms function
- * @param[in] HANDLE points to a w25qxx handle structure
- * @param[in] FUC points to a delay_ms function address
+ * @param[in] HANDLE pointer to a w25qxx handle structure
+ * @param[in] FUC pointer to a delay_ms function address
  * @note      none
  */
 #define DRIVER_W25QXX_LINK_DELAY_MS(HANDLE, FUC)                  (HANDLE)->delay_ms = FUC
 
 /**
  * @brief     link delay_us function
- * @param[in] HANDLE points to a w25qxx handle structure
- * @param[in] FUC points to a delay_us function address
+ * @param[in] HANDLE pointer to a w25qxx handle structure
+ * @param[in] FUC pointer to a delay_us function address
  * @note      none
  */
 #define DRIVER_W25QXX_LINK_DELAY_US(HANDLE, FUC)                  (HANDLE)->delay_us = FUC
 
 /**
  * @brief     link debug_print function
- * @param[in] HANDLE points to a w25qxx handle structure
- * @param[in] FUC points to a debug_print function address
+ * @param[in] HANDLE pointer to a w25qxx handle structure
+ * @param[in] FUC pointer to a debug_print function address
  * @note      none
  */
 #define DRIVER_W25QXX_LINK_DEBUG_PRINT(HANDLE, FUC)               (HANDLE)->debug_print = FUC
@@ -325,7 +328,7 @@ typedef struct w25qxx_info_s
 
 /**
  * @brief      get chip's information
- * @param[out] *info points to a w25qxx info structure
+ * @param[out] *info pointer to a w25qxx info structure
  * @return     status code
  *             - 0 success
  *             - 2 handle is NULL
@@ -335,8 +338,8 @@ uint8_t w25qxx_info(w25qxx_info_t *info);
 
 /**
  * @brief     enable or disable the dual quad spi
- * @param[in] *handle points to a w25qxx handle structure
- * @param[in] enable is a bool value
+ * @param[in] *handle pointer to a w25qxx handle structure
+ * @param[in] enable bool value
  * @return    status code
  *            - 0 success
  *            - 2 handle is NULL
@@ -346,8 +349,8 @@ uint8_t w25qxx_set_dual_quad_spi(w25qxx_handle_t *handle, w25qxx_bool_t enable);
 
 /**
  * @brief      get the dual quad spi status
- * @param[in]  *handle points to a w25qxx handle structure
- * @param[out] enable points to a bool value buffer
+ * @param[in]  *handle pointer to a w25qxx handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 2 handle is NULL
@@ -357,8 +360,8 @@ uint8_t w25qxx_get_dual_quad_spi(w25qxx_handle_t *handle, w25qxx_bool_t *enable)
 
 /**
  * @brief     set the chip type
- * @param[in] *handle points to a w25qxx handle structure
- * @param[in] type is the chip type
+ * @param[in] *handle pointer to a w25qxx handle structure
+ * @param[in] type chip type
  * @return    status code
  *            - 0 success
  *            - 2 handle is NULL
@@ -368,8 +371,8 @@ uint8_t w25qxx_set_type(w25qxx_handle_t *handle, w25qxx_type_t type);
 
 /**
  * @brief      get the chip type
- * @param[in]  *handle points to a w25qxx handle structure
- * @param[out] *type points to a chip type buffer
+ * @param[in]  *handle pointer to a w25qxx handle structure
+ * @param[out] *type pointer to a chip type buffer
  * @return     status code
  *             - 0 success
  *             - 2 handle is NULL
@@ -379,8 +382,8 @@ uint8_t w25qxx_get_type(w25qxx_handle_t *handle, w25qxx_type_t *type);
 
 /**
  * @brief     set the chip interface
- * @param[in] *handle points to a w25qxx handle structure
- * @param[in] interface is the chip interface
+ * @param[in] *handle pointer to a w25qxx handle structure
+ * @param[in] interface chip interface
  * @return    status code
  *            - 0 success
  *            - 2 handle is NULL
@@ -390,8 +393,8 @@ uint8_t w25qxx_set_interface(w25qxx_handle_t *handle, w25qxx_interface_t interfa
 
 /**
  * @brief      get the chip interface
- * @param[in]  *handle points to a w25qxx handle structure
- * @param[out] *interface points to a chip interface buffer
+ * @param[in]  *handle pointer to a w25qxx handle structure
+ * @param[out] *interface pointer to a chip interface buffer
  * @return     status code
  *             - 0 success
  *             - 2 handle is NULL
@@ -401,8 +404,8 @@ uint8_t w25qxx_get_interface(w25qxx_handle_t *handle, w25qxx_interface_t *interf
 
 /**
  * @brief     set the chip address mode
- * @param[in] *handle points to a w25qxx handle structure
- * @param[in] mode is the address mode
+ * @param[in] *handle pointer to a w25qxx handle structure
+ * @param[in] mode address mode
  * @return    status code
  *             - 0 success
  *             - 1 set address mode failed
@@ -415,8 +418,8 @@ uint8_t w25qxx_set_address_mode(w25qxx_handle_t *handle, w25qxx_address_mode_t m
 
 /**
  * @brief      get the chip address mode
- * @param[in]  *handle points to a w25qxx handle structure
- * @param[out] *mode points to an address mode buffer
+ * @param[in]  *handle pointer to a w25qxx handle structure
+ * @param[out] *mode pointer to an address mode buffer
  * @return     status code
  *             - 0 success
  *             - 2 handle is NULL
@@ -427,7 +430,7 @@ uint8_t w25qxx_get_address_mode(w25qxx_handle_t *handle, w25qxx_address_mode_t *
 
 /**
  * @brief     initialize the chip
- * @param[in] *handle points to a w25qxx handle structure
+ * @param[in] *handle pointer to a w25qxx handle structure
  * @return    status code
  *            - 0 success
  *            - 1 spi or qspi initialization failed
@@ -444,7 +447,7 @@ uint8_t w25qxx_init(w25qxx_handle_t *handle);
 
 /**
  * @brief     close the chip
- * @param[in] *handle points to a w25qxx handle structure
+ * @param[in] *handle pointer to a w25qxx handle structure
  * @return    status code
  *            - 0 success
  *            - 1 spi or qspi deinit failed
@@ -457,10 +460,10 @@ uint8_t w25qxx_deinit(w25qxx_handle_t *handle);
 
 /**
  * @brief      read data
- * @param[in]  *handle points to a w25qxx handle structure
- * @param[in]  addr is the read address
- * @param[out] *data points to a data buffer
- * @param[in]  len is the data length
+ * @param[in]  *handle pointer to a w25qxx handle structure
+ * @param[in]  addr read address
+ * @param[out] *data pointer to a data buffer
+ * @param[in]  len data length
  * @return     status code
  *             - 0 success
  *             - 1 read failed
@@ -473,10 +476,10 @@ uint8_t w25qxx_read(w25qxx_handle_t *handle, uint32_t addr, uint8_t *data, uint3
 
 /**
  * @brief     write data
- * @param[in] *handle points to a w25qxx handle structure
- * @param[in] addr is the write address
- * @param[in] *data points to a data buffer
- * @param[in] len is the data length
+ * @param[in] *handle pointer to a w25qxx handle structure
+ * @param[in] addr written address
+ * @param[in] *data pointer to a data buffer
+ * @param[in] len data length
  * @return    status code
  *            - 0 success
  *            - 1 write failed
@@ -490,10 +493,10 @@ uint8_t w25qxx_write(w25qxx_handle_t *handle, uint32_t addr, uint8_t *data, uint
 
 /**
  * @brief      read only in the spi interface
- * @param[in]  *handle points to a w25qxx handle structure
- * @param[in]  addr is the read address
- * @param[out] *data points to a data buffer
- * @param[in]  len is the data length
+ * @param[in]  *handle pointer to a w25qxx handle structure
+ * @param[in]  addr read address
+ * @param[out] *data pointer to a data buffer
+ * @param[in]  len data length
  * @return     status code
  *             - 0 success
  *             - 1 only spi read failed
@@ -507,10 +510,10 @@ uint8_t w25qxx_only_spi_read(w25qxx_handle_t *handle, uint32_t addr, uint8_t *da
 
 /**
  * @brief      read in the fast mode
- * @param[in]  *handle points to a w25qxx handle structure
- * @param[in]  addr is the read address
- * @param[out] *data points to a data buffer
- * @param[in]  len is the data length
+ * @param[in]  *handle pointer to a w25qxx handle structure
+ * @param[in]  addr read address
+ * @param[out] *data pointer to a data buffer
+ * @param[in]  len data length
  * @return     status code
  *             - 0 success
  *             - 1 fast read failed
@@ -523,10 +526,10 @@ uint8_t w25qxx_fast_read(w25qxx_handle_t *handle, uint32_t addr, uint8_t *data, 
 
 /**
  * @brief     page program
- * @param[in] *handle points to a w25qxx handle structure
- * @param[in] addr is the programming address
- * @param[in] *data points to a data buffer
- * @param[in] len is the data length
+ * @param[in] *handle pointer to a w25qxx handle structure
+ * @param[in] addr programming address
+ * @param[in] *data pointer to a data buffer
+ * @param[in] len data length
  * @return    status code
  *            - 0 success
  *            - 1 page program failed
@@ -542,8 +545,8 @@ uint8_t w25qxx_page_program(w25qxx_handle_t *handle, uint32_t addr, uint8_t *dat
 
 /**
  * @brief     erase the 4k sector
- * @param[in] *handle points to a w25qxx handle structure
- * @param[in] addr is the erase address
+ * @param[in] *handle pointer to a w25qxx handle structure
+ * @param[in] addr erase address
  * @return    status code
  *            - 0 success
  *            - 1 sector erase 4k failed
@@ -558,8 +561,8 @@ uint8_t w25qxx_sector_erase_4k(w25qxx_handle_t *handle, uint32_t addr);
 
 /**
  * @brief     erase the 32k block
- * @param[in] *handle points to a w25qxx handle structure
- * @param[in] addr is the erase address
+ * @param[in] *handle pointer to a w25qxx handle structure
+ * @param[in] addr erase address
  * @return    status code
  *            - 0 success
  *            - 1 block erase 32k failed
@@ -574,8 +577,8 @@ uint8_t w25qxx_block_erase_32k(w25qxx_handle_t *handle, uint32_t addr);
 
 /**
  * @brief     erase the 64k block
- * @param[in] *handle points to a w25qxx handle structure
- * @param[in] addr is the erase address
+ * @param[in] *handle pointer to a w25qxx handle structure
+ * @param[in] addr erase address
  * @return    status code
  *            - 0 success
  *            - 1 block erase 64k failed
@@ -590,7 +593,7 @@ uint8_t w25qxx_block_erase_64k(w25qxx_handle_t *handle, uint32_t addr);
 
 /**
  * @brief     erase the chip
- * @param[in] *handle points to a w25qxx handle structure
+ * @param[in] *handle pointer to a w25qxx handle structure
  * @return    status code
  *            - 0 success
  *            - 1 chip erase failed
@@ -603,7 +606,7 @@ uint8_t w25qxx_chip_erase(w25qxx_handle_t *handle);
 
 /**
  * @brief     power down
- * @param[in] *handle points to a w25qxx handle structure
+ * @param[in] *handle pointer to a w25qxx handle structure
  * @return    status code
  *            - 0 success
  *            - 1 power down failed
@@ -615,7 +618,7 @@ uint8_t w25qxx_power_down(w25qxx_handle_t *handle);
 
 /**
  * @brief     release power down
- * @param[in] *handle points to a w25qxx handle structure
+ * @param[in] *handle pointer to a w25qxx handle structure
  * @return    status code
  *            - 0 success
  *            - 1 release power down failed
@@ -627,9 +630,9 @@ uint8_t w25qxx_release_power_down(w25qxx_handle_t *handle);
 
 /**
  * @brief      get the manufacturer && device id information
- * @param[in]  *handle points to a w25qxx handle structure
- * @param[out] *manufacturer points to a manufacturer buffer
- * @param[out] *device_id points to a device id buffer
+ * @param[in]  *handle pointer to a w25qxx handle structure
+ * @param[out] *manufacturer pointer to a manufacturer buffer
+ * @param[out] *device_id pointer to a device id buffer
  * @return     status code
  *             - 0 success
  *             - 1 get manufacturer device id failed
@@ -652,10 +655,10 @@ uint8_t w25qxx_get_manufacturer_device_id(w25qxx_handle_t *handle, uint8_t *manu
 
 /**
  * @brief      read with dual output in the fast mode
- * @param[in]  *handle points to a w25qxx handle structure
- * @param[in]  addr is the read address
- * @param[out] *data points to a data buffer
- * @param[in]  len is the data length
+ * @param[in]  *handle pointer to a w25qxx handle structure
+ * @param[in]  addr read address
+ * @param[out] *data pointer to a data buffer
+ * @param[in]  len data length
  * @return     status code
  *             - 0 success
  *             - 1 fast read dual output failed
@@ -670,10 +673,10 @@ uint8_t w25qxx_fast_read_dual_output(w25qxx_handle_t *handle, uint32_t addr, uin
 
 /**
  * @brief      read with quad output in the fast mode
- * @param[in]  *handle points to a w25qxx handle structure
- * @param[in]  addr is the read address
- * @param[out] *data points to a data buffer
- * @param[in]  len is the data length
+ * @param[in]  *handle pointer to a w25qxx handle structure
+ * @param[in]  addr read address
+ * @param[out] *data pointer to a data buffer
+ * @param[in]  len data length
  * @return     status code
  *             - 0 success
  *             - 1 fast read quad output failed
@@ -688,10 +691,10 @@ uint8_t w25qxx_fast_read_quad_output(w25qxx_handle_t *handle, uint32_t addr, uin
 
 /**
  * @brief      read with dual io in the fast mode
- * @param[in]  *handle points to a w25qxx handle structure
- * @param[in]  addr is the read address
- * @param[out] *data points to a data buffer
- * @param[in]  len is the data length
+ * @param[in]  *handle pointer to a w25qxx handle structure
+ * @param[in]  addr read address
+ * @param[out] *data pointer to a data buffer
+ * @param[in]  len data length
  * @return     status code
  *             - 0 success
  *             - 1 fast read dual io failed
@@ -706,10 +709,10 @@ uint8_t w25qxx_fast_read_dual_io(w25qxx_handle_t *handle, uint32_t addr, uint8_t
 
 /**
  * @brief      read with quad io in the fast mode
- * @param[in]  *handle points to a w25qxx handle structure
- * @param[in]  addr is the read address
- * @param[out] *data points to a data buffer
- * @param[in]  len is the data length
+ * @param[in]  *handle pointer to a w25qxx handle structure
+ * @param[in]  addr read address
+ * @param[out] *data pointer to a data buffer
+ * @param[in]  len data length
  * @return     status code
  *             - 0 success
  *             - 1 fast read quad io failed
@@ -723,10 +726,10 @@ uint8_t w25qxx_fast_read_quad_io(w25qxx_handle_t *handle, uint32_t addr, uint8_t
 
 /**
  * @brief      word read with quad io
- * @param[in]  *handle points to a w25qxx handle structure
- * @param[in]  addr is the read address
- * @param[out] *data points to a data buffer
- * @param[in]  len is the data length
+ * @param[in]  *handle pointer to a w25qxx handle structure
+ * @param[in]  addr read address
+ * @param[out] *data pointer to a data buffer
+ * @param[in]  len data length
  * @return     status code
  *             - 0 success
  *             - 1 word read quad io failed
@@ -741,10 +744,10 @@ uint8_t w25qxx_word_read_quad_io(w25qxx_handle_t *handle, uint32_t addr, uint8_t
 
 /**
  * @brief      octal word read with quad io
- * @param[in]  *handle points to a w25qxx handle structure
- * @param[in]  addr is the read address
- * @param[out] *data points to a data buffer
- * @param[in]  len is the data length
+ * @param[in]  *handle pointer to a w25qxx handle structure
+ * @param[in]  addr read address
+ * @param[out] *data pointer to a data buffer
+ * @param[in]  len data length
  * @return     status code
  *             - 0 success
  *             - 1 octal word read quad io failed
@@ -759,10 +762,10 @@ uint8_t w25qxx_octal_word_read_quad_io(w25qxx_handle_t *handle, uint32_t addr, u
 
 /**
  * @brief     quad page program with quad input
- * @param[in] *handle points to a w25qxx handle structure
- * @param[in] addr is the programming address
- * @param[in] *data points to a data buffer
- * @param[in] len is the data length
+ * @param[in] *handle pointer to a w25qxx handle structure
+ * @param[in] addr programming address
+ * @param[in] *data pointer to a data buffer
+ * @param[in] len data length
  * @return    status code
  *            - 0 success
  *            - 1 quad page program failed
@@ -779,7 +782,7 @@ uint8_t w25qxx_page_program_quad_input(w25qxx_handle_t *handle, uint32_t addr, u
 
 /**
  * @brief     enable writing
- * @param[in] *handle points to a w25qxx handle structure
+ * @param[in] *handle pointer to a w25qxx handle structure
  * @return    status code
  *            - 0 success
  *            - 1 enable write failed
@@ -791,7 +794,7 @@ uint8_t w25qxx_enable_write(w25qxx_handle_t *handle);
 
 /**
  * @brief     enable volatile sr writing
- * @param[in] *handle points to a w25qxx handle structure
+ * @param[in] *handle pointer to a w25qxx handle structure
  * @return    status code
  *            - 0 success
  *            - 1 enable volatile sr write failed
@@ -803,7 +806,7 @@ uint8_t w25qxx_enable_volatile_sr_write(w25qxx_handle_t *handle);
 
 /**
  * @brief     disable writing
- * @param[in] *handle points to a w25qxx handle structure
+ * @param[in] *handle pointer to a w25qxx handle structure
  * @return    status code
  *            - 0 success
  *            - 1 disable write failed
@@ -815,8 +818,8 @@ uint8_t w25qxx_disable_write(w25qxx_handle_t *handle);
 
 /**
  * @brief      get the status 1
- * @param[in]  *handle points to a w25qxx handle structure
- * @param[out] *status points to a status buffer
+ * @param[in]  *handle pointer to a w25qxx handle structure
+ * @param[out] *status pointer to a status buffer
  * @return     status code
  *             - 0 success
  *             - 1 get status 1 failed
@@ -828,8 +831,8 @@ uint8_t w25qxx_get_status1(w25qxx_handle_t *handle, uint8_t *status);
 
 /**
  * @brief      get the status 2
- * @param[in]  *handle points to a w25qxx handle structure
- * @param[out] *status points to a status buffer
+ * @param[in]  *handle pointer to a w25qxx handle structure
+ * @param[out] *status pointer to a status buffer
  * @return     status code
  *             - 0 success
  *             - 1 get status 2 failed
@@ -841,8 +844,8 @@ uint8_t w25qxx_get_status2(w25qxx_handle_t *handle, uint8_t *status);
 
 /**
  * @brief      get the status 3
- * @param[in]  *handle points to a w25qxx handle structure
- * @param[out] *status points to a status buffer
+ * @param[in]  *handle pointer to a w25qxx handle structure
+ * @param[out] *status pointer to a status buffer
  * @return     status code
  *             - 0 success
  *             - 1 get status 3 failed
@@ -854,8 +857,8 @@ uint8_t w25qxx_get_status3(w25qxx_handle_t *handle, uint8_t *status);
 
 /**
  * @brief     set the status 1
- * @param[in] *handle points to a w25qxx handle structure
- * @param[in] status is the set status
+ * @param[in] *handle pointer to a w25qxx handle structure
+ * @param[in] status set status
  * @return    status code
  *            - 0 success
  *            - 1 set status 1 failed
@@ -868,8 +871,8 @@ uint8_t w25qxx_set_status1(w25qxx_handle_t *handle, uint8_t status);
 
 /**
  * @brief     set the status 2
- * @param[in] *handle points to a w25qxx handle structure
- * @param[in] status is the set status
+ * @param[in] *handle pointer to a w25qxx handle structure
+ * @param[in] status set status
  * @return    status code
  *            - 0 success
  *            - 1 set status 2 failed
@@ -882,8 +885,8 @@ uint8_t w25qxx_set_status2(w25qxx_handle_t *handle, uint8_t status);
 
 /**
  * @brief     set the status 3
- * @param[in] *handle points to a w25qxx handle structure
- * @param[in] status is the set status
+ * @param[in] *handle pointer to a w25qxx handle structure
+ * @param[in] status set status
  * @return    status code
  *            - 0 success
  *            - 1 set status 3 failed
@@ -896,7 +899,7 @@ uint8_t w25qxx_set_status3(w25qxx_handle_t *handle, uint8_t status);
 
 /**
  * @brief     suspend erase or program 
- * @param[in] *handle points to a w25qxx handle structure
+ * @param[in] *handle pointer to a w25qxx handle structure
  * @return    status code
  *            - 0 success
  *            - 1 erase program suspend failed
@@ -908,7 +911,7 @@ uint8_t w25qxx_erase_program_suspend(w25qxx_handle_t *handle);
 
 /**
  * @brief     resume erase or program 
- * @param[in] *handle points to a w25qxx handle structure
+ * @param[in] *handle pointer to a w25qxx handle structure
  * @return    status code
  *            - 0 success
  *            - 1 erase program resume failed
@@ -920,9 +923,9 @@ uint8_t w25qxx_erase_program_resume(w25qxx_handle_t *handle);
 
 /**
  * @brief      get the manufacturer && device id information with dual io
- * @param[in]  *handle points to a w25qxx handle structure
- * @param[out] *manufacturer points to a manufacturer buffer
- * @param[out] *device_id points to a device id buffer
+ * @param[in]  *handle pointer to a w25qxx handle structure
+ * @param[out] *manufacturer pointer to a manufacturer buffer
+ * @param[out] *device_id pointer to a device id buffer
  * @return     status code
  *             - 0 success
  *             - 1 get manufacturer device id dual io failed
@@ -937,9 +940,9 @@ uint8_t w25qxx_get_manufacturer_device_id_dual_io(w25qxx_handle_t *handle, uint8
 
 /**
  * @brief      get the manufacturer && device id information with quad io
- * @param[in]  *handle points to a w25qxx handle structure
- * @param[out] *manufacturer points to a manufacturer buffer
- * @param[out] *device_id points to a device id buffer
+ * @param[in]  *handle pointer to a w25qxx handle structure
+ * @param[out] *manufacturer pointer to a manufacturer buffer
+ * @param[out] *device_id pointer to a device id buffer
  * @return     status code
  *             - 0 success
  *             - 1 get manufacturer device id quad io failed
@@ -954,9 +957,9 @@ uint8_t w25qxx_get_manufacturer_device_id_quad_io(w25qxx_handle_t *handle, uint8
 
 /**
  * @brief      get the jedec id information
- * @param[in]  *handle points to a w25qxx handle structure
- * @param[out] *manufacturer points to a manufacturer buffer
- * @param[out] *device_id points to a device id buffer
+ * @param[in]  *handle pointer to a w25qxx handle structure
+ * @param[out] *manufacturer pointer to a manufacturer buffer
+ * @param[out] *device_id pointer to a device id buffer
  * @return     status code
  *             - 0 success
  *             - 1 get jedec id failed
@@ -968,7 +971,7 @@ uint8_t w25qxx_get_jedec_id(w25qxx_handle_t *handle, uint8_t *manufacturer, uint
 
 /**
  * @brief     lock the whole block
- * @param[in] *handle points to a w25qxx handle structure
+ * @param[in] *handle pointer to a w25qxx handle structure
  * @return    status code
  *            - 0 success
  *            - 1 global block lock failed
@@ -980,7 +983,7 @@ uint8_t w25qxx_global_block_lock(w25qxx_handle_t *handle);
 
 /**
  * @brief     unlock the whole block
- * @param[in] *handle points to a w25qxx handle structure
+ * @param[in] *handle pointer to a w25qxx handle structure
  * @return    status code
  *            - 0 success
  *            - 1 global block unlock failed
@@ -992,9 +995,9 @@ uint8_t w25qxx_global_block_unlock(w25qxx_handle_t *handle);
 
 /**
  * @brief     set the read parameters
- * @param[in] *handle points to a w25qxx handle structure
- * @param[in] dummy is the qspi read dummy
- * @param[in] length is the qspi read wrap length
+ * @param[in] *handle pointer to a w25qxx handle structure
+ * @param[in] dummy qspi read dummy
+ * @param[in] length qspi read wrap length
  * @return    status code
  *            - 0 success
  *            - 1 set read parameters failed
@@ -1007,7 +1010,7 @@ uint8_t w25qxx_set_read_parameters(w25qxx_handle_t *handle, w25qxx_qspi_read_dum
 
 /**
  * @brief     enter the qspi mode
- * @param[in] *handle points to a w25qxx handle structure
+ * @param[in] *handle pointer to a w25qxx handle structure
  * @return    status code
  *            - 0 success
  *            - 1 enter qspi mode failed
@@ -1020,7 +1023,7 @@ uint8_t w25qxx_enter_qspi_mode(w25qxx_handle_t *handle);
 
 /**
  * @brief     exit the qspi mode
- * @param[in] *handle points to a w25qxx handle structure
+ * @param[in] *handle pointer to a w25qxx handle structure
  * @return    status code
  *            - 0 success
  *            - 1 exit qspi mode failed
@@ -1033,7 +1036,7 @@ uint8_t w25qxx_exit_qspi_mode(w25qxx_handle_t *handle);
 
 /**
  * @brief     enable the reset
- * @param[in] *handle points to a w25qxx handle structure
+ * @param[in] *handle pointer to a w25qxx handle structure
  * @return    status code
  *            - 0 success
  *            - 1 enable reset failed
@@ -1045,7 +1048,7 @@ uint8_t w25qxx_enable_reset(w25qxx_handle_t *handle);
 
 /**
  * @brief     reset the device
- * @param[in] *handle points to a w25qxx handle structure
+ * @param[in] *handle pointer to a w25qxx handle structure
  * @return    status code
  *            - 0 success
  *            - 1 reset device failed
@@ -1057,8 +1060,8 @@ uint8_t w25qxx_reset_device(w25qxx_handle_t *handle);
 
 /**
  * @brief      get the unique id
- * @param[in]  *handle points to a w25qxx handle structure
- * @param[out] *id points to an id buffer
+ * @param[in]  *handle pointer to a w25qxx handle structure
+ * @param[out] *id pointer to an id buffer
  * @return     status code
  *             - 0 success
  *             - 1 get the unique id failed
@@ -1072,8 +1075,8 @@ uint8_t w25qxx_get_unique_id(w25qxx_handle_t *handle, uint8_t id[8]);
 
 /**
  * @brief      get the sfdp
- * @param[in]  *handle points to a w25qxx handle structure
- * @param[out] *sfdp points to an sfdp buffer
+ * @param[in]  *handle pointer to a w25qxx handle structure
+ * @param[out] *sfdp pointer to an sfdp buffer
  * @return     status code
  *             - 0 success
  *             - 1 get the sfdp failed
@@ -1086,8 +1089,8 @@ uint8_t w25qxx_get_sfdp(w25qxx_handle_t *handle, uint8_t sfdp[256]);
 
 /**
  * @brief     erase the security register
- * @param[in] *handle points to a w25qxx handle structure
- * @param[in] num is the security register number
+ * @param[in] *handle pointer to a w25qxx handle structure
+ * @param[in] num security register number
  * @return    status code
  *            - 0 success
  *            - 1 erase security register failed
@@ -1102,9 +1105,9 @@ uint8_t w25qxx_erase_security_register(w25qxx_handle_t *handle, w25qxx_security_
 
 /**
  * @brief     program the security register
- * @param[in] *handle points to a w25qxx handle structure
- * @param[in] num is the security register number
- * @param[in] *data points to a data buffer
+ * @param[in] *handle pointer to a w25qxx handle structure
+ * @param[in] num security register number
+ * @param[in] *data pointer to a data buffer
  * @return    status code
  *            - 0 success
  *            - 1 program security register failed
@@ -1119,9 +1122,9 @@ uint8_t w25qxx_program_security_register(w25qxx_handle_t *handle, w25qxx_securit
 
 /**
  * @brief      read the security register
- * @param[in]  *handle points to a w25qxx handle structure
- * @param[in]  num is the security register number
- * @param[out] *data points to a data buffer
+ * @param[in]  *handle pointer to a w25qxx handle structure
+ * @param[in]  num security register number
+ * @param[out] *data pointer to a data buffer
  * @return     status code
  *             - 0 success
  *             - 1 read security register failed
@@ -1136,8 +1139,8 @@ uint8_t w25qxx_read_security_register(w25qxx_handle_t *handle, w25qxx_security_r
 
 /**
  * @brief     lock the individual block
- * @param[in] *handle points to a w25qxx handle structure
- * @param[in] addr is the block address
+ * @param[in] *handle pointer to a w25qxx handle structure
+ * @param[in] addr block address
  * @return    status code
  *            - 0 success
  *            - 1 individual block lock failed
@@ -1150,8 +1153,8 @@ uint8_t w25qxx_individual_block_lock(w25qxx_handle_t *handle, uint32_t addr);
 
 /**
  * @brief     unlock the individual block
- * @param[in] *handle points to a w25qxx handle structure
- * @param[in] addr is the block address
+ * @param[in] *handle pointer to a w25qxx handle structure
+ * @param[in] addr block address
  * @return    status code
  *            - 0 success
  *            - 1 individual block unlock failed
@@ -1164,9 +1167,9 @@ uint8_t w25qxx_individual_block_unlock(w25qxx_handle_t *handle, uint32_t addr);
 
 /**
  * @brief      read the block lock
- * @param[in]  *handle points to a w25qxx handle structure
- * @param[in]  addr is the block address
- * @param[out] *value points to a value buffer
+ * @param[in]  *handle pointer to a w25qxx handle structure
+ * @param[in]  addr block address
+ * @param[out] *value pointer to a value buffer
  * @return     status code
  *             - 0 success
  *             - 1 read block lock failed
@@ -1179,8 +1182,8 @@ uint8_t w25qxx_read_block_lock(w25qxx_handle_t *handle, uint32_t addr, uint8_t *
 
 /**
  * @brief     set the burst with wrap
- * @param[in] *handle points to a w25qxx handle structure
- * @param[in] wrap is the burst wrap
+ * @param[in] *handle pointer to a w25qxx handle structure
+ * @param[in] wrap burst wrap
  * @return    status code
  *            - 0 success
  *            - 1 set burst with wrap failed
@@ -1204,21 +1207,21 @@ uint8_t w25qxx_set_burst_with_wrap(w25qxx_handle_t *handle, w25qxx_burst_wrap_t 
 
 /**
  * @brief      write and read register
- * @param[in]  *handle points to a w25qxx handle structure
- * @param[in]  instruction is the sent instruction
- * @param[in]  instruction_line is the instruction phy lines
- * @param[in]  address is the register address
- * @param[in]  address_line is the address phy lines
- * @param[in]  address_len is the address length
- * @param[in]  alternate is the register address
- * @param[in]  alternate_line is the alternate phy lines
- * @param[in]  alternate_len is the alternate length
- * @param[in]  dummy is the dummy cycle
- * @param[in]  *in_buf points to an input buffer
- * @param[in]  in_len is the input length
- * @param[out] *out_buf points to an output buffer
- * @param[in]  out_len is the output length
- * @param[in]  data_line is the data phy lines
+ * @param[in]  *handle pointer to a w25qxx handle structure
+ * @param[in]  instruction sent instruction
+ * @param[in]  instruction_line instruction phy lines
+ * @param[in]  address register address
+ * @param[in]  address_line address phy lines
+ * @param[in]  address_len address length
+ * @param[in]  alternate register address
+ * @param[in]  alternate_line alternate phy lines
+ * @param[in]  alternate_len alternate length
+ * @param[in]  dummy dummy cycle
+ * @param[in]  *in_buf pointer to an input buffer
+ * @param[in]  in_len input length
+ * @param[out] *out_buf pointer to an output buffer
+ * @param[in]  out_len output length
+ * @param[in]  data_line data phy lines
  * @return     status code
  *            - 0 success
  *            - 1 write read failed

@@ -52,9 +52,9 @@ extern "C"{
 
 /**
  * @brief     register test
- * @param[in] type is the chip type
- * @param[in] interface is the chip interface
- * @param[in] dual_quad_spi_enable is a bool value
+ * @param[in] type chip type
+ * @param[in] interface chip interface
+ * @param[in] dual_quad_spi_enable bool value
  * @return    status code
  *            - 0 success
  *            - 1 test failed

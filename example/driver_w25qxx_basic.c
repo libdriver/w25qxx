@@ -40,9 +40,9 @@ static w25qxx_handle_t gs_handle;        /**< w25qxx handle */
 
 /**
  * @brief     basic example init
- * @param[in] type is the chip type
- * @param[in] interface is the chip interface
- * @param[in] dual_quad_spi_enable is a bool value
+ * @param[in] type chip type
+ * @param[in] interface chip interface
+ * @param[in] dual_quad_spi_enable bool value
  * @return    status code
  *            - 0 success
  *            - 1 init failed
@@ -193,8 +193,8 @@ uint8_t w25qxx_basic_chip_erase(void)
 
 /**
  * @brief      basic example get the manufacturer && device id information
- * @param[out] *manufacturer points to a manufacturer buffer
- * @param[out] *device_id points to a device id buffer
+ * @param[out] *manufacturer pointer to a manufacturer buffer
+ * @param[out] *device_id pointer to a device id buffer
  * @return     status code
  *             - 0 success
  *             - 1 get manufacturer device id failed
@@ -214,9 +214,9 @@ uint8_t w25qxx_basic_get_id(uint8_t *manufacturer, uint8_t *device_id)
 
 /**
  * @brief     basic example write
- * @param[in] addr is the write address
- * @param[in] *data points to a data buffer
- * @param[in] len is the data length
+ * @param[in] addr written address
+ * @param[in] *data pointer to a data buffer
+ * @param[in] len data length
  * @return    status code
  *            - 0 success
  *            - 1 write failed
@@ -236,9 +236,9 @@ uint8_t w25qxx_basic_write(uint32_t addr, uint8_t *data, uint32_t len)
 
 /**
  * @brief      basic example read
- * @param[in]  addr is the read address
- * @param[out] *data points to a data buffer
- * @param[in]  len is the data length
+ * @param[in]  addr read address
+ * @param[out] *data pointer to a data buffer
+ * @param[in]  len data length
  * @return     status code
  *             - 0 success
  *             - 1 read failed

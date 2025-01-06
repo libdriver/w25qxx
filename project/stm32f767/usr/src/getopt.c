@@ -180,9 +180,7 @@ static char *my_index (const char *str, int chr);
 extern char *getenv ();
 #endif
 
-static int
-my_strlen (str)
-     const char *str;
+static int my_strlen(const char *str)
 {
   int n = 0;
   while (*str++)
@@ -190,10 +188,7 @@ my_strlen (str)
   return n;
 }
 
-static char *
-my_index (str, chr)
-     const char *str;
-     int chr;
+static char *my_index(const char *str, int chr)
 {
   while (*str)
     {
@@ -234,12 +229,10 @@ static int last_nonopt;
 */
 
 #if __STDC__ || defined(PROTO)
-static void exchange (char **argv);
+static void exchange(char **argv);
 #endif
 
-static void
-exchange (argv)
-     char **argv;
+static void exchange(char **argv)
 {
   char *temp, **first, **last;
 
@@ -322,14 +315,13 @@ exchange (argv)
    If LONG_ONLY is nonzero, '-' as well as '--' can introduce
    long-named options.  */
 
-int
-_getopt_internal (argc, argv, optstring, longopts, longind, long_only)
-     int argc;
-     char *const *argv;
-     const char *optstring;
-     const struct option *longopts;
-     int *longind;
-     int long_only;
+int _getopt_internal(int argc,
+                     char *const *argv,
+                     const char *optstring,
+                     const struct option *longopts,
+                     int *longind,
+                     int long_only
+                     )
 {
   int option_index;
 
@@ -656,11 +648,10 @@ _getopt_internal (argc, argv, optstring, longopts, longind, long_only)
   }
 }
 
-int
-getopt (argc, argv, optstring)
-     int argc;
-     char *const *argv;
-     const char *optstring;
+int getopt(int argc,
+           char *const *argv,
+           const char *optstring
+          )
 {
   return _getopt_internal (argc, argv, optstring,
 			   (const struct option *) 0,
@@ -668,13 +659,12 @@ getopt (argc, argv, optstring)
 			   0);
 }
 
-int
-getopt_long (argc, argv, options, long_options, opt_index)
-     int argc;
-     char *const *argv;
-     const char *options;
-     const struct option *long_options;
-     int *opt_index;
+int getopt_long(int argc,
+                char *const *argv,
+                const char *options,
+                const struct option *long_options,
+                int *opt_index
+               )
 {
   return _getopt_internal (argc, argv, options, long_options, opt_index, 0);
 }
