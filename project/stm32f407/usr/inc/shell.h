@@ -89,8 +89,8 @@ uint8_t shell_init(void);
 
 /**
  * @brief     shell register function
- * @param[in] *name points to a name buffer
- * @param[in] *fuc points to a function address
+ * @param[in] *name pointer to a name buffer
+ * @param[in] *fuc pointer to a function address
  * @return    status code
  *            - 0 success
  *            - 1 buffer is full
@@ -100,8 +100,8 @@ uint8_t shell_register(char *name, uint8_t (*fuc)(uint8_t argc, char **argv));
 
 /**
  * @brief     shell parse command
- * @param[in] *buf points to a buffer address
- * @param[in] len is the buffer length
+ * @param[in] *buf pointer to a buffer address
+ * @param[in] len buffer length
  * @return    status code
  *            - 0 success
  *            - 1 run failed

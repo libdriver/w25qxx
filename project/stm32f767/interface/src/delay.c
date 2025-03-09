@@ -57,7 +57,7 @@ uint8_t delay_init(void)
 
 /**
  * @brief     delay us
- * @param[in] us
+ * @param[in] us time
  * @note      none
  */
 void delay_us(uint32_t us)
@@ -99,7 +99,7 @@ void delay_us(uint32_t us)
 
 /**
  * @brief     delay ms
- * @param[in] ms
+ * @param[in] ms time
  * @note      none
  */
 void delay_ms(uint32_t ms)
