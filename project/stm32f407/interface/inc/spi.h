@@ -62,7 +62,7 @@ typedef enum
 
 /**
  * @brief     spi bus init
- * @param[in] mode is the spi mode
+ * @param[in] mode spi mode
  * @return    status code
  *            - 0 success
  *            - 1 init failed
@@ -81,8 +81,8 @@ uint8_t spi_deinit(void);
 
 /**
  * @brief     spi bus write command
- * @param[in] *buf points to a data buffer
- * @param[in] len is the length of the data buffer
+ * @param[in] *buf pointer to a data buffer
+ * @param[in] len length of the data buffer
  * @return    status code
  *            - 0 success
  *            - 1 write failed
@@ -92,9 +92,9 @@ uint8_t spi_write_cmd(uint8_t *buf, uint16_t len);
 
 /**
  * @brief     spi bus write
- * @param[in] addr is the spi register address
- * @param[in] *buf points to a data buffer
- * @param[in] len is the length of the data buffer
+ * @param[in] addr spi register address
+ * @param[in] *buf pointer to a data buffer
+ * @param[in] len length of the data buffer
  * @return    status code
  *            - 0 success
  *            - 1 write failed
@@ -104,9 +104,9 @@ uint8_t spi_write(uint8_t addr, uint8_t *buf, uint16_t len);
 
 /**
  * @brief     spi bus write address 16
- * @param[in] addr is the spi register address
- * @param[in] *buf points to a data buffer
- * @param[in] len is the length of the data buffer
+ * @param[in] addr spi register address
+ * @param[in] *buf pointer to a data buffer
+ * @param[in] len length of the data buffer
  * @return    status code
  *            - 0 success
  *            - 1 write failed
@@ -116,8 +116,8 @@ uint8_t spi_write_address16(uint16_t addr, uint8_t *buf, uint16_t len);
 
 /**
  * @brief      spi bus read command
- * @param[out] *buf points to a data buffer
- * @param[in]  len is the length of the data buffer
+ * @param[out] *buf pointer to a data buffer
+ * @param[in]  len length of the data buffer
  * @return     status code
  *             - 0 success
  *             - 1 read failed
@@ -127,9 +127,9 @@ uint8_t spi_read_cmd(uint8_t *buf, uint16_t len);
 
 /**
  * @brief      spi bus read
- * @param[in]  addr is the spi register address
- * @param[out] *buf points to a data buffer
- * @param[in]  len is the length of the data buffer
+ * @param[in]  addr spi register address
+ * @param[out] *buf pointer to a data buffer
+ * @param[in]  len length of the data buffer
  * @return     status code
  *             - 0 success
  *             - 1 read failed
@@ -139,9 +139,9 @@ uint8_t spi_read(uint8_t addr, uint8_t *buf, uint16_t len);
 
 /**
  * @brief      spi bus read address 16
- * @param[in]  addr is the spi register address
- * @param[out] *buf points to a data buffer
- * @param[in]  len is the length of the data buffer
+ * @param[in]  addr spi register address
+ * @param[out] *buf pointer to a data buffer
+ * @param[in]  len length of the data buffer
  * @return     status code
  *             - 0 success
  *             - 1 read failed
@@ -151,10 +151,10 @@ uint8_t spi_read_address16(uint16_t addr, uint8_t *buf, uint16_t len);
 
 /**
  * @brief      spi bus write read
- * @param[in]  *in_buf points to an input buffer
- * @param[in]  in_len is the input length
- * @param[out] *out_buf points to an output buffer
- * @param[in]  out_len is the output length
+ * @param[in]  *in_buf pointer to an input buffer
+ * @param[in]  in_len input length
+ * @param[out] *out_buf pointer to an output buffer
+ * @param[in]  out_len output length
  * @return     status code
  *             - 0 success
  *             - 1 write read failed
@@ -164,9 +164,9 @@ uint8_t spi_write_read(uint8_t *in_buf, uint32_t in_len, uint8_t *out_buf, uint3
 
 /**
  * @brief      spi transmit
- * @param[in]  *tx points to a tx buffer
- * @param[out] *rx points to a rx buffer
- * @param[in]  len is the length of the data buffer
+ * @param[in]  *tx pointer to a tx buffer
+ * @param[out] *rx pointer to a rx buffer
+ * @param[in]  len length of the data buffer
  * @return     status code
  *             - 0 success
  *             - 1 transmit failed

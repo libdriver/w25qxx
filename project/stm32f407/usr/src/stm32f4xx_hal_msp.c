@@ -61,7 +61,7 @@ void HAL_MspDeInit(void)
 
 /**
  * @brief     uart hal init
- * @param[in] *huart points to a uart handle
+ * @param[in] *huart pointer to a uart handle
  * @note      none
  */
 void HAL_UART_MspInit(UART_HandleTypeDef *huart)
@@ -118,7 +118,7 @@ void HAL_UART_MspInit(UART_HandleTypeDef *huart)
 
 /**
  * @brief     uart hal deinit
- * @param[in] *huart points to a uart handle
+ * @param[in] *huart pointer to a uart handle
  * @note      none
  */
 void HAL_UART_MspDeInit(UART_HandleTypeDef* huart)
@@ -149,7 +149,7 @@ void HAL_UART_MspDeInit(UART_HandleTypeDef* huart)
 
 /**
  * @brief     spi hal init
- * @param[in] *hspi points to a spi handle
+ * @param[in] *hspi pointer to a spi handle
  * @note      none
  */
 void HAL_SPI_MspInit(SPI_HandleTypeDef* hspi)
@@ -180,7 +180,7 @@ void HAL_SPI_MspInit(SPI_HandleTypeDef* hspi)
 
 /**
  * @brief     spi hal deinit
- * @param[in] *hspi points to a spi handle
+ * @param[in] *hspi pointer to a spi handle
  * @note      none
  */
 void HAL_SPI_MspDeInit(SPI_HandleTypeDef* hspi)

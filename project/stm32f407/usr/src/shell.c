@@ -40,12 +40,12 @@ static shell_t gs_shell;        /**< shell handle */
 
 /**
  * @brief      shell pretreatment
- * @param[in]  *buf points to an in data buffer
- * @param[in]  in_len is the length of in data
- * @param[out] *buf_out points to an out data buffer
- * @param[out] *out_len points to the length of a out data buffer
- * @param[out] **argv points to a argv buffer
- * @param[out] *argc points to a argc buffer
+ * @param[in]  *buf pointer to an in data buffer
+ * @param[in]  in_len length of in data
+ * @param[out] *buf_out pointer to an out data buffer
+ * @param[out] *out_len pointer to the length of a out data buffer
+ * @param[out] **argv pointer to a argv buffer
+ * @param[out] *argc pointer to a argc buffer
  * @return     status code
  *             - 0 success
  *             - 1 pretreatment failed
@@ -92,8 +92,8 @@ static uint8_t a_shell_pretreatment(char *buf, uint16_t in_len, char *buf_out, u
 
 /**
  * @brief     shell find function
- * @param[in] *handle points to a shell structure
- * @param[in] *name points to a name buffer
+ * @param[in] *handle pointer to a shell structure
+ * @param[in] *name pointer to a name buffer
  * @return    status code
  *            - 0 success
  *            - 1 find failed
@@ -116,7 +116,7 @@ static uint8_t a_shell_find(shell_t *handle, char *name)
 
 /**
  * @brief     shell run function
- * @param[in] *handle points to a shell structure
+ * @param[in] *handle pointer to a shell structure
  * @param[in] argc number of param
  * @param[in] **argv param
  * @return    status code
@@ -145,8 +145,8 @@ static uint8_t a_shell_run(shell_t *handle, uint8_t argc, char **argv)
 
 /**
  * @brief     shell register function
- * @param[in] *name points to a name buffer
- * @param[in] *fuc points to a function address
+ * @param[in] *name pointer to a name buffer
+ * @param[in] *fuc pointer to a function address
  * @return    status code
  *            - 0 success
  *            - 1 buffer is full
@@ -180,16 +180,16 @@ uint8_t shell_init(void)
 }
 
 /**
- * @brief      shell parse command
- * @param[in]  *buf points to a buffer address
- * @param[in]  len is the buffer length
- * @return     status code
- *             - 0 success
- *             - 1 run failed
- *             - 2 find function failed
- *             - 3 length is too big
- *             - 4 pretreat failed
- * @note       none
+ * @brief     shell parse command
+ * @param[in] *buf pointer to a buffer address
+ * @param[in] len buffer length
+ * @return    status code
+ *            - 0 success
+ *            - 1 run failed
+ *            - 2 find function failed
+ *            - 3 length is too big
+ *            - 4 pretreat failed
+ * @note      none
  */
 uint8_t shell_parse(char *buf, uint16_t len)
 {
