@@ -1498,7 +1498,7 @@ uint8_t w25qxx_chip_erase(w25qxx_handle_t *handle)
                
                 return 1;                                                                          /* return error */
             }
-            timeout = 400 * 1000;                                                                  /* max 400s */
+            timeout = 1000 * 1000;                                                                 /* max 1000s */
             while (timeout != 0)                                                                   /* check timeout */
             {
                 res = a_w25qxx_qspi_write_read(handle, W25QXX_COMMAND_READ_STATUS_REG1, 1,
@@ -1548,7 +1548,7 @@ uint8_t w25qxx_chip_erase(w25qxx_handle_t *handle)
                
                 return 1;                                                                          /* return error */
             }
-            timeout = 400 * 1000;                                                                  /* max 400s */
+            timeout = 1000 * 1000;                                                                 /* max 1000s */
             while (timeout != 0)                                                                   /* check timeout */
             {
                 buf[0] = W25QXX_COMMAND_READ_STATUS_REG1;                                          /* read status1 command */
@@ -1603,7 +1603,7 @@ uint8_t w25qxx_chip_erase(w25qxx_handle_t *handle)
            
             return 1;                                                                              /* return error */
         }
-        timeout = 400 * 1000;                                                                      /* max 400s */
+        timeout = 1000 * 1000;                                                                     /* max 1000s */
         while (timeout != 0)                                                                       /* check timeout */
         {
             res = a_w25qxx_qspi_write_read(handle, W25QXX_COMMAND_READ_STATUS_REG1, 4,
