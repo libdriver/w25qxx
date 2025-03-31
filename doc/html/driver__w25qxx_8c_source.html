@@ -1325,7 +1325,7 @@ $(document).ready(function(){initNavTree('driver__w25qxx_8c_source.html',''); in
 <div class="line"><a name="l01498"></a><span class="lineno"> 1498</span>&#160;               </div>
 <div class="line"><a name="l01499"></a><span class="lineno"> 1499</span>&#160;                <span class="keywordflow">return</span> 1;                                                                          <span class="comment">/* return error */</span></div>
 <div class="line"><a name="l01500"></a><span class="lineno"> 1500</span>&#160;            }</div>
-<div class="line"><a name="l01501"></a><span class="lineno"> 1501</span>&#160;            timeout = 400 * 1000;                                                                  <span class="comment">/* max 400s */</span></div>
+<div class="line"><a name="l01501"></a><span class="lineno"> 1501</span>&#160;            timeout = 1000 * 1000;                                                                 <span class="comment">/* max 1000s */</span></div>
 <div class="line"><a name="l01502"></a><span class="lineno"> 1502</span>&#160;            <span class="keywordflow">while</span> (timeout != 0)                                                                   <span class="comment">/* check timeout */</span></div>
 <div class="line"><a name="l01503"></a><span class="lineno"> 1503</span>&#160;            {</div>
 <div class="line"><a name="l01504"></a><span class="lineno"> 1504</span>&#160;                res = a_w25qxx_qspi_write_read(handle, <a class="code" href="driver__w25qxx_8c.html#adf682969c34f4b31a87dd92dd18ccea3">W25QXX_COMMAND_READ_STATUS_REG1</a>, 1,</div>
@@ -1375,7 +1375,7 @@ $(document).ready(function(){initNavTree('driver__w25qxx_8c_source.html',''); in
 <div class="line"><a name="l01548"></a><span class="lineno"> 1548</span>&#160;               </div>
 <div class="line"><a name="l01549"></a><span class="lineno"> 1549</span>&#160;                <span class="keywordflow">return</span> 1;                                                                          <span class="comment">/* return error */</span></div>
 <div class="line"><a name="l01550"></a><span class="lineno"> 1550</span>&#160;            }</div>
-<div class="line"><a name="l01551"></a><span class="lineno"> 1551</span>&#160;            timeout = 400 * 1000;                                                                  <span class="comment">/* max 400s */</span></div>
+<div class="line"><a name="l01551"></a><span class="lineno"> 1551</span>&#160;            timeout = 1000 * 1000;                                                                 <span class="comment">/* max 1000s */</span></div>
 <div class="line"><a name="l01552"></a><span class="lineno"> 1552</span>&#160;            <span class="keywordflow">while</span> (timeout != 0)                                                                   <span class="comment">/* check timeout */</span></div>
 <div class="line"><a name="l01553"></a><span class="lineno"> 1553</span>&#160;            {</div>
 <div class="line"><a name="l01554"></a><span class="lineno"> 1554</span>&#160;                buf[0] = <a class="code" href="driver__w25qxx_8c.html#adf682969c34f4b31a87dd92dd18ccea3">W25QXX_COMMAND_READ_STATUS_REG1</a>;                                          <span class="comment">/* read status1 command */</span></div>
@@ -1430,7 +1430,7 @@ $(document).ready(function(){initNavTree('driver__w25qxx_8c_source.html',''); in
 <div class="line"><a name="l01603"></a><span class="lineno"> 1603</span>&#160;           </div>
 <div class="line"><a name="l01604"></a><span class="lineno"> 1604</span>&#160;            <span class="keywordflow">return</span> 1;                                                                              <span class="comment">/* return error */</span></div>
 <div class="line"><a name="l01605"></a><span class="lineno"> 1605</span>&#160;        }</div>
-<div class="line"><a name="l01606"></a><span class="lineno"> 1606</span>&#160;        timeout = 400 * 1000;                                                                      <span class="comment">/* max 400s */</span></div>
+<div class="line"><a name="l01606"></a><span class="lineno"> 1606</span>&#160;        timeout = 1000 * 1000;                                                                     <span class="comment">/* max 1000s */</span></div>
 <div class="line"><a name="l01607"></a><span class="lineno"> 1607</span>&#160;        <span class="keywordflow">while</span> (timeout != 0)                                                                       <span class="comment">/* check timeout */</span></div>
 <div class="line"><a name="l01608"></a><span class="lineno"> 1608</span>&#160;        {</div>
 <div class="line"><a name="l01609"></a><span class="lineno"> 1609</span>&#160;            res = a_w25qxx_qspi_write_read(handle, <a class="code" href="driver__w25qxx_8c.html#adf682969c34f4b31a87dd92dd18ccea3">W25QXX_COMMAND_READ_STATUS_REG1</a>, 4,</div>
