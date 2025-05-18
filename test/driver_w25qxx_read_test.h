@@ -49,7 +49,7 @@ extern "C"{
  */
 
 /**
- * @brief w25qxx enable erase read test enumeration definition
+ * @brief w25qxx enable erase read test definition
  */
 #define W25QXX_ENABLE_ERASE_READ_TEST    1    /**< enable */
 
