@@ -904,7 +904,7 @@ uint8_t w25qxx_set_status1(w25qxx_handle_t *handle, uint8_t status)
                 return 1;                                                                                /* return error */
             }
             
-            timeout = 1000;                                                                              /* max 1000 ms */
+            timeout = W25QXX_WRITE_STATUS_TIMEOUT_MS;                                                    /* set default timeout */
             while (timeout != 0)                                                                         /* check timeout */
             {
                 res = a_w25qxx_qspi_write_read(handle, W25QXX_COMMAND_READ_STATUS_REG1, 1,
@@ -956,7 +956,7 @@ uint8_t w25qxx_set_status1(w25qxx_handle_t *handle, uint8_t status)
                 return 1;                                                                                /* return error */
             }
             
-            timeout = 1000;                                                                              /* max 1000 ms */
+            timeout = W25QXX_WRITE_STATUS_TIMEOUT_MS;                                                    /* set default timeout */
             while (timeout != 0)                                                                         /* check timeout */
             {
                 buf[0] = W25QXX_COMMAND_READ_STATUS_REG1;                                                /* read status1 command */
@@ -1013,7 +1013,7 @@ uint8_t w25qxx_set_status1(w25qxx_handle_t *handle, uint8_t status)
             return 1;                                                                                    /* return error */
         }
         
-        timeout = 1000;                                                                                  /* max 1000 ms */
+        timeout = W25QXX_WRITE_STATUS_TIMEOUT_MS;                                                        /* set default timeout */
         while (timeout != 0)                                                                             /* check timeout */
         {
             res = a_w25qxx_qspi_write_read(handle, W25QXX_COMMAND_READ_STATUS_REG1, 4,
@@ -1103,7 +1103,7 @@ uint8_t w25qxx_set_status2(w25qxx_handle_t *handle, uint8_t status)
                 return 1;                                                                                /* return error */
             }
             
-            timeout = 1000;                                                                              /* max 1000 ms */
+            timeout = W25QXX_WRITE_STATUS_TIMEOUT_MS;                                                    /* set default timeout */
             while (timeout != 0)                                                                         /* check timeout */
             {
                 res = a_w25qxx_qspi_write_read(handle, W25QXX_COMMAND_READ_STATUS_REG1, 1,
@@ -1155,7 +1155,7 @@ uint8_t w25qxx_set_status2(w25qxx_handle_t *handle, uint8_t status)
                 return 1;                                                                                /* return error */
             }
             
-            timeout = 1000;                                                                              /* max 1000 ms */
+            timeout = W25QXX_WRITE_STATUS_TIMEOUT_MS;                                                    /* set default timeout */
             while (timeout != 0)                                                                         /* check timeout */
             {
                 buf[0] = W25QXX_COMMAND_READ_STATUS_REG1;                                                /* read status1 command */
@@ -1212,7 +1212,7 @@ uint8_t w25qxx_set_status2(w25qxx_handle_t *handle, uint8_t status)
             return 1;                                                                                    /* return error */
         }
         
-        timeout = 1000;                                                                                  /* max 1000 ms */
+        timeout = W25QXX_WRITE_STATUS_TIMEOUT_MS;                                                        /* set default timeout */
         while (timeout != 0)                                                                             /* check timeout */
         {
             res = a_w25qxx_qspi_write_read(handle, W25QXX_COMMAND_READ_STATUS_REG1, 4,
@@ -1302,7 +1302,7 @@ uint8_t w25qxx_set_status3(w25qxx_handle_t *handle, uint8_t status)
                 return 1;                                                                                /* return error */
             }
             
-            timeout = 1000;                                                                              /* max 1000 ms */
+            timeout = W25QXX_WRITE_STATUS_TIMEOUT_MS;                                                    /* set default timeout */
             while (timeout != 0)                                                                         /* check timeout */
             {
                 res = a_w25qxx_qspi_write_read(handle, W25QXX_COMMAND_READ_STATUS_REG1, 1,
@@ -1354,7 +1354,7 @@ uint8_t w25qxx_set_status3(w25qxx_handle_t *handle, uint8_t status)
                 return 1;                                                                                /* return error */
             }
             
-            timeout = 1000;                                                                              /* max 1000 ms */
+            timeout = W25QXX_WRITE_STATUS_TIMEOUT_MS;                                                    /* set default timeout */
             while (timeout != 0)                                                                         /* check timeout */
             {
                 buf[0] = W25QXX_COMMAND_READ_STATUS_REG1;                                                /* read status1 command */
@@ -1411,7 +1411,7 @@ uint8_t w25qxx_set_status3(w25qxx_handle_t *handle, uint8_t status)
             return 1;                                                                                    /* return error */
         }
         
-        timeout = 1000;                                                                                  /* max 1000 ms */
+        timeout = W25QXX_WRITE_STATUS_TIMEOUT_MS;                                                        /* set default timeout */
         while (timeout != 0)                                                                             /* check timeout */
         {
             res = a_w25qxx_qspi_write_read(handle, W25QXX_COMMAND_READ_STATUS_REG1, 4,
@@ -1498,7 +1498,7 @@ uint8_t w25qxx_chip_erase(w25qxx_handle_t *handle)
                
                 return 1;                                                                          /* return error */
             }
-            timeout = 1000 * 1000;                                                                 /* max 1000s */
+            timeout = W25QXX_ERASE_CHIP_TIMEOUT_MS;                                                /* set default timeout */
             while (timeout != 0)                                                                   /* check timeout */
             {
                 res = a_w25qxx_qspi_write_read(handle, W25QXX_COMMAND_READ_STATUS_REG1, 1,
@@ -1548,7 +1548,7 @@ uint8_t w25qxx_chip_erase(w25qxx_handle_t *handle)
                
                 return 1;                                                                          /* return error */
             }
-            timeout = 1000 * 1000;                                                                 /* max 1000s */
+            timeout = W25QXX_ERASE_CHIP_TIMEOUT_MS;                                                /* set default timeout */
             while (timeout != 0)                                                                   /* check timeout */
             {
                 buf[0] = W25QXX_COMMAND_READ_STATUS_REG1;                                          /* read status1 command */
@@ -1603,7 +1603,7 @@ uint8_t w25qxx_chip_erase(w25qxx_handle_t *handle)
            
             return 1;                                                                              /* return error */
         }
-        timeout = 1000 * 1000;                                                                     /* max 1000s */
+        timeout = W25QXX_ERASE_CHIP_TIMEOUT_MS;                                                    /* set default timeout */
         while (timeout != 0)                                                                       /* check timeout */
         {
             res = a_w25qxx_qspi_write_read(handle, W25QXX_COMMAND_READ_STATUS_REG1, 4,
@@ -3018,7 +3018,7 @@ uint8_t w25qxx_erase_security_register(w25qxx_handle_t *handle, w25qxx_security_
                 return 4;                                                                                     /* return error */
             }
             
-            timeout = 100 * 100;                                                                              /* max 1000 ms */
+            timeout = W25QXX_ERASE_SECURITY_TIMEOUT_MS * 100;                                                 /* set default timeout */
             while (timeout != 0)                                                                              /* check timeout */
             {
                 res = a_w25qxx_qspi_write_read(handle,
@@ -3093,7 +3093,7 @@ uint8_t w25qxx_erase_security_register(w25qxx_handle_t *handle, w25qxx_security_
                 return 4;                                                                                     /* return error */
             }
             
-            timeout = 100 * 100;                                                                              /* max 1000 ms */
+            timeout = W25QXX_ERASE_SECURITY_TIMEOUT_MS * 100;                                                 /* set default timeout */
             while (timeout != 0)                                                                              /* check timeout */
             {
                 buf[0] = W25QXX_COMMAND_READ_STATUS_REG1;                                                     /* read status1 command */
@@ -3213,7 +3213,7 @@ uint8_t w25qxx_program_security_register(w25qxx_handle_t *handle, w25qxx_securit
                 return 4;                                                                                     /* return error */
             }
             
-            timeout = 3 * 100;                                                                                /* max 3 ms */
+            timeout = W25QXX_PROGRAM_SECURITY_TIMEOUT_MS * 100;                                               /* set default timeout */
             while (timeout != 0)                                                                              /* check timeout */
             {
                 res = a_w25qxx_qspi_write_read(handle,
@@ -3290,7 +3290,7 @@ uint8_t w25qxx_program_security_register(w25qxx_handle_t *handle, w25qxx_securit
                 return 4;                                                                                     /* return error */
             }
             
-            timeout = 3 * 100;                                                                                /* max 3 ms */
+            timeout = W25QXX_PROGRAM_SECURITY_TIMEOUT_MS * 100;                                               /* set default timeout */
             while (timeout != 0)                                                                              /* check timeout */
             {
                 buf[0] = W25QXX_COMMAND_READ_STATUS_REG1;                                                     /* read status1 command */
@@ -4670,7 +4670,7 @@ uint8_t w25qxx_page_program(w25qxx_handle_t *handle, uint32_t addr, uint8_t *dat
                 return 5;                                                                                   /* return error */
             }
             
-            timeout = 3 * 100;                                                                              /* max 3 ms */
+            timeout = W25QXX_PAGE_PROGRAM_TIMEOUT_MS * 100;                                                 /* set default timeout */
             while (timeout != 0)                                                                            /* check timeout */
             {
                 res = a_w25qxx_qspi_write_read(handle, W25QXX_COMMAND_READ_STATUS_REG1, 1,
@@ -4767,7 +4767,7 @@ uint8_t w25qxx_page_program(w25qxx_handle_t *handle, uint32_t addr, uint8_t *dat
                 return 5;                                                                                   /* return error */
             }
             
-            timeout = 3 * 100;                                                                              /* max 3 ms */
+            timeout = W25QXX_PAGE_PROGRAM_TIMEOUT_MS * 100;                                                 /* set default timeout */
             while (timeout != 0)                                                                            /* check timeout */
             {
                 buf[0] = W25QXX_COMMAND_READ_STATUS_REG1;                                                   /* read status1 command */
@@ -4867,7 +4867,7 @@ uint8_t w25qxx_page_program(w25qxx_handle_t *handle, uint32_t addr, uint8_t *dat
             return 5;                                                                                       /* return error */
         }
         
-        timeout = 3 * 100;                                                                                  /* max 3 ms */
+        timeout = W25QXX_PAGE_PROGRAM_TIMEOUT_MS * 100;                                                     /* set default timeout */
         while (timeout != 0)                                                                                /* check timeout */
         {
             res = a_w25qxx_qspi_write_read(handle, W25QXX_COMMAND_READ_STATUS_REG1, 4,
@@ -5031,7 +5031,7 @@ uint8_t w25qxx_page_program_quad_input(w25qxx_handle_t *handle, uint32_t addr, u
             return 5;                                                                                       /* return error */
         }
         
-        timeout = 3 * 100;                                                                                  /* max 3 ms */
+        timeout = W25QXX_PAGE_PROGRAM_TIMEOUT_MS * 100;                                                     /* set default timeout */
         while (timeout != 0)                                                                                /* check timeout */
         {
             res = a_w25qxx_qspi_write_read(handle, W25QXX_COMMAND_READ_STATUS_REG1, 1,
@@ -5175,7 +5175,7 @@ uint8_t w25qxx_sector_erase_4k(w25qxx_handle_t *handle, uint32_t addr)
                 return 5;                                                                                   /* return error */
             }
             
-            timeout = 400;                                                                                  /* max 400 ms */
+            timeout = W25QXX_ERASE_4K_TIMEOUT_MS;                                                           /* set default timeout */
             while (timeout != 0)                                                                            /* check timeout */
             {
                 res = a_w25qxx_qspi_write_read(handle, W25QXX_COMMAND_READ_STATUS_REG1, 1,
@@ -5270,7 +5270,7 @@ uint8_t w25qxx_sector_erase_4k(w25qxx_handle_t *handle, uint32_t addr)
                 return 5;                                                                                   /* return error */
             }
             
-            timeout = 400;                                                                                  /* max 400 ms */
+            timeout = W25QXX_ERASE_4K_TIMEOUT_MS;                                                           /* set default timeout */
             while (timeout != 0)                                                                            /* check timeout */
             {
                 buf[0] = W25QXX_COMMAND_READ_STATUS_REG1;                                                   /* read status1 command */
@@ -5370,7 +5370,7 @@ uint8_t w25qxx_sector_erase_4k(w25qxx_handle_t *handle, uint32_t addr)
             return 5;                                                                                       /* return error */
         }
         
-        timeout = 400;                                                                                      /* max 400 ms */
+        timeout = W25QXX_ERASE_4K_TIMEOUT_MS;                                                               /* set default timeout */
         while (timeout != 0)                                                                                /* check timeout */
         {
             res = a_w25qxx_qspi_write_read(handle, W25QXX_COMMAND_READ_STATUS_REG1, 4,
@@ -5514,7 +5514,7 @@ uint8_t w25qxx_block_erase_32k(w25qxx_handle_t *handle, uint32_t addr)
                 return 5;                                                                                   /* return error */
             }
             
-            timeout = 1600;                                                                                 /* max 1600 ms */
+            timeout = W25QXX_ERASE_32K_TIMEOUT_MS;                                                          /* set default timeout */
             while (timeout != 0)                                                                            /* check timeout */
             {
                 res = a_w25qxx_qspi_write_read(handle, W25QXX_COMMAND_READ_STATUS_REG1, 1,
@@ -5609,7 +5609,7 @@ uint8_t w25qxx_block_erase_32k(w25qxx_handle_t *handle, uint32_t addr)
                 return 5;                                                                                   /* return error */
             }
             
-            timeout = 1600;                                                                                 /* max 1600 ms */
+            timeout = W25QXX_ERASE_32K_TIMEOUT_MS;                                                          /* set default timeout */
             while (timeout != 0)                                                                            /* check timeout */
             {
                 buf[0] = W25QXX_COMMAND_READ_STATUS_REG1;                                                   /* read status1 command */
@@ -5709,7 +5709,7 @@ uint8_t w25qxx_block_erase_32k(w25qxx_handle_t *handle, uint32_t addr)
             return 5;                                                                                       /* return error */
         }
         
-        timeout = 1600;                                                                                     /* max 1600 ms */
+        timeout = W25QXX_ERASE_32K_TIMEOUT_MS;                                                              /* set default timeout */
         while (timeout != 0)                                                                                /* check timeout */
         {
             res = a_w25qxx_qspi_write_read(handle, W25QXX_COMMAND_READ_STATUS_REG1, 4,
@@ -5853,7 +5853,7 @@ uint8_t w25qxx_block_erase_64k(w25qxx_handle_t *handle, uint32_t addr)
                 return 5;                                                                                   /* return error */
             }
             
-            timeout = 2000;                                                                                 /* max 2000 ms */
+            timeout = W25QXX_ERASE_64K_TIMEOUT_MS;                                                          /* set default timeout */
             while (timeout != 0)                                                                            /* check timeout */
             {
                 res = a_w25qxx_qspi_write_read(handle, W25QXX_COMMAND_READ_STATUS_REG1, 1,
@@ -5947,7 +5947,7 @@ uint8_t w25qxx_block_erase_64k(w25qxx_handle_t *handle, uint32_t addr)
                 return 5;                                                                                   /* return error */
             }
             
-            timeout = 2000;                                                                                 /* max 2000 ms */
+            timeout = W25QXX_ERASE_64K_TIMEOUT_MS;                                                          /* set default timeout */
             while (timeout != 0)                                                                            /* check timeout */
             {
                 buf[0] = W25QXX_COMMAND_READ_STATUS_REG1;                                                   /* read status1 command */
@@ -6047,7 +6047,7 @@ uint8_t w25qxx_block_erase_64k(w25qxx_handle_t *handle, uint32_t addr)
             return 5;                                                                                       /* return error */
         }
         
-        timeout = 2000;                                                                                     /* max 2000 ms */
+        timeout = W25QXX_ERASE_64K_TIMEOUT_MS;                                                              /* set default timeout */
         while (timeout != 0)                                                                                /* check timeout */
         {
             res = a_w25qxx_qspi_write_read(handle, W25QXX_COMMAND_READ_STATUS_REG1, 4,
@@ -7795,7 +7795,7 @@ static uint8_t a_w25qxx_erase_sector(w25qxx_handle_t *handle, uint32_t addr)
                 return 1;                                                                                   /* return error */
             }
             
-            timeout = 400;                                                                                  /* max 400 ms */
+            timeout = W25QXX_ERASE_4K_TIMEOUT_MS;                                                           /* set default timeout */
             while (timeout != 0)                                                                            /* check timeout */
             {
                 res = a_w25qxx_qspi_write_read(handle, W25QXX_COMMAND_READ_STATUS_REG1, 1,
@@ -7889,7 +7889,7 @@ static uint8_t a_w25qxx_erase_sector(w25qxx_handle_t *handle, uint32_t addr)
                 return 1;                                                                                   /* return error */
             }
             
-            timeout = 400;                                                                                  /* max 400 ms */
+            timeout = W25QXX_ERASE_4K_TIMEOUT_MS;                                                           /* set default timeout */
             while (timeout != 0)                                                                            /* check timeout */
             {
                 buf[0] = W25QXX_COMMAND_READ_STATUS_REG1;                                                   /* read status1 command */
@@ -7989,7 +7989,7 @@ static uint8_t a_w25qxx_erase_sector(w25qxx_handle_t *handle, uint32_t addr)
             return 1;                                                                                       /* return error */
         }
         
-        timeout = 400;                                                                                      /* max 400 ms */
+        timeout = W25QXX_ERASE_4K_TIMEOUT_MS;                                                               /* set default timeout */
         while (timeout != 0)                                                                                /* check timeout */
         {
             res = a_w25qxx_qspi_write_read(handle, W25QXX_COMMAND_READ_STATUS_REG1, 4,
@@ -8115,7 +8115,7 @@ static uint8_t a_w25qxx_page_program(w25qxx_handle_t *handle, uint32_t addr, uin
                 return 1;                                                                                   /* return error */
             }
             
-            timeout = 3 * 100;                                                                              /* max 3 ms */
+            timeout = W25QXX_PAGE_PROGRAM_TIMEOUT_MS * 100;                                                 /* set default timeout */
             while (timeout != 0)                                                                            /* check timeout */
             {
                 res = a_w25qxx_qspi_write_read(handle, W25QXX_COMMAND_READ_STATUS_REG1, 1,
@@ -8212,7 +8212,7 @@ static uint8_t a_w25qxx_page_program(w25qxx_handle_t *handle, uint32_t addr, uin
                 return 1;                                                                                   /* return error */
             }
             
-            timeout = 3 * 100;                                                                              /* max 3 ms */
+            timeout = W25QXX_PAGE_PROGRAM_TIMEOUT_MS * 100;                                                 /* set default timeout */
             while (timeout != 0)                                                                            /* check timeout */
             {
                 buf[0] = W25QXX_COMMAND_READ_STATUS_REG1;                                                   /* read status1 command */
@@ -8312,7 +8312,7 @@ static uint8_t a_w25qxx_page_program(w25qxx_handle_t *handle, uint32_t addr, uin
             return 1;                                                                                       /* return error */
         }
         
-        timeout = 3 * 100;                                                                                  /* max 3 ms */
+        timeout = W25QXX_PAGE_PROGRAM_TIMEOUT_MS * 100;                                                     /* set default timeout */
         while (timeout != 0)                                                                                /* check timeout */
         {
             res = a_w25qxx_qspi_write_read(handle, W25QXX_COMMAND_READ_STATUS_REG1, 4,

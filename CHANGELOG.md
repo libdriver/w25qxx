@@ -1,3 +1,9 @@
+## 1.0.10 (2025-09-26)
+
+## Features
+
+- change some params to definition
+
 ## 1.0.9 (2025-05-19)
 
 ## Bug Fixes

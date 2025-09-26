@@ -28,6 +28,14 @@ var group__w25qxx__basic__driver =
       [ "temperature_max", "structw25qxx__info__s.html#a3366a5dce9b829e03c3d321c2b4df3f6", null ],
       [ "temperature_min", "structw25qxx__info__s.html#a8f9dbe66ac0b66ebae0a36fcb4ba368e", null ]
     ] ],
+    [ "W25QXX_ERASE_32K_TIMEOUT_MS", "group__w25qxx__basic__driver.html#gad410652045099b97befb2b42cf85a22b", null ],
+    [ "W25QXX_ERASE_4K_TIMEOUT_MS", "group__w25qxx__basic__driver.html#ga2edaf6b445a144c641685cd8106d4b95", null ],
+    [ "W25QXX_ERASE_64K_TIMEOUT_MS", "group__w25qxx__basic__driver.html#ga7ca75d4fb1bba7cadd92fe87e500dd37", null ],
+    [ "W25QXX_ERASE_CHIP_TIMEOUT_MS", "group__w25qxx__basic__driver.html#ga2cbe414c80725d4acb0eb74c1c709bde", null ],
+    [ "W25QXX_ERASE_SECURITY_TIMEOUT_MS", "group__w25qxx__basic__driver.html#ga9e8d1a52d8434f9a5203c706dd3a7882", null ],
+    [ "W25QXX_PAGE_PROGRAM_TIMEOUT_MS", "group__w25qxx__basic__driver.html#gace0584f2b4bcc6987eaf6631e035fc76", null ],
+    [ "W25QXX_PROGRAM_SECURITY_TIMEOUT_MS", "group__w25qxx__basic__driver.html#ga0319c931f3f1dbcd698a4b0d7205807b", null ],
+    [ "W25QXX_WRITE_STATUS_TIMEOUT_MS", "group__w25qxx__basic__driver.html#ga5dba2e856833278c423ecf4ee0af8ab0", null ],
     [ "w25qxx_handle_t", "group__w25qxx__basic__driver.html#ga56d8a7b5f8b7eaed8df0b6dc90c266be", null ],
     [ "w25qxx_info_t", "group__w25qxx__basic__driver.html#ga601d841ddd0ff8ad3ab52e07c679ef19", null ],
     [ "w25qxx_address_mode_t", "group__w25qxx__basic__driver.html#gaa4c45f146d1ade8a2da8e751818fa4a2", [
