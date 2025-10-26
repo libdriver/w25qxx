@@ -25,7 +25,7 @@
 var NAVTREE =
 [
   [ "LibDriver W25QXX", "index.html", [
-    [ "Modules", "modules.html", "modules" ],
+    [ "Topics", "topics.html", "topics" ],
     [ "Data Structures", "annotated.html", [
       [ "Data Structures", "annotated.html", "annotated_dup" ],
       [ "Data Structure Index", "classes.html", null ],
@@ -51,9 +51,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"group__w25qxx__advance__driver.html#gga6ff284154302248f00db269146545443a6423b5606e72af6479fe31a6a9883aeb",
-"group__w25qxx__example__driver.html#ga5e4938b4575c417ae22fa82079459b1a"
+"group__w25qxx__example__driver.html#ga31bcd3d2cc68d2fc589685b5087bd8b3"
 ];
 
-var SYNCONMSG = 'click to disable panel synchronisation';
-var SYNCOFFMSG = 'click to enable panel synchronisation';
+var SYNCONMSG = 'click to disable panel synchronization';
+var SYNCOFFMSG = 'click to enable panel synchronization';
+var LISTOFALLMEMBERS = 'List of all members';

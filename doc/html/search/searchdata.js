@@ -1,6 +1,6 @@
 var indexSectionsWithContent =
 {
-  0: "abcdilmpstw",
+  0: "abcdefilmpstw",
   1: "w",
   2: "dm",
   3: "w",
@@ -9,8 +9,8 @@ var indexSectionsWithContent =
   6: "w",
   7: "w",
   8: "cdmstw",
-  9: "w",
-  10: "l"
+  9: "abdefiltw",
+  10: "lw"
 };
 
 var indexSectionNames =
