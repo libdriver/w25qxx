@@ -51,6 +51,9 @@ var group__w25qxx__basic__driver =
       [ "W25QXX_INTERFACE_QSPI", "group__w25qxx__basic__driver.html#ggacbf327a42336baf10713a1796ff4f2fea895dcb5c91da89fad1c12161ffd2d5d4", null ]
     ] ],
     [ "w25qxx_type_t", "group__w25qxx__basic__driver.html#ga6cb4e5164464df549201dd96cb7a58b1", [
+      [ "W25Q10", "group__w25qxx__basic__driver.html#gga6cb4e5164464df549201dd96cb7a58b1a4a006ed1d98e57621d631e5ac99bb8fa", null ],
+      [ "W25Q20", "group__w25qxx__basic__driver.html#gga6cb4e5164464df549201dd96cb7a58b1a5fd73a2be1c5eda560cad6bc59d1a6a6", null ],
+      [ "W25Q40", "group__w25qxx__basic__driver.html#gga6cb4e5164464df549201dd96cb7a58b1aaf6ffc27ae2250b2dbc5d6d509c4cef0", null ],
       [ "W25Q80", "group__w25qxx__basic__driver.html#gga6cb4e5164464df549201dd96cb7a58b1a1ad4f72437de5f26cb7b212d4d91e7c2", null ],
       [ "W25Q16", "group__w25qxx__basic__driver.html#gga6cb4e5164464df549201dd96cb7a58b1a66acb81a2d520a7d92ce1d37210c6435", null ],
       [ "W25Q32", "group__w25qxx__basic__driver.html#gga6cb4e5164464df549201dd96cb7a58b1a4fdad551be6485441db5951f196db7cb", null ],
@@ -58,8 +61,8 @@ var group__w25qxx__basic__driver =
       [ "W25Q128", "group__w25qxx__basic__driver.html#gga6cb4e5164464df549201dd96cb7a58b1a75afcbe71906d3884f4fcc119c1cabd5", null ],
       [ "W25Q256", "group__w25qxx__basic__driver.html#gga6cb4e5164464df549201dd96cb7a58b1ab6db6bd31731e4e95040e8d47f0e45ca", null ],
       [ "W25Q512", "group__w25qxx__basic__driver.html#gga6cb4e5164464df549201dd96cb7a58b1a5bd3078157449d9ba4ed74f94e5f6eb0", null ],
-      [ "W25Q1024", "group__w25qxx__basic__driver.html#gga6cb4e5164464df549201dd96cb7a58b1a69e58baba71411544e64abea679090bb", null ],
-      [ "W25Q2048", "group__w25qxx__basic__driver.html#gga6cb4e5164464df549201dd96cb7a58b1a8daad13a8f1372188bfb9c4f1abf9667", null ]
+      [ "W25Q01", "group__w25qxx__basic__driver.html#gga6cb4e5164464df549201dd96cb7a58b1a2786c9008d1f54d9b4e43adc1c42e681", null ],
+      [ "W25Q02", "group__w25qxx__basic__driver.html#gga6cb4e5164464df549201dd96cb7a58b1a5529533dadf16b56b85b2a61d328d61d", null ]
     ] ],
     [ "w25qxx_block_erase_32k", "group__w25qxx__basic__driver.html#ga39c8fb382e8c3e4d57232dfa79af781c", null ],
     [ "w25qxx_block_erase_64k", "group__w25qxx__basic__driver.html#gaf53bc5f6073482b9b74efd417ec7ac83", null ],
