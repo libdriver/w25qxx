@@ -117,15 +117,18 @@ extern "C"{
  */
 typedef enum
 {
-    W25Q80   = 0XEF13U,        /**< w25q80 */
-    W25Q16   = 0XEF14U,        /**< w25q16 */
-    W25Q32   = 0XEF15U,        /**< w25q32 */
-    W25Q64   = 0XEF16U,        /**< w25q64 */
-    W25Q128  = 0XEF17U,        /**< w25q128 */
-    W25Q256  = 0XEF18U,        /**< w25q256 */
-    W25Q512  = 0XEF19U,        /**< w25q512 */
-    W25Q1024 = 0XEF20U,        /**< w25q01 */
-    W25Q2048 = 0XEF21U,        /**< w25q02 */
+    W25Q10  = 0XEF10U,        /**< w25q10, 1Mb */
+    W25Q20  = 0XEF11U,        /**< w25q20, 2Mb */
+    W25Q40  = 0XEF12U,        /**< w25q40, 4Mb */
+    W25Q80  = 0XEF13U,        /**< w25q80, 8Mb */
+    W25Q16  = 0XEF14U,        /**< w25q16, 16Mb */
+    W25Q32  = 0XEF15U,        /**< w25q32, 32Mb */
+    W25Q64  = 0XEF16U,        /**< w25q64, 64Mb */
+    W25Q128 = 0XEF17U,        /**< w25q128, 128Mb */
+    W25Q256 = 0XEF18U,        /**< w25q256, 256Mb */
+    W25Q512 = 0XEF19U,        /**< w25q512, 512Mb */
+    W25Q01  = 0XEF20U,        /**< w25q1024, 1Gb */
+    W25Q02  = 0XEF21U,        /**< w25q2048, 2Gb */
 } w25qxx_type_t;
 
 /**

@@ -451,7 +451,19 @@ uint8_t w25qxx(uint8_t argc, char **argv)
             case 8 :
             {
                 /* set the type */
-                if (strcmp("W25Q80", optarg) == 0)
+                if (strcmp("W25Q10", optarg) == 0)
+                {
+                    chip_type = W25Q10;
+                }
+                else if (strcmp("W25Q20", optarg) == 0)
+                {
+                    chip_type = W25Q20;
+                }
+                else if (strcmp("W25Q40", optarg) == 0)
+                {
+                    chip_type = W25Q40;
+                }
+                else if (strcmp("W25Q80", optarg) == 0)
                 {
                     chip_type = W25Q80;
                 }
@@ -474,6 +486,18 @@ uint8_t w25qxx(uint8_t argc, char **argv)
                 else if (strcmp("W25Q256", optarg) == 0)
                 {
                     chip_type = W25Q256;
+                }
+                else if (strcmp("W25Q512", optarg) == 0)
+                {
+                    chip_type = W25Q512;
+                }
+                else if (strcmp("W25Q01", optarg) == 0)
+                {
+                    chip_type = W25Q01;
+                }
+                else if (strcmp("W25Q02", optarg) == 0)
+                {
+                    chip_type = W25Q02;
                 }
                 else
                 {

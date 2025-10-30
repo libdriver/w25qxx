@@ -1,5 +1,8 @@
 var NAVTREEINDEX1 =
 {
+"group__w25qxx__example__driver.html#ga16411577fcb794f7485912f5db1bdde9":[0,0,5,28],
+"group__w25qxx__example__driver.html#ga1e20768311dfdf33c77b442fa874b61a":[0,0,5,45],
+"group__w25qxx__example__driver.html#ga2cbcc018dc11a870d2e0fc3a8946b1d8":[0,0,5,10],
 "group__w25qxx__example__driver.html#ga31bcd3d2cc68d2fc589685b5087bd8b3":[0,0,5,9],
 "group__w25qxx__example__driver.html#ga364d891407cf323d3686d36ad6357604":[0,0,5,17],
 "group__w25qxx__example__driver.html#ga374d35b73fa61d5f7464c3effdae1d57":[0,0,5,23],
