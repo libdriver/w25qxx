@@ -127,8 +127,8 @@ typedef enum
     W25Q128 = 0XEF17U,        /**< w25q128, 128Mb */
     W25Q256 = 0XEF18U,        /**< w25q256, 256Mb */
     W25Q512 = 0XEF19U,        /**< w25q512, 512Mb */
-    W25Q01  = 0XEF20U,        /**< w25q1024, 1Gb */
-    W25Q02  = 0XEF21U,        /**< w25q2048, 2Gb */
+    W25Q01  = 0XEF20U,        /**< w25q01, 1Gb */
+    W25Q02  = 0XEF21U,        /**< w25q02, 2Gb */
 } w25qxx_type_t;
 
 /**
