@@ -40,7 +40,10 @@
 static w25qxx_handle_t gs_handle;            /**< w25qxx handle */
 static uint8_t gs_buffer_input[600];         /**< input buffer */
 static uint8_t gs_buffer_output[600];        /**< output buffer */
-static const uint32_t gsc_size[] = {0x100000, 0x200000, 0x400000, 0x800000, 0x1000000, 0x2000000};        /**< flash size */
+static const uint32_t gsc_size[] = {0x20000, 0x40000, 0x80000, 
+                                    0x100000, 0x200000, 0x400000, 0x800000, 
+                                    0x1000000, 0x2000000, 0x4000000, 0x8000000,
+                                    0x10000000};                                       /**< flash size */
 
 /**
  * @brief     read test
@@ -133,7 +136,7 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
         uint32_t size;
         uint32_t addr, step, j;
         
-        size = gsc_size[type - W25Q80];
+        size = gsc_size[type - W25Q10];
         step = size / 16;
         
         /* w25qxx_write/w25qxx_read test */
@@ -975,7 +978,7 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
         uint32_t size;
         uint32_t addr, step, j;
         
-        size = gsc_size[type - W25Q80];
+        size = gsc_size[type - W25Q10];
         step = size / 16;
         
         /* w25qxx_write/w25qxx_read test */
