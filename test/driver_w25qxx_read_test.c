@@ -40,10 +40,6 @@
 static w25qxx_handle_t gs_handle;            /**< w25qxx handle */
 static uint8_t gs_buffer_input[600];         /**< input buffer */
 static uint8_t gs_buffer_output[600];        /**< output buffer */
-static const uint32_t gsc_size[] = {0x20000, 0x40000, 0x80000, 
-                                    0x100000, 0x200000, 0x400000, 0x800000, 
-                                    0x1000000, 0x2000000, 0x4000000, 0x8000000,
-                                    0x10000000};                                       /**< flash size */
 
 /**
  * @brief     read test
@@ -136,7 +132,61 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
         uint32_t size;
         uint32_t addr, step, j;
         
-        size = gsc_size[type - W25Q10];
+        if (type == W25Q10)
+        {
+            size = 0x20000U;
+        }
+        else if (type == W25Q20)
+        {
+            size = 0x40000U;
+        }
+        else if (type == W25Q40)
+        {
+            size = 0x80000U;
+        }
+        else if (type == W25Q80)
+        {
+            size = 0x100000U;
+        }
+        else if (type == W25Q16)
+        {
+            size = 0x200000U;
+        }
+        else if (type == W25Q32)
+        {
+            size = 0x400000U;
+        }
+        else if (type == W25Q64)
+        {
+            size = 0x800000U;
+        }
+        else if (type == W25Q128)
+        {
+            size = 0x1000000U;
+        }
+        else if (type == W25Q256)
+        {
+            size = 0x2000000U;
+        }
+        else if (type == W25Q512)
+        {
+            size = 0x4000000U;
+        }
+        else if (type == W25Q01)
+        {
+            size = 0x8000000U;
+        }
+        else if (type == W25Q02)
+        {
+            size = 0x10000000U;
+        }
+        else
+        {
+            w25qxx_interface_debug_print("w25qxx: invalid type.\n");
+            (void)w25qxx_deinit(&gs_handle);
+           
+            return 1;
+        }
         step = size / 16;
         
         /* w25qxx_write/w25qxx_read test */
@@ -978,7 +1028,61 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
         uint32_t size;
         uint32_t addr, step, j;
         
-        size = gsc_size[type - W25Q10];
+        if (type == W25Q10)
+        {
+            size = 0x20000U;
+        }
+        else if (type == W25Q20)
+        {
+            size = 0x40000U;
+        }
+        else if (type == W25Q40)
+        {
+            size = 0x80000U;
+        }
+        else if (type == W25Q80)
+        {
+            size = 0x100000U;
+        }
+        else if (type == W25Q16)
+        {
+            size = 0x200000U;
+        }
+        else if (type == W25Q32)
+        {
+            size = 0x400000U;
+        }
+        else if (type == W25Q64)
+        {
+            size = 0x800000U;
+        }
+        else if (type == W25Q128)
+        {
+            size = 0x1000000U;
+        }
+        else if (type == W25Q256)
+        {
+            size = 0x2000000U;
+        }
+        else if (type == W25Q512)
+        {
+            size = 0x4000000U;
+        }
+        else if (type == W25Q01)
+        {
+            size = 0x8000000U;
+        }
+        else if (type == W25Q02)
+        {
+            size = 0x10000000U;
+        }
+        else
+        {
+            w25qxx_interface_debug_print("w25qxx: invalid type.\n");
+            (void)w25qxx_deinit(&gs_handle);
+           
+            return 1;
+        }
         step = size / 16;
         
         /* w25qxx_write/w25qxx_read test */
