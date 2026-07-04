@@ -7083,6 +7083,9 @@ uint8_t w25qxx_init(w25qxx_handle_t *handle)
         }
         if ((status & 0x02) == 0)                                                          /* check status */
         {
+            uint8_t status_check;
+            uint32_t timeout;
+            
             res = a_w25qxx_qspi_write_read(handle,
                                            W25QXX_COMMAND_VOLATILE_SR_WRITE_ENABLE, 1,
                                            0x00000000, 0x00, 0x00,
@@ -7096,15 +7099,46 @@ uint8_t w25qxx_init(w25qxx_handle_t *handle)
                 
                 return 5;                                                                  /* return error */
             }
-            res = a_w25qxx_qspi_write_read(handle,
-                                           W25QXX_COMMAND_WRITE_STATUS_REG2, 1,
+            buf[0] = status | 0x02;                                                        /* set status */
+            res = a_w25qxx_qspi_write_read(handle, W25QXX_COMMAND_WRITE_STATUS_REG2, 1,
                                            0x00000000, 0x00, 0x00,
                                            0x00000000, 0x00, 0x00,
-                                           0x00, NULL, 0x00,
-                                           NULL, 0x00, 0x00);                              /* spi write read */
+                                           0x00, (uint8_t *)buf, 1,
+                                           NULL, 0x00, 1);                                 /* qspi write read */
             if (res != 0)                                                                  /* check result */
             {
                 handle->debug_print("w25qxx: write status 2 failed.\n");                   /* write status 2 failed */
+                (void)handle->spi_qspi_deinit();                                           /** deinit */
+                
+                return 5;                                                                  /* return error */
+            }
+            
+            timeout = W25QXX_WRITE_STATUS_TIMEOUT_MS;                                      /* set default timeout */
+            while (timeout != 0)                                                           /* check timeout */
+            {
+                res = a_w25qxx_qspi_write_read(handle,
+                                               W25QXX_COMMAND_READ_STATUS_REG1, 1,
+                                               0x00000000, 0x00, 0x00,
+                                               0x00000000, 0x00, 0x00,
+                                               0x00, NULL, 0x00,
+                                              (uint8_t *)&status_check, 1, 1);             /* qspi write read */
+                if (res != 0)                                                              /* check result */
+                {
+                    handle->debug_print("w25qxx: get status1 failed.\n");                  /* get status1 failed */
+                    (void)handle->spi_qspi_deinit();                                       /** deinit */
+                    
+                    return 5;                                                              /* return error */
+                }
+                if ((status_check & 0x01) == 0x00)                                         /* check status */
+                {
+                    break;                                                                 /* break */
+                }
+                timeout--;                                                                 /* timeout-- */
+                handle->delay_ms(1);                                                       /* delay 1 ms */
+            }
+            if (timeout == 0)                                                              /* check timeout */
+            {
+                handle->debug_print("w25qxx: write status 2 timeout.\n");                  /* write status 2 timeout */
                 (void)handle->spi_qspi_deinit();                                           /** deinit */
                 
                 return 5;                                                                  /* return error */

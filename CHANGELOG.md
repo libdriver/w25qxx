@@ -1,3 +1,9 @@
+## 1.0.16 (2026-07-05)
+
+## Bug Fixes
+
+- fix qspi init bugs
+
 ## 1.0.15 (2026-04-27)
 
 ## Bug Fixes
