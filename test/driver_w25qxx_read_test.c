@@ -444,7 +444,7 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
         }
         for (j = 0; j < 256; j += 8)
         {
-            w25qxx_interface_debug_print("w25qxx: sdfp[%d-%d] is 0x%02X 0x%02X 0x%02X 0x%02X 0x%02X 0x%02X 0x%02X 0x%02X.\n", 
+            w25qxx_interface_debug_print("w25qxx: sfdp[%d-%d] is 0x%02X 0x%02X 0x%02X 0x%02X 0x%02X 0x%02X 0x%02X 0x%02X.\n", 
                                          j , j + 7,
                                          gs_buffer_output[j + 0], gs_buffer_output[j + 1], gs_buffer_output[j + 2],
                                          gs_buffer_output[j + 3], gs_buffer_output[j + 4], gs_buffer_output[j + 5],
@@ -870,7 +870,7 @@ uint8_t w25qxx_read_test(w25qxx_type_t type, w25qxx_interface_t interface, w25qx
             }
             for (j = 0; j < 256; j += 8)
             {
-                w25qxx_interface_debug_print("w25qxx: sdfp[%d-%d] is 0x%02X 0x%02X 0x%02X 0x%02X 0x%02X 0x%02X 0x%02X 0x%02X.\n", 
+                w25qxx_interface_debug_print("w25qxx: sfdp[%d-%d] is 0x%02X 0x%02X 0x%02X 0x%02X 0x%02X 0x%02X 0x%02X 0x%02X.\n", 
                                              j , j + 7,
                                              gs_buffer_output[j + 0], gs_buffer_output[j + 1], gs_buffer_output[j + 2],
                                              gs_buffer_output[j + 3], gs_buffer_output[j + 4], gs_buffer_output[j + 5],
