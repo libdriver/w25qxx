@@ -1836,7 +1836,7 @@ uint8_t w25qxx(uint8_t argc, char **argv)
         /* output*/
         for (uint16_t j = 0; j < 256; j += 8)
         {
-            w25qxx_interface_debug_print("w25qxx: sdfp[%d-%d] is 0x%02X 0x%02X 0x%02X 0x%02X 0x%02X 0x%02X 0x%02X 0x%02X.\n",
+            w25qxx_interface_debug_print("w25qxx: sfdp[%d-%d] is 0x%02X 0x%02X 0x%02X 0x%02X 0x%02X 0x%02X 0x%02X 0x%02X.\n",
                                          j , j + 7,
                                          sfdp[j + 0], sfdp[j + 1], sfdp[j + 2],
                                          sfdp[j + 3], sfdp[j + 4], sfdp[j + 5],
